@@ -21,10 +21,12 @@ module IFetch(
     assign addr = pc[15:2];
 
     // PC update
-    always @(negedge clk) begin
+    always @(negedge clk, negedge rst) begin
+        
         if (!rst) begin
             pc <= 32'h0000_0000;
         end else begin
+            //pc <= pc + 32'd4;   // normal sequential execution
             if (branch && zero) begin
                 pc <= pc + imm32;   // branch taken
             end else begin

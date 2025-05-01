@@ -8,11 +8,9 @@
 // Description: Top-level integration of IFetch, ALU, Controller, and Decoder
 //////////////////////////////////////////////////////////////////////////////////
 
-module top_module();
-
-    // Clock and reset
-    reg clk;
-    reg rst;
+module top_module(
+    input clk,rst
+);
 
     // IFetch <-> Controller/ALU signals
     wire [31:0] inst;
