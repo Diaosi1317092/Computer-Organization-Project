@@ -7,7 +7,7 @@ module ALU(
     input  [2:0]  funct3,
     input  [6:0]  funct7,
     output reg [31:0] alu_result,
-    output        zero
+    output reg    zero
 );
 
     wire [31:0] operand2;
@@ -24,6 +24,27 @@ module ALU(
 
             2'b01: begin // Branch: SUB
                 alu_result = read_data1 - operand2;
+                case (funct3)
+                    3'b000: begin // beq
+                        zero = (read_data1 - operand2 == 32'b0) ? 1'b1 : 1'b0;
+                    end
+                    3'b001: begin // bne
+                        zero = (read_data1 - operand2 == 32'b0) ? 1'b0 : 1'b1;
+                    end
+                    3'b100: begin // blt
+                        zero = ($signed(read_data1) < $signed(operand2)) ? 1'b1 : 1'b0;
+                    end
+                    3'b101: begin // bge
+                        zero = ($signed(read_data1) < $signed(operand2)) ? 1'b0 : 1'b1;
+                    end
+                    3'b110: begin // bltu
+                        zero = (read_data1 < operand2) ? 1'b1 : 1'b0;
+                    end
+                    3'b111: begin // bgeu
+                        zero = (read_data1 < operand2) ? 1'b0 : 1'b1;
+                    end
+                    default: zero = 1'b0;
+                endcase
             end
 
             2'b10: begin // R-type
@@ -64,28 +85,31 @@ module ALU(
             
             2'b11: begin // I-type
                 case (funct3)
-                    3'b000: begin // ADD or SUB
+                    3'b000: begin // ADDI
                         alu_result = read_data1 + operand2;
                     end
-                    3'b100: begin // XOR
+                    3'b100: begin // XORI
                         alu_result = read_data1 ^ operand2;
                     end
-                    3'b110: begin // OR
+                    3'b110: begin // ORI
                         alu_result = read_data1 | operand2;
                     end
-                    3'b111: begin // AND
+                    3'b111: begin // ANDI
                         alu_result = read_data1 & operand2;
                     end
-                    3'b001: begin // SLL
+                    3'b001: begin // SLLI
                         alu_result = read_data1 << shamt;
                     end
-                    3'b101: begin // SRL or SRA
-                        alu_result = read_data1 >> shamt;           // SRL (logical)
+                    3'b101: begin // SRLI
+                        if (funct7[5])
+                            alu_result = $signed(read_data1) >>> shamt; // SRAI (arithmetic)
+                        else
+                            alu_result = read_data1 >> shamt;           // SRLI (logical)
                     end
-                    3'b010: begin // SLT
+                    3'b010: begin // SLTI
                         alu_result = ($signed(read_data1) < $signed(operand2)) ? 32'd1 : 32'd0;
                     end
-                    3'b011: begin // SLTU
+                    3'b011: begin // SLTIU
                         alu_result = (read_data1 < operand2) ? 32'd1 : 32'd0;
                     end
                     default: alu_result = 32'h00000000;
@@ -95,7 +119,5 @@ module ALU(
             default: alu_result = 32'h00000000;
         endcase
     end
-
-    assign zero = (alu_result == 32'b0) ? 1'b1 : 1'b0;
-
+    
 endmodule

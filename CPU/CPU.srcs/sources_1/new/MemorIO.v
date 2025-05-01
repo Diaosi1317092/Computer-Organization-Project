@@ -38,20 +38,31 @@ module MemorIO(
                     0: tmp_data2={{24{tmp_data[7]}},tmp_data[7:0]};
                     1: tmp_data2={{24{tmp_data[15]}},tmp_data[15:8]};
                     2: tmp_data2={{24{tmp_data[23]}},tmp_data[23:16]};
-                    3: tmp_data2={{24{tmp_data[31]}},tmp_data[31:24]} ;                   
+                    3: tmp_data2={{24{tmp_data[31]}},tmp_data[31:24]};                   
                 endcase
             end
             LH: begin
-                
-           end
+                case (addr[1])
+                    0: tmp_data2={{16{tmp_data[15]}},tmp_data[15:0]};
+                    1: tmp_data2={{16{tmp_data[31]}},tmp_data[31:16]};            
+                endcase
+            end
             LW: begin
                 tmp_data2=tmp_data;
-           end
+            end
             LBU: begin
-                
+                case (addr[1:0])
+                    0: tmp_data2={24'b0,tmp_data[7:0]};
+                    1: tmp_data2={24'b0,tmp_data[15:8]};
+                    2: tmp_data2={24'b0,tmp_data[23:16]};
+                    3: tmp_data2={24'b0,tmp_data[31:24]};
+                endcase
             end
             LHU: begin
-        
+                case (addr[1])
+                    0: tmp_data2={16'b0,tmp_data[15:0]};
+                    1: tmp_data2={16'b0,tmp_data[31:16]};
+                endcase
             end
 
         endcase
