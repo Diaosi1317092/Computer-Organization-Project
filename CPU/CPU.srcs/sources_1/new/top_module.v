@@ -90,5 +90,14 @@ module top_module();
         .alu_src(alu_src),
         .alu_op(alu_op)
     );
+    // Data Memory unit
+    DMem uut_dmem(
+    .clk(clk),
+    .mem_read(mem_read),
+    .mem_write(mem_write),
+    .addr(alu_result),
+    .din(rs2_data), 
+    .dout(write_data)
+    );
 
 endmodule

@@ -1,0 +1,2 @@
+prgram.v,verilog,xil_defaultlib,../../../../CPU.srcs/sources_1/ip/prgram/sim/prgram.v,
+glbl.v,Verilog,xil_defaultlib,glbl.v

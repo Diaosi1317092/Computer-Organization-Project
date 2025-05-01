@@ -14,25 +14,47 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 5324 
+INFO: Helper process launched with PID 6172 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:00 ; elapsed = 00:00:03 . Memory (MB): peak = 340.871 ; gain = 100.805
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 340.895 ; gain = 99.809
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'top_module' [D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/top_module.v:11]
-INFO: [Synth 8-638] synthesizing module 'IFetch' [D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/IFetch.v:1]
-INFO: [Synth 8-638] synthesizing module 'prgrom' [D:/Clone/Computer-Organization-Project/CPU/CPU.runs/synth_1/.Xil/Vivado-22072-Dupreeh/realtime/prgrom_stub.v:6]
-INFO: [Synth 8-256] done synthesizing module 'prgrom' (1#1) [D:/Clone/Computer-Organization-Project/CPU/CPU.runs/synth_1/.Xil/Vivado-22072-Dupreeh/realtime/prgrom_stub.v:6]
-INFO: [Synth 8-256] done synthesizing module 'IFetch' (2#1) [D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/IFetch.v:1]
-INFO: [Synth 8-638] synthesizing module 'Decoder' [D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/Decoder.v:1]
-INFO: [Synth 8-256] done synthesizing module 'Decoder' (3#1) [D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/Decoder.v:1]
-INFO: [Synth 8-638] synthesizing module 'ALU' [D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/ALU.v:1]
-INFO: [Synth 8-256] done synthesizing module 'ALU' (4#1) [D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/ALU.v:1]
-INFO: [Synth 8-638] synthesizing module 'Controller' [D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/Controller.v:1]
-INFO: [Synth 8-256] done synthesizing module 'Controller' (5#1) [D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/Controller.v:1]
-WARNING: [Synth 8-3848] Net clk in module/entity top_module does not have driver. [D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/top_module.v:14]
-WARNING: [Synth 8-3848] Net rst in module/entity top_module does not have driver. [D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/top_module.v:15]
-WARNING: [Synth 8-3848] Net write_data in module/entity top_module does not have driver. [D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/top_module.v:37]
-INFO: [Synth 8-256] done synthesizing module 'top_module' (6#1) [D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/top_module.v:11]
+INFO: [Synth 8-638] synthesizing module 'top_module' [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/top_module.v:11]
+INFO: [Synth 8-638] synthesizing module 'IFetch' [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/IFetch.v:1]
+INFO: [Synth 8-638] synthesizing module 'prgrom' [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/CPU/CPU.runs/synth_1/.Xil/Vivado-1040-ASCHENPUTTEL/realtime/prgrom_stub.v:6]
+INFO: [Synth 8-256] done synthesizing module 'prgrom' (1#1) [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/CPU/CPU.runs/synth_1/.Xil/Vivado-1040-ASCHENPUTTEL/realtime/prgrom_stub.v:6]
+INFO: [Synth 8-256] done synthesizing module 'IFetch' (2#1) [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/IFetch.v:1]
+INFO: [Synth 8-638] synthesizing module 'Decoder' [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/Decoder.v:1]
+INFO: [Synth 8-256] done synthesizing module 'Decoder' (3#1) [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/Decoder.v:1]
+INFO: [Synth 8-638] synthesizing module 'ALU' [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/ALU.v:1]
+INFO: [Synth 8-256] done synthesizing module 'ALU' (4#1) [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/ALU.v:1]
+INFO: [Synth 8-638] synthesizing module 'Controller' [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/Controller.v:1]
+INFO: [Synth 8-256] done synthesizing module 'Controller' (5#1) [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/Controller.v:1]
+INFO: [Synth 8-638] synthesizing module 'DMem' [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/DMem.v:23]
+INFO: [Synth 8-638] synthesizing module 'prgram' [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/CPU/CPU.runs/synth_1/.Xil/Vivado-1040-ASCHENPUTTEL/realtime/prgram_stub.v:6]
+INFO: [Synth 8-256] done synthesizing module 'prgram' (6#1) [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/CPU/CPU.runs/synth_1/.Xil/Vivado-1040-ASCHENPUTTEL/realtime/prgram_stub.v:6]
+INFO: [Synth 8-256] done synthesizing module 'DMem' (7#1) [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/DMem.v:23]
+WARNING: [Synth 8-3848] Net clk in module/entity top_module does not have driver. [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/top_module.v:14]
+WARNING: [Synth 8-3848] Net rst in module/entity top_module does not have driver. [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/top_module.v:15]
+INFO: [Synth 8-256] done synthesizing module 'top_module' (8#1) [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/top_module.v:11]
+WARNING: [Synth 8-3331] design DMem has unconnected port mem_read
+WARNING: [Synth 8-3331] design DMem has unconnected port addr[31]
+WARNING: [Synth 8-3331] design DMem has unconnected port addr[30]
+WARNING: [Synth 8-3331] design DMem has unconnected port addr[29]
+WARNING: [Synth 8-3331] design DMem has unconnected port addr[28]
+WARNING: [Synth 8-3331] design DMem has unconnected port addr[27]
+WARNING: [Synth 8-3331] design DMem has unconnected port addr[26]
+WARNING: [Synth 8-3331] design DMem has unconnected port addr[25]
+WARNING: [Synth 8-3331] design DMem has unconnected port addr[24]
+WARNING: [Synth 8-3331] design DMem has unconnected port addr[23]
+WARNING: [Synth 8-3331] design DMem has unconnected port addr[22]
+WARNING: [Synth 8-3331] design DMem has unconnected port addr[21]
+WARNING: [Synth 8-3331] design DMem has unconnected port addr[20]
+WARNING: [Synth 8-3331] design DMem has unconnected port addr[19]
+WARNING: [Synth 8-3331] design DMem has unconnected port addr[18]
+WARNING: [Synth 8-3331] design DMem has unconnected port addr[17]
+WARNING: [Synth 8-3331] design DMem has unconnected port addr[16]
+WARNING: [Synth 8-3331] design DMem has unconnected port addr[1]
+WARNING: [Synth 8-3331] design DMem has unconnected port addr[0]
 WARNING: [Synth 8-3331] design Controller has unconnected port inst[31]
 WARNING: [Synth 8-3331] design Controller has unconnected port inst[30]
 WARNING: [Synth 8-3331] design Controller has unconnected port inst[29]
@@ -68,7 +90,7 @@ WARNING: [Synth 8-3331] design Decoder has unconnected port inst[14]
 WARNING: [Synth 8-3331] design Decoder has unconnected port inst[13]
 WARNING: [Synth 8-3331] design Decoder has unconnected port inst[12]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:00 ; elapsed = 00:00:03 . Memory (MB): peak = 392.578 ; gain = 152.512
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 393.020 ; gain = 151.934
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -77,76 +99,48 @@ Report Check Netlist:
 +------+------------------+-------+---------+-------+------------------+
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
-WARNING: [Synth 8-3295] tying undriven pin uut_if:clk to constant 0 [D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/top_module.v:48]
-WARNING: [Synth 8-3295] tying undriven pin uut_if:rst to constant 0 [D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/top_module.v:48]
-WARNING: [Synth 8-3295] tying undriven pin uut_decoder:clk to constant 0 [D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/top_module.v:58]
-WARNING: [Synth 8-3295] tying undriven pin uut_decoder:rst to constant 0 [D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/top_module.v:58]
-WARNING: [Synth 8-3295] tying undriven pin uut_decoder:write_data[31] to constant 0 [D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/top_module.v:58]
-WARNING: [Synth 8-3295] tying undriven pin uut_decoder:write_data[30] to constant 0 [D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/top_module.v:58]
-WARNING: [Synth 8-3295] tying undriven pin uut_decoder:write_data[29] to constant 0 [D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/top_module.v:58]
-WARNING: [Synth 8-3295] tying undriven pin uut_decoder:write_data[28] to constant 0 [D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/top_module.v:58]
-WARNING: [Synth 8-3295] tying undriven pin uut_decoder:write_data[27] to constant 0 [D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/top_module.v:58]
-WARNING: [Synth 8-3295] tying undriven pin uut_decoder:write_data[26] to constant 0 [D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/top_module.v:58]
-WARNING: [Synth 8-3295] tying undriven pin uut_decoder:write_data[25] to constant 0 [D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/top_module.v:58]
-WARNING: [Synth 8-3295] tying undriven pin uut_decoder:write_data[24] to constant 0 [D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/top_module.v:58]
-WARNING: [Synth 8-3295] tying undriven pin uut_decoder:write_data[23] to constant 0 [D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/top_module.v:58]
-WARNING: [Synth 8-3295] tying undriven pin uut_decoder:write_data[22] to constant 0 [D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/top_module.v:58]
-WARNING: [Synth 8-3295] tying undriven pin uut_decoder:write_data[21] to constant 0 [D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/top_module.v:58]
-WARNING: [Synth 8-3295] tying undriven pin uut_decoder:write_data[20] to constant 0 [D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/top_module.v:58]
-WARNING: [Synth 8-3295] tying undriven pin uut_decoder:write_data[19] to constant 0 [D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/top_module.v:58]
-WARNING: [Synth 8-3295] tying undriven pin uut_decoder:write_data[18] to constant 0 [D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/top_module.v:58]
-WARNING: [Synth 8-3295] tying undriven pin uut_decoder:write_data[17] to constant 0 [D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/top_module.v:58]
-WARNING: [Synth 8-3295] tying undriven pin uut_decoder:write_data[16] to constant 0 [D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/top_module.v:58]
-WARNING: [Synth 8-3295] tying undriven pin uut_decoder:write_data[15] to constant 0 [D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/top_module.v:58]
-WARNING: [Synth 8-3295] tying undriven pin uut_decoder:write_data[14] to constant 0 [D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/top_module.v:58]
-WARNING: [Synth 8-3295] tying undriven pin uut_decoder:write_data[13] to constant 0 [D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/top_module.v:58]
-WARNING: [Synth 8-3295] tying undriven pin uut_decoder:write_data[12] to constant 0 [D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/top_module.v:58]
-WARNING: [Synth 8-3295] tying undriven pin uut_decoder:write_data[11] to constant 0 [D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/top_module.v:58]
-WARNING: [Synth 8-3295] tying undriven pin uut_decoder:write_data[10] to constant 0 [D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/top_module.v:58]
-WARNING: [Synth 8-3295] tying undriven pin uut_decoder:write_data[9] to constant 0 [D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/top_module.v:58]
-WARNING: [Synth 8-3295] tying undriven pin uut_decoder:write_data[8] to constant 0 [D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/top_module.v:58]
-WARNING: [Synth 8-3295] tying undriven pin uut_decoder:write_data[7] to constant 0 [D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/top_module.v:58]
-WARNING: [Synth 8-3295] tying undriven pin uut_decoder:write_data[6] to constant 0 [D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/top_module.v:58]
-WARNING: [Synth 8-3295] tying undriven pin uut_decoder:write_data[5] to constant 0 [D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/top_module.v:58]
-WARNING: [Synth 8-3295] tying undriven pin uut_decoder:write_data[4] to constant 0 [D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/top_module.v:58]
-WARNING: [Synth 8-3295] tying undriven pin uut_decoder:write_data[3] to constant 0 [D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/top_module.v:58]
-WARNING: [Synth 8-3295] tying undriven pin uut_decoder:write_data[2] to constant 0 [D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/top_module.v:58]
-WARNING: [Synth 8-3295] tying undriven pin uut_decoder:write_data[1] to constant 0 [D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/top_module.v:58]
-WARNING: [Synth 8-3295] tying undriven pin uut_decoder:write_data[0] to constant 0 [D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/top_module.v:58]
+WARNING: [Synth 8-3295] tying undriven pin uut_if:clk to constant 0 [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/top_module.v:48]
+WARNING: [Synth 8-3295] tying undriven pin uut_if:rst to constant 0 [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/top_module.v:48]
+WARNING: [Synth 8-3295] tying undriven pin uut_decoder:clk to constant 0 [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/top_module.v:58]
+WARNING: [Synth 8-3295] tying undriven pin uut_decoder:rst to constant 0 [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/top_module.v:58]
+WARNING: [Synth 8-3295] tying undriven pin uut_dmem:clk to constant 0 [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/top_module.v:94]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:00 ; elapsed = 00:00:04 . Memory (MB): peak = 392.578 ; gain = 152.512
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 393.020 ; gain = 151.934
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7a35tcsg324-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [D:/Clone/Computer-Organization-Project/CPU/CPU.runs/synth_1/.Xil/Vivado-22072-Dupreeh/dcp1/prgrom_in_context.xdc] for cell 'uut_if/urom'
-Finished Parsing XDC File [D:/Clone/Computer-Organization-Project/CPU/CPU.runs/synth_1/.Xil/Vivado-22072-Dupreeh/dcp1/prgrom_in_context.xdc] for cell 'uut_if/urom'
+Parsing XDC File [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/CPU/CPU.runs/synth_1/.Xil/Vivado-1040-ASCHENPUTTEL/dcp2/prgrom_in_context.xdc] for cell 'uut_if/urom'
+Finished Parsing XDC File [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/CPU/CPU.runs/synth_1/.Xil/Vivado-1040-ASCHENPUTTEL/dcp2/prgrom_in_context.xdc] for cell 'uut_if/urom'
+Parsing XDC File [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/CPU/CPU.runs/synth_1/.Xil/Vivado-1040-ASCHENPUTTEL/dcp3/prgram_in_context.xdc] for cell 'uut_dmem/udram'
+Finished Parsing XDC File [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/CPU/CPU.runs/synth_1/.Xil/Vivado-1040-ASCHENPUTTEL/dcp3/prgram_in_context.xdc] for cell 'uut_dmem/udram'
 Completed Processing XDC Constraints
 
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 717.211 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 718.805 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:02 ; elapsed = 00:00:10 . Memory (MB): peak = 717.211 ; gain = 477.145
+Finished Constraint Validation : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 718.805 ; gain = 477.719
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcsg324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:02 ; elapsed = 00:00:10 . Memory (MB): peak = 717.211 ; gain = 477.145
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 718.805 ; gain = 477.719
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
+Applied set_property DONT_TOUCH = true for uut_dmem/udram. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for uut_if/urom. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:02 ; elapsed = 00:00:10 . Memory (MB): peak = 717.211 ; gain = 477.145
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 718.805 ; gain = 477.719
 ---------------------------------------------------------------------------------
-WARNING: [Synth 8-6014] Unused sequential element pc_reg was removed.  [D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/IFetch.v:21]
+WARNING: [Synth 8-6014] Unused sequential element pc_reg was removed.  [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/IFetch.v:21]
 INFO: [Synth 8-5546] ROM "regs_reg[0]" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "regs_reg[1]" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "regs_reg[2]" won't be mapped to RAM because it is too sparse
@@ -187,7 +181,7 @@ INFO: [Synth 8-5546] ROM "reg_write" won't be mapped to RAM because it is too sp
 INFO: [Synth 8-5546] ROM "alu_src" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "alu_op" won't be mapped to RAM because it is too sparse
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:02 ; elapsed = 00:00:10 . Memory (MB): peak = 717.211 ; gain = 477.145
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 718.805 ; gain = 477.719
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -262,10 +256,11 @@ Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5545] ROM "uut_alu/zero" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-5546] ROM "uut_ctrl/branch" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "uut_ctrl/mem_write" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "uut_ctrl/reg_write" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "uut_ctrl/alu_src" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "uut_ctrl/alu_op" won't be mapped to RAM because it is too sparse
-WARNING: [Synth 8-6014] Unused sequential element uut_if/pc_reg was removed.  [D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/IFetch.v:21]
+WARNING: [Synth 8-6014] Unused sequential element uut_if/pc_reg was removed.  [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/IFetch.v:21]
 WARNING: [Synth 8-3331] design Decoder has unconnected port inst[14]
 WARNING: [Synth 8-3331] design Decoder has unconnected port inst[13]
 WARNING: [Synth 8-3331] design Decoder has unconnected port inst[12]
@@ -286,7 +281,7 @@ WARNING: [Synth 8-3332] Sequential element (uut_if/pc_reg[29]) is unused and wil
 WARNING: [Synth 8-3332] Sequential element (uut_if/pc_reg[30]) is unused and will be removed from module top_module.
 WARNING: [Synth 8-3332] Sequential element (uut_if/pc_reg[31]) is unused and will be removed from module top_module.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:07 ; elapsed = 00:00:34 . Memory (MB): peak = 717.211 ; gain = 477.145
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:52 ; elapsed = 00:00:54 . Memory (MB): peak = 718.805 ; gain = 477.719
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -298,13 +293,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:09 ; elapsed = 00:00:39 . Memory (MB): peak = 731.727 ; gain = 491.660
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:58 ; elapsed = 00:01:00 . Memory (MB): peak = 735.758 ; gain = 494.672
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:09 ; elapsed = 00:00:39 . Memory (MB): peak = 732.098 ; gain = 492.031
+Finished Timing Optimization : Time (s): cpu = 00:00:58 ; elapsed = 00:01:00 . Memory (MB): peak = 735.906 ; gain = 494.820
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -401,7 +396,7 @@ WARNING: [Synth 8-3332] Sequential element (uut_decoder/regs_reg[2][13]) is unus
 WARNING: [Synth 8-3332] Sequential element (uut_decoder/regs_reg[2][12]) is unused and will be removed from module top_module.
 INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:09 ; elapsed = 00:00:39 . Memory (MB): peak = 752.836 ; gain = 512.770
+Finished Technology Mapping : Time (s): cpu = 00:00:58 ; elapsed = 00:01:00 . Memory (MB): peak = 758.605 ; gain = 517.520
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -425,7 +420,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:09 ; elapsed = 00:00:39 . Memory (MB): peak = 752.836 ; gain = 512.770
+Finished IO Insertion : Time (s): cpu = 00:00:59 ; elapsed = 00:01:01 . Memory (MB): peak = 758.605 ; gain = 517.520
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -438,7 +433,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:09 ; elapsed = 00:00:39 . Memory (MB): peak = 752.836 ; gain = 512.770
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:59 ; elapsed = 00:01:01 . Memory (MB): peak = 758.605 ; gain = 517.520
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -449,27 +444,28 @@ Report RTL Partitions:
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
-WARNING: [Synth 8-115] binding instance 'i_0' in module 'top_module' to reference 'IFetch' which has no pins
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:09 ; elapsed = 00:00:39 . Memory (MB): peak = 752.836 ; gain = 512.770
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:59 ; elapsed = 00:01:01 . Memory (MB): peak = 758.605 ; gain = 517.520
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:09 ; elapsed = 00:00:39 . Memory (MB): peak = 752.836 ; gain = 512.770
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:59 ; elapsed = 00:01:01 . Memory (MB): peak = 758.605 ; gain = 517.520
 ---------------------------------------------------------------------------------
+WARNING: [Synth 8-3295] tying undriven pin uut_dmem:clka to constant 0 [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/top_module.v:94]
+WARNING: [Synth 8-3295] tying undriven pin uut_if:clka to constant 0 [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/top_module.v:48]
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:09 ; elapsed = 00:00:39 . Memory (MB): peak = 752.836 ; gain = 512.770
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:59 ; elapsed = 00:01:01 . Memory (MB): peak = 758.605 ; gain = 517.520
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:09 ; elapsed = 00:00:39 . Memory (MB): peak = 752.836 ; gain = 512.770
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:59 ; elapsed = 00:01:01 . Memory (MB): peak = 758.605 ; gain = 517.520
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -479,40 +475,53 @@ Report BlackBoxes:
 +------+--------------+----------+
 |      |BlackBox name |Instances |
 +------+--------------+----------+
-|1     |prgrom        |         1|
+|1     |prgram        |         1|
+|2     |prgrom        |         1|
 +------+--------------+----------+
 
 Report Cell Usage: 
 +------+-------+------+
 |      |Cell   |Count |
 +------+-------+------+
-|1     |prgrom |     1|
+|1     |prgram |     1|
+|2     |prgrom |     1|
+|3     |CARRY4 |     8|
+|4     |LUT1   |     4|
+|5     |LUT2   |     1|
+|6     |LUT3   |     3|
+|7     |LUT4   |     2|
+|8     |LUT5   |     8|
+|9     |LUT6   |    71|
 +------+-------+------+
 
 Report Instance Areas: 
-+------+---------+-------+------+
-|      |Instance |Module |Cells |
-+------+---------+-------+------+
-|1     |top      |       |    32|
-|2     |  uut_if |IFetch |    32|
-+------+---------+-------+------+
++------+-----------+-------+------+
+|      |Instance   |Module |Cells |
++------+-----------+-------+------+
+|1     |top        |       |   161|
+|2     |  uut_alu  |ALU    |     8|
+|3     |  uut_dmem |DMem   |    32|
+|4     |  uut_if   |IFetch |   121|
++------+-----------+-------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:09 ; elapsed = 00:00:39 . Memory (MB): peak = 752.836 ; gain = 512.770
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:59 ; elapsed = 00:01:01 . Memory (MB): peak = 758.605 ; gain = 517.520
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 1062 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:08 ; elapsed = 00:00:35 . Memory (MB): peak = 752.836 ; gain = 188.137
-Synthesis Optimization Complete : Time (s): cpu = 00:00:09 ; elapsed = 00:00:39 . Memory (MB): peak = 752.836 ; gain = 512.770
+Synthesis finished with 0 errors, 0 critical warnings and 1063 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:49 ; elapsed = 00:00:56 . Memory (MB): peak = 758.605 ; gain = 191.734
+Synthesis Optimization Complete : Time (s): cpu = 00:00:59 ; elapsed = 00:01:01 . Memory (MB): peak = 758.605 ; gain = 517.520
 INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 8 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-66 Infos, 179 Warnings, 0 Critical Warnings and 0 Errors encountered.
+73 Infos, 167 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:09 ; elapsed = 00:00:42 . Memory (MB): peak = 758.543 ; gain = 528.590
-INFO: [Common 17-1381] The checkpoint 'D:/Clone/Computer-Organization-Project/CPU/CPU.runs/synth_1/top_module.dcp' has been generated.
+synth_design: Time (s): cpu = 00:01:00 ; elapsed = 00:01:04 . Memory (MB): peak = 758.605 ; gain = 529.039
+INFO: [Common 17-1381] The checkpoint 'C:/Users/48946/Documents/GitHub/Computer-Organization-Project/CPU/CPU.runs/synth_1/top_module.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file top_module_utilization_synth.rpt -pb top_module_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 758.543 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Thu May  1 13:45:58 2025...
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.017 . Memory (MB): peak = 758.605 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Thu May  1 14:22:26 2025...
