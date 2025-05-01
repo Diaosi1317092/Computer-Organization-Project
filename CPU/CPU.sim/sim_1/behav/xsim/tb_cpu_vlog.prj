@@ -7,6 +7,7 @@ verilog xil_defaultlib  \
 "../../../../CPU.srcs/sources_1/new/DMem.v" \
 "../../../../CPU.srcs/sources_1/new/Decoder.v" \
 "../../../../CPU.srcs/sources_1/new/IFetch.v" \
+"../../../../CPU.srcs/sources_1/new/MemorIO.v" \
 "../../../../CPU.srcs/sources_1/new/top_module.v" \
 "../../../../CPU.srcs/sim_1/new/tb_cpu.v" \
 

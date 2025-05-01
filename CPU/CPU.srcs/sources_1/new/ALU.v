@@ -61,7 +61,37 @@ module ALU(
                     default: alu_result = 32'h00000000;
                 endcase
             end
-
+            
+            2'b11: begin // I-type
+                case (funct3)
+                    3'b000: begin // ADD or SUB
+                        alu_result = read_data1 + operand2;
+                    end
+                    3'b100: begin // XOR
+                        alu_result = read_data1 ^ operand2;
+                    end
+                    3'b110: begin // OR
+                        alu_result = read_data1 | operand2;
+                    end
+                    3'b111: begin // AND
+                        alu_result = read_data1 & operand2;
+                    end
+                    3'b001: begin // SLL
+                        alu_result = read_data1 << shamt;
+                    end
+                    3'b101: begin // SRL or SRA
+                        alu_result = read_data1 >> shamt;           // SRL (logical)
+                    end
+                    3'b010: begin // SLT
+                        alu_result = ($signed(read_data1) < $signed(operand2)) ? 32'd1 : 32'd0;
+                    end
+                    3'b011: begin // SLTU
+                        alu_result = (read_data1 < operand2) ? 32'd1 : 32'd0;
+                    end
+                    default: alu_result = 32'h00000000;
+                endcase
+            end
+            
             default: alu_result = 32'h00000000;
         endcase
     end

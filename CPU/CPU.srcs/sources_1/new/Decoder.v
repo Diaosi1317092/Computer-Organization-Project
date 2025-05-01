@@ -18,7 +18,7 @@ module Decoder(
     reg [31:0] regs [0:31];
     integer i;
 
-    always @(posedge clk) begin
+    always @(posedge clk, negedge rst) begin
         if (!rst) begin
             for (i = 0; i < 32; i = i + 1)
                 regs[i] <= 32'h00000000;

@@ -29,10 +29,13 @@ module top_module(
     wire mem_to_reg;
     wire reg_write;
 
+
     // Decoder output and input signals
     wire [31:0] rs1_data;
     wire [31:0] rs2_data;
     wire [31:0] write_data;  // Can be hardcoded or linked to a MEM stage in full CPU
+    wire [31:0] mem_read_data;
+    wire [31:0] reg_write_data; 
 
     // R-type decoding fields (to be extracted from inst)
     wire [2:0] funct3 = inst[14:12];
@@ -58,7 +61,7 @@ module top_module(
         .rst(rst),
         .reg_write(reg_write),
         .inst(inst),
-        .write_data(write_data),
+        .write_data(reg_write_data),
         .rs1_data(rs1_data),
         .rs2_data(rs2_data),
         .imm32(imm32)
@@ -95,7 +98,15 @@ module top_module(
     .mem_write(mem_write),
     .addr(alu_result),
     .din(rs2_data), 
-    .dout(write_data)
+    .dout(mem_read_data)
     );
-
+    
+    MemorIO uut_memorio(
+        .mem_to_reg(mem_to_reg),
+        .mem_read_data(mem_read_data),
+        .alu_result(alu_result),
+        .reg_write_data(reg_write_data),
+        .addr(alu_result),
+        .funct3(funct3)
+    );
 endmodule
