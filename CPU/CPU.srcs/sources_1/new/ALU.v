@@ -11,8 +11,10 @@ module ALU(
 );
 
     wire [31:0] operand2;
+    wire [4:0] shamt;  // shift amount (only low 5 bits valid for 32-bit)
 
     assign operand2 = (alu_src == 1'b0) ? read_data2 : imm32;
+    assign shamt = operand2[4:0];
 
     always @(*) begin
         case (alu_op)
@@ -24,7 +26,7 @@ module ALU(
                 alu_result = read_data1 - operand2;
             end
 
-            2'b10: begin
+            2'b10: begin // R-type
                 case (funct3)
                     3'b000: begin // ADD or SUB
                         if (funct7[5])
@@ -32,19 +34,35 @@ module ALU(
                         else
                             alu_result = read_data1 + operand2;
                     end
-                    3'b111: begin // AND
-                        alu_result = read_data1 & operand2;
+                    3'b100: begin // XOR
+                        alu_result = read_data1 ^ operand2;
                     end
                     3'b110: begin // OR
                         alu_result = read_data1 | operand2;
                     end
-                    default: alu_result = 32'h00000000; // unsupported
+                    3'b111: begin // AND
+                        alu_result = read_data1 & operand2;
+                    end
+                    3'b001: begin // SLL
+                        alu_result = read_data1 << shamt;
+                    end
+                    3'b101: begin // SRL or SRA
+                        if (funct7[5])
+                            alu_result = $signed(read_data1) >>> shamt; // SRA (arithmetic)
+                        else
+                            alu_result = read_data1 >> shamt;           // SRL (logical)
+                    end
+                    3'b010: begin // SLT
+                        alu_result = ($signed(read_data1) < $signed(operand2)) ? 32'd1 : 32'd0;
+                    end
+                    3'b011: begin // SLTU
+                        alu_result = (read_data1 < operand2) ? 32'd1 : 32'd0;
+                    end
+                    default: alu_result = 32'h00000000;
                 endcase
             end
 
-            default: begin
-                alu_result = 32'h00000000;
-            end
+            default: alu_result = 32'h00000000;
         endcase
     end
 
