@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="prgram_synth_1" LaunchPart="xc7a35tcsg324-1" LaunchTime="1746087269">
+<GenRun Id="prgram_synth_1" LaunchPart="xc7a35tcsg324-1" LaunchTime="1746112201">
   <File Type="PA-TCL" Name="prgram.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="prgram_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="prgram_reports.tcl"/>
   <File Type="RDS-RDS" Name="prgram.vds"/>
   <File Type="RDS-UTIL" Name="prgram_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="prgram_utilization_synth.pb"/>
   <File Type="RDS-DCP" Name="prgram.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="prgram_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="prgram_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="BlockSrcs" RelSrcDir="$PSRCDIR/prgram">
     <File Path="$PSRCDIR/sources_1/ip/prgram/prgram.xci">
       <FileInfo>

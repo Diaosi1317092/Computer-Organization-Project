@@ -7,13 +7,13 @@ module tb_cpu();
     
     initial begin
         clk =1'b0;
-        forever #30 clk = ~clk;
+        forever #3 clk = ~clk;
     end
     
     initial begin
         rst = 1'b1;
-        #10 rst = 1'b0;
-        #10 rst = 1'b1;
+        #1 rst = 1'b0;
+        #1 rst = 1'b1;
     end
 
 endmodule

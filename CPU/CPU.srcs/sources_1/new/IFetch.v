@@ -4,7 +4,11 @@ module IFetch(
     input [31:0]  imm32,    // branch offset (already left-shifted by 1 when generated)
     input         branch,   // 1 if instruction is beq
     input         zero,     // 1 if ALU result is zero (for beq)
-    output [31:0] inst      // output instruction
+    input         is_jal, 
+    output [31:0] inst,      // output instruction
+    output reg [31:0] out_pc,
+    input         is_jalr,
+    input [31:0]  new_pc
 );
 
     reg [31:0] pc;           // program counter
@@ -18,16 +22,20 @@ module IFetch(
     );
 
     // Address connected to lower bits of pc (>>2 because 4 bytes per instruction)
-    assign addr = pc[15:2];
-
+    assign addr = pc[15:2]-32'h0000_0C00;
+    always @(posedge clk) begin
+        out_pc<=pc;
+    end
     // PC update
     always @(negedge clk, negedge rst) begin
         
         if (!rst) begin
-            pc <= 32'h0000_0000;
+            pc <= 32'h0000_3000;
         end else begin
             //pc <= pc + 32'd4;   // normal sequential execution
-            if (branch && zero) begin
+            if (is_jalr) begin
+                pc <= new_pc;
+            end else if (branch && zero || is_jal) begin
                 pc <= pc + imm32;   // branch taken
             end else begin
                 pc <= pc + 32'd4;   // normal sequential execution

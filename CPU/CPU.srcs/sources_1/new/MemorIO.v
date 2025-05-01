@@ -26,7 +26,10 @@ module MemorIO(
     input [31:0] alu_result,
     output [31:0] reg_write_data,
     input [2:0] funct3,
-    input [31:0] addr
+    input [31:0] addr,
+    input is_jal,
+    input is_jalr,    
+    input [31:0] pc
 );
     wire [31:0] tmp_data=mem_read_data;
     reg [31:0] tmp_data2;
@@ -67,7 +70,7 @@ module MemorIO(
 
         endcase
     end
-    assign reg_write_data = (mem_to_reg ? tmp_data2: alu_result);
+    assign reg_write_data = ((is_jal || is_jalr) ? pc + 4 : (mem_to_reg ? tmp_data2: alu_result));
     //assign tmp_data = (mem_to_reg ? mem_read_data: alu_result);
         
 endmodule

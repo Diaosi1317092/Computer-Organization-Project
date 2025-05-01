@@ -11,12 +11,13 @@
 module top_module(
     input clk,rst
 );
-
+    
     // IFetch <-> Controller/ALU signals
     wire [31:0] inst;
     wire [31:0] imm32;
     wire        branch;
     wire        zero;
+    wire [31:0] pc; 
 
     // ALU control and output
     wire        alu_src;
@@ -28,7 +29,10 @@ module top_module(
     wire mem_write;
     wire mem_to_reg;
     wire reg_write;
-
+    wire is_jal;
+    wire is_jalr;
+    wire is_lui;
+    wire is_auipc;
 
     // Decoder output and input signals
     wire [31:0] rs1_data;
@@ -40,6 +44,8 @@ module top_module(
     // R-type decoding fields (to be extracted from inst)
     wire [2:0] funct3 = inst[14:12];
     wire [6:0] funct7 = inst[31:25];
+    
+    
 
     // =========================
     // Module Instantiations
@@ -52,7 +58,11 @@ module top_module(
         .imm32(imm32),
         .branch(branch),
         .zero(zero),
-        .inst(inst)
+        .inst(inst),
+        .out_pc(pc),
+        .is_jal(is_jal),
+        .is_jalr(is_jalr),
+        .new_pc(alu_result)
     );
 
     // Decoder unit
@@ -77,7 +87,10 @@ module top_module(
         .funct3(funct3),
         .funct7(funct7),
         .alu_result(alu_result),
-        .zero(zero)
+        .zero(zero),
+        .pc(pc),
+        .is_lui(is_lui),
+        .is_auipc(is_auipc)
     );
 
     // Controller unit
@@ -89,7 +102,11 @@ module top_module(
         .mem_to_reg(mem_to_reg),
         .reg_write(reg_write),
         .alu_src(alu_src),
-        .alu_op(alu_op)
+        .alu_op(alu_op),
+        .is_jal(is_jal),
+        .is_jalr(is_jalr),
+        .is_lui(is_lui),
+        .is_auipc(is_auipc)
     );
     
     // Data Memory unit
@@ -110,6 +127,9 @@ module top_module(
         .alu_result(alu_result),
         .reg_write_data(reg_write_data),
         .addr(alu_result),
-        .funct3(funct3)
+        .funct3(funct3),
+        .pc(pc),
+        .is_jal(is_jal),
+        .is_jalr(is_jalr)
     );
 endmodule

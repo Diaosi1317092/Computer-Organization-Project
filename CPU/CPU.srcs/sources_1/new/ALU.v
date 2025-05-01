@@ -7,7 +7,10 @@ module ALU(
     input  [2:0]  funct3,
     input  [6:0]  funct7,
     output reg [31:0] alu_result,
-    output reg    zero
+    output reg    zero,
+    input         is_lui,
+    input         is_auipc,
+    input [31:0]  pc
 );
 
     wire [31:0] operand2;
@@ -83,37 +86,43 @@ module ALU(
                 endcase
             end
             
-            2'b11: begin // I-type
-                case (funct3)
-                    3'b000: begin // ADDI
-                        alu_result = read_data1 + operand2;
-                    end
-                    3'b100: begin // XORI
-                        alu_result = read_data1 ^ operand2;
-                    end
-                    3'b110: begin // ORI
-                        alu_result = read_data1 | operand2;
-                    end
-                    3'b111: begin // ANDI
-                        alu_result = read_data1 & operand2;
-                    end
-                    3'b001: begin // SLLI
-                        alu_result = read_data1 << shamt;
-                    end
-                    3'b101: begin // SRLI
-                        if (funct7[5])
-                            alu_result = $signed(read_data1) >>> shamt; // SRAI (arithmetic)
-                        else
-                            alu_result = read_data1 >> shamt;           // SRLI (logical)
-                    end
-                    3'b010: begin // SLTI
-                        alu_result = ($signed(read_data1) < $signed(operand2)) ? 32'd1 : 32'd0;
-                    end
-                    3'b011: begin // SLTIU
-                        alu_result = (read_data1 < operand2) ? 32'd1 : 32'd0;
-                    end
-                    default: alu_result = 32'h00000000;
-                endcase
+            2'b11: begin // I-type and U-type
+                if (is_lui) begin
+                    alu_result = operand2; // already << 12 in imm_gen
+                end else if (is_auipc) begin
+                    alu_result = pc + operand2; // already << 12 in imm_gen
+                end else begin
+                    case (funct3)
+                        3'b000: begin // ADDI
+                            alu_result = read_data1 + operand2;
+                        end
+                        3'b100: begin // XORI
+                            alu_result = read_data1 ^ operand2;
+                        end
+                        3'b110: begin // ORI
+                            alu_result = read_data1 | operand2;
+                        end
+                        3'b111: begin // ANDI
+                            alu_result = read_data1 & operand2;
+                        end
+                        3'b001: begin // SLLI
+                            alu_result = read_data1 << shamt;
+                        end
+                        3'b101: begin // SRLI
+                            if (funct7[5])
+                                alu_result = $signed(read_data1) >>> shamt; // SRAI (arithmetic)
+                            else
+                                alu_result = read_data1 >> shamt;           // SRLI (logical)
+                        end
+                        3'b010: begin // SLTI
+                            alu_result = ($signed(read_data1) < $signed(operand2)) ? 32'd1 : 32'd0;
+                        end
+                        3'b011: begin // SLTIU
+                            alu_result = (read_data1 < operand2) ? 32'd1 : 32'd0;
+                        end
+                        default: alu_result = 32'h00000000;
+                    endcase
+                end
             end
             
             default: alu_result = 32'h00000000;
