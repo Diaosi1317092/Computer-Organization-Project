@@ -122,6 +122,7 @@ module Controller (
                 is_jal     = 1;
             end
             default: begin
+                en_pc      = 0;
                 // All control signals remain default
             end
         endcase

@@ -12,11 +12,11 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="385419465fs"></ZoomEndTime>
-      <Cursor1Time time="540000000fs"></Cursor1Time>
+      <ZoomEndTime time="29850001fs"></ZoomEndTime>
+      <Cursor1Time time="43380000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="115"></NameColumnWidth>
+      <NameColumnWidth column_width="107"></NameColumnWidth>
       <ValueColumnWidth column_width="58"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="36" />
@@ -117,22 +117,6 @@
       <obj_property name="ElementShortName">rd[4:0]</obj_property>
       <obj_property name="ObjectShortName">rd[4:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_cpu/uut_tm/uut_memorio/mem_to_reg" type="logic">
-      <obj_property name="ElementShortName">mem_to_reg</obj_property>
-      <obj_property name="ObjectShortName">mem_to_reg</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_cpu/uut_tm/uut_memorio/mem_read_data" type="array">
-      <obj_property name="ElementShortName">mem_read_data[31:0]</obj_property>
-      <obj_property name="ObjectShortName">mem_read_data[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_cpu/uut_tm/uut_memorio/alu_result" type="array">
-      <obj_property name="ElementShortName">alu_result[31:0]</obj_property>
-      <obj_property name="ObjectShortName">alu_result[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_cpu/uut_tm/uut_memorio/reg_write_data" type="array">
-      <obj_property name="ElementShortName">reg_write_data[31:0]</obj_property>
-      <obj_property name="ObjectShortName">reg_write_data[31:0]</obj_property>
-   </wvobject>
    <wvobject fp_name="/tb_cpu/uut_tm/uut_alu/alu_src" type="logic">
       <obj_property name="ElementShortName">alu_src</obj_property>
       <obj_property name="ObjectShortName">alu_src</obj_property>
@@ -165,5 +149,21 @@
    <wvobject fp_name="/tb_cpu/uut_tm/uut_if/is_jalr" type="logic">
       <obj_property name="ElementShortName">is_jalr</obj_property>
       <obj_property name="ObjectShortName">is_jalr</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_cpu/uut_tm/uut_output/en_output" type="logic">
+      <obj_property name="ElementShortName">en_output</obj_property>
+      <obj_property name="ObjectShortName">en_output</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_cpu/uut_tm/uut_output/reg_a7" type="array">
+      <obj_property name="ElementShortName">reg_a7[31:0]</obj_property>
+      <obj_property name="ObjectShortName">reg_a7[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_cpu/uut_tm/uut_output/output_data" type="array">
+      <obj_property name="ElementShortName">output_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">output_data[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_cpu/uut_tm/uut_output/led" type="array">
+      <obj_property name="ElementShortName">led[7:0]</obj_property>
+      <obj_property name="ObjectShortName">led[7:0]</obj_property>
    </wvobject>
 </wave_config>

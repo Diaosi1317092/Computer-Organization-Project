@@ -9,11 +9,18 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 module top_module(
-    input clk,rst,done,
-    input [31:0] sw_input
+    input init_clk,
+    input rst,
+    input done,
+    input [7:0] sw_input,
+    output [7:0] seg1,
+    output [7:0] seg2,
+    output [7:0] led,
+    output wire [7:0] an   //control the 8-segment
 );
     // about IO
     wire en_pc;
+    wire clk;
     wire en_input;
     wire en_output;
     wire done_input;
@@ -64,10 +71,16 @@ module top_module(
     // Module Instantiations
     // =========================
     ClockDivider uut_debounce_divider(
-        .clk(clk),
+        .clk(init_clk),
         .rst(rst),
         .period(1000000),
         .clk_out(clk_de)
+    );
+    ClockDivider uut_clk_divider(
+        .clk(init_clk),
+        .rst(rst),
+        .period(100000),
+        .clk_out(clk)
     );
     // IFetch unit
     IFetch uut_if (
@@ -97,7 +110,8 @@ module top_module(
         .en_input(en_input),
         .en_output(en_output),
         .output_data(output_data),
-        .reg_a7(reg_a7)
+        .reg_a7(reg_a7),
+        .en_pc(en_pc)
     );
 
     // ALU unit
@@ -167,12 +181,25 @@ module top_module(
     );
     
     InputModule uut_input(
-            .clk(clk),
-            .clk_de(clk_de),
-            .rst(rst),
-            .sw_input(sw_input),
-            .done(done),
-            .input_data(input_data),
-            .done_input(done_input)
-        );
+        .clk(clk),
+        .clk_de(clk_de),
+        .rst(rst),
+        .sw_input(sw_input),
+        .done(done),
+        .input_data(input_data),
+        .done_input(done_input)
+    );
+    
+    OutputModule uut_output(
+        .clk(init_clk),
+        .rst(rst),
+        .en_output(en_output),
+        .reg_a7(reg_a7),
+        .output_data(output_data),
+        .seg1(seg1),
+        .seg2(seg2),
+        .led(led),
+        .an(an)
+    );
+    
 endmodule

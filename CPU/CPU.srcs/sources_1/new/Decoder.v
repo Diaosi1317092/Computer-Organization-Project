@@ -39,9 +39,9 @@ module Decoder(
                 regs[i] <= 32'h00000000;
             regs[2] <= sp_base;
             regs[3] <= gb_base;
-        end else if (reg_write && (rd != 5'd0)&&en_pc) begin
+        end else if (reg_write && en_pc) begin
             if (en_input) regs[10] <= write_data;
-            else regs[rd] <= write_data;
+            else if (rd != 0) regs[rd] <= write_data;
         end
     end
     

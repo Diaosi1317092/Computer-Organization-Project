@@ -1,10 +1,10 @@
 // Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
-// Date        : Fri May  2 15:01:24 2025
-// Host        : DESKTOP-TB8HVUN running 64-bit major release  (build 9200)
+// Date        : Fri May  2 18:06:35 2025
+// Host        : Dupreeh running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
-//               D:/GitHub/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgram/prgram_sim_netlist.v
+//               D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgram/prgram_sim_netlist.v
 // Design      : prgram
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -1421,7 +1421,7 @@ module prgram_blk_mem_gen_prim_wrapper_init
     .INITP_0D(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INITP_0E(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INITP_0F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_00(256'h0000000000000000000000000000000000000000000000000000000000001E0A),
+    .INIT_00(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INIT_01(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INIT_02(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INIT_03(256'h0000000000000000000000000000000000000000000000000000000000000000),

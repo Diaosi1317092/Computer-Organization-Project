@@ -24,15 +24,15 @@ set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
 set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
-set_property webtalk.parent_dir D:/GitHub/Computer-Organization-Project/CPU/CPU.cache/wt [current_project]
-set_property parent.project_path D:/GitHub/Computer-Organization-Project/CPU/CPU.xpr [current_project]
+set_property webtalk.parent_dir D:/Clone/Computer-Organization-Project/CPU/CPU.cache/wt [current_project]
+set_property parent.project_path D:/Clone/Computer-Organization-Project/CPU/CPU.xpr [current_project]
 set_property XPM_LIBRARIES XPM_MEMORY [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
-set_property ip_output_repo d:/GitHub/Computer-Organization-Project/CPU/CPU.cache/ip [current_project]
+set_property ip_output_repo d:/Clone/Computer-Organization-Project/CPU/CPU.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
-read_ip -quiet D:/GitHub/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgram/prgram.xci
-set_property used_in_implementation false [get_files -all d:/GitHub/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgram/prgram_ooc.xdc]
+read_ip -quiet D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgram/prgram.xci
+set_property used_in_implementation false [get_files -all d:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgram/prgram_ooc.xdc]
 
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
@@ -45,7 +45,7 @@ foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
 read_xdc dont_touch.xdc
 set_property used_in_implementation false [get_files dont_touch.xdc]
 
-set cached_ip [config_ip_cache -export -no_bom -use_project_ipc -dir D:/GitHub/Computer-Organization-Project/CPU/CPU.runs/prgram_synth_1 -new_name prgram -ip [get_ips prgram]]
+set cached_ip [config_ip_cache -export -no_bom -use_project_ipc -dir D:/Clone/Computer-Organization-Project/CPU/CPU.runs/prgram_synth_1 -new_name prgram -ip [get_ips prgram]]
 
 if { $cached_ip eq {} } {
 
@@ -84,32 +84,32 @@ write_checkpoint -force -noxdef prgram.dcp
 create_report "prgram_synth_1_synth_report_utilization_0" "report_utilization -file prgram_utilization_synth.rpt -pb prgram_utilization_synth.pb"
 
 if { [catch {
-  file copy -force D:/GitHub/Computer-Organization-Project/CPU/CPU.runs/prgram_synth_1/prgram.dcp D:/GitHub/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgram/prgram.dcp
+  file copy -force D:/Clone/Computer-Organization-Project/CPU/CPU.runs/prgram_synth_1/prgram.dcp D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgram/prgram.dcp
 } _RESULT ] } { 
   send_msg_id runtcl-3 error "ERROR: Unable to successfully create or copy the sub-design checkpoint file."
   error "ERROR: Unable to successfully create or copy the sub-design checkpoint file."
 }
 
 if { [catch {
-  write_verilog -force -mode synth_stub D:/GitHub/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgram/prgram_stub.v
+  write_verilog -force -mode synth_stub D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgram/prgram_stub.v
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create a Verilog synthesis stub for the sub-design. This may lead to errors in top level synthesis of the design. Error reported: $_RESULT"
 }
 
 if { [catch {
-  write_vhdl -force -mode synth_stub D:/GitHub/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgram/prgram_stub.vhdl
+  write_vhdl -force -mode synth_stub D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgram/prgram_stub.vhdl
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create a VHDL synthesis stub for the sub-design. This may lead to errors in top level synthesis of the design. Error reported: $_RESULT"
 }
 
 if { [catch {
-  write_verilog -force -mode funcsim D:/GitHub/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgram/prgram_sim_netlist.v
+  write_verilog -force -mode funcsim D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgram/prgram_sim_netlist.v
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create the Verilog functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
 }
 
 if { [catch {
-  write_vhdl -force -mode funcsim D:/GitHub/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgram/prgram_sim_netlist.vhdl
+  write_vhdl -force -mode funcsim D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgram/prgram_sim_netlist.vhdl
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create the VHDL functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
 }
@@ -119,46 +119,46 @@ if { [catch {
 
 
 if { [catch {
-  file copy -force D:/GitHub/Computer-Organization-Project/CPU/CPU.runs/prgram_synth_1/prgram.dcp D:/GitHub/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgram/prgram.dcp
+  file copy -force D:/Clone/Computer-Organization-Project/CPU/CPU.runs/prgram_synth_1/prgram.dcp D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgram/prgram.dcp
 } _RESULT ] } { 
   send_msg_id runtcl-3 error "ERROR: Unable to successfully create or copy the sub-design checkpoint file."
   error "ERROR: Unable to successfully create or copy the sub-design checkpoint file."
 }
 
 if { [catch {
-  file rename -force D:/GitHub/Computer-Organization-Project/CPU/CPU.runs/prgram_synth_1/prgram_stub.v D:/GitHub/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgram/prgram_stub.v
+  file rename -force D:/Clone/Computer-Organization-Project/CPU/CPU.runs/prgram_synth_1/prgram_stub.v D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgram/prgram_stub.v
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create a Verilog synthesis stub for the sub-design. This may lead to errors in top level synthesis of the design. Error reported: $_RESULT"
 }
 
 if { [catch {
-  file rename -force D:/GitHub/Computer-Organization-Project/CPU/CPU.runs/prgram_synth_1/prgram_stub.vhdl D:/GitHub/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgram/prgram_stub.vhdl
+  file rename -force D:/Clone/Computer-Organization-Project/CPU/CPU.runs/prgram_synth_1/prgram_stub.vhdl D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgram/prgram_stub.vhdl
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create a VHDL synthesis stub for the sub-design. This may lead to errors in top level synthesis of the design. Error reported: $_RESULT"
 }
 
 if { [catch {
-  file rename -force D:/GitHub/Computer-Organization-Project/CPU/CPU.runs/prgram_synth_1/prgram_sim_netlist.v D:/GitHub/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgram/prgram_sim_netlist.v
+  file rename -force D:/Clone/Computer-Organization-Project/CPU/CPU.runs/prgram_synth_1/prgram_sim_netlist.v D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgram/prgram_sim_netlist.v
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create the Verilog functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
 }
 
 if { [catch {
-  file rename -force D:/GitHub/Computer-Organization-Project/CPU/CPU.runs/prgram_synth_1/prgram_sim_netlist.vhdl D:/GitHub/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgram/prgram_sim_netlist.vhdl
+  file rename -force D:/Clone/Computer-Organization-Project/CPU/CPU.runs/prgram_synth_1/prgram_sim_netlist.vhdl D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgram/prgram_sim_netlist.vhdl
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create the VHDL functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
 }
 
 }; # end if cached_ip 
 
-if {[file isdir D:/GitHub/Computer-Organization-Project/CPU/CPU.ip_user_files/ip/prgram]} {
+if {[file isdir D:/Clone/Computer-Organization-Project/CPU/CPU.ip_user_files/ip/prgram]} {
   catch { 
-    file copy -force D:/GitHub/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgram/prgram_stub.v D:/GitHub/Computer-Organization-Project/CPU/CPU.ip_user_files/ip/prgram
+    file copy -force D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgram/prgram_stub.v D:/Clone/Computer-Organization-Project/CPU/CPU.ip_user_files/ip/prgram
   }
 }
 
-if {[file isdir D:/GitHub/Computer-Organization-Project/CPU/CPU.ip_user_files/ip/prgram]} {
+if {[file isdir D:/Clone/Computer-Organization-Project/CPU/CPU.ip_user_files/ip/prgram]} {
   catch { 
-    file copy -force D:/GitHub/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgram/prgram_stub.vhdl D:/GitHub/Computer-Organization-Project/CPU/CPU.ip_user_files/ip/prgram
+    file copy -force D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgram/prgram_stub.vhdl D:/Clone/Computer-Organization-Project/CPU/CPU.ip_user_files/ip/prgram
   }
 }

@@ -3,26 +3,14 @@ Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
 Running: D:/Xilinx/Vivado/2017.4/bin/unwrapped/win64.o/xelab.exe -wto 1c99ea6a430e47fbaf72bbfceaf43014 --incr --debug typical --relax --mt 2 -L blk_mem_gen_v8_4_1 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot tb_cpu_behav xil_defaultlib.tb_cpu xil_defaultlib.glbl -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
-WARNING: [VRFC 10-1783] select index 62 into current_contents is out of bounds [/wrk/2017.4/nightly/2017_12_15_2086221/packages/customer/vivado/data/ip/xilinx/blk_mem_gen_v8_4/simulation/blk_mem_gen_v8_4.v:2420]
-Completed static elaboration
-Starting simulation data flow analysis
-Completed simulation data flow analysis
-Time Resolution for simulation is 1ps
-Compiling module blk_mem_gen_v8_4_1.blk_mem_gen_v8_4_1_output_stage(...
-Compiling module blk_mem_gen_v8_4_1.blk_mem_gen_v8_4_1_softecc_outpu...
-Compiling module blk_mem_gen_v8_4_1.blk_mem_gen_v8_4_1_mem_module(C_...
-Compiling module blk_mem_gen_v8_4_1.blk_mem_gen_v8_4_1(C_FAMILY="art...
-Compiling module xil_defaultlib.prgrom
-Compiling module xil_defaultlib.IFetch
-Compiling module xil_defaultlib.Decoder
-Compiling module xil_defaultlib.ALU
-Compiling module xil_defaultlib.Controller
-Compiling module blk_mem_gen_v8_4_1.blk_mem_gen_v8_4_1_mem_module(C_...
-Compiling module blk_mem_gen_v8_4_1.blk_mem_gen_v8_4_1(C_FAMILY="art...
-Compiling module xil_defaultlib.prgram
-Compiling module xil_defaultlib.DMem
-Compiling module xil_defaultlib.WriteBack
-Compiling module xil_defaultlib.top_module
-Compiling module xil_defaultlib.tb_cpu
-Compiling module xil_defaultlib.glbl
-Built simulation snapshot tb_cpu_behav
+ERROR: [VRFC 10-426] cannot find port clk on this module [D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sim_1/new/tb_cpu.v:6]
+ERROR: [VRFC 10-2063] Module <ClockDivider> not found while processing module instance <uut_debounce_divider> [D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/top_module.v:73]
+ERROR: [VRFC 10-2063] Module <IFetch> not found while processing module instance <uut_if> [D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/top_module.v:86]
+ERROR: [VRFC 10-2063] Module <Decoder> not found while processing module instance <uut_decoder> [D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/top_module.v:101]
+ERROR: [VRFC 10-2063] Module <ALU> not found while processing module instance <uut_alu> [D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/top_module.v:118]
+ERROR: [VRFC 10-2063] Module <Controller> not found while processing module instance <uut_ctrl> [D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/top_module.v:134]
+ERROR: [VRFC 10-2063] Module <DMem> not found while processing module instance <uut_dmem> [D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/top_module.v:156]
+ERROR: [VRFC 10-2063] Module <WriteBackMUX> not found while processing module instance <uut_writebackmux> [D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/top_module.v:168]
+ERROR: [VRFC 10-2063] Module <InputModule> not found while processing module instance <uut_input> [D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/top_module.v:183]
+ERROR: [VRFC 10-2063] Module <OutputModule> not found while processing module instance <uut_output> [D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/top_module.v:193]
+ERROR: [XSIM 43-3322] Static elaboration of top level Verilog design unit(s) in library work failed.
