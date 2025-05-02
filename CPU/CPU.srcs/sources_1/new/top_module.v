@@ -121,7 +121,7 @@ module top_module(
     );
     
     // MemOrIO unit
-    MemorIO uut_memorio(
+    WriteBack uut_memorio(
         .mem_to_reg(mem_to_reg),
         .mem_read_data(mem_read_data),
         .alu_result(alu_result),

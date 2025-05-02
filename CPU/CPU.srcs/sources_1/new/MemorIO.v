@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module MemorIO(
+module WriteBack(
     input mem_to_reg,
     input [31:0] mem_read_data,
     input [31:0] alu_result,

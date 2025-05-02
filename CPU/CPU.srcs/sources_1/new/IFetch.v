@@ -20,26 +20,47 @@ module IFetch(
         .addra(addr),
         .douta(inst)
     );
-
-    // Address connected to lower bits of pc (>>2 because 4 bytes per instruction)
-    assign addr = pc[15:2]-32'h0000_0C00;
+    
     always @(posedge clk) begin
         out_pc<=pc;
     end
-    // PC update
-    always @(negedge clk, negedge rst) begin
-        
-        if (!rst) begin
-            pc <= 32'h0000_3000;
+    
+//    // PC update
+//    always @(negedge clk, negedge rst) begin
+//        if (!rst) begin
+//            pc <= 32'h0000_3000;
+//        end else begin
+//            //pc <= pc + 32'd4;   // normal sequential execution
+//            if (is_jalr) begin
+//                pc <= new_pc;
+//            end else if (branch && zero || is_jal) begin
+//                pc <= pc + imm32;   // branch taken
+//            end else begin
+//                pc <= pc + 32'd4;   // normal sequential execution
+//            end
+//        end
+//    end
+    
+    parameter base_address = 32'h0000_3000;
+    reg[31:0] next_pc;
+    // Address connected to lower bits of pc (>>2 because 4 bytes per instruction)
+    assign addr = (pc[13:0]-base_address) >> 2;
+    
+    always @(*) begin
+        if (is_jalr) begin
+            next_pc = new_pc;
+        end else if (branch && zero || is_jal) begin
+            next_pc = pc + imm32;   // branch taken
         end else begin
-            //pc <= pc + 32'd4;   // normal sequential execution
-            if (is_jalr) begin
-                pc <= new_pc;
-            end else if (branch && zero || is_jal) begin
-                pc <= pc + imm32;   // branch taken
-            end else begin
-                pc <= pc + 32'd4;   // normal sequential execution
-            end
+            next_pc = pc + 32'd4;   // normal sequential execution
+        end
+    end
+    
+    always @(negedge clk, negedge rst) begin
+        if(~rst) begin
+            pc <= base_address;
+        end else begin
+            pc <= next_pc;
         end
     end
 

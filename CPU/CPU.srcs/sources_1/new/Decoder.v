@@ -26,16 +26,18 @@ module Decoder(
 
     reg [31:0] regs [0:31];
     integer i;
-
+    parameter sp_base = 32'h00002ffc, gb_base = 32'h00001800;
     always @(posedge clk, negedge rst) begin
         if (!rst) begin
             for (i = 0; i < 32; i = i + 1)
                 regs[i] <= 32'h00000000;
+            regs[2] <= sp_base;
+            regs[3] <= gb_base;
         end else if (reg_write && (rd != 5'd0)) begin
             regs[rd] <= write_data;
         end
     end
-
+    
     always @* begin
         rs1_data = regs[rs1];
         rs2_data = regs[rs2];
