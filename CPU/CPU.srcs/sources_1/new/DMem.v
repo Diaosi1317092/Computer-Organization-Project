@@ -5,7 +5,8 @@ module DMem(
     input [31:0] addr,
     input [31:0] din,
     input [2:0] funct3,
-    output[31:0] dout
+    output[31:0] dout,
+    input en_pc
 );
     parameter SB=3'b000,SH=3'b001,SW=3'b010;
     reg [3:0] write_byte;
@@ -41,5 +42,5 @@ module DMem(
         write_byte = 4'b0000;
      end
     end
-    prgram udram(.clka(~clk), .wea(write_byte), .addra(addr[15:2]), .dina(tmp_write_data), .douta(dout));
+    prgram udram(.clka(~clk), .wea(en_pc ? write_byte : 0), .addra(addr[15:2]), .dina(tmp_write_data), .douta(dout));
 endmodule

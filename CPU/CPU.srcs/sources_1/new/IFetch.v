@@ -8,7 +8,8 @@ module IFetch(
     output [31:0] inst,      // output instruction
     output reg [31:0] out_pc,
     input         is_jalr,
-    input [31:0]  new_pc
+    input [31:0]  new_pc,
+    input         en_pc
 );
 
     reg [31:0] pc;           // program counter
@@ -47,7 +48,9 @@ module IFetch(
     assign addr = (pc[13:0]-base_address) >> 2;
     
     always @(*) begin
-        if (is_jalr) begin
+        if (!en_pc) begin
+            next_pc=pc;
+        end else if (is_jalr) begin
             next_pc = new_pc;
         end else if (branch && zero || is_jal) begin
             next_pc = pc + imm32;   // branch taken

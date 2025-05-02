@@ -9,8 +9,21 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 module top_module(
-    input clk,rst
+    input clk,rst,done,
+    input [31:0] sw_input
 );
+    // about IO
+    wire en_pc;
+    wire en_input;
+    wire en_output;
+    wire done_input;
+    wire [31:0] output_data;
+    wire [31:0] input_data;
+    wire is_ecall;
+    wire [31:0] reg_a7;
+    
+    //divided clock
+    wire clk_de;
     
     // IFetch <-> Controller/ALU signals
     wire [31:0] inst;
@@ -50,7 +63,12 @@ module top_module(
     // =========================
     // Module Instantiations
     // =========================
-
+    ClockDivider uut_debounce_divider(
+        .clk(clk),
+        .rst(rst),
+        .period(1000000),
+        .clk_out(clk_de)
+    );
     // IFetch unit
     IFetch uut_if (
         .clk(clk),
@@ -62,7 +80,8 @@ module top_module(
         .out_pc(pc),
         .is_jal(is_jal),
         .is_jalr(is_jalr),
-        .new_pc(alu_result)
+        .new_pc(alu_result),
+        .en_pc(en_pc)
     );
 
     // Decoder unit
@@ -74,7 +93,11 @@ module top_module(
         .write_data(reg_write_data),
         .rs1_data(rs1_data),
         .rs2_data(rs2_data),
-        .imm32(imm32)
+        .imm32(imm32),
+        .en_input(en_input),
+        .en_output(en_output),
+        .output_data(output_data),
+        .reg_a7(reg_a7)
     );
 
     // ALU unit
@@ -106,7 +129,13 @@ module top_module(
         .is_jal(is_jal),
         .is_jalr(is_jalr),
         .is_lui(is_lui),
-        .is_auipc(is_auipc)
+        .is_auipc(is_auipc),
+        .is_ecall(is_ecall),
+        .en_pc(en_pc),
+        .en_input(en_input),
+        .en_output(en_output),
+        .reg_a7(reg_a7),
+        .done_input(done_input)
     );
     
     // Data Memory unit
@@ -117,11 +146,12 @@ module top_module(
         .addr(alu_result),
         .din(rs2_data), 
         .dout(mem_read_data),
-        .funct3(funct3)
+        .funct3(funct3),
+        .en_pc(en_pc)
     );
     
     // MemOrIO unit
-    WriteBack uut_memorio(
+    WriteBackMUX uut_writebackmux(
         .mem_to_reg(mem_to_reg),
         .mem_read_data(mem_read_data),
         .alu_result(alu_result),
@@ -130,6 +160,19 @@ module top_module(
         .funct3(funct3),
         .pc(pc),
         .is_jal(is_jal),
-        .is_jalr(is_jalr)
+        .is_jalr(is_jalr),
+        .en_input(en_input),
+        .done_input(done_input),
+        .input_data(input_data)
     );
+    
+    InputModule uut_input(
+            .clk(clk),
+            .clk_de(clk_de),
+            .rst(rst),
+            .sw_input(sw_input),
+            .done(done),
+            .input_data(input_data),
+            .done_input(done_input)
+        );
 endmodule

@@ -2,17 +2,23 @@ module Decoder(
     input              clk,
     input              rst,
     input              reg_write,
+    input              en_pc,
     input  [31:0]      inst,
     input  [31:0]      write_data,
+    input              en_input,
+    input              en_output,
+    output [31:0]      output_data,
 
     output reg [31:0]  rs1_data,
     output reg [31:0]  rs2_data,
+    output  [31:0]      reg_a7,
     output reg [31:0]  imm32
 );
     parameter R_TYPE  = 7'b0110011;
     parameter I_TYPE1 = 7'b0010011;// addi
     parameter I_TYPE2 = 7'b0000011;// lw
     parameter I_TYPE3 = 7'b1100111;// jalr
+    parameter I_TYPE4 = 7'b1110011;// ecall  
     parameter S_TYPE  = 7'b0100011;
     parameter B_TYPE  = 7'b1100011;
     parameter U_TYPE1 = 7'b0110111;// lui
@@ -33,8 +39,9 @@ module Decoder(
                 regs[i] <= 32'h00000000;
             regs[2] <= sp_base;
             regs[3] <= gb_base;
-        end else if (reg_write && (rd != 5'd0)) begin
-            regs[rd] <= write_data;
+        end else if (reg_write && (rd != 5'd0)&&en_pc) begin
+            if (en_input) regs[10] <= write_data;
+            else regs[rd] <= write_data;
         end
     end
     
@@ -52,6 +59,9 @@ module Decoder(
                 imm32 = {{20{inst[31]}}, inst[31:20]};
             end
             I_TYPE3: begin // jalr
+                imm32 = {{20{inst[31]}}, inst[31:20]};
+            end
+            I_TYPE4: begin // ecall
                 imm32 = {{20{inst[31]}}, inst[31:20]};
             end
             S_TYPE: begin // sw
@@ -80,5 +90,7 @@ module Decoder(
             end
         endcase
     end
-
+    assign reg_a7=regs[17];
+    assign output_data=regs[10];
+        
 endmodule

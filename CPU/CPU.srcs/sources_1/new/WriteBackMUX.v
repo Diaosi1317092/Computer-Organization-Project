@@ -20,10 +20,13 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module WriteBack(
+module WriteBackMUX(
     input mem_to_reg,
     input [31:0] mem_read_data,
     input [31:0] alu_result,
+    input [31:0] input_data,
+    input en_input,
+    inout done_input,
     output [31:0] reg_write_data,
     input [2:0] funct3,
     input [31:0] addr,
@@ -70,7 +73,9 @@ module WriteBack(
 
         endcase
     end
-    assign reg_write_data = ((is_jal || is_jalr) ? pc + 4 : (mem_to_reg ? tmp_data2: alu_result));
+    assign reg_write_data = ((en_input && done_input) ? input_data 
+        : ( (is_jal || is_jalr) ? pc + 4 
+        : (mem_to_reg ? tmp_data2: alu_result)));
     //assign tmp_data = (mem_to_reg ? mem_read_data: alu_result);
         
 endmodule

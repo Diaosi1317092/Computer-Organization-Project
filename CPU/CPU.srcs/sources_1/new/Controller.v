@@ -10,7 +10,13 @@ module Controller (
     output reg    is_jal,
     output reg    is_jalr,
     output reg    is_lui,
-    output reg    is_auipc
+    output reg    is_auipc,
+    output reg    is_ecall,
+    output reg    en_pc,
+    output reg    en_input,
+    output reg    en_output,
+    input [31:0]   reg_a7,
+    input         done_input
 );
 
     // Opcode definitions (parameterized)
@@ -18,6 +24,7 @@ module Controller (
     parameter I_TYPE1 = 7'b0010011;// addi
     parameter I_TYPE2 = 7'b0000011;// lw
     parameter I_TYPE3 = 7'b1100111;// jalr
+    parameter I_TYPE4 = 7'b1110011;// ecall  
     parameter S_TYPE  = 7'b0100011;
     parameter B_TYPE  = 7'b1100011;
     parameter U_TYPE1 = 7'b0110111;// lui
@@ -39,7 +46,10 @@ module Controller (
         is_jalr     = 0;
         is_lui      = 0;
         is_auipc    = 0;
-                                        
+        is_ecall    = 0;
+        en_input    = 0;
+        en_output   = 0;
+        en_pc   = 1;                        
 
         case (opcode)
             R_TYPE: begin
@@ -64,6 +74,25 @@ module Controller (
                 alu_src    = 1;
                 reg_write  = 1;
                 is_jalr    = 1;
+            end
+            I_TYPE4: begin // ecall
+                //alu_op     = 2'b11;
+                //alu_src    = 1;
+                is_ecall   = 1;
+                case (reg_a7)
+                    1, 34, 35: begin
+                        en_output=1;
+                    end
+                    5: begin 
+                        reg_write=1;
+                        en_input=1;
+                        if (done_input) en_pc=1;
+                        else en_pc=0;
+                    end
+                    default begin
+                        
+                    end
+                endcase 
             end
             S_TYPE: begin // sw
                 alu_op     = 2'b00;
