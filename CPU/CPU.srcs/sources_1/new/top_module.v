@@ -76,12 +76,14 @@ module top_module(
         .period(1000000),
         .clk_out(clk_de)
     );
+    
     ClockDivider uut_clk_divider(
         .clk(init_clk),
         .rst(rst),
-        .period(100000),
+        .period(10000),
         .clk_out(clk)
     );
+    
     // IFetch unit
     IFetch uut_if (
         .clk(clk),

@@ -26,7 +26,7 @@ module WriteBackMUX(
     input [31:0] alu_result,
     input [31:0] input_data,
     input en_input,
-    inout done_input,
+    input done_input,
     output [31:0] reg_write_data,
     input [2:0] funct3,
     input [31:0] addr,

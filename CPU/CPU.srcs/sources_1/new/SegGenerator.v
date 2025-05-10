@@ -5,7 +5,7 @@ module SegGenerator(
     output wire [7:0] an
 );
 
-    always @(posedge clk_dis or posedge rst) begin
+    always @(posedge clk_dis or negedge rst) begin
         if (~rst) begin
             select <= 4'd0;
         end else begin
