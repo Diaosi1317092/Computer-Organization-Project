@@ -5,16 +5,20 @@ module InputModule(
     input clk_de,
     input rst,
     input [7:0] sw_input,
+    input [7:0] cp_input,
     input done,
+    input cp_done,
     output [31:0] input_data,
-    output reg done_input
-    );
-    assign input_data = {{24{sw_input[7]}},sw_input};
+    output true_done_input
+);
+    reg done_input;
+    assign input_data = (cp_done ? {{24{cp_input[7]}},cp_input} : {{24{sw_input[7]}},sw_input});
+    assign true_done_input = done_input | cp_done;
     parameter DEBOUNCE_THRESHOLD = 4'b0001;  
     reg done_stable;
     reg [3:0] done_counter;
     reg next_done_input, period_done, next_period_done;
-
+    
     always @(posedge clk_de , negedge rst) begin
         if(~rst) begin
             done_stable <= 0;
