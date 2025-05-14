@@ -1,18 +1,18 @@
 // Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
-// Date        : Wed May 14 18:40:50 2025
-// Host        : ASCHENPUTTEL running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim -rename_top pgrom -prefix
-//               pgrom_ blk_mem_gen_0_sim_netlist.v
-// Design      : blk_mem_gen_0
+// Date        : Wed May 14 23:58:29 2025
+// Host        : DESKTOP-TB8HVUN running 64-bit major release  (build 9200)
+// Command     : write_verilog -force -mode funcsim
+//               D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/ip/pgrom/pgrom_sim_netlist.v
+// Design      : pgrom
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
 // Device      : xc7a35tcsg324-1
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CHECK_LICENSE_TYPE = "blk_mem_gen_0,blk_mem_gen_v8_4_1,{}" *) (* downgradeipidentifiedwarnings = "yes" *) (* x_core_info = "blk_mem_gen_v8_4_1,Vivado 2017.4" *) 
+(* CHECK_LICENSE_TYPE = "pgrom,blk_mem_gen_v8_4_1,{}" *) (* downgradeipidentifiedwarnings = "yes" *) (* x_core_info = "blk_mem_gen_v8_4_1,Vivado 2017.4" *) 
 (* NotValidForBitStream *)
 module pgrom
    (clka,
@@ -87,10 +87,10 @@ module pgrom
   (* C_HAS_SOFTECC_OUTPUT_REGS_B = "0" *) 
   (* C_INITA_VAL = "0" *) 
   (* C_INITB_VAL = "0" *) 
-  (* C_INIT_FILE = "blk_mem_gen_0.mem" *) 
-  (* C_INIT_FILE_NAME = "no_coe_file_loaded" *) 
+  (* C_INIT_FILE = "pgrom.mem" *) 
+  (* C_INIT_FILE_NAME = "pgrom.mif" *) 
   (* C_INTERFACE_TYPE = "0" *) 
-  (* C_LOAD_INIT_FILE = "0" *) 
+  (* C_LOAD_INIT_FILE = "1" *) 
   (* C_MEM_TYPE = "3" *) 
   (* C_MUX_PIPELINE_STAGES = "0" *) 
   (* C_PRIM_TYPE = "1" *) 
@@ -186,6 +186,7 @@ module pgrom
         .web(1'b0));
 endmodule
 
+(* ORIG_REF_NAME = "bindec" *) 
 module pgrom_bindec
    (ena_array,
     addra);
@@ -209,6 +210,7 @@ module pgrom_bindec
         .O(ena_array[1]));
 endmodule
 
+(* ORIG_REF_NAME = "blk_mem_gen_generic_cstr" *) 
 module pgrom_blk_mem_gen_generic_cstr
    (douta,
     addra,
@@ -449,6 +451,7 @@ module pgrom_blk_mem_gen_generic_cstr
         .\douta[22] (\ramloop[9].ram.r_n_8 ));
 endmodule
 
+(* ORIG_REF_NAME = "blk_mem_gen_mux" *) 
 module pgrom_blk_mem_gen_mux
    (douta,
     addra,
@@ -822,6 +825,7 @@ module pgrom_blk_mem_gen_mux
         .R(1'b0));
 endmodule
 
+(* ORIG_REF_NAME = "blk_mem_gen_prim_width" *) 
 module pgrom_blk_mem_gen_prim_width
    (douta,
     clka,
@@ -834,7 +838,7 @@ module pgrom_blk_mem_gen_prim_width
   wire clka;
   wire [0:0]douta;
 
-  pgrom_blk_mem_gen_prim_wrapper \prim_noinit.ram 
+  pgrom_blk_mem_gen_prim_wrapper_init \prim_init.ram 
        (.addra(addra),
         .clka(clka),
         .douta(douta));
@@ -853,7 +857,7 @@ module pgrom_blk_mem_gen_prim_width__parameterized0
   wire clka;
   wire [1:0]douta;
 
-  pgrom_blk_mem_gen_prim_wrapper__parameterized0 \prim_noinit.ram 
+  pgrom_blk_mem_gen_prim_wrapper_init__parameterized0 \prim_init.ram 
        (.addra(addra),
         .clka(clka),
         .douta(douta));
@@ -872,7 +876,7 @@ module pgrom_blk_mem_gen_prim_width__parameterized1
   wire clka;
   wire [1:0]douta;
 
-  pgrom_blk_mem_gen_prim_wrapper__parameterized1 \prim_noinit.ram 
+  pgrom_blk_mem_gen_prim_wrapper_init__parameterized1 \prim_init.ram 
        (.addra(addra),
         .clka(clka),
         .douta(douta));
@@ -897,7 +901,7 @@ module pgrom_blk_mem_gen_prim_width__parameterized10
   wire [0:0]\douta[31] ;
   wire [0:0]ena_array;
 
-  pgrom_blk_mem_gen_prim_wrapper__parameterized10 \prim_noinit.ram 
+  pgrom_blk_mem_gen_prim_wrapper_init__parameterized10 \prim_init.ram 
        (.addra(addra),
         .clka(clka),
         .\douta[30] (\douta[30] ),
@@ -924,7 +928,7 @@ module pgrom_blk_mem_gen_prim_width__parameterized11
   wire [7:0]\douta[30] ;
   wire [0:0]\douta[31] ;
 
-  pgrom_blk_mem_gen_prim_wrapper__parameterized11 \prim_noinit.ram 
+  pgrom_blk_mem_gen_prim_wrapper_init__parameterized11 \prim_init.ram 
        (.addra(addra),
         .\addra[13] (\addra[13] ),
         .clka(clka),
@@ -951,7 +955,7 @@ module pgrom_blk_mem_gen_prim_width__parameterized12
   wire \addra[12] ;
   wire clka;
 
-  pgrom_blk_mem_gen_prim_wrapper__parameterized12 \prim_noinit.ram 
+  pgrom_blk_mem_gen_prim_wrapper_init__parameterized12 \prim_init.ram 
        (.DOADO(DOADO),
         .DOPADOP(DOPADOP),
         .addra(addra),
@@ -978,7 +982,7 @@ module pgrom_blk_mem_gen_prim_width__parameterized13
   wire [0:0]\douta[31] ;
   wire [0:0]ena_array;
 
-  pgrom_blk_mem_gen_prim_wrapper__parameterized13 \prim_noinit.ram 
+  pgrom_blk_mem_gen_prim_wrapper_init__parameterized13 \prim_init.ram 
        (.addra(addra),
         .clka(clka),
         .\douta[30] (\douta[30] ),
@@ -1005,7 +1009,7 @@ module pgrom_blk_mem_gen_prim_width__parameterized2
   wire [0:0]\douta[13] ;
   wire [0:0]ena_array;
 
-  pgrom_blk_mem_gen_prim_wrapper__parameterized2 \prim_noinit.ram 
+  pgrom_blk_mem_gen_prim_wrapper_init__parameterized2 \prim_init.ram 
        (.addra(addra),
         .clka(clka),
         .\douta[12] (\douta[12] ),
@@ -1032,7 +1036,7 @@ module pgrom_blk_mem_gen_prim_width__parameterized3
   wire [7:0]\douta[12] ;
   wire [0:0]\douta[13] ;
 
-  pgrom_blk_mem_gen_prim_wrapper__parameterized3 \prim_noinit.ram 
+  pgrom_blk_mem_gen_prim_wrapper_init__parameterized3 \prim_init.ram 
        (.\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 (\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram ),
         .addra(addra),
         .clka(clka),
@@ -1059,7 +1063,7 @@ module pgrom_blk_mem_gen_prim_width__parameterized4
   wire [7:0]\douta[12] ;
   wire [0:0]\douta[13] ;
 
-  pgrom_blk_mem_gen_prim_wrapper__parameterized4 \prim_noinit.ram 
+  pgrom_blk_mem_gen_prim_wrapper_init__parameterized4 \prim_init.ram 
        (.\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 (\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram ),
         .addra(addra),
         .clka(clka),
@@ -1086,7 +1090,7 @@ module pgrom_blk_mem_gen_prim_width__parameterized5
   wire [0:0]\douta[13] ;
   wire [0:0]ena_array;
 
-  pgrom_blk_mem_gen_prim_wrapper__parameterized5 \prim_noinit.ram 
+  pgrom_blk_mem_gen_prim_wrapper_init__parameterized5 \prim_init.ram 
        (.addra(addra),
         .clka(clka),
         .\douta[12] (\douta[12] ),
@@ -1113,7 +1117,7 @@ module pgrom_blk_mem_gen_prim_width__parameterized6
   wire [0:0]\douta[22] ;
   wire [0:0]ena_array;
 
-  pgrom_blk_mem_gen_prim_wrapper__parameterized6 \prim_noinit.ram 
+  pgrom_blk_mem_gen_prim_wrapper_init__parameterized6 \prim_init.ram 
        (.addra(addra),
         .clka(clka),
         .\douta[21] (\douta[21] ),
@@ -1140,7 +1144,7 @@ module pgrom_blk_mem_gen_prim_width__parameterized7
   wire [7:0]\douta[21] ;
   wire [0:0]\douta[22] ;
 
-  pgrom_blk_mem_gen_prim_wrapper__parameterized7 \prim_noinit.ram 
+  pgrom_blk_mem_gen_prim_wrapper_init__parameterized7 \prim_init.ram 
        (.addra(addra),
         .\addra[13] (\addra[13] ),
         .clka(clka),
@@ -1167,7 +1171,7 @@ module pgrom_blk_mem_gen_prim_width__parameterized8
   wire [7:0]\douta[21] ;
   wire [0:0]\douta[22] ;
 
-  pgrom_blk_mem_gen_prim_wrapper__parameterized8 \prim_noinit.ram 
+  pgrom_blk_mem_gen_prim_wrapper_init__parameterized8 \prim_init.ram 
        (.addra(addra),
         .\addra[12] (\addra[12] ),
         .clka(clka),
@@ -1194,7 +1198,7 @@ module pgrom_blk_mem_gen_prim_width__parameterized9
   wire [0:0]\douta[22] ;
   wire [0:0]ena_array;
 
-  pgrom_blk_mem_gen_prim_wrapper__parameterized9 \prim_noinit.ram 
+  pgrom_blk_mem_gen_prim_wrapper_init__parameterized9 \prim_init.ram 
        (.addra(addra),
         .clka(clka),
         .\douta[21] (\douta[21] ),
@@ -1202,7 +1206,8 @@ module pgrom_blk_mem_gen_prim_width__parameterized9
         .ena_array(ena_array));
 endmodule
 
-module pgrom_blk_mem_gen_prim_wrapper
+(* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper_init" *) 
+module pgrom_blk_mem_gen_prim_wrapper_init
    (douta,
     clka,
     addra);
@@ -1230,7 +1235,7 @@ module pgrom_blk_mem_gen_prim_wrapper
     .INITP_05(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INITP_06(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INITP_07(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_00(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_00(256'h00000000000000000000000000000000000000000000000000000000000001FF),
     .INIT_01(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INIT_02(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INIT_03(256'h0000000000000000000000000000000000000000000000000000000000000000),
@@ -1344,8 +1349,8 @@ module pgrom_blk_mem_gen_prim_wrapper
         .WEBWE({1'b0,1'b0,1'b0,1'b0}));
 endmodule
 
-(* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper" *) 
-module pgrom_blk_mem_gen_prim_wrapper__parameterized0
+(* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper_init" *) 
+module pgrom_blk_mem_gen_prim_wrapper_init__parameterized0
    (douta,
     clka,
     addra);
@@ -1389,7 +1394,7 @@ module pgrom_blk_mem_gen_prim_wrapper__parameterized0
     .INITP_0D(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INITP_0E(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INITP_0F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_00(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_00(256'h0000000000000000000000000000000000000000000000000000000000015555),
     .INIT_01(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INIT_02(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INIT_03(256'h0000000000000000000000000000000000000000000000000000000000000000),
@@ -1579,8 +1584,8 @@ module pgrom_blk_mem_gen_prim_wrapper__parameterized0
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
 endmodule
 
-(* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper" *) 
-module pgrom_blk_mem_gen_prim_wrapper__parameterized1
+(* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper_init" *) 
+module pgrom_blk_mem_gen_prim_wrapper_init__parameterized1
    (douta,
     clka,
     addra);
@@ -1624,7 +1629,7 @@ module pgrom_blk_mem_gen_prim_wrapper__parameterized1
     .INITP_0D(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INITP_0E(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INITP_0F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_00(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_00(256'h000000000000000000000000000000000000000000000000000000000000002A),
     .INIT_01(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INIT_02(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INIT_03(256'h0000000000000000000000000000000000000000000000000000000000000000),
@@ -1814,8 +1819,8 @@ module pgrom_blk_mem_gen_prim_wrapper__parameterized1
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
 endmodule
 
-(* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper" *) 
-module pgrom_blk_mem_gen_prim_wrapper__parameterized10
+(* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper_init" *) 
+module pgrom_blk_mem_gen_prim_wrapper_init__parameterized10
    (\douta[30] ,
     \douta[31] ,
     clka,
@@ -1849,7 +1854,7 @@ module pgrom_blk_mem_gen_prim_wrapper__parameterized10
     .DOB_REG(0),
     .EN_ECC_READ("FALSE"),
     .EN_ECC_WRITE("FALSE"),
-    .INITP_00(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INITP_00(256'h0000000000000000000000000000000000000000000000000000000000000180),
     .INITP_01(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INITP_02(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INITP_03(256'h0000000000000000000000000000000000000000000000000000000000000000),
@@ -1865,7 +1870,7 @@ module pgrom_blk_mem_gen_prim_wrapper__parameterized10
     .INITP_0D(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INITP_0E(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INITP_0F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_00(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_00(256'h0000000000000000000000000000000000000000000000FCFC00000000800000),
     .INIT_01(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INIT_02(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INIT_03(256'h0000000000000000000000000000000000000000000000000000000000000000),
@@ -2055,8 +2060,8 @@ module pgrom_blk_mem_gen_prim_wrapper__parameterized10
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
 endmodule
 
-(* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper" *) 
-module pgrom_blk_mem_gen_prim_wrapper__parameterized11
+(* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper_init" *) 
+module pgrom_blk_mem_gen_prim_wrapper_init__parameterized11
    (\douta[30] ,
     \douta[31] ,
     clka,
@@ -2296,8 +2301,8 @@ module pgrom_blk_mem_gen_prim_wrapper__parameterized11
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
 endmodule
 
-(* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper" *) 
-module pgrom_blk_mem_gen_prim_wrapper__parameterized12
+(* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper_init" *) 
+module pgrom_blk_mem_gen_prim_wrapper_init__parameterized12
    (DOADO,
     DOPADOP,
     clka,
@@ -2537,8 +2542,8 @@ module pgrom_blk_mem_gen_prim_wrapper__parameterized12
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
 endmodule
 
-(* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper" *) 
-module pgrom_blk_mem_gen_prim_wrapper__parameterized13
+(* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper_init" *) 
+module pgrom_blk_mem_gen_prim_wrapper_init__parameterized13
    (\douta[30] ,
     \douta[31] ,
     clka,
@@ -2778,8 +2783,8 @@ module pgrom_blk_mem_gen_prim_wrapper__parameterized13
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
 endmodule
 
-(* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper" *) 
-module pgrom_blk_mem_gen_prim_wrapper__parameterized2
+(* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper_init" *) 
+module pgrom_blk_mem_gen_prim_wrapper_init__parameterized2
    (\douta[12] ,
     \douta[13] ,
     clka,
@@ -2829,7 +2834,7 @@ module pgrom_blk_mem_gen_prim_wrapper__parameterized2
     .INITP_0D(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INITP_0E(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INITP_0F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_00(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_00(256'h000000000000000000000000000000000000000000000037470D0914100D0904),
     .INIT_01(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INIT_02(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INIT_03(256'h0000000000000000000000000000000000000000000000000000000000000000),
@@ -3019,8 +3024,8 @@ module pgrom_blk_mem_gen_prim_wrapper__parameterized2
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
 endmodule
 
-(* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper" *) 
-module pgrom_blk_mem_gen_prim_wrapper__parameterized3
+(* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper_init" *) 
+module pgrom_blk_mem_gen_prim_wrapper_init__parameterized3
    (\douta[12] ,
     \douta[13] ,
     \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ,
@@ -3266,8 +3271,8 @@ module pgrom_blk_mem_gen_prim_wrapper__parameterized3
         .O(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ));
 endmodule
 
-(* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper" *) 
-module pgrom_blk_mem_gen_prim_wrapper__parameterized4
+(* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper_init" *) 
+module pgrom_blk_mem_gen_prim_wrapper_init__parameterized4
    (\douta[12] ,
     \douta[13] ,
     \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ,
@@ -3513,8 +3518,8 @@ module pgrom_blk_mem_gen_prim_wrapper__parameterized4
         .O(\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ));
 endmodule
 
-(* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper" *) 
-module pgrom_blk_mem_gen_prim_wrapper__parameterized5
+(* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper_init" *) 
+module pgrom_blk_mem_gen_prim_wrapper_init__parameterized5
    (\douta[12] ,
     \douta[13] ,
     clka,
@@ -3754,8 +3759,8 @@ module pgrom_blk_mem_gen_prim_wrapper__parameterized5
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
 endmodule
 
-(* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper" *) 
-module pgrom_blk_mem_gen_prim_wrapper__parameterized6
+(* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper_init" *) 
+module pgrom_blk_mem_gen_prim_wrapper_init__parameterized6
    (\douta[21] ,
     \douta[22] ,
     clka,
@@ -3789,7 +3794,7 @@ module pgrom_blk_mem_gen_prim_wrapper__parameterized6
     .DOB_REG(0),
     .EN_ECC_READ("FALSE"),
     .EN_ECC_WRITE("FALSE"),
-    .INITP_00(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INITP_00(256'h0000000000000000000000000000000000000000000000000000000000000001),
     .INITP_01(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INITP_02(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INITP_03(256'h0000000000000000000000000000000000000000000000000000000000000000),
@@ -3805,7 +3810,7 @@ module pgrom_blk_mem_gen_prim_wrapper__parameterized6
     .INITP_0D(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INITP_0E(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INITP_0F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_00(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_00(256'h00000000000000000000000000000000000000000000004644C0804000444200),
     .INIT_01(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INIT_02(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INIT_03(256'h0000000000000000000000000000000000000000000000000000000000000000),
@@ -3995,8 +4000,8 @@ module pgrom_blk_mem_gen_prim_wrapper__parameterized6
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
 endmodule
 
-(* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper" *) 
-module pgrom_blk_mem_gen_prim_wrapper__parameterized7
+(* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper_init" *) 
+module pgrom_blk_mem_gen_prim_wrapper_init__parameterized7
    (\douta[21] ,
     \douta[22] ,
     clka,
@@ -4236,8 +4241,8 @@ module pgrom_blk_mem_gen_prim_wrapper__parameterized7
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
 endmodule
 
-(* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper" *) 
-module pgrom_blk_mem_gen_prim_wrapper__parameterized8
+(* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper_init" *) 
+module pgrom_blk_mem_gen_prim_wrapper_init__parameterized8
    (\douta[21] ,
     \douta[22] ,
     clka,
@@ -4477,8 +4482,8 @@ module pgrom_blk_mem_gen_prim_wrapper__parameterized8
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
 endmodule
 
-(* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper" *) 
-module pgrom_blk_mem_gen_prim_wrapper__parameterized9
+(* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper_init" *) 
+module pgrom_blk_mem_gen_prim_wrapper_init__parameterized9
    (\douta[21] ,
     \douta[22] ,
     clka,
@@ -4718,6 +4723,7 @@ module pgrom_blk_mem_gen_prim_wrapper__parameterized9
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
 endmodule
 
+(* ORIG_REF_NAME = "blk_mem_gen_top" *) 
 module pgrom_blk_mem_gen_top
    (douta,
     addra,
@@ -4749,8 +4755,8 @@ endmodule
 (* C_HAS_MEM_OUTPUT_REGS_B = "0" *) (* C_HAS_MUX_OUTPUT_REGS_A = "0" *) (* C_HAS_MUX_OUTPUT_REGS_B = "0" *) 
 (* C_HAS_REGCEA = "0" *) (* C_HAS_REGCEB = "0" *) (* C_HAS_RSTA = "0" *) 
 (* C_HAS_RSTB = "0" *) (* C_HAS_SOFTECC_INPUT_REGS_A = "0" *) (* C_HAS_SOFTECC_OUTPUT_REGS_B = "0" *) 
-(* C_INITA_VAL = "0" *) (* C_INITB_VAL = "0" *) (* C_INIT_FILE = "blk_mem_gen_0.mem" *) 
-(* C_INIT_FILE_NAME = "no_coe_file_loaded" *) (* C_INTERFACE_TYPE = "0" *) (* C_LOAD_INIT_FILE = "0" *) 
+(* C_INITA_VAL = "0" *) (* C_INITB_VAL = "0" *) (* C_INIT_FILE = "pgrom.mem" *) 
+(* C_INIT_FILE_NAME = "pgrom.mif" *) (* C_INTERFACE_TYPE = "0" *) (* C_LOAD_INIT_FILE = "1" *) 
 (* C_MEM_TYPE = "3" *) (* C_MUX_PIPELINE_STAGES = "0" *) (* C_PRIM_TYPE = "1" *) 
 (* C_READ_DEPTH_A = "16384" *) (* C_READ_DEPTH_B = "16384" *) (* C_READ_WIDTH_A = "32" *) 
 (* C_READ_WIDTH_B = "32" *) (* C_RSTRAM_A = "0" *) (* C_RSTRAM_B = "0" *) 
@@ -4760,7 +4766,7 @@ endmodule
 (* C_USE_URAM = "0" *) (* C_WEA_WIDTH = "1" *) (* C_WEB_WIDTH = "1" *) 
 (* C_WRITE_DEPTH_A = "16384" *) (* C_WRITE_DEPTH_B = "16384" *) (* C_WRITE_MODE_A = "WRITE_FIRST" *) 
 (* C_WRITE_MODE_B = "WRITE_FIRST" *) (* C_WRITE_WIDTH_A = "32" *) (* C_WRITE_WIDTH_B = "32" *) 
-(* C_XDEVICEFAMILY = "artix7" *) (* downgradeipidentifiedwarnings = "yes" *) 
+(* C_XDEVICEFAMILY = "artix7" *) (* ORIG_REF_NAME = "blk_mem_gen_v8_4_1" *) (* downgradeipidentifiedwarnings = "yes" *) 
 module pgrom_blk_mem_gen_v8_4_1
    (clka,
     rsta,
@@ -5018,6 +5024,7 @@ module pgrom_blk_mem_gen_v8_4_1
         .douta(douta));
 endmodule
 
+(* ORIG_REF_NAME = "blk_mem_gen_v8_4_1_synth" *) 
 module pgrom_blk_mem_gen_v8_4_1_synth
    (douta,
     addra,

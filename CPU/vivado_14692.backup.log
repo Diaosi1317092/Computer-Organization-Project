@@ -1,0 +1,29 @@
+#-----------------------------------------------------------
+# Vivado v2017.4 (64-bit)
+# SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
+# IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+# Start of session at: Mon May 12 19:21:57 2025
+# Process ID: 14692
+# Current directory: D:/GitHub/Computer-Organization-Project/CPU
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent1376 D:\GitHub\Computer-Organization-Project\CPU\CPU.xpr
+# Log file: D:/GitHub/Computer-Organization-Project/CPU/vivado.log
+# Journal file: D:/GitHub/Computer-Organization-Project/CPU\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/GitHub/Computer-Organization-Project/CPU/CPU.xpr
+INFO: [Project 1-313] Project file moved from 'D:/Clone/Computer-Organization-Project/CPU' since last save.
+Scanning sources...
+Finished scanning sources
+WARNING: [Project 1-509] GeneratedRun file for 'impl_1' not found
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Xilinx/Vivado/2017.4/data/ip'.
+WARNING: [IP_Flow 19-3664] IP 'prgrom' generated file not found 'd:/GitHub/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgrom/prgrom.dcp'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'prgrom' generated file not found 'd:/GitHub/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgrom/prgrom_stub.v'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'prgrom' generated file not found 'd:/GitHub/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgrom/prgrom_stub.vhdl'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'prgrom' generated file not found 'd:/GitHub/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgrom/prgrom_sim_netlist.v'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'prgrom' generated file not found 'd:/GitHub/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgrom/prgrom_sim_netlist.vhdl'. Please regenerate to continue.
+open_project: Time (s): cpu = 00:00:08 ; elapsed = 00:00:06 . Memory (MB): peak = 873.820 ; gain = 155.672
+update_compile_order -fileset sources_1
+exit
+INFO: [Common 17-206] Exiting Vivado at Mon May 12 20:15:16 2025...

@@ -21,13 +21,37 @@ create_project -in_memory -part xc7a35tcsg324-1
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
-set_property webtalk.parent_dir C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.cache/wt [current_project]
-set_property parent.project_path C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.xpr [current_project]
+set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
+set_property webtalk.parent_dir D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.cache/wt [current_project]
+set_property parent.project_path D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.xpr [current_project]
+set_property XPM_LIBRARIES XPM_MEMORY [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
-set_property ip_output_repo c:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.cache/ip [current_project]
+set_property ip_output_repo d:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
-read_verilog -library xil_defaultlib C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/top_module.v
+add_files d:/GitHub/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgrom/test1ROM.coe
+read_verilog -library xil_defaultlib -sv {
+  D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/ID.v
+  D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/WB.v
+  D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/top_module.v
+}
+read_verilog -library xil_defaultlib {
+  D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/ClockDivider.v
+  D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/EXE.v
+  D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/HarzardDetection.v
+  D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/IF.v
+  D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/InputModule.v
+  D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/MEM.v
+  D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/OutputModule.v
+  D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/SegDisplay.v
+  D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/SegGenerator.v
+}
+read_ip -quiet d:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/ip/pgram/pgram.xci
+set_property used_in_implementation false [get_files -all d:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/ip/pgram/pgram_ooc.xdc]
+
+read_ip -quiet D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/ip/pgrom/pgrom.xci
+set_property used_in_implementation false [get_files -all d:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/ip/pgrom/pgrom_ooc.xdc]
+
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
 # design are intentionally left as such for best results. Dcp files will be
@@ -36,6 +60,9 @@ read_verilog -library xil_defaultlib C:/Users/48946/Documents/GitHub/Computer-Or
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
+read_xdc D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/constrs_1/new/pipelineCPU.xdc
+set_property used_in_implementation false [get_files D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/constrs_1/new/pipelineCPU.xdc]
+
 
 synth_design -top top_module -part xc7a35tcsg324-1
 

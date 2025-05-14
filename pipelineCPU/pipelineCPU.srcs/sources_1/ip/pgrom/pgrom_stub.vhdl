@@ -1,11 +1,11 @@
 -- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
--- Date        : Wed May 14 18:40:50 2025
--- Host        : ASCHENPUTTEL running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode synth_stub -rename_top pgrom -prefix
---               pgrom_ blk_mem_gen_0_stub.vhdl
--- Design      : blk_mem_gen_0
+-- Date        : Wed May 14 23:58:29 2025
+-- Host        : DESKTOP-TB8HVUN running 64-bit major release  (build 9200)
+-- Command     : write_vhdl -force -mode synth_stub
+--               D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/ip/pgrom/pgrom_stub.vhdl
+-- Design      : pgrom
 -- Purpose     : Stub declaration of top-level module interface
 -- Device      : xc7a35tcsg324-1
 -- --------------------------------------------------------------------------------

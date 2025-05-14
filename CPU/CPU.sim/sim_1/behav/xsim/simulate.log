@@ -2,21 +2,4 @@ Vivado Simulator 2017.4
 Time resolution is 1 ps
  Block Memory Generator module loading initial data...
  Block Memory Generator data initialization complete.
-Block Memory Generator module tb_IFetch.uut.urom.inst.native_mem_module.blk_mem_gen_v8_4_1_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
-PC = 00003000, inst = 00000293
-BRANCH¡ú PC = 00003004
-JAL    ¡ú PC = 00003014
-FROZEN ¡ú PC = 00003034
-JALR   ¡ú PC = 00003034
-$finish called at time : 145 ns : File "D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sim_1/new/tb_IFetch.v" Line 95
-Line 92
-00000000
-HEX sel=3: seg1=01111010 seg2=11111110 led=00000000
-HEX sel=4: seg1=01111010 seg2=00111110 led=00000000
-HEX sel=5: seg1=01111010 seg2=10011110 led=00000000
-HEX sel=6: seg1=01111010 seg2=10011110 led=00000000
-HEX sel=7: seg1=01111010 seg2=10001110 led=00000000
-LED mode sel=0: seg1=00000000 seg2=00000000 led=11111111
-LED mode sel=1: seg1=00000000 seg2=00000000 led=11111111
-SegDisplay testbench complete
-$finish called at time : 19 ns : File "D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sim_1/new/tb_SegDisplay.v" Line 58
+Block Memory Generator module tb_cpu.uut_tm.uut_dmem.udram.inst.native_mem_module.blk_mem_gen_v8_4_1_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
