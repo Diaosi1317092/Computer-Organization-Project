@@ -12,6 +12,7 @@ module top_module(
     input init_clk,
     input rst,
     input done,
+    input cp_done,
     input [7:0] sw_input,
     input  wire rx,
     output wire tx,
@@ -31,8 +32,6 @@ module top_module(
     wire is_ecall;
     wire [31:0] reg_a7;
     wire [7:0] cp_input;
-    wire cp_done;
-
     
     //divided clock
     wire clk_de;
@@ -215,8 +214,8 @@ module top_module(
         .rst(rst),
         .rx(rx),
         .tx(tx),
-        .cp_input(cp_input),
-        .cp_done(cp_done)
+        .cp_input(cp_input)
+//        .cp_done(cp_done)
     );
     
 endmodule

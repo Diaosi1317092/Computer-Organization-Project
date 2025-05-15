@@ -66,19 +66,13 @@ set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
   set_param xicom.use_bs_reader 1
-  create_project -in_memory -part xc7a35tcsg324-1
-  set_property design_mode GateLvl [current_fileset]
-  set_param project.singleFileAddWarning.threshold 0
+  reset_param project.defaultXPMLibraries 
+  open_checkpoint D:/Clone/Computer-Organization-Project/CPU/CPU.runs/impl_1/top_module.dcp
   set_property webtalk.parent_dir D:/Clone/Computer-Organization-Project/CPU/CPU.cache/wt [current_project]
   set_property parent.project_path D:/Clone/Computer-Organization-Project/CPU/CPU.xpr [current_project]
   set_property ip_output_repo D:/Clone/Computer-Organization-Project/CPU/CPU.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
   set_property XPM_LIBRARIES XPM_MEMORY [current_project]
-  add_files -quiet D:/Clone/Computer-Organization-Project/CPU/CPU.runs/synth_1/top_module.dcp
-  read_ip -quiet D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgram/prgram.xci
-  read_ip -quiet D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgrom/prgrom.xci
-  read_xdc D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/constrs_1/new/constrains.xdc
-  link_design -top top_module -part xc7a35tcsg324-1
   close_msg_db -file init_design.pb
 } RESULT]
 if {$rc} {

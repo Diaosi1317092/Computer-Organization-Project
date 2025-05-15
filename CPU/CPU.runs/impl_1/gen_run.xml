@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7a35tcsg324-1" LaunchTime="1747322849">
-  <File Type="PWROPT-DCP" Name="top_module_pwropt.dcp"/>
+<GenRun Id="impl_1" LaunchPart="xc7a35tcsg324-1" LaunchTime="1747325736">
+  <File Type="OPT-HWDEF" Name="top_module.hwdef"/>
+  <File Type="PA-DCP" Name="top_module.dcp"/>
+  <File Type="OPT-DCP" Name="top_module_opt.dcp"/>
   <File Type="ROUTE-PWR" Name="top_module_power_routed.rpt"/>
   <File Type="PA-TCL" Name="top_module.tcl"/>
   <File Type="ROUTE-PWR-SUM" Name="top_module_power_summary_routed.pb"/>
@@ -8,10 +10,9 @@
   <File Type="BG-DRC" Name="top_module.drc"/>
   <File Type="OPT-METHODOLOGY-DRC" Name="top_module_methodology_drc_opted.rpt"/>
   <File Type="INIT-TIMING" Name="top_module_timing_summary_init.rpt"/>
-  <File Type="OPT-HWDEF" Name="top_module.hwdef"/>
-  <File Type="OPT-DCP" Name="top_module_opt.dcp"/>
   <File Type="OPT-DRC" Name="top_module_drc_opted.rpt"/>
   <File Type="OPT-TIMING" Name="top_module_timing_summary_opted.rpt"/>
+  <File Type="PWROPT-DCP" Name="top_module_pwropt.dcp"/>
   <File Type="PWROPT-DRC" Name="top_module_drc_pwropted.rpt"/>
   <File Type="PWROPT-TIMING" Name="top_module_timing_summary_pwropted.rpt"/>
   <File Type="PLACE-DCP" Name="top_module_placed.dcp"/>

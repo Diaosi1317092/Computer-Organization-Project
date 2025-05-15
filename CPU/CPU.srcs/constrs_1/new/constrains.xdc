@@ -94,4 +94,5 @@ set_property PACKAGE_PIN N5 [get_ports rx]
 set_property PACKAGE_PIN T4 [get_ports tx]
 
 set_property IOSTANDARD LVCMOS33 [get_ports cp_done]
-set_property PACKAGE_PIN K1 [get_ports cp_done]
+set_property PACKAGE_PIN R11 [get_ports cp_done]
+

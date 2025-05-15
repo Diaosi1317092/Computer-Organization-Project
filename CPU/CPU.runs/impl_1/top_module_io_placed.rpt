@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------
 | Tool Version              : Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
-| Date                      : Thu May 15 23:29:42 2025
+| Date                      : Fri May 16 00:16:11 2025
 | Host                      : Dupreeh running 64-bit major release  (build 9200)
 | Command                   : report_io -file top_module_io_placed.rpt
 | Design                    : top_module
@@ -25,7 +25,7 @@ Table of Contents
 +---------------+
 | Total User IO |
 +---------------+
-|            45 |
+|            46 |
 +---------------+
 
 
@@ -297,7 +297,7 @@ Table of Contents
 | R8         |             | High Range | IO_L24P_T3_34                | User IO     |             |      34 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
 | R9         |             | Dedicated  | VCCO_0                       | VCCO        |             |       0 |            |      |                     |                      |   any** |            |           |          |      |                  |              |                   |              |
 | R10        |             | High Range | IO_25_14                     | User IO     |             |      14 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
-| R11        |             | High Range | IO_0_14                      | User IO     |             |      14 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
+| R11        | cp_done     | High Range | IO_0_14                      | INPUT       | LVCMOS33    |      14 |            |      |                     |                 NONE |         | FIXED      |           |          |      | NONE             |              |                   |              |
 | R12        |             | High Range | IO_L5P_T0_D06_14             | User IO     |             |      14 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
 | R13        |             | High Range | IO_L5N_T0_D07_14             | User IO     |             |      14 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
 | R14        |             |            | GND                          | GND         |             |         |            |      |                     |                      |     0.0 |            |           |          |      |                  |              |                   |              |
