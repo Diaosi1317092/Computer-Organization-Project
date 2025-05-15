@@ -16,6 +16,7 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
+set_param xicom.use_bs_reader 1
 create_project -in_memory -part xc7a35tcsg324-1
 
 set_param project.singleFileAddWarning.threshold 0
@@ -29,7 +30,11 @@ set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property ip_output_repo d:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
-add_files d:/GitHub/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgrom/test1ROM.coe
+add_files D:/GitHub/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgrom/test1ROM.coe
+add_files d:/GitHub/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgrom/test9ROM.coe
+add_files d:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/ip/pgrom/BaseTest1ROM.coe
+add_files d:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/ip/pgrom/test_jbc_1.coe
+add_files d:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/ip/pgrom/test_jbc_2.coe
 read_verilog -library xil_defaultlib -sv {
   D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/ID.v
   D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/WB.v
@@ -46,7 +51,7 @@ read_verilog -library xil_defaultlib {
   D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/SegDisplay.v
   D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/SegGenerator.v
 }
-read_ip -quiet d:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/ip/pgram/pgram.xci
+read_ip -quiet D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/ip/pgram/pgram.xci
 set_property used_in_implementation false [get_files -all d:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/ip/pgram/pgram_ooc.xdc]
 
 read_ip -quiet D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/ip/pgrom/pgrom.xci

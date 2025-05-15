@@ -16,22 +16,4 @@ WARNING: [VRFC 10-696] first argument of $fatal is invalid, expecting 0, 1 or 2 
 WARNING: [VRFC 10-696] first argument of $fatal is invalid, expecting 0, 1 or 2 [D:/GitHub/Computer-Organization-Project/CPU/CPU.srcs/sim_1/new/tb_Controller.v:109]
 WARNING: [VRFC 10-696] first argument of $fatal is invalid, expecting 0, 1 or 2 [D:/GitHub/Computer-Organization-Project/CPU/CPU.srcs/sim_1/new/tb_Controller.v:114]
 Completed static elaboration
-INFO: [XSIM 43-4329] Assuming default value 1 for the first arguement of $fatal at Line 57, File D:/GitHub/Computer-Organization-Project/CPU/CPU.srcs/sim_1/new/tb_Controller.v
-INFO: [XSIM 43-4329] Assuming default value 1 for the first arguement of $fatal at Line 62, File D:/GitHub/Computer-Organization-Project/CPU/CPU.srcs/sim_1/new/tb_Controller.v
-INFO: [XSIM 43-4329] Assuming default value 1 for the first arguement of $fatal at Line 68, File D:/GitHub/Computer-Organization-Project/CPU/CPU.srcs/sim_1/new/tb_Controller.v
-INFO: [XSIM 43-4329] Assuming default value 1 for the first arguement of $fatal at Line 73, File D:/GitHub/Computer-Organization-Project/CPU/CPU.srcs/sim_1/new/tb_Controller.v
-INFO: [XSIM 43-4329] Assuming default value 1 for the first arguement of $fatal at Line 79, File D:/GitHub/Computer-Organization-Project/CPU/CPU.srcs/sim_1/new/tb_Controller.v
-INFO: [XSIM 43-4329] Assuming default value 1 for the first arguement of $fatal at Line 84, File D:/GitHub/Computer-Organization-Project/CPU/CPU.srcs/sim_1/new/tb_Controller.v
-INFO: [XSIM 43-4329] Assuming default value 1 for the first arguement of $fatal at Line 89, File D:/GitHub/Computer-Organization-Project/CPU/CPU.srcs/sim_1/new/tb_Controller.v
-INFO: [XSIM 43-4329] Assuming default value 1 for the first arguement of $fatal at Line 94, File D:/GitHub/Computer-Organization-Project/CPU/CPU.srcs/sim_1/new/tb_Controller.v
-INFO: [XSIM 43-4329] Assuming default value 1 for the first arguement of $fatal at Line 99, File D:/GitHub/Computer-Organization-Project/CPU/CPU.srcs/sim_1/new/tb_Controller.v
-INFO: [XSIM 43-4329] Assuming default value 1 for the first arguement of $fatal at Line 104, File D:/GitHub/Computer-Organization-Project/CPU/CPU.srcs/sim_1/new/tb_Controller.v
-INFO: [XSIM 43-4329] Assuming default value 1 for the first arguement of $fatal at Line 109, File D:/GitHub/Computer-Organization-Project/CPU/CPU.srcs/sim_1/new/tb_Controller.v
-INFO: [XSIM 43-4329] Assuming default value 1 for the first arguement of $fatal at Line 114, File D:/GitHub/Computer-Organization-Project/CPU/CPU.srcs/sim_1/new/tb_Controller.v
-Starting simulation data flow analysis
-Completed simulation data flow analysis
-Time Resolution for simulation is 1ps
-Compiling module xil_defaultlib.Controller
-Compiling module xil_defaultlib.tb_Controller
-Compiling module xil_defaultlib.glbl
-Built simulation snapshot tb_Controller_behav
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel

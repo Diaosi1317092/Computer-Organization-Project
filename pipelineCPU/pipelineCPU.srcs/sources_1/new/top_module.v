@@ -30,8 +30,8 @@ module top_module(
     assign u1_pc = pc;
     
     //ID-EXE u2-v2
-    wire [31:0] u2_rs1_data, u2_rs2_data, u2_imm32;
-    reg [31:0] v2_rs1_data, v2_rs2_data, v2_imm32;
+    wire [31:0] u2_rs1_data, u2_rs2_data, u2_imm32,u2_output_data,u2_reg_a7;
+    reg [31:0] v2_rs1_data, v2_rs2_data, v2_imm32,v2_output_data,v2_reg_a7;
 
     wire [31:0] u2_pc;
     reg [31:0] v2_pc;
@@ -45,15 +45,23 @@ module top_module(
     wire [4:0] u2_rd;
     reg [4:0] v2_rd;
     
-    wire u2_branch, u2_alu_src, u2_mem_read, u2_mem_write, u2_mem_to_reg, u2_reg_write;
+    wire u2_branch, u2_alu_src, u2_mem_read, u2_mem_write, u2_mem_to_reg, u2_reg_write, u2_en_output;
     wire u2_is_jal, u2_is_jalr, u2_is_lui, u2_is_auipc;
     wire [1:0] u2_alu_op;
 
-    reg v2_branch, v2_alu_src, v2_mem_read, v2_mem_write, v2_mem_to_reg, v2_reg_write;
+    reg v2_branch, v2_alu_src, v2_mem_read, v2_mem_write, v2_mem_to_reg, v2_reg_write, v2_en_output;
     reg v2_is_jal, v2_is_jalr, v2_is_lui, v2_is_auipc;
     reg [1:0] v2_alu_op;
 
     //EXE-MEM u3-v3
+    wire u3_branch;
+    reg v3_branch;
+    assign u3_branch = v2_branch;
+
+    wire [31:0] u3_imm32;
+    reg [31:0] v3_imm32;
+    assign u3_imm32 = v2_imm32;
+
     wire [31:0] u3_alu_result;
     wire u3_zero;
     reg [31:0] v3_alu_result;
@@ -154,6 +162,8 @@ module top_module(
             v3_is_jalr <= 0;
             v3_pc <= 0;
             v3_rd <= 0;
+            v3_branch <= 0;
+            v3_imm32 <= 32'b0;
 
             v4_mem_read_data <= 32'b0;
             v4_mem_to_reg <= 0;
@@ -166,57 +176,112 @@ module top_module(
             v4_rd <= 0;
 
         end else begin
-            v1_inst <= u1_inst;
-            v1_pc <= u1_pc;
+            if (en_pc) begin 
+                v1_inst <= u1_inst;
+                v1_pc <= u1_pc;
 
-            v2_imm32 <= u2_imm32;
-            v2_rs1_data <= u2_rs1_data;
-            v2_rs2_data <= u2_rs2_data;
-            v2_branch <= u2_branch;
-            v2_alu_src <= u2_alu_src;
-            v2_mem_read <= u2_mem_read;
-            v2_mem_write <= u2_mem_write;
-            v2_mem_to_reg <= u2_mem_to_reg;
-            v2_reg_write <= u2_reg_write;
-            v2_is_jal <= u2_is_jal;
-            v2_is_jalr <= u2_is_jalr;
-            v2_is_lui <= u2_is_lui;
-            v2_is_auipc <= u2_is_auipc;
-            v2_alu_op <= u2_alu_op;
-            v2_funct3 <= u2_funct3;
-            v2_funct7 <= u2_funct7;
-            v2_pc <= u2_pc;
-            v2_rd <= u2_rd;
+                v2_imm32 <= u2_imm32;
+                v2_rs1_data <= u2_rs1_data;
+                v2_rs2_data <= u2_rs2_data;
+                v2_branch <= u2_branch;
+                v2_alu_src <= u2_alu_src;
+                v2_mem_read <= u2_mem_read;
+                v2_mem_write <= u2_mem_write;
+                v2_mem_to_reg <= u2_mem_to_reg;
+                v2_reg_write <= u2_reg_write;
+                v2_is_jal <= u2_is_jal;
+                v2_is_jalr <= u2_is_jalr;
+                v2_is_lui <= u2_is_lui;
+                v2_is_auipc <= u2_is_auipc;
+                v2_alu_op <= u2_alu_op;
+                v2_funct3 <= u2_funct3;
+                v2_funct7 <= u2_funct7;
+                v2_pc <= u2_pc;
+                v2_rd <= u2_rd;
+                v2_reg_a7 <= u2_reg_a7;
+                v2_output_data <= u2_output_data;
+                v2_en_output <= u2_en_output;
 
-            v3_alu_result <= u3_alu_result;
-            v3_zero <= u3_zero;
-            v3_mem_read <= u3_mem_read;
-            v3_mem_write <= u3_mem_write;
-            v3_rs2_data <= u3_rs2_data;
-            v3_pc <= u3_pc;
-            v3_mem_to_reg <= u3_mem_to_reg;
-            v3_reg_write <= u3_reg_write;
-            v3_funct3 <= u3_funct3;
-            v3_is_jal <= u3_is_jal;
-            v3_is_jalr <= u3_is_jalr;
-            v3_rd <= u3_rd;
-            
+                v3_alu_result <= u3_alu_result;
+                v3_zero <= u3_zero;
+                v3_mem_read <= u3_mem_read;
+                v3_mem_write <= u3_mem_write;
+                v3_rs2_data <= u3_rs2_data;
+                v3_pc <= u3_pc;
+                v3_mem_to_reg <= u3_mem_to_reg;
+                v3_reg_write <= u3_reg_write;
+                v3_funct3 <= u3_funct3;
+                v3_is_jal <= u3_is_jal;
+                v3_is_jalr <= u3_is_jalr;
+                v3_rd <= u3_rd;
+                v3_branch <= u3_branch;
+                v3_imm32 <= u3_imm32;
 
-            v4_mem_read_data <= u4_mem_read_data;
-            v4_mem_to_reg <= u4_mem_to_reg;
-            v4_reg_write <= u4_reg_write;
-            v4_alu_result <= u4_alu_result;
-            v4_funct3 <= u4_funct3;
-            v4_is_jal <= u4_is_jal;
-            v4_is_jalr <= u4_is_jalr;
-            v4_pc <= u4_pc;
-            v4_rd <= u4_rd;
+                v4_mem_read_data <= u4_mem_read_data;
+                v4_mem_to_reg <= u4_mem_to_reg;
+                v4_reg_write <= u4_reg_write;
+                v4_alu_result <= u4_alu_result;
+                v4_funct3 <= u4_funct3;
+                v4_is_jal <= u4_is_jal;
+                v4_is_jalr <= u4_is_jalr;
+                v4_pc <= u4_pc;
+                v4_rd <= u4_rd;
+            end else begin
+                v1_inst <= v1_inst;
+                v1_pc <= v1_pc;
+
+                v2_imm32 <= v2_imm32;
+                v2_rs1_data <= v2_rs1_data;
+                v2_rs2_data <= v2_rs2_data;
+                v2_branch <= v2_branch;
+                v2_alu_src <= v2_alu_src;
+                v2_mem_read <= v2_mem_read;
+                v2_mem_write <= v2_mem_write;
+                v2_mem_to_reg <= v2_mem_to_reg;
+                v2_reg_write <= v2_reg_write;
+                v2_is_jal <= v2_is_jal;
+                v2_is_jalr <= v2_is_jalr;
+                v2_is_lui <= v2_is_lui;
+                v2_is_auipc <= v2_is_auipc;
+                v2_alu_op <= v2_alu_op;
+                v2_funct3 <= v2_funct3;
+                v2_funct7 <= v2_funct7;
+                v2_pc <= v2_pc;
+                v2_rd <= v2_rd;
+                v2_reg_a7 <= v2_reg_a7;
+                v2_output_data <= v2_output_data;
+                v2_en_output <= v2_en_output;
+
+                v3_alu_result <= v3_alu_result;
+                v3_zero <= v3_zero;
+                v3_mem_read <= v3_mem_read;
+                v3_mem_write <= v3_mem_write;
+                v3_rs2_data <= v3_rs2_data;
+                v3_pc <= v3_pc;
+                v3_mem_to_reg <= v3_mem_to_reg;
+                v3_reg_write <= v3_reg_write;
+                v3_funct3 <= v3_funct3;
+                v3_is_jal <= v3_is_jal;
+                v3_is_jalr <= v3_is_jalr;
+                v3_rd <= v3_rd;
+                
+
+                v4_mem_read_data <= v4_mem_read_data;
+                v4_mem_to_reg <= v4_mem_to_reg;
+                v4_reg_write <= v4_reg_write;
+                v4_alu_result <= v4_alu_result;
+                v4_funct3 <= v4_funct3;
+                v4_is_jal <= v4_is_jal;
+                v4_is_jalr <= v4_is_jalr;
+                v4_pc <= v4_pc;
+                v4_rd <= v4_rd;
+            end
         end
     end
     ClockDivider uut_clk_divider(
             .clk(init_clk),
             .rst(rst),
-            .period(10000),
+            .period(10000),// in order to do simulation, still needed to change for pipeline
             .clk_out(clk)
         );
     ClockDivider uut_debounce_divider(
@@ -229,12 +294,13 @@ module top_module(
     HarzardDetection hd_uut(
         .clk(clk),
         .rst(rst),
-        .en_pc(en_pc),//to do
-        // .imm32(imm32),
-        // .is_jal(is_jal),
-        // .is_jalr(is_jalr),
-        // .branch(branch),
-        // .zero(zero),
+        .en_pc(en_pc),
+        .imm32(v3_imm32),
+        .new_pc(v3_alu_result),
+        .is_jal(v3_is_jal),
+        .is_jalr(v3_is_jalr),
+        .branch(v3_branch),
+        .zero(v3_zero),
         .is_nop(is_nop),
         .pc(pc)
     );
@@ -259,6 +325,8 @@ module top_module(
         .funct3(u2_funct3),
         .funct7(u2_funct7),
         .rd(u2_rd),
+        .reg_a7(u2_reg_a7),
+        .output_data(u2_output_data),
 
         .alu_src(u2_alu_src),
         .alu_op(u2_alu_op),
@@ -276,7 +344,7 @@ module top_module(
         .is_auipc(u2_is_auipc),
         .en_pc(en_pc),//output
         .en_input(en_input),
-        .en_output(en_output)
+        .en_output(u2_en_output)
     );
 
     EXE exe_uut (
@@ -308,6 +376,7 @@ module top_module(
     WB wb_uut(
         .clk(clk),
         .rst(rst),
+        .en_pc(en_pc),
         .mem_to_reg(v4_mem_to_reg),
         .reg_write(v4_reg_write),
         .mem_read_data(v4_mem_read_data),
@@ -337,9 +406,9 @@ module top_module(
     OutputModule uut_output(
         .clk(init_clk),
         .rst(rst),
-        .en_output(en_output),
-        .reg_a7(regs[17]),
-        .output_data(regs[10]),
+        .en_output(v2_en_output),
+        .reg_a7(v2_reg_a7),
+        .output_data(v2_output_data),
         .seg1(seg1),
         .seg2(seg2),
         .led(led),

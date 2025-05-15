@@ -11,22 +11,90 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="999997883fs"></ZoomStartTime>
-      <ZoomEndTime time="1000000424fs"></ZoomEndTime>
-      <Cursor1Time time="1000000000fs"></Cursor1Time>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="267455622fs"></ZoomEndTime>
+      <Cursor1Time time="307692000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="99"></NameColumnWidth>
+      <NameColumnWidth column_width="127"></NameColumnWidth>
       <ValueColumnWidth column_width="58"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="96" />
-   <wvobject fp_name="/tb_pipeline/clk" type="logic">
+   <WVObjectSize size="122" />
+   <wvobject fp_name="/tb_pipeline/uut_tm/clk" type="logic">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_pipeline/rst" type="logic">
+   <wvobject fp_name="/tb_pipeline/uut_tm/regs" type="array">
+      <obj_property name="ElementShortName">regs[0:31][31:0]</obj_property>
+      <obj_property name="ObjectShortName">regs[0:31][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pipeline/uut_tm/done" type="logic">
+      <obj_property name="ElementShortName">done</obj_property>
+      <obj_property name="ObjectShortName">done</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pipeline/uut_tm/en_pc" type="logic">
+      <obj_property name="ElementShortName">en_pc</obj_property>
+      <obj_property name="ObjectShortName">en_pc</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pipeline/uut_tm/done_input" type="logic">
+      <obj_property name="ElementShortName">done_input</obj_property>
+      <obj_property name="ObjectShortName">done_input</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pipeline/uut_tm/en_input" type="logic">
+      <obj_property name="ElementShortName">en_input</obj_property>
+      <obj_property name="ObjectShortName">en_input</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pipeline/uut_tm/en_output" type="logic">
+      <obj_property name="ElementShortName">en_output</obj_property>
+      <obj_property name="ObjectShortName">en_output</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pipeline/uut_tm/input_data" type="array">
+      <obj_property name="ElementShortName">input_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">input_data[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pipeline/uut_tm/clk_de" type="logic">
+      <obj_property name="ElementShortName">clk_de</obj_property>
+      <obj_property name="ObjectShortName">clk_de</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pipeline/uut_tm/pc" type="array">
+      <obj_property name="ElementShortName">pc[31:0]</obj_property>
+      <obj_property name="ObjectShortName">pc[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pipeline/uut_tm/is_nop" type="logic">
+      <obj_property name="ElementShortName">is_nop</obj_property>
+      <obj_property name="ObjectShortName">is_nop</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pipeline/uut_tm/init_clk" type="logic">
+      <obj_property name="ElementShortName">init_clk</obj_property>
+      <obj_property name="ObjectShortName">init_clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pipeline/uut_tm/rst" type="logic">
       <obj_property name="ElementShortName">rst</obj_property>
       <obj_property name="ObjectShortName">rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pipeline/uut_tm/done" type="logic">
+      <obj_property name="ElementShortName">done</obj_property>
+      <obj_property name="ObjectShortName">done</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pipeline/uut_tm/sw_input" type="array">
+      <obj_property name="ElementShortName">sw_input[7:0]</obj_property>
+      <obj_property name="ObjectShortName">sw_input[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pipeline/uut_tm/seg1" type="array">
+      <obj_property name="ElementShortName">seg1[7:0]</obj_property>
+      <obj_property name="ObjectShortName">seg1[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pipeline/uut_tm/seg2" type="array">
+      <obj_property name="ElementShortName">seg2[7:0]</obj_property>
+      <obj_property name="ObjectShortName">seg2[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pipeline/uut_tm/led" type="array">
+      <obj_property name="ElementShortName">led[7:0]</obj_property>
+      <obj_property name="ObjectShortName">led[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pipeline/uut_tm/an" type="array">
+      <obj_property name="ElementShortName">an[7:0]</obj_property>
+      <obj_property name="ObjectShortName">an[7:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_pipeline/uut_tm/regs" type="array">
       <obj_property name="ElementShortName">regs[0:31][31:0]</obj_property>
@@ -47,6 +115,18 @@
    <wvobject fp_name="/tb_pipeline/uut_tm/en_output" type="logic">
       <obj_property name="ElementShortName">en_output</obj_property>
       <obj_property name="ObjectShortName">en_output</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pipeline/uut_tm/input_data" type="array">
+      <obj_property name="ElementShortName">input_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">input_data[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pipeline/uut_tm/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pipeline/uut_tm/clk_de" type="logic">
+      <obj_property name="ElementShortName">clk_de</obj_property>
+      <obj_property name="ObjectShortName">clk_de</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_pipeline/uut_tm/pc" type="array">
       <obj_property name="ElementShortName">pc[31:0]</obj_property>
@@ -84,6 +164,14 @@
       <obj_property name="ElementShortName">u2_imm32[31:0]</obj_property>
       <obj_property name="ObjectShortName">u2_imm32[31:0]</obj_property>
    </wvobject>
+   <wvobject fp_name="/tb_pipeline/uut_tm/u2_output_data" type="array">
+      <obj_property name="ElementShortName">u2_output_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">u2_output_data[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pipeline/uut_tm/u2_reg_a7" type="array">
+      <obj_property name="ElementShortName">u2_reg_a7[31:0]</obj_property>
+      <obj_property name="ObjectShortName">u2_reg_a7[31:0]</obj_property>
+   </wvobject>
    <wvobject fp_name="/tb_pipeline/uut_tm/v2_rs1_data" type="array">
       <obj_property name="ElementShortName">v2_rs1_data[31:0]</obj_property>
       <obj_property name="ObjectShortName">v2_rs1_data[31:0]</obj_property>
@@ -95,6 +183,14 @@
    <wvobject fp_name="/tb_pipeline/uut_tm/v2_imm32" type="array">
       <obj_property name="ElementShortName">v2_imm32[31:0]</obj_property>
       <obj_property name="ObjectShortName">v2_imm32[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pipeline/uut_tm/v2_output_data" type="array">
+      <obj_property name="ElementShortName">v2_output_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">v2_output_data[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pipeline/uut_tm/v2_reg_a7" type="array">
+      <obj_property name="ElementShortName">v2_reg_a7[31:0]</obj_property>
+      <obj_property name="ObjectShortName">v2_reg_a7[31:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_pipeline/uut_tm/u2_pc" type="array">
       <obj_property name="ElementShortName">u2_pc[31:0]</obj_property>
@@ -132,10 +228,6 @@
       <obj_property name="ElementShortName">u2_branch</obj_property>
       <obj_property name="ObjectShortName">u2_branch</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_pipeline/uut_tm/u2_zero" type="logic">
-      <obj_property name="ElementShortName">u2_zero</obj_property>
-      <obj_property name="ObjectShortName">u2_zero</obj_property>
-   </wvobject>
    <wvobject fp_name="/tb_pipeline/uut_tm/u2_alu_src" type="logic">
       <obj_property name="ElementShortName">u2_alu_src</obj_property>
       <obj_property name="ObjectShortName">u2_alu_src</obj_property>
@@ -155,6 +247,10 @@
    <wvobject fp_name="/tb_pipeline/uut_tm/u2_reg_write" type="logic">
       <obj_property name="ElementShortName">u2_reg_write</obj_property>
       <obj_property name="ObjectShortName">u2_reg_write</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pipeline/uut_tm/u2_en_output" type="logic">
+      <obj_property name="ElementShortName">u2_en_output</obj_property>
+      <obj_property name="ObjectShortName">u2_en_output</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_pipeline/uut_tm/u2_is_jal" type="logic">
       <obj_property name="ElementShortName">u2_is_jal</obj_property>
@@ -180,10 +276,6 @@
       <obj_property name="ElementShortName">v2_branch</obj_property>
       <obj_property name="ObjectShortName">v2_branch</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_pipeline/uut_tm/v2_zero" type="logic">
-      <obj_property name="ElementShortName">v2_zero</obj_property>
-      <obj_property name="ObjectShortName">v2_zero</obj_property>
-   </wvobject>
    <wvobject fp_name="/tb_pipeline/uut_tm/v2_alu_src" type="logic">
       <obj_property name="ElementShortName">v2_alu_src</obj_property>
       <obj_property name="ObjectShortName">v2_alu_src</obj_property>
@@ -204,6 +296,10 @@
       <obj_property name="ElementShortName">v2_reg_write</obj_property>
       <obj_property name="ObjectShortName">v2_reg_write</obj_property>
    </wvobject>
+   <wvobject fp_name="/tb_pipeline/uut_tm/v2_en_output" type="logic">
+      <obj_property name="ElementShortName">v2_en_output</obj_property>
+      <obj_property name="ObjectShortName">v2_en_output</obj_property>
+   </wvobject>
    <wvobject fp_name="/tb_pipeline/uut_tm/v2_is_jal" type="logic">
       <obj_property name="ElementShortName">v2_is_jal</obj_property>
       <obj_property name="ObjectShortName">v2_is_jal</obj_property>
@@ -223,6 +319,22 @@
    <wvobject fp_name="/tb_pipeline/uut_tm/v2_alu_op" type="array">
       <obj_property name="ElementShortName">v2_alu_op[1:0]</obj_property>
       <obj_property name="ObjectShortName">v2_alu_op[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pipeline/uut_tm/u3_branch" type="logic">
+      <obj_property name="ElementShortName">u3_branch</obj_property>
+      <obj_property name="ObjectShortName">u3_branch</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pipeline/uut_tm/v3_branch" type="logic">
+      <obj_property name="ElementShortName">v3_branch</obj_property>
+      <obj_property name="ObjectShortName">v3_branch</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pipeline/uut_tm/u3_imm32" type="array">
+      <obj_property name="ElementShortName">u3_imm32[31:0]</obj_property>
+      <obj_property name="ObjectShortName">u3_imm32[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pipeline/uut_tm/v3_imm32" type="array">
+      <obj_property name="ElementShortName">v3_imm32[31:0]</obj_property>
+      <obj_property name="ObjectShortName">v3_imm32[31:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_pipeline/uut_tm/u3_alu_result" type="array">
       <obj_property name="ElementShortName">u3_alu_result[31:0]</obj_property>
@@ -356,10 +468,6 @@
       <obj_property name="ElementShortName">u4_alu_result[31:0]</obj_property>
       <obj_property name="ObjectShortName">u4_alu_result[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_pipeline/uut_tm/u4_input_data" type="array">
-      <obj_property name="ElementShortName">u4_input_data[31:0]</obj_property>
-      <obj_property name="ObjectShortName">u4_input_data[31:0]</obj_property>
-   </wvobject>
    <wvobject fp_name="/tb_pipeline/uut_tm/u4_funct3" type="array">
       <obj_property name="ElementShortName">u4_funct3[2:0]</obj_property>
       <obj_property name="ObjectShortName">u4_funct3[2:0]</obj_property>
@@ -383,10 +491,6 @@
    <wvobject fp_name="/tb_pipeline/uut_tm/v4_alu_result" type="array">
       <obj_property name="ElementShortName">v4_alu_result[31:0]</obj_property>
       <obj_property name="ObjectShortName">v4_alu_result[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_pipeline/uut_tm/v4_input_data" type="array">
-      <obj_property name="ElementShortName">v4_input_data[31:0]</obj_property>
-      <obj_property name="ObjectShortName">v4_input_data[31:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_pipeline/uut_tm/v4_funct3" type="array">
       <obj_property name="ElementShortName">v4_funct3[2:0]</obj_property>

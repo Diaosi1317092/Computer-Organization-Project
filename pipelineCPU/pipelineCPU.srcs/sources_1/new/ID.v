@@ -24,9 +24,16 @@ module ID(
     input  [31:0]      inst,
     input  [31:0] regs [0:31],
     input         done_input,
+    
     output [31:0]  rs1_data,
     output [31:0]  rs2_data,
     output reg [31:0]  imm32,
+    output  [31:0]      reg_a7,
+    output  [31:0]      output_data,
+    output [2:0] funct3,
+    output [6:0] funct7,
+    output [4:0] rd,
+
     output reg    branch,
     output reg [1:0] alu_op,
     output reg    alu_src,
@@ -41,10 +48,7 @@ module ID(
     output reg    is_ecall,
     output reg    en_pc,
     output reg    en_input,
-    output reg    en_output,
-    output [2:0] funct3,
-    output [6:0] funct7,
-    output [4:0] rd
+    output reg    en_output
 );
     parameter R_TYPE  = 7'b0110011;
     parameter I_TYPE1 = 7'b0010011;// addi
@@ -68,6 +72,9 @@ module ID(
     assign funct3 = inst[14:12];
     assign funct7 = inst[31:25];
     
+    assign reg_a7=regs[17];
+    assign output_data=regs[10];
+
     always @* begin
         case (opcode)
             I_TYPE1: begin // addi
@@ -198,7 +205,7 @@ module ID(
                 is_jal     = 1;
             end
             default: begin
-                en_pc      = 0;
+                en_pc      = 1;
                 // All control signals remain default
             end
         endcase

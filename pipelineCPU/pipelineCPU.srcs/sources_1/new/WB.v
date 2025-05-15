@@ -15,13 +15,12 @@ module WB(
     input is_jal,
     input is_jalr,    
     input [31:0] pc,
-    // output [31:0] reg_write_data
     output reg [31:0] regs[0:31]
 );  
-    reg [31:0] reg_write_data;
+    wire [31:0] reg_write_data;
     integer i;
     parameter sp_base = 32'h00002ffc, gb_base = 32'h00001800;
-    always @(posedge clk, negedge rst) begin
+    always @(negedge clk, negedge rst) begin
         if (!rst) begin
             for (i = 0; i < 32; i = i + 1)
                 regs[i] <= 32'h00000000;
