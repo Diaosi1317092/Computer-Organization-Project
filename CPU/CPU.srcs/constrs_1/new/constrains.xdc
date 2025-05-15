@@ -87,3 +87,11 @@ set_property PACKAGE_PIN F4 [get_ports {seg2[4]}]
 set_property PACKAGE_PIN D3 [get_ports {seg2[5]}]
 set_property PACKAGE_PIN E3 [get_ports {seg2[6]}]
 set_property PACKAGE_PIN D4 [get_ports {seg2[7]}]
+
+set_property IOSTANDARD LVCMOS33 [get_ports rx]
+set_property IOSTANDARD LVCMOS33 [get_ports tx]
+set_property PACKAGE_PIN N5 [get_ports rx]
+set_property PACKAGE_PIN T4 [get_ports tx]
+
+set_property IOSTANDARD LVCMOS33 [get_ports cp_done]
+set_property PACKAGE_PIN K1 [get_ports cp_done]

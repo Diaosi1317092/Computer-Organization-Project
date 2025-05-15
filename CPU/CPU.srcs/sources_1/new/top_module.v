@@ -13,6 +13,8 @@ module top_module(
     input rst,
     input done,
     input [7:0] sw_input,
+    input  wire rx,
+    output wire tx,
     output [7:0] seg1,
     output [7:0] seg2,
     output [7:0] led,
@@ -28,6 +30,9 @@ module top_module(
     wire [31:0] input_data;
     wire is_ecall;
     wire [31:0] reg_a7;
+    wire [7:0] cp_input;
+    wire cp_done;
+
     
     //divided clock
     wire clk_de;
@@ -65,8 +70,6 @@ module top_module(
     wire [2:0] funct3 = inst[14:12];
     wire [6:0] funct7 = inst[31:25];
     
-    
-
     // =========================
     // Module Instantiations
     // =========================
@@ -202,6 +205,16 @@ module top_module(
         .seg2(seg2),
         .led(led),
         .an(an)
+    );
+
+    UartTop uut_uart(
+        .clk(init_clk),
+        .clk_cpu(clk),
+        .rst(rst),
+        .rx(rx),
+        .tx(tx),
+        .cp_input(cp_input),
+        .cp_done(cp_done)
     );
     
 endmodule

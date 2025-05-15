@@ -1,11 +1,11 @@
-`timescale 1ns / 1ps
-
 module InputModule(
     input clk,
     input clk_de,
     input rst,
     input [7:0] sw_input,
+    input [7:0] cp_input,
     input done,
+    input cp_done,
     output [31:0] input_data,
     output reg done_input
     );
