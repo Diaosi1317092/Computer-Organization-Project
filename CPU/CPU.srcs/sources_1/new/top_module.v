@@ -83,7 +83,7 @@ module top_module(
     ClockDivider uut_clk_divider(
         .clk(init_clk),
         .rst(rst),
-        .period(10000),
+        .period(6),
         .clk_out(clk)
     );
     
@@ -190,9 +190,11 @@ module top_module(
         .clk_de(clk_de),
         .rst(rst),
         .sw_input(sw_input),
+        .cp_input(cp_input),
         .done(done),
+        .cp_done(cp_done),
         .input_data(input_data),
-        .done_input(done_input)
+        .true_done_input(done_input)
     );
     
     OutputModule uut_output(

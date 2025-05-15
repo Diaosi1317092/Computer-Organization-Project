@@ -7,15 +7,17 @@ module InputModule(
     input done,
     input cp_done,
     output [31:0] input_data,
-    output reg done_input
-    );
-    assign input_data = {{24{sw_input[7]}},sw_input};
+    output wire true_done_input
+);
+    reg done_input;
+    assign input_data = (cp_done ? {{24{cp_input[7]}},cp_input} : {{24{sw_input[7]}},sw_input});
+    assign true_done_input = cp_done | done_input;
     parameter DEBOUNCE_THRESHOLD = 4'b0001;  
     reg done_stable;
     reg [3:0] done_counter;
     reg next_done_input, period_done, next_period_done;
 
-    always @(posedge clk_de , negedge rst) begin
+    always @(posedge clk_de, negedge rst) begin
         if(~rst) begin
             done_stable <= 0;
         end else begin

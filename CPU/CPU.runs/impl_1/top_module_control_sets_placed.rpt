@@ -1,0 +1,223 @@
+Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
+| Date         : Thu May 15 23:29:42 2025
+| Host         : Dupreeh running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file top_module_control_sets_placed.rpt
+| Design       : top_module
+| Device       : xc7a35t
+---------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Flip-Flop Distribution
+3. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Number of unique control sets                            |   152 |
+| Unused register locations in slices containing registers |   487 |
++----------------------------------------------------------+-------+
+
+
+2. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |             179 |           92 |
+| No           | No                    | Yes                    |              91 |           33 |
+| No           | Yes                   | No                     |               0 |            0 |
+| Yes          | No                    | No                     |              24 |           12 |
+| Yes          | No                    | Yes                    |            1063 |          695 |
+| Yes          | Yes                   | No                     |               4 |            1 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+3. Detailed Control Set Information
+-----------------------------------
+
++-------------------------------------------+--------------------------------------+-----------------------------------+------------------+----------------+
+|                Clock Signal               |             Enable Signal            |          Set/Reset Signal         | Slice Load Count | Bel Load Count |
++-------------------------------------------+--------------------------------------+-----------------------------------+------------------+----------------+
+|  init_clk_IBUF_BUFG                       |                                      | uut_decoder/regs_reg[19][20]_0    |                1 |              1 |
+|  uut_debounce_divider/clk_de              | uut_input/done_stable_i_1_n_3        | uut_decoder/regs_reg[19][20]_0    |                1 |              1 |
+|  init_clk_IBUF_BUFG                       | uut_uart/u_rx/rx_data[7]_i_1_n_3     |                                   |                1 |              1 |
+|  uut_output/uut_clk_display/select_reg[0] |                                      | uut_clk_divider/clk_out_reg_0     |                1 |              1 |
+|  init_clk_IBUF_BUFG                       | uut_uart/u_rx/rx_data[0]_i_1_n_3     |                                   |                1 |              1 |
+|  init_clk_IBUF_BUFG                       | uut_uart/u_rx/rx_data[2]_i_1_n_3     |                                   |                1 |              1 |
+|  init_clk_IBUF_BUFG                       | uut_uart/u_rx/rx_data[5]_i_1_n_3     |                                   |                1 |              1 |
+|  init_clk_IBUF_BUFG                       | uut_uart/u_rx/rx_data[1]_i_1_n_3     |                                   |                1 |              1 |
+|  clk_BUFG                                 | uut_if/regs_reg[20][31][0]           | uut_decoder/regs[1][30]_i_1_n_3   |                1 |              1 |
+|  init_clk_IBUF_BUFG                       | uut_uart/u_rx/rx_data[6]_i_1_n_3     |                                   |                1 |              1 |
+|  init_clk_IBUF_BUFG                       | uut_uart/u_rx/rx_data[3]_i_1_n_3     |                                   |                1 |              1 |
+|  init_clk_IBUF_BUFG                       | uut_uart/u_parser/payload_buf_0      | uut_decoder/regs_reg[23][27]_0    |                1 |              1 |
+|  init_clk_IBUF_BUFG                       |                                      | uut_decoder/regs_reg[9][1]_0      |                1 |              1 |
+|  n_0_1413_BUFG                            |                                      |                                   |                1 |              1 |
+|  init_clk_IBUF_BUFG                       | uut_uart/u_rx/rx_data[4]_i_1_n_3     |                                   |                1 |              1 |
+|  clk_BUFG                                 | uut_if/regs_reg[20][31][0]           | uut_clk_divider/clk_out_reg_0     |                1 |              1 |
+|  clk_BUFG                                 | uut_if/regs_reg[20][31][0]           | uut_decoder/regs[1][28]_i_1_n_3   |                1 |              1 |
+|  clk_BUFG                                 | uut_if/regs_reg[21][31][0]           | uut_decoder/regs[1][30]_i_1_n_3   |                2 |              2 |
+|  clk_BUFG                                 | uut_if/regs_reg[21][31][0]           | uut_decoder/regs_reg[23][27]_0    |                2 |              2 |
+| ~clk_BUFG                                 |                                      |                                   |                1 |              2 |
+|  clk_BUFG                                 | uut_if/regs_reg[23][31][0]           | uut_decoder/regs[1][31]_i_2_n_3   |                1 |              2 |
+|  clk_BUFG                                 | uut_if/regs_reg[23][31][0]           | uut_decoder/regs[1][30]_i_1_n_3   |                2 |              2 |
+|  clk_BUFG                                 | uut_if/regs_reg[23][31][0]           | uut_decoder/regs_reg[23][27]_0    |                2 |              2 |
+|  clk_BUFG                                 | uut_if/regs_reg[22][31][0]           | uut_decoder/regs[1][31]_i_2_n_3   |                1 |              2 |
+|  clk_BUFG                                 | uut_if/regs_reg[22][31][0]           | uut_decoder/regs[1][30]_i_1_n_3   |                2 |              2 |
+|  clk_BUFG                                 | uut_if/regs_reg[22][31][0]           | uut_decoder/regs_reg[23][27]_0    |                2 |              2 |
+|  clk_BUFG                                 | uut_if/regs_reg[20][31][0]           | uut_decoder/regs[1][31]_i_2_n_3   |                1 |              2 |
+|  clk_BUFG                                 | uut_if/regs_reg[20][31][0]           | uut_decoder/regs_reg[23][27]_0    |                2 |              2 |
+|  clk_BUFG                                 | uut_if/regs_reg[21][31][0]           | uut_decoder/regs[1][31]_i_2_n_3   |                2 |              2 |
+|  uut_output/uut_clk_display/select_reg[0] |                                      | uut_decoder/regs_reg[9][1]_0      |                2 |              3 |
+|  uut_debounce_divider/clk_de              | uut_input/done_counter               | uut_input/done_counter[3]_i_1_n_3 |                1 |              4 |
+|  clk_BUFG                                 | uut_if/regs_reg[17][31][0]           | uut_decoder/regs_reg[23][27]_0    |                3 |              4 |
+|  init_clk_IBUF_BUFG                       | uut_uart/u_rx/bit_cnt[3]_i_1_n_3     | uut_decoder/regs_reg[23][27]_0    |                1 |              4 |
+|  clk_BUFG                                 |                                      | uut_decoder/regs_reg[19][20]_0    |                3 |              5 |
+|  clk_BUFG                                 | uut_if/regs_reg[7][31][0]            | uut_decoder/regs[1][30]_i_1_n_3   |                5 |              7 |
+|  clk_BUFG                                 | uut_if/regs_reg[3][31][0]            | uut_decoder/regs[1][31]_i_2_n_3   |                4 |              7 |
+|  clk_BUFG                                 | uut_if/regs_reg[18][31][0]           | uut_decoder/regs_reg[23][27]_0    |                6 |              7 |
+|  clk_BUFG                                 | uut_if/regs_reg[19][31][0]           | uut_decoder/regs_reg[23][27]_0    |                6 |              7 |
+|  clk_BUFG                                 | uut_if/regs_reg[1][31][0]            | uut_decoder/regs[1][31]_i_2_n_3   |                4 |              7 |
+|  clk_BUFG                                 | uut_if/regs_reg[16][31][0]           | uut_decoder/regs_reg[23][27]_0    |                6 |              7 |
+|  clk_BUFG                                 | uut_if/regs_reg[6][31][0]            | uut_decoder/regs[1][30]_i_1_n_3   |                6 |              7 |
+|  uut_output/uut_seg_gen/seg2[1][0]        |                                      |                                   |                2 |              7 |
+|  clk_BUFG                                 | uut_if/regs_reg[5][31][0]            | uut_decoder/regs[1][30]_i_1_n_3   |                5 |              7 |
+|  uut_output/uut_seg_gen/E[0]              |                                      |                                   |                2 |              7 |
+|  clk_BUFG                                 | uut_if/regs_reg[2][31][0]            | uut_decoder/regs[1][31]_i_2_n_3   |                6 |              7 |
+|  clk_BUFG                                 | uut_if/regs_reg[4][31][0]            | uut_decoder/regs[1][31]_i_2_n_3   |                6 |              7 |
+|  clk_BUFG                                 | uut_if/regs_reg[3][31][0]            | uut_decoder/regs[1][28]_i_1_n_3   |                6 |              8 |
+|  clk_BUFG                                 | uut_if/E[0]                          | uut_decoder/regs_reg[15][27]_0    |                5 |              8 |
+|  clk_BUFG                                 | uut_if/regs_reg[6][31][0]            | uut_decoder/regs[1][31]_i_2_n_3   |                6 |              8 |
+|  clk_BUFG                                 | uut_if/regs_reg[6][31][0]            | uut_decoder/regs[1][12]_i_1_n_3   |                7 |              8 |
+|  clk_BUFG                                 | uut_if/regs_reg[26][31][0]           | uut_decoder/regs[1][31]_i_2_n_3   |                5 |              8 |
+|  clk_BUFG                                 | uut_if/regs_reg[26][31][0]           | uut_decoder/regs[1][30]_i_1_n_3   |                6 |              8 |
+|  clk_BUFG                                 | uut_if/regs_reg[26][31][0]           | uut_decoder/regs[1][12]_i_1_n_3   |                6 |              8 |
+|  clk_BUFG                                 | uut_if/regs_reg[26][31][0]           | uut_decoder/regs[1][28]_i_1_n_3   |                4 |              8 |
+|  clk_BUFG                                 | uut_if/regs_reg[8][31][0]            | uut_decoder/regs_reg[15][27]_0    |                6 |              8 |
+|  clk_BUFG                                 | uut_if/regs_reg[25][31][0]           | uut_decoder/regs[1][30]_i_1_n_3   |                5 |              8 |
+|  clk_BUFG                                 | uut_if/regs_reg[1][31][0]            | uut_decoder/regs[1][30]_i_1_n_3   |                7 |              8 |
+|  clk_BUFG                                 | uut_uart/u_parser/pulse_cpu          | uut_decoder/regs_reg[19][20]_0    |                2 |              8 |
+|  clk_BUFG                                 | uut_if/regs_reg[1][31][0]            | uut_decoder/regs[1][28]_i_1_n_3   |                6 |              8 |
+|  clk_BUFG                                 | uut_if/regs_reg[30][31][0]           | uut_decoder/regs[1][31]_i_2_n_3   |                5 |              8 |
+|  clk_BUFG                                 | uut_if/regs_reg[30][31][0]           | uut_decoder/regs[1][30]_i_1_n_3   |                7 |              8 |
+|  clk_BUFG                                 | uut_if/regs_reg[30][31][0]           | uut_decoder/regs[1][12]_i_1_n_3   |                6 |              8 |
+|  clk_BUFG                                 | uut_if/regs_reg[30][31][0]           | uut_decoder/regs[1][28]_i_1_n_3   |                4 |              8 |
+|  init_clk_IBUF_BUFG                       | uut_uart/u_rx/data_out[7]_i_1__0_n_3 |                                   |                2 |              8 |
+|  init_clk_IBUF_BUFG                       | uut_uart/u_parser/low_byte_1         |                                   |                2 |              8 |
+|  clk_BUFG                                 | uut_if/regs_reg[24][31][0]           | uut_decoder/regs[1][31]_i_2_n_3   |                5 |              8 |
+|  clk_BUFG                                 | uut_if/regs_reg[24][31][0]           | uut_decoder/regs[1][30]_i_1_n_3   |                6 |              8 |
+|  clk_BUFG                                 | uut_if/regs_reg[24][31][0]           | uut_decoder/regs[1][12]_i_1_n_3   |                8 |              8 |
+|  clk_BUFG                                 | uut_if/regs_reg[24][31][0]           | uut_decoder/regs[1][28]_i_1_n_3   |                5 |              8 |
+|  clk_BUFG                                 | uut_if/regs_reg[29][31][0]           | uut_decoder/regs[1][31]_i_2_n_3   |                5 |              8 |
+|  clk_BUFG                                 | uut_if/regs_reg[29][31][0]           | uut_decoder/regs[1][30]_i_1_n_3   |                6 |              8 |
+|  clk_BUFG                                 | uut_if/regs_reg[29][31][0]           | uut_decoder/regs[1][12]_i_1_n_3   |                5 |              8 |
+|  clk_BUFG                                 | uut_if/regs_reg[29][31][0]           | uut_decoder/regs[1][28]_i_1_n_3   |                6 |              8 |
+|  clk_BUFG                                 | uut_if/regs_reg[2][31][0]            | uut_decoder/regs[1][30]_i_1_n_3   |                6 |              8 |
+|  clk_BUFG                                 | uut_if/regs_reg[2][31][0]            | uut_decoder/regs[1][28]_i_1_n_3   |                7 |              8 |
+|  clk_BUFG                                 | uut_if/regs_reg[25][31][0]           | uut_decoder/regs[1][31]_i_2_n_3   |                4 |              8 |
+|  clk_BUFG                                 | uut_if/regs_reg[3][31][0]            | uut_decoder/regs[1][30]_i_1_n_3   |                7 |              8 |
+|  clk_BUFG                                 | uut_if/regs_reg[25][31][0]           | uut_decoder/regs[1][12]_i_1_n_3   |                7 |              8 |
+|  clk_BUFG                                 | uut_if/regs_reg[25][31][0]           | uut_decoder/regs[1][28]_i_1_n_3   |                6 |              8 |
+|  clk_BUFG                                 | uut_if/regs_reg[27][31][0]           | uut_decoder/regs[1][31]_i_2_n_3   |                5 |              8 |
+|  clk_BUFG                                 | uut_if/regs_reg[27][31][0]           | uut_decoder/regs[1][30]_i_1_n_3   |                7 |              8 |
+|  clk_BUFG                                 | uut_if/regs_reg[27][31][0]           | uut_decoder/regs[1][12]_i_1_n_3   |                7 |              8 |
+|  clk_BUFG                                 | uut_if/regs_reg[27][31][0]           | uut_decoder/regs[1][28]_i_1_n_3   |                5 |              8 |
+|  clk_BUFG                                 | uut_if/regs_reg[28][31][0]           | uut_decoder/regs[1][31]_i_2_n_3   |                6 |              8 |
+|  clk_BUFG                                 | uut_if/regs_reg[28][31][0]           | uut_decoder/regs[1][30]_i_1_n_3   |                6 |              8 |
+|  clk_BUFG                                 | uut_if/regs_reg[28][31][0]           | uut_decoder/regs[1][12]_i_1_n_3   |                6 |              8 |
+|  clk_BUFG                                 | uut_if/regs_reg[28][31][0]           | uut_decoder/regs[1][28]_i_1_n_3   |                5 |              8 |
+|  clk_BUFG                                 | uut_if/regs_reg[31][31][0]           | uut_decoder/regs[1][31]_i_2_n_3   |                6 |              8 |
+|  clk_BUFG                                 | uut_if/regs_reg[31][31][0]           | uut_decoder/regs[1][30]_i_1_n_3   |                6 |              8 |
+|  clk_BUFG                                 | uut_if/regs_reg[31][31][0]           | uut_decoder/regs[1][12]_i_1_n_3   |                7 |              8 |
+|  clk_BUFG                                 | uut_if/regs_reg[31][31][0]           | uut_decoder/regs[1][28]_i_1_n_3   |                6 |              8 |
+|  clk_BUFG                                 | uut_if/regs_reg[4][31][0]            | uut_decoder/regs[1][30]_i_1_n_3   |                6 |              8 |
+|  clk_BUFG                                 | uut_if/regs_reg[4][31][0]            | uut_decoder/regs[1][28]_i_1_n_3   |                7 |              8 |
+|  clk_BUFG                                 | uut_if/regs_reg[5][31][0]            | uut_decoder/regs[1][31]_i_2_n_3   |                5 |              8 |
+|  clk_BUFG                                 | uut_if/regs_reg[5][31][0]            | uut_decoder/regs[1][12]_i_1_n_3   |                6 |              8 |
+|  clk_BUFG                                 | uut_if/regs_reg[7][31][0]            | uut_decoder/regs[1][31]_i_2_n_3   |                7 |              8 |
+|  clk_BUFG                                 | uut_if/regs_reg[7][31][0]            | uut_decoder/regs[1][12]_i_1_n_3   |                7 |              8 |
+|  clk_BUFG                                 | uut_if/regs_reg[20][31][0]           | uut_decoder/regs_reg[19][20]_0    |                4 |              9 |
+|  clk_BUFG                                 | uut_if/regs_reg[22][31][0]           | uut_decoder/regs_reg[19][20]_0    |                3 |              9 |
+|  clk_BUFG                                 | uut_if/regs_reg[9][31][0]            | uut_decoder/regs_reg[15][27]_0    |                5 |              9 |
+|  clk_BUFG                                 | uut_if/regs_reg[1][31][0]            | uut_decoder/regs[1][12]_i_1_n_3   |                7 |              9 |
+|  init_clk_IBUF_BUFG                       | uut_uart/u_parser/payload_buf_0      | uut_decoder/regs_reg[19][20]_0    |                3 |              9 |
+|  clk_BUFG                                 | uut_if/regs_reg[2][31][0]            | uut_decoder/regs[1][12]_i_1_n_3   |                6 |              9 |
+|  clk_BUFG                                 | uut_if/regs_reg[13][31][0]           | uut_decoder/regs_reg[15][27]_0    |                7 |              9 |
+|  clk_BUFG                                 | uut_if/regs_reg[4][31][0]            | uut_decoder/regs[1][12]_i_1_n_3   |                5 |              9 |
+|  clk_BUFG                                 | uut_if/regs_reg[15][31][0]           | uut_decoder/regs_reg[15][27]_0    |                6 |              9 |
+|  clk_BUFG                                 | uut_if/regs_reg[5][31][0]            | uut_decoder/regs[1][28]_i_1_n_3   |                7 |              9 |
+|  clk_BUFG                                 | uut_if/regs_reg[23][31][0]           | uut_decoder/regs_reg[19][20]_0    |                4 |              9 |
+|  clk_BUFG                                 | uut_if/regs_reg[7][31][0]            | uut_decoder/regs[1][28]_i_1_n_3   |                7 |              9 |
+|  clk_BUFG                                 | uut_if/regs_reg[6][31][0]            | uut_decoder/regs[1][28]_i_1_n_3   |                8 |              9 |
+|  clk_BUFG                                 | uut_if/regs_reg[3][31][0]            | uut_decoder/regs[1][12]_i_1_n_3   |                8 |              9 |
+|  clk_BUFG                                 | uut_if/regs_reg[21][31][0]           | uut_decoder/regs_reg[19][20]_0    |                4 |              9 |
+|  clk_BUFG                                 | uut_if/regs_reg[14][31][0]           | uut_decoder/regs_reg[15][27]_0    |                5 |              9 |
+|  clk_BUFG                                 | uut_if/regs_reg[12][31][0]           | uut_decoder/regs_reg[15][27]_0    |                6 |              9 |
+|  clk_BUFG                                 | uut_if/regs_reg[11][31][0]           | uut_decoder/regs_reg[15][27]_0    |                7 |              9 |
+|  clk_BUFG                                 | uut_if/regs_reg[14][31][0]           | uut_decoder/regs_reg[9][1]_0      |                5 |             11 |
+|  clk_BUFG                                 | uut_if/regs_reg[15][31][0]           | uut_decoder/regs_reg[9][1]_0      |                4 |             11 |
+|  clk_BUFG                                 | uut_if/regs_reg[13][31][0]           | uut_decoder/regs_reg[9][1]_0      |                6 |             11 |
+|  clk_BUFG                                 | uut_if/regs_reg[9][31][0]            | uut_decoder/regs[10][30]_i_2_n_3  |               10 |             11 |
+|  clk_BUFG                                 | uut_if/regs_reg[12][31][0]           | uut_decoder/regs_reg[9][1]_0      |                5 |             11 |
+|  clk_BUFG                                 | uut_if/regs_reg[11][31][0]           | uut_decoder/regs_reg[9][1]_0      |                6 |             11 |
+|  clk_BUFG                                 | uut_if/regs_reg[15][31][0]           | uut_decoder/regs[10][30]_i_2_n_3  |                8 |             12 |
+|  clk_BUFG                                 | uut_if/regs_reg[8][31][0]            | uut_decoder/regs_reg[9][1]_0      |                6 |             12 |
+|  clk_BUFG                                 | uut_if/regs_reg[8][31][0]            | uut_decoder/regs[10][30]_i_2_n_3  |                9 |             12 |
+|  clk_BUFG                                 | uut_if/regs_reg[9][31][0]            | uut_decoder/regs_reg[9][1]_0      |                7 |             12 |
+|  clk_BUFG                                 | uut_if/regs_reg[13][31][0]           | uut_decoder/regs[10][30]_i_2_n_3  |                9 |             12 |
+|  clk_BUFG                                 | uut_if/regs_reg[14][31][0]           | uut_decoder/regs[10][30]_i_2_n_3  |                7 |             12 |
+|  clk_BUFG                                 | uut_if/regs_reg[11][31][0]           | uut_decoder/regs[10][30]_i_2_n_3  |                8 |             12 |
+|  clk_BUFG                                 | uut_if/E[0]                          | uut_decoder/regs_reg[9][1]_0      |                8 |             12 |
+|  clk_BUFG                                 | uut_if/regs_reg[12][31][0]           | uut_decoder/regs[10][30]_i_2_n_3  |               10 |             12 |
+|  clk_BUFG                                 | uut_if/E[0]                          | uut_decoder/regs[10][30]_i_2_n_3  |               10 |             12 |
+|  clk_BUFG                                 | uut_if/regs_reg[18][31][0]           | uut_decoder/regs[17][18]_i_1_n_3  |                6 |             12 |
+|  clk_BUFG                                 | uut_if/regs_reg[17][31][0]           | uut_decoder/regs[17][18]_i_1_n_3  |                4 |             12 |
+|  clk_BUFG                                 | uut_if/regs_reg[19][31][0]           | uut_decoder/regs[17][18]_i_1_n_3  |                7 |             12 |
+|  clk_BUFG                                 | uut_if/regs_reg[16][31][0]           | uut_decoder/regs[17][18]_i_1_n_3  |                8 |             12 |
+|  clk_BUFG                                 | uut_if/regs_reg[19][31][0]           | uut_decoder/regs_reg[19][20]_0    |                8 |             13 |
+|  clk_BUFG                                 | uut_if/regs_reg[18][31][0]           | uut_decoder/regs_reg[19][20]_0    |                8 |             13 |
+|  clk_BUFG                                 | uut_if/regs_reg[16][31][0]           | uut_decoder/regs_reg[19][20]_0    |                9 |             13 |
+|  clk_BUFG                                 | uut_if/regs_reg[17][31][0]           | uut_decoder/regs_reg[19][20]_0    |                8 |             16 |
+|  clk_BUFG                                 | uut_if/regs_reg[20][31][0]           | uut_decoder/regs[17][18]_i_1_n_3  |                9 |             16 |
+|  init_clk_IBUF_BUFG                       | uut_uart/u_rx/baud_cnt[15]_i_1_n_3   | uut_decoder/regs_reg[23][27]_0    |                6 |             16 |
+|  clk_BUFG                                 | uut_if/regs_reg[21][31][0]           | uut_decoder/regs[17][18]_i_1_n_3  |                9 |             17 |
+|  clk_BUFG                                 | uut_if/regs_reg[23][31][0]           | uut_decoder/regs[17][18]_i_1_n_3  |                8 |             17 |
+|  clk_BUFG                                 | uut_if/regs_reg[22][31][0]           | uut_decoder/regs[17][18]_i_1_n_3  |                9 |             17 |
+|  init_clk_IBUF_BUFG                       |                                      | uut_decoder/regs_reg[15][27]_0    |                7 |             25 |
+|  init_clk_IBUF_BUFG                       |                                      | uut_clk_divider/clk_out_reg_0     |                8 |             26 |
+|  init_clk_IBUF_BUFG                       |                                      | uut_decoder/regs_reg[23][27]_0    |               10 |             29 |
+| ~clk_BUFG                                 | uut_if/en_pc                         | uut_decoder/regs_reg[23][27]_0    |                8 |             32 |
+|  n_1_1612_BUFG                            |                                      |                                   |               18 |             32 |
+|  n_2_4322_BUFG                            |                                      |                                   |               27 |             32 |
+|  clk_BUFG                                 |                                      |                                   |               14 |             34 |
+|  en_output_BUFG                           |                                      |                                   |               27 |             64 |
++-------------------------------------------+--------------------------------------+-----------------------------------+------------------+----------------+
+
+
++--------+-----------------------+
+| Fanout | Number of ControlSets |
++--------+-----------------------+
+| 1      |                    17 |
+| 2      |                    12 |
+| 3      |                     1 |
+| 4      |                     3 |
+| 5      |                     1 |
+| 7      |                    12 |
+| 8      |                    51 |
+| 9      |                    18 |
+| 11     |                     6 |
+| 12     |                    14 |
+| 13     |                     3 |
+| 16+    |                    14 |
++--------+-----------------------+
+
+
