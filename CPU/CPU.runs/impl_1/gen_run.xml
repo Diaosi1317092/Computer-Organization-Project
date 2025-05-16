@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7a35tcsg324-1" LaunchTime="1747325736">
-  <File Type="OPT-HWDEF" Name="top_module.hwdef"/>
-  <File Type="PA-DCP" Name="top_module.dcp"/>
-  <File Type="OPT-DCP" Name="top_module_opt.dcp"/>
+<GenRun Id="impl_1" LaunchPart="xc7a35tcsg324-1" LaunchTime="1747370212">
+  <File Type="PWROPT-DCP" Name="top_module_pwropt.dcp"/>
   <File Type="ROUTE-PWR" Name="top_module_power_routed.rpt"/>
   <File Type="PA-TCL" Name="top_module.tcl"/>
   <File Type="ROUTE-PWR-SUM" Name="top_module_power_summary_routed.pb"/>
@@ -10,9 +8,10 @@
   <File Type="BG-DRC" Name="top_module.drc"/>
   <File Type="OPT-METHODOLOGY-DRC" Name="top_module_methodology_drc_opted.rpt"/>
   <File Type="INIT-TIMING" Name="top_module_timing_summary_init.rpt"/>
+  <File Type="OPT-HWDEF" Name="top_module.hwdef"/>
+  <File Type="OPT-DCP" Name="top_module_opt.dcp"/>
   <File Type="OPT-DRC" Name="top_module_drc_opted.rpt"/>
   <File Type="OPT-TIMING" Name="top_module_timing_summary_opted.rpt"/>
-  <File Type="PWROPT-DCP" Name="top_module_pwropt.dcp"/>
   <File Type="PWROPT-DRC" Name="top_module_drc_pwropted.rpt"/>
   <File Type="PWROPT-TIMING" Name="top_module_timing_summary_pwropted.rpt"/>
   <File Type="PLACE-DCP" Name="top_module_placed.dcp"/>
@@ -66,6 +65,13 @@
   <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
+    <File Path="$PSRCDIR/sources_1/ip/prgrom/prgrom.xci">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PSRCDIR/sources_1/new/ALU.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -136,7 +142,7 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/new/UartCommandParser.v">
+    <File Path="$PSRCDIR/sources_1/new/UartOutputSerializer.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
@@ -151,6 +157,13 @@
       </FileInfo>
     </File>
     <File Path="$PSRCDIR/sources_1/new/UartTop.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/UartTx.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
@@ -304,5 +317,4 @@
     <Step Id="write_bitstream"/>
   </Strategy>
   <BlockFileSet Type="BlockSrcs" Name="prgram"/>
-  <BlockFileSet Type="BlockSrcs" Name="prgrom"/>
 </GenRun>

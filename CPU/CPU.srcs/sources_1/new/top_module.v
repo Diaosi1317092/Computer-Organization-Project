@@ -41,7 +41,9 @@ module top_module(
     wire [31:0] imm32;
     wire        branch;
     wire        zero;
-    wire [31:0] pc; 
+    wire [31:0] pc;
+    wire [31:0] uart_reg_a7;
+    wire [31:0] uart_output_data;
 
     // ALU control and output
     wire        alu_src;
@@ -68,6 +70,8 @@ module top_module(
     // R-type decoding fields (to be extracted from inst)
     wire [2:0] funct3 = inst[14:12];
     wire [6:0] funct7 = inst[31:25];
+    
+    wire [31:0] regs [0:31];
     
     // =========================
     // Module Instantiations
@@ -115,7 +119,8 @@ module top_module(
         .en_output(en_output),
         .output_data(output_data),
         .reg_a7(reg_a7),
-        .en_pc(en_pc)
+        .en_pc(en_pc),
+        .regs(regs)
     );
 
     // ALU unit
@@ -202,6 +207,8 @@ module top_module(
         .en_output(en_output),
         .reg_a7(reg_a7),
         .output_data(output_data),
+        .uart_reg_a7(uart_reg_a7),
+        .uart_output_data(uart_output_data),
         .seg1(seg1),
         .seg2(seg2),
         .led(led),
@@ -210,12 +217,12 @@ module top_module(
 
     UartTop uut_uart(
         .clk(init_clk),
-        .clk_cpu(clk),
         .rst(rst),
         .rx(rx),
         .tx(tx),
+        .uart_reg_a7(uart_reg_a7),
+        .uart_output_data(uart_output_data),
         .cp_input(cp_input)
-//        .cp_done(cp_done)
     );
     
 endmodule

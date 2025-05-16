@@ -44,9 +44,9 @@ add_files D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgro
 add_files D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgrom/test12ROM.coe
 add_files D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgrom/BaseTest2ROM.coe
 add_files D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgrom/RUnitTestROM.coe
-add_files d:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgrom/BaseTest1ROM.coe
-add_files d:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgrom/InputTest.coe
-add_files d:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgrom/InputTest16.coe
+add_files D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgrom/BaseTest1ROM.coe
+add_files D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgrom/InputTest.coe
+add_files D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgrom/InputTest16.coe
 read_verilog -library xil_defaultlib {
   D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/ALU.v
   D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/ClockDivider.v
@@ -58,17 +58,18 @@ read_verilog -library xil_defaultlib {
   D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/OutputModule.v
   D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/SegDisplay.v
   D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/SegGenerator.v
-  D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/UartCommandParser.v
+  D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/UartOutputSerializer.v
   D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/UartRx.v
   D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/UartTop.v
+  D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/UartTx.v
   D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/WriteBackMUX.v
   D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/top_module.v
 }
-read_ip -quiet D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgram/prgram.xci
-set_property used_in_implementation false [get_files -all d:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgram/prgram_ooc.xdc]
-
 read_ip -quiet D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgrom/prgrom.xci
 set_property used_in_implementation false [get_files -all d:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgrom/prgrom_ooc.xdc]
+
+read_ip -quiet D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgram/prgram.xci
+set_property used_in_implementation false [get_files -all d:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgram/prgram_ooc.xdc]
 
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
@@ -81,6 +82,8 @@ foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
 read_xdc D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/constrs_1/new/constrains.xdc
 set_property used_in_implementation false [get_files D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/constrs_1/new/constrains.xdc]
 
+read_xdc dont_touch.xdc
+set_property used_in_implementation false [get_files dont_touch.xdc]
 
 synth_design -top top_module -part xc7a35tcsg324-1
 

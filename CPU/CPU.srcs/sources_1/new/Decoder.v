@@ -11,8 +11,10 @@ module Decoder(
 
     output reg [31:0]  rs1_data,
     output reg [31:0]  rs2_data,
-    output  [31:0]      reg_a7,
-    output reg [31:0]  imm32
+    output  [31:0]     reg_a7,
+    output reg [31:0]  imm32,
+
+    output reg [31:0] regs [0:31]
 );
     parameter R_TYPE  = 7'b0110011;
     parameter I_TYPE1 = 7'b0010011;// addi
@@ -29,8 +31,7 @@ module Decoder(
     wire [4:0] rs2    = inst[24:20];
     wire [4:0] rd     = inst[11:7];
     wire [6:0] opcode = inst[6:0];
-
-    reg [31:0] regs [0:31];
+    
     integer i;
     parameter sp_base = 32'h00002ffc, gb_base = 32'h00001800;
     always @(posedge clk, negedge rst) begin
