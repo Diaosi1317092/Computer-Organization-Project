@@ -69,15 +69,15 @@ set rc [catch {
   create_project -in_memory -part xc7a35tcsg324-1
   set_property design_mode GateLvl [current_fileset]
   set_param project.singleFileAddWarning.threshold 0
-  set_property webtalk.parent_dir D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.cache/wt [current_project]
-  set_property parent.project_path D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.xpr [current_project]
-  set_property ip_output_repo D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.cache/ip [current_project]
+  set_property webtalk.parent_dir C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.cache/wt [current_project]
+  set_property parent.project_path C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.xpr [current_project]
+  set_property ip_output_repo C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
   set_property XPM_LIBRARIES XPM_MEMORY [current_project]
-  add_files -quiet D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.runs/synth_1/top_module.dcp
-  read_ip -quiet D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/ip/pgram/pgram.xci
-  read_ip -quiet D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/ip/pgrom/pgrom.xci
-  read_xdc D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/constrs_1/new/pipelineCPU.xdc
+  add_files -quiet C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.runs/synth_1/top_module.dcp
+  read_ip -quiet C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/ip/pgram/pgram.xci
+  read_ip -quiet C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/ip/pgrom/pgrom.xci
+  read_xdc C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/constrs_1/new/pipelineCPU.xdc
   link_design -top top_module -part xc7a35tcsg324-1
   close_msg_db -file init_design.pb
 } RESULT]

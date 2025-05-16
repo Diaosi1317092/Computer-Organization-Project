@@ -2,12 +2,12 @@
 # Vivado v2017.4 (64-bit)
 # SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
 # IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
-# Start of session at: Fri May 16 00:46:21 2025
-# Process ID: 17664
-# Current directory: D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.runs/synth_1
+# Start of session at: Fri May 16 19:49:36 2025
+# Process ID: 31108
+# Current directory: C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.runs/synth_1
 # Command line: vivado.exe -log top_module.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top_module.tcl
-# Log file: D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.runs/synth_1/top_module.vds
-# Journal file: D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.runs/synth_1\vivado.jou
+# Log file: C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.runs/synth_1/top_module.vds
+# Journal file: C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.runs/synth_1\vivado.jou
 #-----------------------------------------------------------
 source top_module.tcl -notrace
 Command: synth_design -top top_module -part xc7a35tcsg324-1
@@ -15,24 +15,24 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 5240 
+INFO: Helper process launched with PID 19780 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 403.680 ; gain = 99.738
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 340.906 ; gain = 100.555
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'top_module' [D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/top_module.v:3]
+INFO: [Synth 8-638] synthesizing module 'top_module' [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/top_module.v:2]
 	Parameter nop_inst bound to: 0 - type: integer 
-INFO: [Synth 8-638] synthesizing module 'ClockDivider' [D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/ClockDivider.v:1]
-INFO: [Synth 8-256] done synthesizing module 'ClockDivider' (1#1) [D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/ClockDivider.v:1]
-INFO: [Synth 8-638] synthesizing module 'HarzardDetection' [D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/HarzardDetection.v:3]
+INFO: [Synth 8-638] synthesizing module 'ClockDivider' [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/ClockDivider.v:1]
+INFO: [Synth 8-256] done synthesizing module 'ClockDivider' (1#1) [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/ClockDivider.v:1]
+INFO: [Synth 8-638] synthesizing module 'HarzardDetection' [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/HarzardDetection.v:3]
 	Parameter base_address bound to: 12288 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'HarzardDetection' (2#1) [D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/HarzardDetection.v:3]
-INFO: [Synth 8-638] synthesizing module 'IF' [D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/IF.v:23]
+INFO: [Synth 8-256] done synthesizing module 'HarzardDetection' (2#1) [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/HarzardDetection.v:3]
+INFO: [Synth 8-638] synthesizing module 'IF' [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/IF.v:23]
 	Parameter base_address bound to: 12288 - type: integer 
 	Parameter nop_inst bound to: 0 - type: integer 
-INFO: [Synth 8-638] synthesizing module 'pgrom' [D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.runs/synth_1/.Xil/Vivado-17664-DESKTOP-TB8HVUN/realtime/pgrom_stub.v:6]
-INFO: [Synth 8-256] done synthesizing module 'pgrom' (3#1) [D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.runs/synth_1/.Xil/Vivado-17664-DESKTOP-TB8HVUN/realtime/pgrom_stub.v:6]
-INFO: [Synth 8-256] done synthesizing module 'IF' (4#1) [D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/IF.v:23]
-INFO: [Synth 8-638] synthesizing module 'ID' [D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/ID.v:23]
+INFO: [Synth 8-638] synthesizing module 'pgrom' [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.runs/synth_1/.Xil/Vivado-31108-ASCHENPUTTEL/realtime/pgrom_stub.v:6]
+INFO: [Synth 8-256] done synthesizing module 'pgrom' (3#1) [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.runs/synth_1/.Xil/Vivado-31108-ASCHENPUTTEL/realtime/pgrom_stub.v:6]
+INFO: [Synth 8-256] done synthesizing module 'IF' (4#1) [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/IF.v:23]
+INFO: [Synth 8-638] synthesizing module 'ID' [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/ID.v:23]
 	Parameter R_TYPE bound to: 7'b0110011 
 	Parameter I_TYPE1 bound to: 7'b0010011 
 	Parameter I_TYPE2 bound to: 7'b0000011 
@@ -43,23 +43,23 @@ INFO: [Synth 8-638] synthesizing module 'ID' [D:/GitHub/Computer-Organization-Pr
 	Parameter U_TYPE1 bound to: 7'b0110111 
 	Parameter U_TYPE2 bound to: 7'b0010111 
 	Parameter J_TYPE bound to: 7'b1101111 
-INFO: [Synth 8-256] done synthesizing module 'ID' (5#1) [D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/ID.v:23]
-INFO: [Synth 8-638] synthesizing module 'EXE' [D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/EXE.v:23]
-INFO: [Synth 8-226] default block is never used [D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/EXE.v:44]
-INFO: [Synth 8-226] default block is never used [D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/EXE.v:75]
-INFO: [Synth 8-226] default block is never used [D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/EXE.v:116]
-INFO: [Synth 8-256] done synthesizing module 'EXE' (6#1) [D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/EXE.v:23]
-INFO: [Synth 8-638] synthesizing module 'MEM' [D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/MEM.v:23]
+INFO: [Synth 8-256] done synthesizing module 'ID' (5#1) [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/ID.v:23]
+INFO: [Synth 8-638] synthesizing module 'EXE' [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/EXE.v:23]
+INFO: [Synth 8-226] default block is never used [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/EXE.v:44]
+INFO: [Synth 8-226] default block is never used [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/EXE.v:75]
+INFO: [Synth 8-226] default block is never used [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/EXE.v:116]
+INFO: [Synth 8-256] done synthesizing module 'EXE' (6#1) [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/EXE.v:23]
+INFO: [Synth 8-638] synthesizing module 'MEM' [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/MEM.v:23]
 	Parameter SB bound to: 3'b000 
 	Parameter SH bound to: 3'b001 
 	Parameter SW bound to: 3'b010 
-INFO: [Synth 8-226] default block is never used [D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/MEM.v:46]
-INFO: [Synth 8-226] default block is never used [D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/MEM.v:54]
-INFO: [Synth 8-638] synthesizing module 'pgram' [D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.runs/synth_1/.Xil/Vivado-17664-DESKTOP-TB8HVUN/realtime/pgram_stub.v:6]
-INFO: [Synth 8-256] done synthesizing module 'pgram' (7#1) [D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.runs/synth_1/.Xil/Vivado-17664-DESKTOP-TB8HVUN/realtime/pgram_stub.v:6]
-WARNING: [Synth 8-689] width (32) of port connection 'wea' does not match port width (4) of module 'pgram' [D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/MEM.v:68]
-INFO: [Synth 8-256] done synthesizing module 'MEM' (8#1) [D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/MEM.v:23]
-INFO: [Synth 8-638] synthesizing module 'WB' [D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/WB.v:1]
+INFO: [Synth 8-226] default block is never used [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/MEM.v:46]
+INFO: [Synth 8-226] default block is never used [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/MEM.v:54]
+INFO: [Synth 8-638] synthesizing module 'pgram' [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.runs/synth_1/.Xil/Vivado-31108-ASCHENPUTTEL/realtime/pgram_stub.v:6]
+INFO: [Synth 8-256] done synthesizing module 'pgram' (7#1) [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.runs/synth_1/.Xil/Vivado-31108-ASCHENPUTTEL/realtime/pgram_stub.v:6]
+WARNING: [Synth 8-689] width (32) of port connection 'wea' does not match port width (4) of module 'pgram' [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/MEM.v:68]
+INFO: [Synth 8-256] done synthesizing module 'MEM' (8#1) [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/MEM.v:23]
+INFO: [Synth 8-638] synthesizing module 'WB' [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/WB.v:1]
 	Parameter sp_base bound to: 12284 - type: integer 
 	Parameter gb_base bound to: 6144 - type: integer 
 	Parameter LB bound to: 0 - type: integer 
@@ -67,28 +67,24 @@ INFO: [Synth 8-638] synthesizing module 'WB' [D:/GitHub/Computer-Organization-Pr
 	Parameter LW bound to: 2 - type: integer 
 	Parameter LBU bound to: 4 - type: integer 
 	Parameter LHU bound to: 5 - type: integer 
-INFO: [Synth 8-155] case statement is not full and has no default [D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/WB.v:39]
-INFO: [Synth 8-256] done synthesizing module 'WB' (9#1) [D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/WB.v:1]
-INFO: [Synth 8-638] synthesizing module 'InputModule' [D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/InputModule.v:3]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/WB.v:39]
+INFO: [Synth 8-256] done synthesizing module 'WB' (9#1) [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/WB.v:1]
+INFO: [Synth 8-638] synthesizing module 'InputModule' [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/InputModule.v:3]
 	Parameter DEBOUNCE_THRESHOLD bound to: 4'b0001 
-WARNING: [Synth 8-5788] Register done_counter_reg in module InputModule is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/InputModule.v:23]
-INFO: [Synth 8-256] done synthesizing module 'InputModule' (10#1) [D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/InputModule.v:3]
-INFO: [Synth 8-638] synthesizing module 'OutputModule' [D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/OutputModule.v:1]
+WARNING: [Synth 8-5788] Register done_counter_reg in module InputModule is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/InputModule.v:23]
+INFO: [Synth 8-256] done synthesizing module 'InputModule' (10#1) [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/InputModule.v:3]
+INFO: [Synth 8-638] synthesizing module 'OutputModule' [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/OutputModule.v:1]
 	Parameter PERIOD_SEG bound to: 65536 - type: integer 
-INFO: [Synth 8-638] synthesizing module 'SegGenerator' [D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/SegGenerator.v:1]
-INFO: [Synth 8-256] done synthesizing module 'SegGenerator' (11#1) [D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/SegGenerator.v:1]
-INFO: [Synth 8-638] synthesizing module 'SegDisplay' [D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/SegDisplay.v:1]
-INFO: [Synth 8-256] done synthesizing module 'SegDisplay' (12#1) [D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/SegDisplay.v:1]
-INFO: [Synth 8-256] done synthesizing module 'OutputModule' (13#1) [D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/OutputModule.v:1]
-WARNING: [Synth 8-6014] Unused sequential element v2_mem_read_reg was removed.  [D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/top_module.v:142]
-WARNING: [Synth 8-5788] Register v2_funct3_reg in module top_module is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/top_module.v:99]
-WARNING: [Synth 8-5788] Register v2_funct7_reg in module top_module is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/top_module.v:198]
-WARNING: [Synth 8-5788] Register v2_pc_reg in module top_module is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/top_module.v:72]
-WARNING: [Synth 8-5788] Register v2_reg_a7_reg in module top_module is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/top_module.v:201]
-WARNING: [Synth 8-5788] Register v2_output_data_reg in module top_module is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/top_module.v:202]
-WARNING: [Synth 8-5788] Register v2_en_output_reg in module top_module is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/top_module.v:203]
-WARNING: [Synth 8-3848] Net u3_mem_read in module/entity top_module does not have driver. [D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/top_module.v:78]
-INFO: [Synth 8-256] done synthesizing module 'top_module' (14#1) [D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/top_module.v:3]
+INFO: [Synth 8-638] synthesizing module 'SegGenerator' [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/SegGenerator.v:1]
+INFO: [Synth 8-256] done synthesizing module 'SegGenerator' (11#1) [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/SegGenerator.v:1]
+INFO: [Synth 8-638] synthesizing module 'SegDisplay' [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/SegDisplay.v:1]
+INFO: [Synth 8-256] done synthesizing module 'SegDisplay' (12#1) [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/SegDisplay.v:1]
+INFO: [Synth 8-256] done synthesizing module 'OutputModule' (13#1) [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/OutputModule.v:1]
+WARNING: [Synth 8-6014] Unused sequential element v2_mem_read_reg was removed.  [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/top_module.v:160]
+WARNING: [Synth 8-5788] Register v2_en_output_reg in module top_module is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/top_module.v:233]
+WARNING: [Synth 8-3848] Net u3_mem_read in module/entity top_module does not have driver. [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/top_module.v:89]
+INFO: [Synth 8-256] done synthesizing module 'top_module' (14#1) [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/top_module.v:2]
+WARNING: [Synth 8-3331] design WB has unconnected port done_input
 WARNING: [Synth 8-3331] design WB has unconnected port addr[31]
 WARNING: [Synth 8-3331] design WB has unconnected port addr[30]
 WARNING: [Synth 8-3331] design WB has unconnected port addr[29]
@@ -162,7 +158,7 @@ WARNING: [Synth 8-3331] design IF has unconnected port pc[16]
 WARNING: [Synth 8-3331] design IF has unconnected port pc[15]
 WARNING: [Synth 8-3331] design IF has unconnected port pc[14]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 456.062 ; gain = 152.121
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 394.051 ; gain = 153.699
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -172,36 +168,36 @@ Report Check Netlist:
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 456.062 ; gain = 152.121
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 394.051 ; gain = 153.699
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7a35tcsg324-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.runs/synth_1/.Xil/Vivado-17664-DESKTOP-TB8HVUN/dcp2/pgram_in_context.xdc] for cell 'mem_uut/udram'
-Finished Parsing XDC File [D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.runs/synth_1/.Xil/Vivado-17664-DESKTOP-TB8HVUN/dcp2/pgram_in_context.xdc] for cell 'mem_uut/udram'
-Parsing XDC File [D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.runs/synth_1/.Xil/Vivado-17664-DESKTOP-TB8HVUN/dcp3/pgrom_in_context.xdc] for cell 'if_uut/urom'
-Finished Parsing XDC File [D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.runs/synth_1/.Xil/Vivado-17664-DESKTOP-TB8HVUN/dcp3/pgrom_in_context.xdc] for cell 'if_uut/urom'
-Parsing XDC File [D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/constrs_1/new/pipelineCPU.xdc]
-Finished Parsing XDC File [D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/constrs_1/new/pipelineCPU.xdc]
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/constrs_1/new/pipelineCPU.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_module_propImpl.xdc].
+Parsing XDC File [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.runs/synth_1/.Xil/Vivado-31108-ASCHENPUTTEL/dcp2/pgram_in_context.xdc] for cell 'mem_uut/udram'
+Finished Parsing XDC File [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.runs/synth_1/.Xil/Vivado-31108-ASCHENPUTTEL/dcp2/pgram_in_context.xdc] for cell 'mem_uut/udram'
+Parsing XDC File [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.runs/synth_1/.Xil/Vivado-31108-ASCHENPUTTEL/dcp3/pgrom_in_context.xdc] for cell 'if_uut/urom'
+Finished Parsing XDC File [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.runs/synth_1/.Xil/Vivado-31108-ASCHENPUTTEL/dcp3/pgrom_in_context.xdc] for cell 'if_uut/urom'
+Parsing XDC File [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/constrs_1/new/pipelineCPU.xdc]
+Finished Parsing XDC File [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/constrs_1/new/pipelineCPU.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/constrs_1/new/pipelineCPU.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_module_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/top_module_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 794.250 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 733.953 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 794.250 ; gain = 490.309
+Finished Constraint Validation : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 733.953 ; gain = 493.602
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcsg324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 794.250 ; gain = 490.309
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 733.953 ; gain = 493.602
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -209,12 +205,12 @@ Start Applying 'set_property' XDC Constraints
 Applied set_property DONT_TOUCH = true for if_uut/urom. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for mem_uut/udram. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 794.250 ; gain = 490.309
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 733.953 ; gain = 493.602
 ---------------------------------------------------------------------------------
-WARNING: [Synth 8-6014] Unused sequential element cnt_reg was removed.  [D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/ClockDivider.v:11]
+WARNING: [Synth 8-6014] Unused sequential element cnt_reg was removed.  [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/ClockDivider.v:11]
 INFO: [Synth 8-5545] ROM "next_count" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-5545] ROM "next_pc" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-WARNING: [Synth 8-6014] Unused sequential element pc_reg was removed.  [D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/HarzardDetection.v:23]
+WARNING: [Synth 8-6014] Unused sequential element pc_reg was removed.  [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/HarzardDetection.v:23]
 INFO: [Synth 8-5546] ROM "branch" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5587] ROM size for "alu_op" is below threshold of ROM address width. It will be mapped to LUTs
 INFO: [Synth 8-5587] ROM size for "alu_src" is below threshold of ROM address width. It will be mapped to LUTs
@@ -262,20 +258,20 @@ INFO: [Synth 8-5546] ROM "regs_reg[28]" won't be mapped to RAM because it is too
 INFO: [Synth 8-5546] ROM "regs_reg[29]" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "regs_reg[30]" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "regs_reg[31]" won't be mapped to RAM because it is too sparse
-WARNING: [Synth 8-6014] Unused sequential element done_counter_reg was removed.  [D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/InputModule.v:23]
+WARNING: [Synth 8-6014] Unused sequential element done_counter_reg was removed.  [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/InputModule.v:23]
 INFO: [Synth 8-5544] ROM "seg_map" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "seg_map" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "seg_map" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "seg_map" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
-WARNING: [Synth 8-327] inferring latch for variable 'zero_reg' [D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/EXE.v:53]
-WARNING: [Synth 8-327] inferring latch for variable 'tmp_write_data_reg' [D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/MEM.v:42]
-WARNING: [Synth 8-327] inferring latch for variable 'tmp_data2_reg' [D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/WB.v:42]
-WARNING: [Synth 8-327] inferring latch for variable 'seg1_reg' [D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/SegDisplay.v:36]
-WARNING: [Synth 8-327] inferring latch for variable 'seg2_reg' [D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/SegDisplay.v:40]
-WARNING: [Synth 8-327] inferring latch for variable 'tmp_reg_a7' [D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/OutputModule.v:19]
-WARNING: [Synth 8-327] inferring latch for variable 'val' [D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/OutputModule.v:18]
+WARNING: [Synth 8-327] inferring latch for variable 'zero_reg' [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/EXE.v:53]
+WARNING: [Synth 8-327] inferring latch for variable 'tmp_write_data_reg' [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/MEM.v:42]
+WARNING: [Synth 8-327] inferring latch for variable 'tmp_data2_reg' [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/WB.v:42]
+WARNING: [Synth 8-327] inferring latch for variable 'seg1_reg' [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/SegDisplay.v:36]
+WARNING: [Synth 8-327] inferring latch for variable 'seg2_reg' [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/SegDisplay.v:40]
+WARNING: [Synth 8-327] inferring latch for variable 'tmp_reg_a7' [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/OutputModule.v:19]
+WARNING: [Synth 8-327] inferring latch for variable 'val' [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/OutputModule.v:18]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 794.250 ; gain = 490.309
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 733.953 ; gain = 493.602
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -294,13 +290,13 @@ Detailed RTL Component Info :
 +---XORs : 
 	   2 Input     32 Bit         XORs := 1     
 +---Registers : 
-	               32 Bit    Registers := 16    
+	               32 Bit    Registers := 19    
 	                7 Bit    Registers := 1     
 	                5 Bit    Registers := 3     
 	                4 Bit    Registers := 2     
 	                3 Bit    Registers := 3     
 	                2 Bit    Registers := 1     
-	                1 Bit    Registers := 29    
+	                1 Bit    Registers := 32    
 +---Muxes : 
 	   2 Input     32 Bit        Muxes := 12    
 	   6 Input     32 Bit        Muxes := 1     
@@ -331,12 +327,12 @@ Hierarchical RTL Component report
 Module top_module 
 Detailed RTL Component Info : 
 +---Registers : 
-	               32 Bit    Registers := 15    
+	               32 Bit    Registers := 18    
 	                7 Bit    Registers := 1     
 	                5 Bit    Registers := 3     
 	                3 Bit    Registers := 3     
 	                2 Bit    Registers := 1     
-	                1 Bit    Registers := 22    
+	                1 Bit    Registers := 25    
 Module ClockDivider 
 Detailed RTL Component Info : 
 +---Adders : 
@@ -442,11 +438,11 @@ Finished Part Resource Summary
 ---------------------------------------------------------------------------------
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
-WARNING: [Synth 8-6014] Unused sequential element cnt_reg was removed.  [D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/ClockDivider.v:11]
-WARNING: [Synth 8-6014] Unused sequential element cnt_reg was removed.  [D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/ClockDivider.v:11]
+WARNING: [Synth 8-6014] Unused sequential element cnt_reg was removed.  [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/ClockDivider.v:11]
+WARNING: [Synth 8-6014] Unused sequential element cnt_reg was removed.  [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/ClockDivider.v:11]
 INFO: [Synth 8-5545] ROM "next_count" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-5545] ROM "next_pc" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-WARNING: [Synth 8-6014] Unused sequential element pc_reg was removed.  [D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/HarzardDetection.v:23]
+WARNING: [Synth 8-6014] Unused sequential element pc_reg was removed.  [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/HarzardDetection.v:23]
 INFO: [Synth 8-5546] ROM "branch" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5587] ROM size for "alu_op" is below threshold of ROM address width. It will be mapped to LUTs
 INFO: [Synth 8-5587] ROM size for "alu_src" is below threshold of ROM address width. It will be mapped to LUTs
@@ -459,8 +455,9 @@ INFO: [Synth 8-5546] ROM "is_auipc" won't be mapped to RAM because it is too spa
 INFO: [Synth 8-5546] ROM "is_ecall" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5545] ROM "zero0" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-5545] ROM "zero0" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-WARNING: [Synth 8-6014] Unused sequential element uut_clk_display/cnt_reg was removed.  [D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/ClockDivider.v:11]
-WARNING: [Synth 8-6014] Unused sequential element input_uut/done_counter_reg was removed.  [D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/InputModule.v:23]
+WARNING: [Synth 8-6014] Unused sequential element uut_clk_display/cnt_reg was removed.  [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/ClockDivider.v:11]
+WARNING: [Synth 8-6014] Unused sequential element input_uut/done_counter_reg was removed.  [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/InputModule.v:23]
+WARNING: [Synth 8-3331] design WB has unconnected port done_input
 WARNING: [Synth 8-3331] design WB has unconnected port addr[31]
 WARNING: [Synth 8-3331] design WB has unconnected port addr[30]
 WARNING: [Synth 8-3331] design WB has unconnected port addr[29]
@@ -487,9 +484,79 @@ WARNING: [Synth 8-3331] design WB has unconnected port addr[9]
 WARNING: [Synth 8-3331] design WB has unconnected port addr[8]
 WARNING: [Synth 8-3331] design WB has unconnected port addr[7]
 WARNING: [Synth 8-3331] design WB has unconnected port addr[6]
-WARNING: [Synth 8-3331] design WB has unconnected port addr[5]
-WARNING: [Synth 8-3331] design WB has unconnected port addr[4]
 INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-3886] merging instance 'v2_input_data_reg[21]' (FDCE) to 'v2_input_data_reg[7]'
+INFO: [Synth 8-3886] merging instance 'v2_input_data_reg[20]' (FDCE) to 'v2_input_data_reg[7]'
+INFO: [Synth 8-3886] merging instance 'v2_input_data_reg[19]' (FDCE) to 'v2_input_data_reg[7]'
+INFO: [Synth 8-3886] merging instance 'v2_input_data_reg[22]' (FDCE) to 'v2_input_data_reg[7]'
+INFO: [Synth 8-3886] merging instance 'v2_input_data_reg[24]' (FDCE) to 'v2_input_data_reg[7]'
+INFO: [Synth 8-3886] merging instance 'v2_input_data_reg[23]' (FDCE) to 'v2_input_data_reg[7]'
+INFO: [Synth 8-3886] merging instance 'v2_input_data_reg[29]' (FDCE) to 'v2_input_data_reg[7]'
+INFO: [Synth 8-3886] merging instance 'v2_input_data_reg[28]' (FDCE) to 'v2_input_data_reg[7]'
+INFO: [Synth 8-3886] merging instance 'v2_input_data_reg[31]' (FDCE) to 'v2_input_data_reg[7]'
+INFO: [Synth 8-3886] merging instance 'v2_input_data_reg[30]' (FDCE) to 'v2_input_data_reg[7]'
+INFO: [Synth 8-3886] merging instance 'v2_input_data_reg[27]' (FDCE) to 'v2_input_data_reg[7]'
+INFO: [Synth 8-3886] merging instance 'v2_input_data_reg[26]' (FDCE) to 'v2_input_data_reg[7]'
+INFO: [Synth 8-3886] merging instance 'v2_input_data_reg[25]' (FDCE) to 'v2_input_data_reg[7]'
+INFO: [Synth 8-3886] merging instance 'v2_input_data_reg[8]' (FDCE) to 'v2_input_data_reg[7]'
+INFO: [Synth 8-3886] merging instance 'v2_input_data_reg[7]' (FDCE) to 'v2_input_data_reg[9]'
+INFO: [Synth 8-3886] merging instance 'v2_input_data_reg[9]' (FDCE) to 'v2_input_data_reg[10]'
+INFO: [Synth 8-3886] merging instance 'v2_input_data_reg[11]' (FDCE) to 'v2_input_data_reg[10]'
+INFO: [Synth 8-3886] merging instance 'v2_input_data_reg[10]' (FDCE) to 'v2_input_data_reg[12]'
+INFO: [Synth 8-3886] merging instance 'v2_input_data_reg[16]' (FDCE) to 'v2_input_data_reg[12]'
+INFO: [Synth 8-3886] merging instance 'v2_input_data_reg[15]' (FDCE) to 'v2_input_data_reg[12]'
+INFO: [Synth 8-3886] merging instance 'v2_input_data_reg[18]' (FDCE) to 'v2_input_data_reg[12]'
+INFO: [Synth 8-3886] merging instance 'v2_input_data_reg[17]' (FDCE) to 'v2_input_data_reg[12]'
+INFO: [Synth 8-3886] merging instance 'v2_input_data_reg[14]' (FDCE) to 'v2_input_data_reg[12]'
+INFO: [Synth 8-3886] merging instance 'v2_input_data_reg[13]' (FDCE) to 'v2_input_data_reg[12]'
+INFO: [Synth 8-3886] merging instance 'v3_input_data_reg[21]' (FDCE) to 'v3_input_data_reg[7]'
+INFO: [Synth 8-3886] merging instance 'v3_input_data_reg[20]' (FDCE) to 'v3_input_data_reg[7]'
+INFO: [Synth 8-3886] merging instance 'v3_input_data_reg[19]' (FDCE) to 'v3_input_data_reg[7]'
+INFO: [Synth 8-3886] merging instance 'v3_input_data_reg[22]' (FDCE) to 'v3_input_data_reg[7]'
+INFO: [Synth 8-3886] merging instance 'v3_input_data_reg[24]' (FDCE) to 'v3_input_data_reg[7]'
+INFO: [Synth 8-3886] merging instance 'v3_input_data_reg[23]' (FDCE) to 'v3_input_data_reg[7]'
+INFO: [Synth 8-3886] merging instance 'v3_input_data_reg[29]' (FDCE) to 'v3_input_data_reg[7]'
+INFO: [Synth 8-3886] merging instance 'v3_input_data_reg[28]' (FDCE) to 'v3_input_data_reg[7]'
+INFO: [Synth 8-3886] merging instance 'v3_input_data_reg[31]' (FDCE) to 'v3_input_data_reg[7]'
+INFO: [Synth 8-3886] merging instance 'v3_input_data_reg[30]' (FDCE) to 'v3_input_data_reg[7]'
+INFO: [Synth 8-3886] merging instance 'v3_input_data_reg[27]' (FDCE) to 'v3_input_data_reg[7]'
+INFO: [Synth 8-3886] merging instance 'v3_input_data_reg[26]' (FDCE) to 'v3_input_data_reg[7]'
+INFO: [Synth 8-3886] merging instance 'v3_input_data_reg[25]' (FDCE) to 'v3_input_data_reg[7]'
+INFO: [Synth 8-3886] merging instance 'v3_input_data_reg[8]' (FDCE) to 'v3_input_data_reg[7]'
+INFO: [Synth 8-3886] merging instance 'v3_input_data_reg[7]' (FDCE) to 'v3_input_data_reg[9]'
+INFO: [Synth 8-3886] merging instance 'v3_input_data_reg[9]' (FDCE) to 'v3_input_data_reg[10]'
+INFO: [Synth 8-3886] merging instance 'v3_input_data_reg[11]' (FDCE) to 'v3_input_data_reg[10]'
+INFO: [Synth 8-3886] merging instance 'v3_input_data_reg[10]' (FDCE) to 'v3_input_data_reg[12]'
+INFO: [Synth 8-3886] merging instance 'v3_input_data_reg[16]' (FDCE) to 'v3_input_data_reg[12]'
+INFO: [Synth 8-3886] merging instance 'v3_input_data_reg[15]' (FDCE) to 'v3_input_data_reg[12]'
+INFO: [Synth 8-3886] merging instance 'v3_input_data_reg[18]' (FDCE) to 'v3_input_data_reg[12]'
+INFO: [Synth 8-3886] merging instance 'v3_input_data_reg[17]' (FDCE) to 'v3_input_data_reg[12]'
+INFO: [Synth 8-3886] merging instance 'v3_input_data_reg[14]' (FDCE) to 'v3_input_data_reg[12]'
+INFO: [Synth 8-3886] merging instance 'v3_input_data_reg[13]' (FDCE) to 'v3_input_data_reg[12]'
+INFO: [Synth 8-3886] merging instance 'v4_input_data_reg[21]' (FDCE) to 'v4_input_data_reg[7]'
+INFO: [Synth 8-3886] merging instance 'v4_input_data_reg[20]' (FDCE) to 'v4_input_data_reg[7]'
+INFO: [Synth 8-3886] merging instance 'v4_input_data_reg[19]' (FDCE) to 'v4_input_data_reg[7]'
+INFO: [Synth 8-3886] merging instance 'v4_input_data_reg[22]' (FDCE) to 'v4_input_data_reg[7]'
+INFO: [Synth 8-3886] merging instance 'v4_input_data_reg[24]' (FDCE) to 'v4_input_data_reg[7]'
+INFO: [Synth 8-3886] merging instance 'v4_input_data_reg[23]' (FDCE) to 'v4_input_data_reg[7]'
+INFO: [Synth 8-3886] merging instance 'v4_input_data_reg[29]' (FDCE) to 'v4_input_data_reg[7]'
+INFO: [Synth 8-3886] merging instance 'v4_input_data_reg[28]' (FDCE) to 'v4_input_data_reg[7]'
+INFO: [Synth 8-3886] merging instance 'v4_input_data_reg[31]' (FDCE) to 'v4_input_data_reg[7]'
+INFO: [Synth 8-3886] merging instance 'v4_input_data_reg[30]' (FDCE) to 'v4_input_data_reg[7]'
+INFO: [Synth 8-3886] merging instance 'v4_input_data_reg[27]' (FDCE) to 'v4_input_data_reg[7]'
+INFO: [Synth 8-3886] merging instance 'v4_input_data_reg[26]' (FDCE) to 'v4_input_data_reg[7]'
+INFO: [Synth 8-3886] merging instance 'v4_input_data_reg[25]' (FDCE) to 'v4_input_data_reg[7]'
+INFO: [Synth 8-3886] merging instance 'v4_input_data_reg[8]' (FDCE) to 'v4_input_data_reg[7]'
+INFO: [Synth 8-3886] merging instance 'v4_input_data_reg[7]' (FDCE) to 'v4_input_data_reg[9]'
+INFO: [Synth 8-3886] merging instance 'v4_input_data_reg[9]' (FDCE) to 'v4_input_data_reg[10]'
+INFO: [Synth 8-3886] merging instance 'v4_input_data_reg[11]' (FDCE) to 'v4_input_data_reg[10]'
+INFO: [Synth 8-3886] merging instance 'v4_input_data_reg[10]' (FDCE) to 'v4_input_data_reg[12]'
+INFO: [Synth 8-3886] merging instance 'v4_input_data_reg[16]' (FDCE) to 'v4_input_data_reg[12]'
+INFO: [Synth 8-3886] merging instance 'v4_input_data_reg[15]' (FDCE) to 'v4_input_data_reg[12]'
+INFO: [Synth 8-3886] merging instance 'v4_input_data_reg[18]' (FDCE) to 'v4_input_data_reg[12]'
+INFO: [Synth 8-3886] merging instance 'v4_input_data_reg[17]' (FDCE) to 'v4_input_data_reg[12]'
+INFO: [Synth 8-3886] merging instance 'v4_input_data_reg[14]' (FDCE) to 'v4_input_data_reg[12]'
+INFO: [Synth 8-3886] merging instance 'v4_input_data_reg[13]' (FDCE) to 'v4_input_data_reg[12]'
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (uut_output/uut_seg_display/\seg2_reg[0] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (uut_output/uut_seg_display/\seg1_reg[0] )
 WARNING: [Synth 8-3332] Sequential element (seg1_reg[0]) is unused and will be removed from module SegDisplay.
@@ -566,7 +633,7 @@ WARNING: [Synth 8-3332] Sequential element (regs_reg[0][2]) is unused and will b
 WARNING: [Synth 8-3332] Sequential element (regs_reg[0][1]) is unused and will be removed from module WB.
 WARNING: [Synth 8-3332] Sequential element (regs_reg[0][0]) is unused and will be removed from module WB.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 794.250 ; gain = 490.309
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 733.953 ; gain = 493.602
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -578,13 +645,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:31 ; elapsed = 00:00:31 . Memory (MB): peak = 857.914 ; gain = 553.973
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 797.410 ; gain = 557.059
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:31 ; elapsed = 00:00:32 . Memory (MB): peak = 863.957 ; gain = 560.016
+Finished Timing Optimization : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 803.180 ; gain = 562.828
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -596,7 +663,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:33 ; elapsed = 00:00:33 . Memory (MB): peak = 920.531 ; gain = 616.590
+Finished Technology Mapping : Time (s): cpu = 00:00:34 ; elapsed = 00:00:36 . Memory (MB): peak = 862.035 ; gain = 621.684
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -620,7 +687,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 920.531 ; gain = 616.590
+Finished IO Insertion : Time (s): cpu = 00:00:35 ; elapsed = 00:00:37 . Memory (MB): peak = 862.035 ; gain = 621.684
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -633,7 +700,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 920.531 ; gain = 616.590
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:35 ; elapsed = 00:00:37 . Memory (MB): peak = 862.035 ; gain = 621.684
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -645,25 +712,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:34 ; elapsed = 00:00:34 . Memory (MB): peak = 920.531 ; gain = 616.590
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:36 ; elapsed = 00:00:37 . Memory (MB): peak = 862.035 ; gain = 621.684
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:34 ; elapsed = 00:00:34 . Memory (MB): peak = 920.531 ; gain = 616.590
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:36 ; elapsed = 00:00:37 . Memory (MB): peak = 862.035 ; gain = 621.684
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:34 ; elapsed = 00:00:34 . Memory (MB): peak = 920.531 ; gain = 616.590
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:36 ; elapsed = 00:00:37 . Memory (MB): peak = 862.035 ; gain = 621.684
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:34 ; elapsed = 00:00:34 . Memory (MB): peak = 920.531 ; gain = 616.590
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:36 ; elapsed = 00:00:37 . Memory (MB): peak = 862.035 ; gain = 621.684
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -685,17 +752,17 @@ Report Cell Usage:
 |2     |pgrom  |     1|
 |3     |BUFG   |     5|
 |4     |CARRY4 |   483|
-|5     |LUT1   |   130|
-|6     |LUT2   |   575|
-|7     |LUT3   |   785|
-|8     |LUT4   |   688|
-|9     |LUT5   |   619|
-|10    |LUT6   |  1494|
+|5     |LUT1   |   131|
+|6     |LUT2   |   572|
+|7     |LUT3   |   817|
+|8     |LUT4   |   658|
+|9     |LUT5   |   620|
+|10    |LUT6   |  1493|
 |11    |MUXF7  |   286|
 |12    |MUXF8  |     1|
-|13    |FDCE   |  1557|
+|13    |FDCE   |  1684|
 |14    |FDPE   |    16|
-|15    |FDRE   |   105|
+|15    |FDRE   |     5|
 |16    |LD     |   143|
 |17    |IBUF   |    11|
 |18    |OBUF   |    32|
@@ -705,7 +772,7 @@ Report Instance Areas:
 +------+-----------------------+-----------------+------+
 |      |Instance               |Module           |Cells |
 +------+-----------------------+-----------------+------+
-|1     |top                    |                 |  6994|
+|1     |top                    |                 |  7021|
 |2     |  if_uut               |IF               |    69|
 |3     |  mem_uut              |MEM              |    88|
 |4     |  exe_uut              |EXE              |   125|
@@ -717,17 +784,17 @@ Report Instance Areas:
 |10    |    uut_clk_display    |ClockDivider_1   |    73|
 |11    |    uut_seg_display    |SegDisplay       |   561|
 |12    |    uut_seg_gen        |SegGenerator     |    99|
-|13    |  wb_uut               |WB               |  2031|
+|13    |  wb_uut               |WB               |  2029|
 +------+-----------------------+-----------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:34 ; elapsed = 00:00:34 . Memory (MB): peak = 920.531 ; gain = 616.590
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:36 ; elapsed = 00:00:38 . Memory (MB): peak = 862.035 ; gain = 621.684
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 129 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:24 ; elapsed = 00:00:29 . Memory (MB): peak = 920.531 ; gain = 278.402
-Synthesis Optimization Complete : Time (s): cpu = 00:00:34 ; elapsed = 00:00:34 . Memory (MB): peak = 920.531 ; gain = 616.590
+Synthesis finished with 0 errors, 0 critical warnings and 130 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:26 ; elapsed = 00:00:32 . Memory (MB): peak = 862.035 ; gain = 281.781
+Synthesis Optimization Complete : Time (s): cpu = 00:00:36 ; elapsed = 00:00:38 . Memory (MB): peak = 862.035 ; gain = 621.684
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 924 Unisim elements for replacement
-INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Netlist 29-28] Unisim Transformation completed in 1 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
 INFO: [Project 1-111] Unisim Transformation Summary:
@@ -735,10 +802,10 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   LD => LDCE: 143 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-148 Infos, 166 Warnings, 0 Critical Warnings and 0 Errors encountered.
+220 Infos, 161 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:35 ; elapsed = 00:00:38 . Memory (MB): peak = 920.531 ; gain = 628.117
-INFO: [Common 17-1381] The checkpoint 'D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.runs/synth_1/top_module.dcp' has been generated.
+synth_design: Time (s): cpu = 00:00:38 ; elapsed = 00:00:41 . Memory (MB): peak = 862.035 ; gain = 631.816
+INFO: [Common 17-1381] The checkpoint 'C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.runs/synth_1/top_module.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file top_module_utilization_synth.rpt -pb top_module_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.040 . Memory (MB): peak = 920.531 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Fri May 16 00:47:04 2025...
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.036 . Memory (MB): peak = 862.035 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Fri May 16 19:50:23 2025...

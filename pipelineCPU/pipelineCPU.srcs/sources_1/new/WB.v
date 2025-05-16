@@ -68,10 +68,9 @@ module WB(
                     1: tmp_data2={16'b0,tmp_data[31:16]};
                 endcase
             end
-
         endcase
     end
-    assign reg_write_data = ((en_input && done_input) ? input_data 
+    assign reg_write_data = ((en_input) ? input_data 
         : ( (is_jal || is_jalr) ? pc + 4 
         : (mem_to_reg ? tmp_data2: alu_result)));
     //assign tmp_data = (mem_to_reg ? mem_read_data: alu_result);

@@ -22,7 +22,7 @@ module tb_pipeline();
     
     initial begin
     done = 1'b0;
-    #350 done = 1'b1;
+    #150 done = 1'b1;
     #800 done = 1'b0;
     end
 endmodule
