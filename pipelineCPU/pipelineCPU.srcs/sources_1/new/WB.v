@@ -26,7 +26,7 @@ module WB(
                 regs[i] <= 32'h00000000;
             regs[2] <= sp_base;
             regs[3] <= gb_base;
-        end else if (reg_write && en_pc) begin
+        end else if (reg_write) begin
             if (en_input) regs[10] <= reg_write_data;
             else if (rd != 0) regs[rd] <= reg_write_data;
         end

@@ -322,13 +322,13 @@ module top_module(
     ClockDivider uut_clk_divider(
             .clk(init_clk),
             .rst(rst),
-            .period(2),// in order to do simulation, still needed to change for pipeline
+            .period(10000),// in order to do simulation, still needed to change for pipeline
             .clk_out(clk)
         );
     ClockDivider uut_debounce_divider(
             .clk(init_clk),
             .rst(rst),
-            .period(6),
+            .period(1000000),
             .clk_out(clk_de)
         );
         

@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="pgrom_synth_1" LaunchPart="xc7a35tcsg324-1" LaunchTime="1747394440">
+<GenRun Id="pgrom_synth_1" LaunchPart="xc7a35tcsg324-1" LaunchTime="1747398382">
   <File Type="PA-TCL" Name="pgrom.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="pgrom_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="pgrom_reports.tcl"/>
   <File Type="RDS-RDS" Name="pgrom.vds"/>
+  <File Type="RDS-UTIL" Name="pgrom_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="pgrom_utilization_synth.pb"/>
   <File Type="RDS-DCP" Name="pgrom.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="pgrom_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="pgrom_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="BlockSrcs" RelSrcDir="$PSRCDIR/pgrom">
     <File Path="$PSRCDIR/sources_1/ip/pgrom/pgrom.xci">
       <FileInfo>

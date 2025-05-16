@@ -65,5 +65,5 @@ module MEM(
         write_byte = 4'b0000;
      end
     end
-    pgram udram(.clka(~clk), .wea(en_pc ? write_byte : 0), .addra(addr[15:2]), .dina(tmp_write_data), .douta(dout));
+    pgram udram(.clka(~clk), .wea(write_byte), .addra(addr[15:2]), .dina(tmp_write_data), .douta(dout));
 endmodule
