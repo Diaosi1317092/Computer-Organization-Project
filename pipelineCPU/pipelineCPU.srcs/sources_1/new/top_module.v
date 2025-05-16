@@ -336,12 +336,12 @@ module top_module(
         .clk(clk),
         .rst(rst),
         .en_pc(en_pc),
-        .imm32(v3_imm32),
-        .new_pc(v3_alu_result),
-        .is_jal(v3_is_jal),
-        .is_jalr(v3_is_jalr),
-        .branch(v3_branch),
-        .zero(v3_zero),
+        .imm32(u3_imm32),
+        .new_pc(u3_alu_result),
+        .is_jal(u3_is_jal),
+        .is_jalr(u3_is_jalr),
+        .branch(u3_branch),
+        .zero(u3_zero),
         .is_nop(is_nop),
         .pc(pc)
     );

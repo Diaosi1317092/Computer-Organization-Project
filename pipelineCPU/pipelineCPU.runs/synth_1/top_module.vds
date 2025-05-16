@@ -2,8 +2,8 @@
 # Vivado v2017.4 (64-bit)
 # SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
 # IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
-# Start of session at: Fri May 16 20:26:32 2025
-# Process ID: 31052
+# Start of session at: Fri May 16 21:00:27 2025
+# Process ID: 2632
 # Current directory: C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.runs/synth_1
 # Command line: vivado.exe -log top_module.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top_module.tcl
 # Log file: C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.runs/synth_1/top_module.vds
@@ -15,9 +15,9 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 6900 
+INFO: Helper process launched with PID 2356 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 341.395 ; gain = 99.441
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:04 . Memory (MB): peak = 342.016 ; gain = 99.543
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'top_module' [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/top_module.v:2]
 	Parameter nop_inst bound to: 0 - type: integer 
@@ -29,8 +29,8 @@ INFO: [Synth 8-256] done synthesizing module 'HarzardDetection' (2#1) [C:/Users/
 INFO: [Synth 8-638] synthesizing module 'IF' [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/IF.v:23]
 	Parameter base_address bound to: 12288 - type: integer 
 	Parameter nop_inst bound to: 0 - type: integer 
-INFO: [Synth 8-638] synthesizing module 'pgrom' [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.runs/synth_1/.Xil/Vivado-31052-ASCHENPUTTEL/realtime/pgrom_stub.v:6]
-INFO: [Synth 8-256] done synthesizing module 'pgrom' (3#1) [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.runs/synth_1/.Xil/Vivado-31052-ASCHENPUTTEL/realtime/pgrom_stub.v:6]
+INFO: [Synth 8-638] synthesizing module 'pgrom' [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.runs/synth_1/.Xil/Vivado-2632-ASCHENPUTTEL/realtime/pgrom_stub.v:6]
+INFO: [Synth 8-256] done synthesizing module 'pgrom' (3#1) [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.runs/synth_1/.Xil/Vivado-2632-ASCHENPUTTEL/realtime/pgrom_stub.v:6]
 INFO: [Synth 8-256] done synthesizing module 'IF' (4#1) [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/IF.v:23]
 INFO: [Synth 8-638] synthesizing module 'ID' [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/ID.v:23]
 	Parameter R_TYPE bound to: 7'b0110011 
@@ -55,8 +55,8 @@ INFO: [Synth 8-638] synthesizing module 'MEM' [C:/Users/48946/Documents/GitHub/C
 	Parameter SW bound to: 3'b010 
 INFO: [Synth 8-226] default block is never used [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/MEM.v:46]
 INFO: [Synth 8-226] default block is never used [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/MEM.v:54]
-INFO: [Synth 8-638] synthesizing module 'pgram' [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.runs/synth_1/.Xil/Vivado-31052-ASCHENPUTTEL/realtime/pgram_stub.v:6]
-INFO: [Synth 8-256] done synthesizing module 'pgram' (7#1) [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.runs/synth_1/.Xil/Vivado-31052-ASCHENPUTTEL/realtime/pgram_stub.v:6]
+INFO: [Synth 8-638] synthesizing module 'pgram' [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.runs/synth_1/.Xil/Vivado-2632-ASCHENPUTTEL/realtime/pgram_stub.v:6]
+INFO: [Synth 8-256] done synthesizing module 'pgram' (7#1) [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.runs/synth_1/.Xil/Vivado-2632-ASCHENPUTTEL/realtime/pgram_stub.v:6]
 INFO: [Synth 8-256] done synthesizing module 'MEM' (8#1) [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/MEM.v:23]
 INFO: [Synth 8-638] synthesizing module 'WB' [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/WB.v:1]
 	Parameter sp_base bound to: 12284 - type: integer 
@@ -80,6 +80,9 @@ INFO: [Synth 8-638] synthesizing module 'SegDisplay' [C:/Users/48946/Documents/G
 INFO: [Synth 8-256] done synthesizing module 'SegDisplay' (12#1) [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/SegDisplay.v:1]
 INFO: [Synth 8-256] done synthesizing module 'OutputModule' (13#1) [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/OutputModule.v:1]
 WARNING: [Synth 8-6014] Unused sequential element v2_mem_read_reg was removed.  [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/top_module.v:158]
+WARNING: [Synth 8-6014] Unused sequential element v3_zero_reg was removed.  [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/top_module.v:178]
+WARNING: [Synth 8-6014] Unused sequential element v3_branch_reg was removed.  [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/top_module.v:189]
+WARNING: [Synth 8-6014] Unused sequential element v3_imm32_reg was removed.  [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/top_module.v:190]
 WARNING: [Synth 8-5788] Register v2_en_output_reg in module top_module is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/top_module.v:231]
 WARNING: [Synth 8-3848] Net u3_mem_read in module/entity top_module does not have driver. [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/top_module.v:87]
 INFO: [Synth 8-256] done synthesizing module 'top_module' (14#1) [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/top_module.v:2]
@@ -159,7 +162,7 @@ WARNING: [Synth 8-3331] design IF has unconnected port pc[16]
 WARNING: [Synth 8-3331] design IF has unconnected port pc[15]
 WARNING: [Synth 8-3331] design IF has unconnected port pc[14]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 394.211 ; gain = 152.258
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 394.238 ; gain = 151.766
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -169,17 +172,17 @@ Report Check Netlist:
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 394.211 ; gain = 152.258
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 394.238 ; gain = 151.766
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7a35tcsg324-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.runs/synth_1/.Xil/Vivado-31052-ASCHENPUTTEL/dcp2/pgram_in_context.xdc] for cell 'mem_uut/udram'
-Finished Parsing XDC File [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.runs/synth_1/.Xil/Vivado-31052-ASCHENPUTTEL/dcp2/pgram_in_context.xdc] for cell 'mem_uut/udram'
-Parsing XDC File [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.runs/synth_1/.Xil/Vivado-31052-ASCHENPUTTEL/dcp3/pgrom_in_context.xdc] for cell 'if_uut/urom'
-Finished Parsing XDC File [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.runs/synth_1/.Xil/Vivado-31052-ASCHENPUTTEL/dcp3/pgrom_in_context.xdc] for cell 'if_uut/urom'
+Parsing XDC File [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.runs/synth_1/.Xil/Vivado-2632-ASCHENPUTTEL/dcp2/pgram_in_context.xdc] for cell 'mem_uut/udram'
+Finished Parsing XDC File [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.runs/synth_1/.Xil/Vivado-2632-ASCHENPUTTEL/dcp2/pgram_in_context.xdc] for cell 'mem_uut/udram'
+Parsing XDC File [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.runs/synth_1/.Xil/Vivado-2632-ASCHENPUTTEL/dcp3/pgrom_in_context.xdc] for cell 'if_uut/urom'
+Finished Parsing XDC File [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.runs/synth_1/.Xil/Vivado-2632-ASCHENPUTTEL/dcp3/pgrom_in_context.xdc] for cell 'if_uut/urom'
 Parsing XDC File [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/constrs_1/new/pipelineCPU.xdc]
 Finished Parsing XDC File [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/constrs_1/new/pipelineCPU.xdc]
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/constrs_1/new/pipelineCPU.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_module_propImpl.xdc].
@@ -189,16 +192,16 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 732.805 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 733.504 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 732.805 ; gain = 490.852
+Finished Constraint Validation : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 733.504 ; gain = 491.031
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcsg324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 732.805 ; gain = 490.852
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 733.504 ; gain = 491.031
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -206,7 +209,7 @@ Start Applying 'set_property' XDC Constraints
 Applied set_property DONT_TOUCH = true for if_uut/urom. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for mem_uut/udram. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 732.805 ; gain = 490.852
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 733.504 ; gain = 491.031
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-6014] Unused sequential element cnt_reg was removed.  [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/ClockDivider.v:11]
 INFO: [Synth 8-5545] ROM "next_count" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
@@ -272,7 +275,7 @@ WARNING: [Synth 8-327] inferring latch for variable 'seg2_reg' [C:/Users/48946/D
 WARNING: [Synth 8-327] inferring latch for variable 'tmp_reg_a7' [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/OutputModule.v:19]
 WARNING: [Synth 8-327] inferring latch for variable 'val' [C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/OutputModule.v:18]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 732.805 ; gain = 490.852
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 733.504 ; gain = 491.031
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -291,13 +294,13 @@ Detailed RTL Component Info :
 +---XORs : 
 	   2 Input     32 Bit         XORs := 1     
 +---Registers : 
-	               32 Bit    Registers := 19    
+	               32 Bit    Registers := 18    
 	                7 Bit    Registers := 1     
 	                5 Bit    Registers := 3     
 	                4 Bit    Registers := 2     
 	                3 Bit    Registers := 3     
 	                2 Bit    Registers := 1     
-	                1 Bit    Registers := 32    
+	                1 Bit    Registers := 30    
 +---Muxes : 
 	   2 Input     32 Bit        Muxes := 12    
 	   6 Input     32 Bit        Muxes := 1     
@@ -328,12 +331,12 @@ Hierarchical RTL Component report
 Module top_module 
 Detailed RTL Component Info : 
 +---Registers : 
-	               32 Bit    Registers := 18    
+	               32 Bit    Registers := 17    
 	                7 Bit    Registers := 1     
 	                5 Bit    Registers := 3     
 	                3 Bit    Registers := 3     
 	                2 Bit    Registers := 1     
-	                1 Bit    Registers := 25    
+	                1 Bit    Registers := 23    
 Module ClockDivider 
 Detailed RTL Component Info : 
 +---Adders : 
@@ -567,38 +570,38 @@ WARNING: [Synth 8-3332] Sequential element (v2_funct7_reg[3]) is unused and will
 WARNING: [Synth 8-3332] Sequential element (v2_funct7_reg[2]) is unused and will be removed from module top_module.
 WARNING: [Synth 8-3332] Sequential element (v2_funct7_reg[1]) is unused and will be removed from module top_module.
 WARNING: [Synth 8-3332] Sequential element (v2_funct7_reg[0]) is unused and will be removed from module top_module.
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (wb_uut/\regs_reg[0][16] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (wb_uut/\regs_reg[0][24] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (wb_uut/\regs_reg[0][8] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (wb_uut/\regs_reg[0][28] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (wb_uut/\regs_reg[0][12] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (wb_uut/\regs_reg[0][20] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (wb_uut/\regs_reg[0][24] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (wb_uut/\regs_reg[0][16] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (wb_uut/\regs_reg[0][26] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (wb_uut/\regs_reg[0][18] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (wb_uut/\regs_reg[0][22] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (wb_uut/\regs_reg[0][30] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (wb_uut/\regs_reg[0][14] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (wb_uut/\regs_reg[0][22] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (wb_uut/\regs_reg[0][6] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (wb_uut/\regs_reg[0][26] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (wb_uut/\regs_reg[0][10] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (wb_uut/\regs_reg[0][18] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (wb_uut/\regs_reg[0][27] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (wb_uut/\regs_reg[0][19] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (wb_uut/\regs_reg[0][23] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (wb_uut/\regs_reg[0][31] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (wb_uut/\regs_reg[0][15] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (wb_uut/\regs_reg[0][23] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (wb_uut/\regs_reg[0][7] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (wb_uut/\regs_reg[0][27] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (wb_uut/\regs_reg[0][11] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (wb_uut/\regs_reg[0][19] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (wb_uut/\regs_reg[0][29] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (wb_uut/\regs_reg[0][13] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (wb_uut/\regs_reg[0][21] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (wb_uut/\regs_reg[0][5] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (wb_uut/\regs_reg[0][25] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (wb_uut/\regs_reg[0][9] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (wb_uut/\regs_reg[0][17] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (wb_uut/\regs_reg[0][4] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (wb_uut/\regs_reg[0][3] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (wb_uut/\regs_reg[0][2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (wb_uut/\regs_reg[0][21] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (wb_uut/\regs_reg[0][29] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (wb_uut/\regs_reg[0][0] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (wb_uut/\regs_reg[0][1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (wb_uut/\regs_reg[0][2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (wb_uut/\regs_reg[0][3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (wb_uut/\regs_reg[0][4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (wb_uut/\regs_reg[0][5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (wb_uut/\regs_reg[0][6] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (wb_uut/\regs_reg[0][7] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (wb_uut/\regs_reg[0][8] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (wb_uut/\regs_reg[0][9] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (wb_uut/\regs_reg[0][10] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (wb_uut/\regs_reg[0][11] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (wb_uut/\regs_reg[0][12] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (wb_uut/\regs_reg[0][13] )
 WARNING: [Synth 8-3332] Sequential element (regs_reg[0][31]) is unused and will be removed from module WB.
 WARNING: [Synth 8-3332] Sequential element (regs_reg[0][30]) is unused and will be removed from module WB.
 WARNING: [Synth 8-3332] Sequential element (regs_reg[0][29]) is unused and will be removed from module WB.
@@ -632,7 +635,7 @@ WARNING: [Synth 8-3332] Sequential element (regs_reg[0][2]) is unused and will b
 WARNING: [Synth 8-3332] Sequential element (regs_reg[0][1]) is unused and will be removed from module WB.
 WARNING: [Synth 8-3332] Sequential element (regs_reg[0][0]) is unused and will be removed from module WB.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 732.805 ; gain = 490.852
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 733.504 ; gain = 491.031
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -644,13 +647,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:32 ; elapsed = 00:00:35 . Memory (MB): peak = 797.266 ; gain = 555.312
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 799.441 ; gain = 556.969
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 803.215 ; gain = 561.262
+Finished Timing Optimization : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 805.301 ; gain = 562.828
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -662,7 +665,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:34 ; elapsed = 00:00:37 . Memory (MB): peak = 860.184 ; gain = 618.230
+Finished Technology Mapping : Time (s): cpu = 00:00:34 ; elapsed = 00:00:36 . Memory (MB): peak = 866.191 ; gain = 623.719
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -686,7 +689,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:35 ; elapsed = 00:00:37 . Memory (MB): peak = 860.184 ; gain = 618.230
+Finished IO Insertion : Time (s): cpu = 00:00:35 ; elapsed = 00:00:37 . Memory (MB): peak = 866.191 ; gain = 623.719
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -699,7 +702,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:35 ; elapsed = 00:00:38 . Memory (MB): peak = 860.184 ; gain = 618.230
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:35 ; elapsed = 00:00:37 . Memory (MB): peak = 866.191 ; gain = 623.719
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -711,25 +714,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:35 ; elapsed = 00:00:38 . Memory (MB): peak = 860.184 ; gain = 618.230
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:35 ; elapsed = 00:00:37 . Memory (MB): peak = 866.191 ; gain = 623.719
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:35 ; elapsed = 00:00:38 . Memory (MB): peak = 860.184 ; gain = 618.230
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:35 ; elapsed = 00:00:37 . Memory (MB): peak = 866.191 ; gain = 623.719
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:35 ; elapsed = 00:00:38 . Memory (MB): peak = 860.184 ; gain = 618.230
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:36 ; elapsed = 00:00:37 . Memory (MB): peak = 866.191 ; gain = 623.719
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:35 ; elapsed = 00:00:38 . Memory (MB): peak = 860.184 ; gain = 618.230
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:36 ; elapsed = 00:00:37 . Memory (MB): peak = 866.191 ; gain = 623.719
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -751,15 +754,15 @@ Report Cell Usage:
 |2     |pgrom  |     1|
 |3     |BUFG   |     5|
 |4     |CARRY4 |   483|
-|5     |LUT1   |   131|
-|6     |LUT2   |   574|
-|7     |LUT3   |   816|
-|8     |LUT4   |   657|
-|9     |LUT5   |   623|
-|10    |LUT6   |  1490|
-|11    |MUXF7  |   286|
+|5     |LUT1   |   130|
+|6     |LUT2   |   580|
+|7     |LUT3   |   815|
+|8     |LUT4   |   644|
+|9     |LUT5   |   495|
+|10    |LUT6   |  1692|
+|11    |MUXF7  |   284|
 |12    |MUXF8  |     1|
-|13    |FDCE   |  1684|
+|13    |FDCE   |  1653|
 |14    |FDPE   |    16|
 |15    |FDRE   |     5|
 |16    |LD     |   143|
@@ -771,11 +774,11 @@ Report Instance Areas:
 +------+-----------------------+-----------------+------+
 |      |Instance               |Module           |Cells |
 +------+-----------------------+-----------------+------+
-|1     |top                    |                 |  7021|
-|2     |  if_uut               |IF               |    69|
+|1     |top                    |                 |  7053|
+|2     |  if_uut               |IF               |    70|
 |3     |  mem_uut              |MEM              |    92|
-|4     |  exe_uut              |EXE              |   125|
-|5     |  hd_uut               |HarzardDetection |   191|
+|4     |  exe_uut              |EXE              |    85|
+|5     |  hd_uut               |HarzardDetection |   846|
 |6     |  input_uut            |InputModule      |    16|
 |7     |  uut_clk_divider      |ClockDivider     |    73|
 |8     |  uut_debounce_divider |ClockDivider_0   |    72|
@@ -786,13 +789,13 @@ Report Instance Areas:
 |13    |  wb_uut               |WB               |  2025|
 +------+-----------------------+-----------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:35 ; elapsed = 00:00:38 . Memory (MB): peak = 860.184 ; gain = 618.230
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:36 ; elapsed = 00:00:37 . Memory (MB): peak = 866.191 ; gain = 623.719
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 132 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:25 ; elapsed = 00:00:32 . Memory (MB): peak = 860.184 ; gain = 279.637
-Synthesis Optimization Complete : Time (s): cpu = 00:00:35 ; elapsed = 00:00:38 . Memory (MB): peak = 860.184 ; gain = 618.230
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:26 ; elapsed = 00:00:32 . Memory (MB): peak = 866.191 ; gain = 284.453
+Synthesis Optimization Complete : Time (s): cpu = 00:00:36 ; elapsed = 00:00:37 . Memory (MB): peak = 866.191 ; gain = 623.719
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 924 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 922 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
@@ -801,10 +804,10 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   LD => LDCE: 143 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-220 Infos, 160 Warnings, 0 Critical Warnings and 0 Errors encountered.
+220 Infos, 163 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:38 ; elapsed = 00:00:42 . Memory (MB): peak = 860.184 ; gain = 629.727
+synth_design: Time (s): cpu = 00:00:37 ; elapsed = 00:00:41 . Memory (MB): peak = 866.191 ; gain = 635.207
 INFO: [Common 17-1381] The checkpoint 'C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.runs/synth_1/top_module.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file top_module_utilization_synth.rpt -pb top_module_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.037 . Memory (MB): peak = 860.184 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Fri May 16 20:27:19 2025...
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.038 . Memory (MB): peak = 866.191 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Fri May 16 21:01:15 2025...
