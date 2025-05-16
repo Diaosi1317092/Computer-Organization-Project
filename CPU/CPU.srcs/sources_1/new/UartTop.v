@@ -45,7 +45,7 @@ module UartTop (
 
     always @(posedge clk or negedge rst) begin
         if (~rst) begin
-            last_output <= 32'd0;
+            last_output <= 32'b0;
             out_strobe  <= 1'b0;
         end else begin
             out_strobe  <= 1'b0;

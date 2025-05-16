@@ -71,8 +71,6 @@ module top_module(
     wire [2:0] funct3 = inst[14:12];
     wire [6:0] funct7 = inst[31:25];
     
-    wire [31:0] regs [0:31];
-    
     // =========================
     // Module Instantiations
     // =========================
@@ -119,8 +117,7 @@ module top_module(
         .en_output(en_output),
         .output_data(output_data),
         .reg_a7(reg_a7),
-        .en_pc(en_pc),
-        .regs(regs)
+        .en_pc(en_pc)
     );
 
     // ALU unit
