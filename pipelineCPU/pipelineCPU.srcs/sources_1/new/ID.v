@@ -24,7 +24,12 @@ module ID(
     input  [31:0]      inst,
     input  [31:0] regs [0:31],
     input         done_input,
-    
+    input  [31:0] input_data,
+    input  [31:0] pc,       
+
+    output [31:0] reg_write_data,
+    output have_reg_write_data,
+
     output [31:0]  rs1_data,
     output [31:0]  rs2_data,
     output reg [31:0]  imm32,
@@ -47,7 +52,6 @@ module ID(
     output reg    is_auipc,
     output reg    is_ecall,
     output reg    en_pc,
-    output reg    en_input,
     output reg    en_output
 );
     parameter R_TYPE  = 7'b0110011;
@@ -64,7 +68,7 @@ module ID(
     wire [4:0] rs1    = inst[19:15];
     wire [4:0] rs2    = inst[24:20];
     wire [6:0] opcode = inst[6:0];
-    
+    reg    en_input;
     assign rd     = inst[11:7];
     assign rs1_data = regs[rs1];
     assign rs2_data = regs[rs2];
@@ -74,6 +78,11 @@ module ID(
     
     assign reg_a7=regs[17];
     assign output_data=regs[10];
+
+    assign reg_write_data = (en_input ? input_data 
+        : ( (is_jal || is_jalr) ? pc + 4 : 0));
+    assign have_reg_write_data = en_input | is_jal | is_jalr;
+    
 
     always @* begin
         case (opcode)

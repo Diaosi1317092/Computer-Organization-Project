@@ -21,6 +21,14 @@
 
 
 module EXE(
+    // input [4:0] rs1,
+    // input [4:0] rs2,
+    // input exe_rd,
+    // input exe_
+    input [31:0] reg_write_data_in,
+    output [31:0] reg_write_data_out,
+    input have_reg_write_data_in,
+    output have_reg_write_data_out,
     input  [31:0] read_data1,
     input  [31:0] read_data2,
     input  [31:0] imm32,
@@ -39,6 +47,11 @@ module EXE(
 
     assign operand2 = (alu_src == 1'b0) ? read_data2 : imm32;
     assign shamt = operand2[4:0];
+
+    assign reg_write_data_out = have_reg_write_data_in ? reg_write_data_in : 
+        (mem_to_reg ? 0 : alu_result);
+    
+    assign have_reg_write_data_out = have_reg_write_data_in | !mem_to_reg;
 
     always @(*) begin
         case (alu_op)

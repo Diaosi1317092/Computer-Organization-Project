@@ -8,6 +8,7 @@ module HarzardDetection(
     input is_jalr,
     input branch,
     input zero,
+    input clr_if,
     input [31:0] imm32,
     input [31:0] new_pc,
     output reg[31:0] pc,
@@ -47,25 +48,28 @@ module HarzardDetection(
             next_count = count;
             next_is_nop = is_nop;
         end else begin 
-            if (count==5) next_count=3;
-            else next_count=count+1;
-            if (count==3) begin
-                if (is_jalr) begin
-                    next_pc = new_pc;
-                    next_is_nop=0;
-                end else if (branch && zero || is_jal) begin
-                    next_pc = pc + imm32;   // branch taken
-                    next_is_nop=0;
-                end else begin
-                    next_pc = pc + 32'd4;   // normal sequential execution
-                    next_is_nop=0;
-                end
+            // if (count==5) next_count=3;
+            // else next_count=count+1;
+            // if (count==3) begin
+            if (clr_if) begin
+                next_pc = pc - 4;   // normal sequential execution
+                next_is_nop = 1;
+            end else if (is_jalr) begin
+                next_pc = new_pc;
+                next_is_nop=0;
+            end else if (branch && zero || is_jal) begin
+                next_pc = pc + imm32;   // branch taken
+                next_is_nop=0;
+            end else begin
+                next_pc = pc + 32'd4;   // normal sequential execution
+                next_is_nop=0;
             end
-            else begin
-                if (count ==0) next_is_nop =0;
-                else next_is_nop = 1;
-                next_pc = pc;
-            end
+            // end
+            // else begin
+            //     if (count ==0) next_is_nop =0;
+            //     else next_is_nop = 1;
+            //     next_pc = pc;
+            // end
         end
     end
     

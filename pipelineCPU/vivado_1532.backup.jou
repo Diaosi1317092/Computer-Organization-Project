@@ -2,14 +2,13 @@
 # Vivado v2017.4 (64-bit)
 # SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
 # IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
-# Start of session at: Sat May 17 00:42:29 2025
-# Process ID: 14312
+# Start of session at: Fri May 16 21:35:30 2025
+# Process ID: 1532
 # Current directory: D:/GitHub/Computer-Organization-Project/pipelineCPU
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent13164 D:\GitHub\Computer-Organization-Project\pipelineCPU\pipelineCPU.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent9968 D:\GitHub\Computer-Organization-Project\pipelineCPU\pipelineCPU.xpr
 # Log file: D:/GitHub/Computer-Organization-Project/pipelineCPU/vivado.log
 # Journal file: D:/GitHub/Computer-Organization-Project/pipelineCPU\vivado.jou
 #-----------------------------------------------------------
 start_gui
 open_project D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.xpr
 update_compile_order -fileset sources_1
-close_project
