@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="165080000fs"></ZoomStartTime>
-      <ZoomEndTime time="625580001fs"></ZoomEndTime>
-      <Cursor1Time time="501000000fs"></Cursor1Time>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="31000001fs"></ZoomEndTime>
+      <Cursor1Time time="51000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="123"></NameColumnWidth>
-      <ValueColumnWidth column_width="78"></ValueColumnWidth>
+      <ValueColumnWidth column_width="70"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="103" />
+   <WVObjectSize size="113" />
    <wvobject fp_name="/tb_pipeline/uut_tm/clk" type="logic">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
@@ -349,14 +349,6 @@
       <obj_property name="ElementShortName">v3_funct3[2:0]</obj_property>
       <obj_property name="ObjectShortName">v3_funct3[2:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_pipeline/uut_tm/v3_is_jal" type="logic">
-      <obj_property name="ElementShortName">v3_is_jal</obj_property>
-      <obj_property name="ObjectShortName">v3_is_jal</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_pipeline/uut_tm/v3_is_jalr" type="logic">
-      <obj_property name="ElementShortName">v3_is_jalr</obj_property>
-      <obj_property name="ObjectShortName">v3_is_jalr</obj_property>
-   </wvobject>
    <wvobject fp_name="/tb_pipeline/uut_tm/u4_mem_read_data" type="array">
       <obj_property name="ElementShortName">u4_mem_read_data[31:0]</obj_property>
       <obj_property name="ObjectShortName">u4_mem_read_data[31:0]</obj_property>
@@ -397,14 +389,6 @@
       <obj_property name="ElementShortName">u4_funct3[2:0]</obj_property>
       <obj_property name="ObjectShortName">u4_funct3[2:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_pipeline/uut_tm/u4_is_jal" type="logic">
-      <obj_property name="ElementShortName">u4_is_jal</obj_property>
-      <obj_property name="ObjectShortName">u4_is_jal</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_pipeline/uut_tm/u4_is_jalr" type="logic">
-      <obj_property name="ElementShortName">u4_is_jalr</obj_property>
-      <obj_property name="ObjectShortName">u4_is_jalr</obj_property>
-   </wvobject>
    <wvobject fp_name="/tb_pipeline/uut_tm/v4_mem_to_reg" type="logic">
       <obj_property name="ElementShortName">v4_mem_to_reg</obj_property>
       <obj_property name="ObjectShortName">v4_mem_to_reg</obj_property>
@@ -421,16 +405,72 @@
       <obj_property name="ElementShortName">v4_funct3[2:0]</obj_property>
       <obj_property name="ObjectShortName">v4_funct3[2:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_pipeline/uut_tm/v4_is_jal" type="logic">
-      <obj_property name="ElementShortName">v4_is_jal</obj_property>
-      <obj_property name="ObjectShortName">v4_is_jal</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_pipeline/uut_tm/v4_is_jalr" type="logic">
-      <obj_property name="ElementShortName">v4_is_jalr</obj_property>
-      <obj_property name="ObjectShortName">v4_is_jalr</obj_property>
-   </wvobject>
    <wvobject fp_name="/tb_pipeline/uut_tm/nop_inst" type="array">
       <obj_property name="ElementShortName">nop_inst[31:0]</obj_property>
       <obj_property name="ObjectShortName">nop_inst[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pipeline/uut_tm/clr_if" type="logic">
+      <obj_property name="ElementShortName">clr_if</obj_property>
+      <obj_property name="ObjectShortName">clr_if</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pipeline/uut_tm/fw_uut/rs1" type="array">
+      <obj_property name="ElementShortName">rs1[4:0]</obj_property>
+      <obj_property name="ObjectShortName">rs1[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pipeline/uut_tm/fw_uut/rs2" type="array">
+      <obj_property name="ElementShortName">rs2[4:0]</obj_property>
+      <obj_property name="ObjectShortName">rs2[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pipeline/uut_tm/fw_uut/exe_rd" type="array">
+      <obj_property name="ElementShortName">exe_rd[4:0]</obj_property>
+      <obj_property name="ObjectShortName">exe_rd[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pipeline/uut_tm/fw_uut/mem_rd" type="array">
+      <obj_property name="ElementShortName">mem_rd[4:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_rd[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pipeline/uut_tm/fw_uut/fw_mem_data" type="array">
+      <obj_property name="ElementShortName">fw_mem_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">fw_mem_data[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pipeline/uut_tm/fw_uut/fw_exe_data" type="array">
+      <obj_property name="ElementShortName">fw_exe_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">fw_exe_data[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pipeline/uut_tm/fw_uut/rs1_data" type="array">
+      <obj_property name="ElementShortName">rs1_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">rs1_data[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pipeline/uut_tm/fw_uut/rs2_data" type="array">
+      <obj_property name="ElementShortName">rs2_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">rs2_data[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pipeline/uut_tm/fw_uut/fw_reg_write1" type="logic">
+      <obj_property name="ElementShortName">fw_reg_write1</obj_property>
+      <obj_property name="ObjectShortName">fw_reg_write1</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pipeline/uut_tm/fw_uut/fw_reg_write2" type="logic">
+      <obj_property name="ElementShortName">fw_reg_write2</obj_property>
+      <obj_property name="ObjectShortName">fw_reg_write2</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pipeline/uut_tm/fw_uut/fw_exe_have_write_data" type="logic">
+      <obj_property name="ElementShortName">fw_exe_have_write_data</obj_property>
+      <obj_property name="ObjectShortName">fw_exe_have_write_data</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pipeline/uut_tm/fw_uut/fw_mem_have_write_data" type="logic">
+      <obj_property name="ElementShortName">fw_mem_have_write_data</obj_property>
+      <obj_property name="ObjectShortName">fw_mem_have_write_data</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pipeline/uut_tm/fw_uut/operand1_data" type="array">
+      <obj_property name="ElementShortName">operand1_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">operand1_data[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pipeline/uut_tm/fw_uut/operand2_data" type="array">
+      <obj_property name="ElementShortName">operand2_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">operand2_data[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pipeline/uut_tm/fw_uut/is_stalling" type="logic">
+      <obj_property name="ElementShortName">is_stalling</obj_property>
+      <obj_property name="ObjectShortName">is_stalling</obj_property>
    </wvobject>
 </wave_config>

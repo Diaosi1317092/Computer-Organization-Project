@@ -31,8 +31,9 @@ module MEM(
     output [31:0] reg_write_data_out,
     input have_reg_write_data_in
 );
-    reg [31:0] mem_read_data;
-    assign reg_write_data_out = have_reg_write_data_in ? reg_write_data_in : mem_read_data;
+    wire [31:0] mem_read_data;
+    reg [31:0] dout;
+    assign reg_write_data_out = have_reg_write_data_in ? reg_write_data_in : dout;
     
     parameter SB=3'b000,SH=3'b001,SW=3'b010;
     reg [3:0] write_byte;
@@ -69,7 +70,7 @@ module MEM(
         end
     end
     
-    wire [31:0] tmp_data;
+    wire [31:0] tmp_data = mem_read_data;
     parameter LB=0,LH=1,LW=2,LBU=4,LHU=5;
     always @(*) begin
         case (funct3)

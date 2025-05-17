@@ -9,7 +9,7 @@ module WB(
     // input [31:0] alu_result,
     input [31:0] reg_write_data,
     // input [31:0] input_data,
-    // input en_input,
+     input en_input,
     // input is_jal,
     // input is_jalr,    
     // input [31:0] pc,
@@ -24,8 +24,7 @@ module WB(
             regs[2] <= sp_base;
             regs[3] <= gb_base;
         end else if (reg_write) begin
-            if (en_input) regs[10] <= reg_write_data;
-            else if (rd != 0) regs[rd] <= reg_write_data;
+            if (rd != 0) regs[rd] <= reg_write_data;
         end
     end
 
