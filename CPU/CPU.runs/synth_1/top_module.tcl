@@ -16,7 +16,6 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
-set_param xicom.use_bs_reader 1
 create_project -in_memory -part xc7a35tcsg324-1
 
 set_param project.singleFileAddWarning.threshold 0
@@ -47,23 +46,25 @@ add_files D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgro
 add_files D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgrom/BaseTest1ROM.coe
 add_files D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgrom/InputTest.coe
 add_files D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgrom/InputTest16.coe
+read_verilog -library xil_defaultlib -sv {
+  D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/Decoder.v
+  D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/UartReg.v
+  D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/UartRx.v
+  D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/UartTop.v
+  D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/UartTx.v
+  D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/top_module.v
+}
 read_verilog -library xil_defaultlib {
   D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/ALU.v
   D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/ClockDivider.v
   D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/Controller.v
   D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/DMem.v
-  D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/Decoder.v
   D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/IFetch.v
   D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/InputModule.v
   D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/OutputModule.v
   D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/SegDisplay.v
   D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/SegGenerator.v
-  D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/UartOutputSerializer.v
-  D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/UartRx.v
-  D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/UartTop.v
-  D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/UartTx.v
   D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/WriteBackMUX.v
-  D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/top_module.v
 }
 read_ip -quiet D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgrom/prgrom.xci
 set_property used_in_implementation false [get_files -all d:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgrom/prgrom_ooc.xdc]
