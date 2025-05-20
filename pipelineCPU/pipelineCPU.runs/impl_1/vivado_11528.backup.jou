@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2017.4 (64-bit)
+# SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
+# IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+# Start of session at: Tue May 20 23:19:53 2025
+# Process ID: 11528
+# Current directory: D:/Clone/Computer-Organization-Project/pipelineCPU/pipelineCPU.runs/impl_1
+# Command line: vivado.exe -log top_module.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source top_module.tcl -notrace
+# Log file: D:/Clone/Computer-Organization-Project/pipelineCPU/pipelineCPU.runs/impl_1/top_module.vdi
+# Journal file: D:/Clone/Computer-Organization-Project/pipelineCPU/pipelineCPU.runs/impl_1\vivado.jou
+#-----------------------------------------------------------
+source top_module.tcl -notrace

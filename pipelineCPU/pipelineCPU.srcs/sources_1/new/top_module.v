@@ -1,9 +1,11 @@
-`timescale 1ns / 1ps
 module top_module(
     input init_clk,
     input rst,
     input done,
+    input cp_done,
     input [7:0] sw_input,
+    input  wire rx,
+    output wire tx,
     output [7:0] seg1,
     output [7:0] seg2,
     output [7:0] led,
@@ -14,6 +16,10 @@ module top_module(
     wire [31:0] input_data;
     wire en_pc, done_input;
     wire clk, clk_de;
+    
+    wire [7:0] cp_input;
+    wire [31:0] uart_reg_a7;
+    wire [31:0] uart_output_data;
 
     // ecall's stalling
     wire is_ecall;
@@ -588,16 +594,18 @@ module top_module(
         .regs(regs)
     );
 
-    InputModule input_uut(
+    InputModule uut_input(
         .clk(clk),
         .clk_de(clk_de),
         .rst(rst),
         .sw_input(sw_input),
+        .cp_input(cp_input),
         .done(done),
+        .cp_done(cp_done),
         .input_data(input_data),
-        .done_input(done_input)
+        .true_done_input(done_input)
     );
-
+    
     OutputModule uut_output(
         .clk(init_clk),
         .rst(rst),
@@ -609,4 +617,16 @@ module top_module(
         .led(led),
         .an(an)
     );
+    
+    UartTop uut_uart(
+        .clk(init_clk),
+        .rst(rst),
+        .rx(rx),
+        .tx(tx),
+        .uart_reg_a7(uart_reg_a7),
+        .uart_output_data(uart_output_data),
+        .cp_input(cp_input),
+        .regs(regs)
+    );
+    
 endmodule

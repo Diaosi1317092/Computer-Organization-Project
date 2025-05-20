@@ -23,43 +23,47 @@ set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
 set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
-set_property webtalk.parent_dir C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.cache/wt [current_project]
-set_property parent.project_path C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.xpr [current_project]
+set_property webtalk.parent_dir D:/Clone/Computer-Organization-Project/pipelineCPU/pipelineCPU.cache/wt [current_project]
+set_property parent.project_path D:/Clone/Computer-Organization-Project/pipelineCPU/pipelineCPU.xpr [current_project]
 set_property XPM_LIBRARIES XPM_MEMORY [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
-set_property ip_output_repo c:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.cache/ip [current_project]
+set_property ip_output_repo d:/Clone/Computer-Organization-Project/pipelineCPU/pipelineCPU.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
-add_files C:/Users/48946/Documents/GitHub/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgrom/test1ROM.coe
-add_files C:/Users/48946/Documents/GitHub/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgrom/test9ROM.coe
-add_files C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/ip/pgrom/BaseTest1ROM.coe
-add_files C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/ip/pgrom/test_jbc_1.coe
-add_files C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/ip/pgrom/test_jbc_2.coe
-add_files c:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/ip/pgrom/pipelineTest1ROM.coe
-add_files c:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/ip/pgram/pipelineTest1RAM.coe
-add_files c:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/ip/pgrom/BaseTest2ROM.coe
+add_files D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgrom/test1ROM.coe
+add_files D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgrom/test9ROM.coe
+add_files D:/Clone/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/ip/pgrom/BaseTest1ROM.coe
+add_files D:/Clone/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/ip/pgrom/test_jbc_1.coe
+add_files D:/Clone/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/ip/pgrom/test_jbc_2.coe
+add_files D:/Clone/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/ip/pgrom/pipelineTest1ROM.coe
+add_files D:/Clone/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/ip/pgram/pipelineTest1RAM.coe
+add_files D:/Clone/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/ip/pgrom/BaseTest2ROM.coe
 read_verilog -library xil_defaultlib -sv {
-  C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/ID.v
-  C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/WB.v
-  C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/top_module.v
+  D:/Clone/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/ID.v
+  D:/Clone/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/UartReg.v
+  D:/Clone/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/UartRx.v
+  D:/Clone/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/UartTop.v
+  D:/Clone/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/UartTx.v
+  D:/Clone/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/WB.v
+  D:/Clone/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/top_module.v
 }
 read_verilog -library xil_defaultlib {
-  C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/ClockDivider.v
-  C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/EXE.v
-  C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/FW.v
-  C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/HarzardDetection.v
-  C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/IF.v
-  C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/InputModule.v
-  C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/MEM.v
-  C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/OutputModule.v
-  C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/SegDisplay.v
-  C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/SegGenerator.v
+  D:/Clone/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/ClockDivider.v
+  D:/Clone/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/EXE.v
+  D:/Clone/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/FW.v
+  D:/Clone/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/HarzardDetection.v
+  D:/Clone/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/IF.v
+  D:/Clone/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/InputModule.v
+  D:/Clone/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/MEM.v
+  D:/Clone/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/OutputModule.v
+  D:/Clone/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/SegDisplay.v
+  D:/Clone/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/SegGenerator.v
 }
-read_ip -quiet C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/ip/pgram/pgram.xci
-set_property used_in_implementation false [get_files -all c:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/ip/pgram/pgram_ooc.xdc]
+read_ip -quiet D:/Clone/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/ip/pgram/pgram.xci
+set_property used_in_implementation false [get_files -all d:/Clone/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/ip/pgram/pgram_ooc.xdc]
 
-read_ip -quiet C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/ip/pgrom/pgrom.xci
-set_property used_in_implementation false [get_files -all c:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/ip/pgrom/pgrom_ooc.xdc]
+read_ip -quiet D:/Clone/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/ip/pgrom/pgrom.xci
+set_property used_in_implementation false [get_files -all d:/Clone/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/ip/pgrom/pgrom_ooc.xdc]
 
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
@@ -69,8 +73,8 @@ set_property used_in_implementation false [get_files -all c:/Users/48946/Documen
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/constrs_1/new/pipelineCPU.xdc
-set_property used_in_implementation false [get_files C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/constrs_1/new/pipelineCPU.xdc]
+read_xdc D:/Clone/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/constrs_1/new/pipelineCPU.xdc
+set_property used_in_implementation false [get_files D:/Clone/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/constrs_1/new/pipelineCPU.xdc]
 
 
 synth_design -top top_module -part xc7a35tcsg324-1

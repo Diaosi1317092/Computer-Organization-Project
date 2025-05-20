@@ -3,7 +3,7 @@
 <!--                                                         -->
 <!-- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="35" Path="C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.xpr">
+<Project Version="7" Minor="35" Path="D:/Clone/Computer-Organization-Project/pipelineCPU/pipelineCPU.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="374ad2d08ccb4635b2dbbca0a3224143"/>
@@ -38,13 +38,13 @@
     <Option Name="WTVcsLaunchSim" Val="0"/>
     <Option Name="WTRivieraLaunchSim" Val="0"/>
     <Option Name="WTActivehdlLaunchSim" Val="0"/>
-    <Option Name="WTXSimExportSim" Val="20"/>
-    <Option Name="WTModelSimExportSim" Val="20"/>
-    <Option Name="WTQuestaExportSim" Val="20"/>
-    <Option Name="WTIesExportSim" Val="20"/>
-    <Option Name="WTVcsExportSim" Val="20"/>
-    <Option Name="WTRivieraExportSim" Val="20"/>
-    <Option Name="WTActivehdlExportSim" Val="20"/>
+    <Option Name="WTXSimExportSim" Val="21"/>
+    <Option Name="WTModelSimExportSim" Val="21"/>
+    <Option Name="WTQuestaExportSim" Val="21"/>
+    <Option Name="WTIesExportSim" Val="21"/>
+    <Option Name="WTVcsExportSim" Val="21"/>
+    <Option Name="WTRivieraExportSim" Val="21"/>
+    <Option Name="WTActivehdlExportSim" Val="21"/>
     <Option Name="GenerateIPUpgradeLog" Val="TRUE"/>
     <Option Name="XSimRadix" Val="hex"/>
     <Option Name="XSimTimeUnit" Val="ns"/>
@@ -126,6 +126,34 @@
         </FileInfo>
       </File>
       <File Path="$PSRCDIR/sources_1/new/ID.v">
+        <FileInfo SFType="SVerilog">
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/new/UartReg.v">
+        <FileInfo SFType="SVerilog">
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/new/UartRx.v">
+        <FileInfo SFType="SVerilog">
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/new/UartTop.v">
+        <FileInfo SFType="SVerilog">
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/new/UartTx.v">
         <FileInfo SFType="SVerilog">
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
@@ -311,9 +339,7 @@
     </Run>
     <Run Id="pgrom_synth_1" Type="Ft3:Synth" SrcSet="pgrom" Part="xc7a35tcsg324-1" ConstrsSet="pgrom" Description="Vivado Synthesis Defaults" WriteIncrSynthDcp="false" Dir="$PRUNDIR/pgrom_synth_1" IncludeInArchive="true">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2017">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2017"/>
         <Step Id="synth_design"/>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
@@ -355,9 +381,7 @@
     </Run>
     <Run Id="pgrom_impl_1" Type="Ft2:EntireDesign" Part="xc7a35tcsg324-1" ConstrsSet="pgrom" Description="Default settings for Implementation." WriteIncrSynthDcp="false" SynthRun="pgrom_synth_1" IncludeInArchive="false">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2017">
-          <Desc>Default settings for Implementation.</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2017"/>
         <Step Id="init_design"/>
         <Step Id="opt_design"/>
         <Step Id="power_opt_design"/>
