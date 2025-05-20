@@ -1,8 +1,8 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
-| Date         : Tue May 20 23:41:34 2025
-| Host         : Dupreeh running 64-bit major release  (build 9200)
+| Date         : Wed May 21 02:30:29 2025
+| Host         : ASCHENPUTTEL running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file top_module_control_sets_placed.rpt
 | Design       : top_module
 | Device       : xc7a35t
@@ -22,8 +22,8 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Number of unique control sets                            |   400 |
-| Unused register locations in slices containing registers |  1637 |
+| Number of unique control sets                            |   356 |
+| Unused register locations in slices containing registers |  1247 |
 +----------------------------------------------------------+-------+
 
 
@@ -33,12 +33,12 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |             148 |           65 |
-| No           | No                    | Yes                    |             118 |           38 |
-| No           | Yes                   | No                     |               0 |            0 |
+| No           | No                    | No                     |             308 |          109 |
+| No           | No                    | Yes                    |             120 |           39 |
+| No           | Yes                   | No                     |              32 |           12 |
 | Yes          | No                    | No                     |              24 |           10 |
-| Yes          | No                    | Yes                    |            3545 |         1164 |
-| Yes          | Yes                   | No                     |               8 |            3 |
+| Yes          | No                    | Yes                    |            4016 |         1256 |
+| Yes          | Yes                   | No                     |              13 |            4 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
@@ -48,422 +48,377 @@ Table of Contents
 +------------------------------------+-----------------------------------------------+---------------------------------------------------------+------------------+----------------+
 |            Clock Signal            |                 Enable Signal                 |                     Set/Reset Signal                    | Slice Load Count | Bel Load Count |
 +------------------------------------+-----------------------------------------------+---------------------------------------------------------+------------------+----------------+
-|  init_clk_IBUF_BUFG                | uut_uart/u_rx/rx_data[1]_i_1_n_2              |                                                         |                1 |              1 |
-|  init_clk_IBUF_BUFG                | uut_uart/u_rx/rx_data[5]_i_1_n_2              |                                                         |                1 |              1 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[1][31]_i_1_n_2                    | wb_uut/regs_reg[1][31]_0                                |                1 |              1 |
-|  uut_debounce_divider/clk_de       | uut_input/cp_done_stable_i_1_n_2              | wb_uut/regs_reg[17][2]_0                                |                1 |              1 |
-|  uut_debounce_divider/clk_de       | uut_input/done_stable_i_1_n_2                 | wb_uut/regs_reg[17][2]_0                                |                1 |              1 |
-|  exe_uut/zero_reg_i_2_n_2          |                                               |                                                         |                1 |              1 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[12][31]_i_1_n_2                   | wb_uut/regs_reg[1][31]_0                                |                1 |              1 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[13][31]_i_1_n_2                   | wb_uut/regs_reg[1][31]_0                                |                1 |              1 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[9][31]_i_1_n_2                    | wb_uut/regs_reg[1][31]_0                                |                1 |              1 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[17][31]_i_1_n_2                   | wb_uut/regs_reg[1][31]_0                                |                1 |              1 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[3][31]_i_1_n_2                    | wb_uut/regs_reg[1][31]_0                                |                1 |              1 |
-|  uut_clk_divider/xlnx_opt_         |                                               |                                                         |                1 |              1 |
-|  init_clk_IBUF_BUFG                |                                               | wb_uut/regs_reg[17][2]_0                                |                1 |              1 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[20][31]_i_1_n_2                   | wb_uut/regs_reg[1][31]_0                                |                1 |              1 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[19][31]_i_1_n_2                   | wb_uut/regs_reg[1][31]_0                                |                1 |              1 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[18][31]_i_1_n_2                   | wb_uut/regs_reg[1][31]_0                                |                1 |              1 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[8][31]_i_1_n_2                    | wb_uut/regs_reg[1][31]_0                                |                1 |              1 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[21][31]_i_1_n_2                   | wb_uut/regs_reg[1][31]_0                                |                1 |              1 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[15][31]_i_1_n_2                   | wb_uut/regs_reg[1][31]_0                                |                1 |              1 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[2][31]_i_1_n_2                    | wb_uut/regs_reg[1][31]_0                                |                1 |              1 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[11][31]_i_1_n_2                   | wb_uut/regs_reg[1][31]_0                                |                1 |              1 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[7][31]_i_1_n_2                    | wb_uut/regs_reg[1][31]_0                                |                1 |              1 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[10][31]_i_1_n_2                   | wb_uut/regs_reg[1][31]_0                                |                1 |              1 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[4][31]_i_1_n_2                    | wb_uut/regs_reg[1][31]_0                                |                1 |              1 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[5][31]_i_1_n_2                    | wb_uut/regs_reg[1][31]_0                                |                1 |              1 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[6][31]_i_1_n_2                    | wb_uut/regs_reg[1][31]_0                                |                1 |              1 |
-|  init_clk_IBUF_BUFG                | uut_uart/u_rx/rx_data[6]_i_1_n_2              |                                                         |                1 |              1 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[16][31]_i_1_n_2                   | wb_uut/regs_reg[1][31]_0                                |                1 |              1 |
 |  init_clk_IBUF_BUFG                | uut_uart/u_tx/tx_i_1_n_2                      | uut_output/uut_clk_display/clk_out_reg_0                |                1 |              1 |
+|  uut_debounce_divider/clk_de       | uut_input/cp_done_stable_i_1_n_2              | uut_input/done_stable_reg_0                             |                1 |              1 |
+|  init_clk_IBUF_BUFG                | uut_uart/u_rx/rx_data[1]_i_1_n_2              |                                                         |                1 |              1 |
 |  init_clk_IBUF_BUFG                | uut_uart/u_rx/rx_data[0]_i_1_n_2              |                                                         |                1 |              1 |
+|  uut_debounce_divider/clk_de       | uut_input/done_stable_i_1_n_2                 | uut_input/done_stable_reg_0                             |                1 |              1 |
 |  init_clk_IBUF_BUFG                | uut_uart/u_rx/rx_data[2]_i_1_n_2              |                                                         |                1 |              1 |
-|  init_clk_IBUF_BUFG                | uut_uart/u_rx/rx_data[3]_i_1_n_2              |                                                         |                1 |              1 |
+|  uut_debounce_divider/clk_de       | debug_stable_i_1_n_2                          | uut_input/done_stable_reg_0                             |                1 |              1 |
+|  exe_uut/zero_reg_i_2_n_2          |                                               |                                                         |                1 |              1 |
 |  init_clk_IBUF_BUFG                | uut_uart/u_rx/rx_data[4]_i_1_n_2              |                                                         |                1 |              1 |
+|  init_clk_IBUF_BUFG                | uut_uart/u_rx/rx_data[6]_i_1_n_2              |                                                         |                1 |              1 |
 |  init_clk_IBUF_BUFG                | uut_uart/u_rx/rx_data[7]_i_1_n_2              |                                                         |                1 |              1 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[14][31]_i_1_n_2                   | wb_uut/regs_reg[1][31]_0                                |                1 |              1 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[4][31]_i_1_n_2                    | wb_uut/regs_reg[17][2]_0                                |                1 |              2 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[6][31]_i_1_n_2                    | wb_uut/regs_reg[17][2]_0                                |                1 |              2 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[16][31]_i_1_n_2                   | wb_uut/regs_reg[17][2]_0                                |                1 |              2 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[9][31]_i_1_n_2                    | wb_uut/regs_reg[17][2]_0                                |                1 |              2 |
-|  init_clk_IBUF_BUFG                | uut_uart/u_reg/u_uart32_8/send_cnt_reg[0]_rep | uut_uart/u_reg/u_uart32_8/FSM_sequential_state_reg[2]_0 |                2 |              2 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[3][31]_i_1_n_2                    | wb_uut/regs_reg[17][2]_0                                |                1 |              2 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[12][31]_i_1_n_2                   | wb_uut/regs_reg[17][2]_0                                |                1 |              2 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[2][31]_i_1_n_2                    | wb_uut/regs_reg[17][2]_0                                |                1 |              2 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[8][31]_i_1_n_2                    | wb_uut/regs_reg[17][2]_0                                |                1 |              2 |
-|  uut_clk_divider/xlnx_opt_         | wb_uut/v2_reg_a7_reg[31][0]                   | wb_uut/regs_reg[4][5]_0                                 |                1 |              2 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[14][31]_i_1_n_2                   | wb_uut/regs_reg[17][2]_0                                |                2 |              2 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[10][31]_i_1_n_2                   | wb_uut/regs_reg[17][2]_0                                |                1 |              2 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[13][31]_i_1_n_2                   | wb_uut/regs_reg[17][2]_0                                |                2 |              2 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[1][31]_i_1_n_2                    | wb_uut/regs_reg[17][2]_0                                |                1 |              2 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[15][31]_i_1_n_2                   | wb_uut/regs_reg[17][2]_0                                |                1 |              2 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[5][31]_i_1_n_2                    | wb_uut/regs_reg[17][2]_0                                |                1 |              2 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[11][31]_i_1_n_2                   | wb_uut/regs_reg[17][2]_0                                |                1 |              2 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[7][31]_i_1_n_2                    | wb_uut/regs_reg[17][2]_0                                |                2 |              2 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[6][31]_i_1_n_2                    | wb_uut/regs_reg[7][16]_0                                |                1 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[22][31]_i_1_n_2                   | wb_uut/regs_reg[17][2]_0                                |                2 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[29][31]_i_1_n_2                   | wb_uut/regs_reg[31][24]_0                               |                1 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[29][31]_i_1_n_2                   | wb_uut/regs_reg[7][16]_0                                |                3 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[29][31]_i_1_n_2                   | wb_uut/regs_reg[17][2]_0                                |                1 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[29][31]_i_1_n_2                   | wb_uut/regs_reg[4][5]_0                                 |                1 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[28][31]_i_1_n_2                   | wb_uut/regs_reg[31][24]_0                               |                1 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[28][31]_i_1_n_2                   | wb_uut/regs_reg[17][2]_0                                |                1 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[28][31]_i_1_n_2                   | wb_uut/regs_reg[4][5]_0                                 |                1 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[30][31]_i_1_n_2                   | wb_uut/regs_reg[31][24]_0                               |                2 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[28][31]_i_1_n_2                   | wb_uut/regs_reg[7][16]_0                                |                2 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[30][31]_i_1_n_2                   | wb_uut/regs_reg[7][16]_0                                |                1 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[30][31]_i_1_n_2                   | wb_uut/regs_reg[17][2]_0                                |                1 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[30][31]_i_1_n_2                   | wb_uut/regs_reg[4][5]_0                                 |                1 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[3][31]_i_1_n_2                    | wb_uut/regs_reg[10][27]_0                               |                1 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[3][31]_i_1_n_2                    | wb_uut/regs_reg[7][16]_0                                |                1 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[3][31]_i_1_n_2                    | wb_uut/regs_reg[4][5]_0                                 |                1 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[2][31]_i_1_n_2                    | wb_uut/regs_reg[10][27]_0                               |                1 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[2][31]_i_1_n_2                    | wb_uut/regs_reg[7][16]_0                                |                2 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[2][31]_i_1_n_2                    | wb_uut/regs_reg[4][5]_0                                 |                1 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[16][31]_i_1_n_2                   | wb_uut/regs_reg[19][20]_0                               |                1 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[16][31]_i_1_n_2                   | wb_uut/regs_reg[28][13]_0                               |                1 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[16][31]_i_1_n_2                   | wb_uut/regs_reg[22][31]_0                               |                1 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[15][31]_i_1_n_2                   | wb_uut/regs_reg[16][9]_0                                |                1 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[15][31]_i_1_n_2                   | wb_uut/regs_reg[19][20]_0                               |                1 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[15][31]_i_1_n_2                   | wb_uut/regs_reg[22][31]_0                               |                2 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[12][31]_i_1_n_2                   | wb_uut/regs_reg[16][9]_0                                |                1 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[22][31]_i_1_n_2                   | wb_uut/regs_reg[28][13]_0                               |                1 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[12][31]_i_1_n_2                   | wb_uut/regs_reg[19][20]_0                               |                2 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[12][31]_i_1_n_2                   | wb_uut/regs_reg[22][31]_0                               |                2 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[11][31]_i_1_n_2                   | wb_uut/regs_reg[16][9]_0                                |                1 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[11][31]_i_1_n_2                   | wb_uut/regs_reg[19][20]_0                               |                1 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[11][31]_i_1_n_2                   | wb_uut/regs_reg[22][31]_0                               |                1 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[1][31]_i_1_n_2                    | wb_uut/regs_reg[10][27]_0                               |                3 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[25][31]_i_1_n_2                   | wb_uut/regs_reg[31][24]_0                               |                1 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[25][31]_i_1_n_2                   | wb_uut/regs_reg[28][13]_0                               |                1 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[25][31]_i_1_n_2                   | wb_uut/regs_reg[17][2]_0                                |                1 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[25][31]_i_1_n_2                   | wb_uut/regs_reg[4][5]_0                                 |                1 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[10][31]_i_1_n_2                   | wb_uut/regs_reg[16][9]_0                                |                1 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[18][31]_i_1_n_2                   | wb_uut/regs_reg[4][5]_0                                 |                1 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[14][31]_i_1_n_2                   | wb_uut/regs_reg[16][9]_0                                |                1 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[4][31]_i_1_n_2                    | wb_uut/regs_reg[7][16]_0                                |                2 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[14][31]_i_1_n_2                   | wb_uut/regs_reg[19][20]_0                               |                1 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[14][31]_i_1_n_2                   | wb_uut/regs_reg[22][31]_0                               |                1 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[9][31]_i_1_n_2                    | wb_uut/regs_reg[16][9]_0                                |                1 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[24][31]_i_1_n_2                   | wb_uut/regs_reg[31][24]_0                               |                1 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[18][31]_i_1_n_2                   | wb_uut/regs_reg[17][2]_0                                |                1 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[24][31]_i_1_n_2                   | wb_uut/regs_reg[28][13]_0                               |                1 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[9][31]_i_1_n_2                    | wb_uut/regs_reg[19][20]_0                               |                1 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[13][31]_i_1_n_2                   | wb_uut/regs_reg[22][31]_0                               |                1 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[22][31]_i_1_n_2                   | wb_uut/regs_reg[31][24]_0                               |                2 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[18][31]_i_1_n_2                   | wb_uut/regs_reg[22][31]_0                               |                1 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[13][31]_i_1_n_2                   | wb_uut/regs_reg[19][20]_0                               |                2 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[18][31]_i_1_n_2                   | wb_uut/regs_reg[28][13]_0                               |                2 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[23][31]_i_1_n_2                   | wb_uut/regs_reg[4][5]_0                                 |                2 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[13][31]_i_1_n_2                   | wb_uut/regs_reg[16][9]_0                                |                1 |              3 |
+|  init_clk_IBUF_BUFG                |                                               | uut_input/done_stable_reg_0                             |                1 |              1 |
+|  init_clk_IBUF_BUFG                | uut_uart/u_rx/rx_data[3]_i_1_n_2              |                                                         |                1 |              1 |
+|  init_clk_IBUF_BUFG                | uut_uart/u_rx/rx_data[5]_i_1_n_2              |                                                         |                1 |              1 |
+|  init_clk_IBUF_BUFG                | uut_uart/u_reg/u_uart32_8/data_send_reg[0][0] | uut_uart/u_reg/u_uart32_8/FSM_sequential_state_reg[2]_0 |                1 |              2 |
+| ~uut_clk_divider/xlnx_opt_         |                                               | uut_input/done_stable_reg_0                             |                1 |              2 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[19][31]_i_1_n_2                   | wb_uut/regs_reg[1][31]_0                                |                1 |              3 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[17][31]_i_1_n_2                   | wb_uut/regs_reg[1][31]_0                                |                1 |              3 |
 |  init_clk_IBUF_BUFG                |                                               | uut_uart/u_reg/u_uart32_8/FSM_sequential_state_reg[2]_0 |                1 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[17][31]_i_1_n_2                   | wb_uut/regs_reg[4][5]_0                                 |                2 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[17][31]_i_1_n_2                   | wb_uut/regs_reg[17][2]_0                                |                1 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[17][31]_i_1_n_2                   | wb_uut/regs_reg[22][31]_0                               |                2 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[17][31]_i_1_n_2                   | wb_uut/regs_reg[28][13]_0                               |                2 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[23][31]_i_1_n_2                   | wb_uut/regs_reg[17][2]_0                                |                3 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[17][31]_i_1_n_2                   | wb_uut/regs_reg[19][20]_0                               |                2 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[24][31]_i_1_n_2                   | wb_uut/regs_reg[17][2]_0                                |                2 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[23][31]_i_1_n_2                   | wb_uut/regs_reg[28][13]_0                               |                1 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[18][31]_i_1_n_2                   | wb_uut/regs_reg[19][20]_0                               |                1 |              3 |
-|  init_clk_IBUF_BUFG                | uut_uart/u_reg/u_uart32_8/send_cnt_reg[0]_rep | uut_output/uut_clk_display/clk_out_reg_0                |                1 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[19][31]_i_1_n_2                   | wb_uut/regs_reg[4][5]_0                                 |                2 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[19][31]_i_1_n_2                   | wb_uut/regs_reg[17][2]_0                                |                1 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[19][31]_i_1_n_2                   | wb_uut/regs_reg[22][31]_0                               |                2 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[19][31]_i_1_n_2                   | wb_uut/regs_reg[28][13]_0                               |                1 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[8][31]_i_1_n_2                    | wb_uut/regs_reg[16][9]_0                                |                3 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[23][31]_i_1_n_2                   | wb_uut/regs_reg[31][24]_0                               |                1 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[19][31]_i_1_n_2                   | wb_uut/regs_reg[31][24]_0                               |                3 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[20][31]_i_1_n_2                   | wb_uut/regs_reg[31][24]_0                               |                2 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[24][31]_i_1_n_2                   | wb_uut/regs_reg[4][5]_0                                 |                1 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[8][31]_i_1_n_2                    | wb_uut/regs_reg[10][27]_0                               |                2 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[21][31]_i_1_n_2                   | wb_uut/regs_reg[4][5]_0                                 |                2 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[21][31]_i_1_n_2                   | wb_uut/regs_reg[17][2]_0                                |                1 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[21][31]_i_1_n_2                   | wb_uut/regs_reg[22][31]_0                               |                1 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[21][31]_i_1_n_2                   | wb_uut/regs_reg[28][13]_0                               |                2 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[8][31]_i_1_n_2                    | wb_uut/regs_reg[19][20]_0                               |                2 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[27][31]_i_1_n_2                   | wb_uut/regs_reg[31][24]_0                               |                1 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[21][31]_i_1_n_2                   | wb_uut/regs_reg[31][24]_0                               |                3 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[10][31]_i_1_n_2                   | wb_uut/regs_reg[22][31]_0                               |                2 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[20][31]_i_1_n_2                   | wb_uut/regs_reg[4][5]_0                                 |                1 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[27][31]_i_1_n_2                   | wb_uut/regs_reg[28][13]_0                               |                3 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[1][31]_i_1_n_2                    | wb_uut/regs_reg[4][5]_0                                 |                2 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[27][31]_i_1_n_2                   | wb_uut/regs_reg[17][2]_0                                |                3 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[20][31]_i_1_n_2                   | wb_uut/regs_reg[17][2]_0                                |                1 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[10][31]_i_1_n_2                   | wb_uut/regs_reg[19][20]_0                               |                2 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[1][31]_i_1_n_2                    | wb_uut/regs_reg[7][16]_0                                |                1 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[20][31]_i_1_n_2                   | wb_uut/regs_reg[22][31]_0                               |                2 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[20][31]_i_1_n_2                   | wb_uut/regs_reg[28][13]_0                               |                2 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[4][31]_i_1_n_2                    | wb_uut/regs_reg[10][27]_0                               |                3 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[4][31]_i_1_n_2                    | wb_uut/regs_reg[16][9]_0                                |                2 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[27][31]_i_1_n_2                   | wb_uut/regs_reg[4][5]_0                                 |                1 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[6][31]_i_1_n_2                    | wb_uut/regs_reg[16][9]_0                                |                2 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[5][31]_i_1_n_2                    | wb_uut/regs_reg[7][16]_0                                |                1 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[5][31]_i_1_n_2                    | wb_uut/regs_reg[10][27]_0                               |                2 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[5][31]_i_1_n_2                    | wb_uut/regs_reg[16][9]_0                                |                2 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[22][31]_i_1_n_2                   | wb_uut/regs_reg[4][5]_0                                 |                2 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[26][31]_i_1_n_2                   | wb_uut/regs_reg[4][5]_0                                 |                1 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[26][31]_i_1_n_2                   | wb_uut/regs_reg[17][2]_0                                |                1 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[26][31]_i_1_n_2                   | wb_uut/regs_reg[28][13]_0                               |                1 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[26][31]_i_1_n_2                   | wb_uut/regs_reg[31][24]_0                               |                1 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[31][31]_i_1_n_2                   | wb_uut/regs_reg[4][5]_0                                 |                1 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[31][31]_i_1_n_2                   | wb_uut/regs_reg[17][2]_0                                |                1 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[31][31]_i_1_n_2                   | wb_uut/regs_reg[7][16]_0                                |                1 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[31][31]_i_1_n_2                   | wb_uut/regs_reg[10][27]_0                               |                1 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[6][31]_i_1_n_2                    | wb_uut/regs_reg[10][27]_0                               |                1 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[7][31]_i_1_n_2                    | wb_uut/regs_reg[19][20]_0                               |                1 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[7][31]_i_1_n_2                    | wb_uut/regs_reg[10][27]_0                               |                1 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[7][31]_i_1_n_2                    | wb_uut/regs_reg[16][9]_0                                |                1 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[9][31]_i_1_n_2                    | wb_uut/regs_reg[10][27]_0                               |                2 |              3 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[21][31]_i_1_n_2                   | wb_uut/regs_reg[7][16]_0                                |                2 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[21][31]_i_1_n_2                   | wb_uut/regs_reg[19][20]_0                               |                2 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[21][31]_i_1_n_2                   | wb_uut/regs_reg[10][27]_0                               |                2 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[21][31]_i_1_n_2                   | wb_uut/regs_reg[16][9]_0                                |                4 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[1][31]_i_1_n_2                    | wb_uut/regs_reg[22][31]_0                               |                2 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[1][31]_i_1_n_2                    | wb_uut/regs_reg[28][13]_0                               |                2 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[1][31]_i_1_n_2                    | wb_uut/regs_reg[19][20]_0                               |                3 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[1][31]_i_1_n_2                    | wb_uut/regs_reg[31][24]_0                               |                3 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[1][31]_i_1_n_2                    | wb_uut/regs_reg[16][9]_0                                |                2 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[22][31]_i_1_n_2                   | wb_uut/regs_reg[22][31]_0                               |                2 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[22][31]_i_1_n_2                   | wb_uut/regs_reg[7][16]_0                                |                1 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[22][31]_i_1_n_2                   | wb_uut/regs_reg[19][20]_0                               |                2 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[22][31]_i_1_n_2                   | wb_uut/regs_reg[10][27]_0                               |                2 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[22][31]_i_1_n_2                   | wb_uut/regs_reg[16][9]_0                                |                2 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[23][31]_i_1_n_2                   | wb_uut/regs_reg[22][31]_0                               |                1 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[23][31]_i_1_n_2                   | wb_uut/regs_reg[7][16]_0                                |                2 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[23][31]_i_1_n_2                   | wb_uut/regs_reg[19][20]_0                               |                3 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[23][31]_i_1_n_2                   | wb_uut/regs_reg[10][27]_0                               |                3 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[23][31]_i_1_n_2                   | wb_uut/regs_reg[16][9]_0                                |                3 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[10][31]_i_1_n_2                   | wb_uut/regs_reg[4][5]_0                                 |                2 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[10][31]_i_1_n_2                   | wb_uut/regs_reg[28][13]_0                               |                2 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[10][31]_i_1_n_2                   | wb_uut/regs_reg[7][16]_0                                |                2 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[10][31]_i_1_n_2                   | wb_uut/regs_reg[31][24]_0                               |                3 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[10][31]_i_1_n_2                   | wb_uut/regs_reg[10][27]_0                               |                3 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[18][31]_i_1_n_2                   | wb_uut/regs_reg[7][16]_0                                |                2 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[18][31]_i_1_n_2                   | wb_uut/regs_reg[31][24]_0                               |                3 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[18][31]_i_1_n_2                   | wb_uut/regs_reg[10][27]_0                               |                2 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[18][31]_i_1_n_2                   | wb_uut/regs_reg[16][9]_0                                |                2 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[20][31]_i_1_n_2                   | wb_uut/regs_reg[7][16]_0                                |                1 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[20][31]_i_1_n_2                   | wb_uut/regs_reg[19][20]_0                               |                3 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[20][31]_i_1_n_2                   | wb_uut/regs_reg[10][27]_0                               |                3 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[20][31]_i_1_n_2                   | wb_uut/regs_reg[16][9]_0                                |                2 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[13][31]_i_1_n_2                   | wb_uut/regs_reg[4][5]_0                                 |                1 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[24][31]_i_1_n_2                   | wb_uut/regs_reg[7][16]_0                                |                1 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[24][31]_i_1_n_2                   | wb_uut/regs_reg[19][20]_0                               |                1 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[24][31]_i_1_n_2                   | wb_uut/regs_reg[10][27]_0                               |                3 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[24][31]_i_1_n_2                   | wb_uut/regs_reg[16][9]_0                                |                1 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[14][31]_i_1_n_2                   | wb_uut/regs_reg[4][5]_0                                 |                2 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[14][31]_i_1_n_2                   | wb_uut/regs_reg[28][13]_0                               |                4 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[14][31]_i_1_n_2                   | wb_uut/regs_reg[7][16]_0                                |                2 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[14][31]_i_1_n_2                   | wb_uut/regs_reg[31][24]_0                               |                1 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[14][31]_i_1_n_2                   | wb_uut/regs_reg[10][27]_0                               |                1 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[25][31]_i_1_n_2                   | wb_uut/regs_reg[22][31]_0                               |                3 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[25][31]_i_1_n_2                   | wb_uut/regs_reg[7][16]_0                                |                2 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[25][31]_i_1_n_2                   | wb_uut/regs_reg[19][20]_0                               |                1 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[25][31]_i_1_n_2                   | wb_uut/regs_reg[10][27]_0                               |                2 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[25][31]_i_1_n_2                   | wb_uut/regs_reg[16][9]_0                                |                1 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[11][31]_i_1_n_2                   | wb_uut/regs_reg[4][5]_0                                 |                3 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[11][31]_i_1_n_2                   | wb_uut/regs_reg[28][13]_0                               |                2 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[11][31]_i_1_n_2                   | wb_uut/regs_reg[7][16]_0                                |                3 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[11][31]_i_1_n_2                   | wb_uut/regs_reg[31][24]_0                               |                2 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[11][31]_i_1_n_2                   | wb_uut/regs_reg[10][27]_0                               |                2 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[12][31]_i_1_n_2                   | wb_uut/regs_reg[4][5]_0                                 |                2 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[12][31]_i_1_n_2                   | wb_uut/regs_reg[28][13]_0                               |                2 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[12][31]_i_1_n_2                   | wb_uut/regs_reg[7][16]_0                                |                2 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[12][31]_i_1_n_2                   | wb_uut/regs_reg[31][24]_0                               |                4 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[12][31]_i_1_n_2                   | wb_uut/regs_reg[10][27]_0                               |                2 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[15][31]_i_1_n_2                   | wb_uut/regs_reg[4][5]_0                                 |                1 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[15][31]_i_1_n_2                   | wb_uut/regs_reg[28][13]_0                               |                1 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[15][31]_i_1_n_2                   | wb_uut/regs_reg[7][16]_0                                |                2 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[15][31]_i_1_n_2                   | wb_uut/regs_reg[31][24]_0                               |                2 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[15][31]_i_1_n_2                   | wb_uut/regs_reg[10][27]_0                               |                3 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[16][31]_i_1_n_2                   | wb_uut/regs_reg[4][5]_0                                 |                1 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[16][31]_i_1_n_2                   | wb_uut/regs_reg[7][16]_0                                |                3 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[16][31]_i_1_n_2                   | wb_uut/regs_reg[31][24]_0                               |                1 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[16][31]_i_1_n_2                   | wb_uut/regs_reg[10][27]_0                               |                2 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[16][31]_i_1_n_2                   | wb_uut/regs_reg[16][9]_0                                |                1 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[2][31]_i_1_n_2                    | wb_uut/regs_reg[22][31]_0                               |                2 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[2][31]_i_1_n_2                    | wb_uut/regs_reg[28][13]_0                               |                4 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[2][31]_i_1_n_2                    | wb_uut/regs_reg[19][20]_0                               |                2 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[2][31]_i_1_n_2                    | wb_uut/regs_reg[31][24]_0                               |                2 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[2][31]_i_1_n_2                    | wb_uut/regs_reg[16][9]_0                                |                2 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[3][31]_i_1_n_2                    | wb_uut/regs_reg[22][31]_0                               |                3 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[3][31]_i_1_n_2                    | wb_uut/regs_reg[28][13]_0                               |                2 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[3][31]_i_1_n_2                    | wb_uut/regs_reg[19][20]_0                               |                1 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[3][31]_i_1_n_2                    | wb_uut/regs_reg[31][24]_0                               |                2 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[3][31]_i_1_n_2                    | wb_uut/regs_reg[16][9]_0                                |                2 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[30][31]_i_1_n_2                   | wb_uut/regs_reg[22][31]_0                               |                1 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[30][31]_i_1_n_2                   | wb_uut/regs_reg[28][13]_0                               |                2 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[30][31]_i_1_n_2                   | wb_uut/regs_reg[19][20]_0                               |                1 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[30][31]_i_1_n_2                   | wb_uut/regs_reg[10][27]_0                               |                2 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[30][31]_i_1_n_2                   | wb_uut/regs_reg[16][9]_0                                |                1 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[28][31]_i_1_n_2                   | wb_uut/regs_reg[22][31]_0                               |                2 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[28][31]_i_1_n_2                   | wb_uut/regs_reg[28][13]_0                               |                2 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[28][31]_i_1_n_2                   | wb_uut/regs_reg[19][20]_0                               |                1 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[28][31]_i_1_n_2                   | wb_uut/regs_reg[10][27]_0                               |                3 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[28][31]_i_1_n_2                   | wb_uut/regs_reg[16][9]_0                                |                1 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[29][31]_i_1_n_2                   | wb_uut/regs_reg[22][31]_0                               |                2 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[29][31]_i_1_n_2                   | wb_uut/regs_reg[28][13]_0                               |                1 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[29][31]_i_1_n_2                   | wb_uut/regs_reg[19][20]_0                               |                1 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[29][31]_i_1_n_2                   | wb_uut/regs_reg[10][27]_0                               |                2 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[29][31]_i_1_n_2                   | wb_uut/regs_reg[16][9]_0                                |                1 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[6][31]_i_1_n_2                    | wb_uut/regs_reg[4][5]_0                                 |                1 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[6][31]_i_1_n_2                    | wb_uut/regs_reg[22][31]_0                               |                1 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[6][31]_i_1_n_2                    | wb_uut/regs_reg[28][13]_0                               |                2 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[6][31]_i_1_n_2                    | wb_uut/regs_reg[19][20]_0                               |                2 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[6][31]_i_1_n_2                    | wb_uut/regs_reg[31][24]_0                               |                2 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[27][31]_i_1_n_2                   | wb_uut/regs_reg[22][31]_0                               |                2 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[27][31]_i_1_n_2                   | wb_uut/regs_reg[7][16]_0                                |                3 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[27][31]_i_1_n_2                   | wb_uut/regs_reg[19][20]_0                               |                2 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[27][31]_i_1_n_2                   | wb_uut/regs_reg[10][27]_0                               |                2 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[27][31]_i_1_n_2                   | wb_uut/regs_reg[16][9]_0                                |                2 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[8][31]_i_1_n_2                    | wb_uut/regs_reg[4][5]_0                                 |                3 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[8][31]_i_1_n_2                    | wb_uut/regs_reg[22][31]_0                               |                1 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[8][31]_i_1_n_2                    | wb_uut/regs_reg[28][13]_0                               |                3 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[8][31]_i_1_n_2                    | wb_uut/regs_reg[7][16]_0                                |                2 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[8][31]_i_1_n_2                    | wb_uut/regs_reg[31][24]_0                               |                1 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[9][31]_i_1_n_2                    | wb_uut/regs_reg[4][5]_0                                 |                2 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[9][31]_i_1_n_2                    | wb_uut/regs_reg[22][31]_0                               |                2 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[9][31]_i_1_n_2                    | wb_uut/regs_reg[28][13]_0                               |                4 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[9][31]_i_1_n_2                    | wb_uut/regs_reg[7][16]_0                                |                2 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[9][31]_i_1_n_2                    | wb_uut/regs_reg[31][24]_0                               |                1 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[24][31]_i_1_n_2                   | wb_uut/regs_reg[22][31]_0                               |                3 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[4][31]_i_1_n_2                    | wb_uut/regs_reg[4][5]_0                                 |                1 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[4][31]_i_1_n_2                    | wb_uut/regs_reg[22][31]_0                               |                2 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[4][31]_i_1_n_2                    | wb_uut/regs_reg[28][13]_0                               |                4 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[4][31]_i_1_n_2                    | wb_uut/regs_reg[19][20]_0                               |                1 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[4][31]_i_1_n_2                    | wb_uut/regs_reg[31][24]_0                               |                1 |              4 |
-|  uut_output/uut_clk_display/CLK    |                                               | uut_output/uut_clk_display/clk_out_reg_0                |                3 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[29][31]_i_1_n_2                   | wb_uut/regs_reg[1][31]_0                                |                2 |              3 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[30][31]_i_1_n_2                   | wb_uut/regs_reg[1][31]_0                                |                2 |              3 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[20][31]_i_1_n_2                   | wb_uut/regs_reg[1][31]_0                                |                2 |              3 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[1][31]_i_1_n_2                    | wb_uut/regs_reg[3][3]_0                                 |                1 |              3 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[16][31]_i_1_n_2                   | wb_uut/regs_reg[1][31]_0                                |                1 |              3 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[25][31]_i_1_n_2                   | wb_uut/regs_reg[1][31]_0                                |                2 |              3 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[28][31]_i_1_n_2                   | wb_uut/regs_reg[1][31]_0                                |                1 |              3 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[26][31]_i_1_n_2                   | wb_uut/regs_reg[1][31]_0                                |                3 |              3 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[31][31]_i_1_n_2                   | wb_uut/regs_reg[1][31]_0                                |                2 |              3 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[27][31]_i_1_n_2                   | wb_uut/regs_reg[1][31]_0                                |                1 |              3 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[24][31]_i_1_n_2                   | wb_uut/regs_reg[1][31]_0                                |                2 |              3 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[2][31]_i_1_n_2                    | wb_uut/regs_reg[3][3]_0                                 |                1 |              3 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[18][31]_i_1_n_2                   | wb_uut/regs_reg[1][31]_0                                |                1 |              3 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[21][31]_i_1_n_2                   | wb_uut/regs_reg[1][31]_0                                |                1 |              3 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[22][31]_i_1_n_2                   | wb_uut/regs_reg[1][31]_0                                |                1 |              3 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[23][31]_i_1_n_2                   | wb_uut/regs_reg[1][31]_0                                |                1 |              3 |
+|  uut_debounce_divider/clk_de       | uut_input/cp_done_counter                     | uut_input/cp_done_counter[3]_i_1_n_2                    |                1 |              4 |
 |  uut_debounce_divider/clk_de       | uut_input/done_counter                        | uut_input/done_counter[3]_i_1_n_2                       |                1 |              4 |
-|  uut_debounce_divider/clk_de       | uut_input/cp_done_counter                     | uut_input/cp_done_counter[3]_i_1_n_2                    |                2 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[5][31]_i_1_n_2                    | wb_uut/regs_reg[4][5]_0                                 |                1 |              4 |
-|  init_clk_IBUF_BUFG                | uut_uart/u_tx/bit_cnt[3]_i_1__0_n_2           | uut_uart/u_reg/u_uart32_8/FSM_sequential_state_reg[2]_0 |                2 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[5][31]_i_1_n_2                    | wb_uut/regs_reg[22][31]_0                               |                3 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[5][31]_i_1_n_2                    | wb_uut/regs_reg[28][13]_0                               |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[27][31]_i_1_n_2                   | wb_uut/regs[1][27]_i_1_n_2                              |                1 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[27][31]_i_1_n_2                   | wb_uut/regs_reg[3][3]_0                                 |                3 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[8][31]_i_1_n_2                    | wb_uut/regs[1][19]_i_1_n_2                              |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[8][31]_i_1_n_2                    | wb_uut/regs[1][11]_i_1_n_2                              |                3 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[8][31]_i_1_n_2                    | wb_uut/regs_reg[1][31]_0                                |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[8][31]_i_1_n_2                    | wb_uut/regs[1][7]_i_1_n_2                               |                3 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[8][31]_i_1_n_2                    | wb_uut/regs[1][15]_i_1_n_2                              |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[8][31]_i_1_n_2                    | wb_uut/regs[1][23]_i_1_n_2                              |                1 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[8][31]_i_1_n_2                    | wb_uut/regs[1][27]_i_1_n_2                              |                1 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[8][31]_i_1_n_2                    | wb_uut/regs_reg[3][3]_0                                 |                3 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[9][31]_i_1_n_2                    | wb_uut/regs[1][19]_i_1_n_2                              |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[9][31]_i_1_n_2                    | wb_uut/regs[1][11]_i_1_n_2                              |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[9][31]_i_1_n_2                    | wb_uut/regs_reg[1][31]_0                                |                3 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[9][31]_i_1_n_2                    | wb_uut/regs[1][7]_i_1_n_2                               |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[9][31]_i_1_n_2                    | wb_uut/regs[1][15]_i_1_n_2                              |                1 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[9][31]_i_1_n_2                    | wb_uut/regs[1][23]_i_1_n_2                              |                1 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[9][31]_i_1_n_2                    | wb_uut/regs[1][27]_i_1_n_2                              |                1 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[9][31]_i_1_n_2                    | wb_uut/regs_reg[3][3]_0                                 |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[1][31]_i_1_n_2                    | wb_uut/regs[1][19]_i_1_n_2                              |                4 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[1][31]_i_1_n_2                    | wb_uut/regs[1][11]_i_1_n_2                              |                1 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[1][31]_i_1_n_2                    | wb_uut/regs_reg[1][31]_0                                |                1 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[1][31]_i_1_n_2                    | wb_uut/regs[1][15]_i_1_n_2                              |                1 |              4 |
 |  init_clk_IBUF_BUFG                | uut_uart/u_rx/bit_cnt[3]_i_1_n_2              | hd_uut/is_nop_reg_0                                     |                2 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[5][31]_i_1_n_2                    | wb_uut/regs_reg[19][20]_0                               |                1 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[5][31]_i_1_n_2                    | wb_uut/regs_reg[31][24]_0                               |                2 |              4 |
-|  uut_clk_divider/xlnx_opt_         |                                               | wb_uut/regs_reg[17][2]_0                                |                1 |              4 |
-|  uut_clk_divider/xlnx_opt_         | wb_uut/en_pc                                  | wb_uut/regs_reg[17][2]_0                                |                2 |              4 |
-|  uut_clk_divider/xlnx_opt_         | wb_uut/v2_reg_a7_reg[31][0]                   | uut_output/uut_clk_display/clk_out_reg_0                |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[1][31]_i_1_n_2                    | wb_uut/regs[1][23]_i_1_n_2                              |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[1][31]_i_1_n_2                    | wb_uut/regs[1][27]_i_1_n_2                              |                2 |              4 |
+|  init_clk_IBUF_BUFG                | uut_uart/u_tx/bit_cnt[3]_i_1__0_n_2           | uut_uart/u_reg/u_uart32_8/FSM_sequential_state_reg[2]_0 |                2 |              4 |
+|  uut_output/uut_clk_display/CLK    |                                               | uut_output/uut_clk_display/clk_out_reg_0                |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[20][31]_i_1_n_2                   | wb_uut/regs[1][19]_i_1_n_2                              |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[20][31]_i_1_n_2                   | wb_uut/regs[1][11]_i_1_n_2                              |                1 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[20][31]_i_1_n_2                   | wb_uut/regs[1][7]_i_1_n_2                               |                1 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[20][31]_i_1_n_2                   | wb_uut/regs[1][15]_i_1_n_2                              |                1 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[20][31]_i_1_n_2                   | wb_uut/regs[1][27]_i_1_n_2                              |                1 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[20][31]_i_1_n_2                   | wb_uut/regs_reg[3][3]_0                                 |                1 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[21][31]_i_1_n_2                   | wb_uut/regs[1][19]_i_1_n_2                              |                4 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[21][31]_i_1_n_2                   | wb_uut/regs[1][11]_i_1_n_2                              |                1 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[21][31]_i_1_n_2                   | wb_uut/regs[1][7]_i_1_n_2                               |                1 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[21][31]_i_1_n_2                   | wb_uut/regs[1][15]_i_1_n_2                              |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[21][31]_i_1_n_2                   | wb_uut/regs[1][27]_i_1_n_2                              |                1 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[21][31]_i_1_n_2                   | wb_uut/regs_reg[3][3]_0                                 |                1 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[6][31]_i_1_n_2                    | wb_uut/regs[1][19]_i_1_n_2                              |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[6][31]_i_1_n_2                    | wb_uut/regs[1][11]_i_1_n_2                              |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[6][31]_i_1_n_2                    | wb_uut/regs_reg[1][31]_0                                |                1 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[6][31]_i_1_n_2                    | wb_uut/regs[1][7]_i_1_n_2                               |                3 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[6][31]_i_1_n_2                    | wb_uut/regs[1][15]_i_1_n_2                              |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[6][31]_i_1_n_2                    | wb_uut/regs[1][23]_i_1_n_2                              |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[6][31]_i_1_n_2                    | wb_uut/regs[1][27]_i_1_n_2                              |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[6][31]_i_1_n_2                    | wb_uut/regs_reg[3][3]_0                                 |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[23][31]_i_1_n_2                   | wb_uut/regs[1][11]_i_1_n_2                              |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[23][31]_i_1_n_2                   | wb_uut/regs[1][7]_i_1_n_2                               |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[23][31]_i_1_n_2                   | wb_uut/regs[1][15]_i_1_n_2                              |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[23][31]_i_1_n_2                   | wb_uut/regs[1][23]_i_1_n_2                              |                3 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[23][31]_i_1_n_2                   | wb_uut/regs[1][27]_i_1_n_2                              |                3 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[23][31]_i_1_n_2                   | wb_uut/regs_reg[3][3]_0                                 |                3 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[30][31]_i_1_n_2                   | wb_uut/regs[1][19]_i_1_n_2                              |                3 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[30][31]_i_1_n_2                   | wb_uut/regs[1][7]_i_1_n_2                               |                1 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[30][31]_i_1_n_2                   | wb_uut/regs[1][15]_i_1_n_2                              |                1 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[30][31]_i_1_n_2                   | wb_uut/regs[1][23]_i_1_n_2                              |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[30][31]_i_1_n_2                   | wb_uut/regs[1][27]_i_1_n_2                              |                3 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[30][31]_i_1_n_2                   | wb_uut/regs_reg[3][3]_0                                 |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[14][31]_i_1_n_2                   | wb_uut/regs[1][19]_i_1_n_2                              |                3 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[14][31]_i_1_n_2                   | wb_uut/regs[1][11]_i_1_n_2                              |                1 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[14][31]_i_1_n_2                   | wb_uut/regs_reg[1][31]_0                                |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[14][31]_i_1_n_2                   | wb_uut/regs[1][7]_i_1_n_2                               |                3 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[14][31]_i_1_n_2                   | wb_uut/regs[1][15]_i_1_n_2                              |                1 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[14][31]_i_1_n_2                   | wb_uut/regs[1][23]_i_1_n_2                              |                1 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[14][31]_i_1_n_2                   | wb_uut/regs[1][27]_i_1_n_2                              |                1 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[14][31]_i_1_n_2                   | wb_uut/regs_reg[3][3]_0                                 |                3 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[29][31]_i_1_n_2                   | wb_uut/regs[1][19]_i_1_n_2                              |                3 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[29][31]_i_1_n_2                   | wb_uut/regs[1][7]_i_1_n_2                               |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[29][31]_i_1_n_2                   | wb_uut/regs[1][15]_i_1_n_2                              |                3 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[29][31]_i_1_n_2                   | wb_uut/regs[1][23]_i_1_n_2                              |                3 |              4 |
+|  uut_clk_divider/xlnx_opt_         |                                               | uut_input/done_stable_reg_0                             |                1 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[29][31]_i_1_n_2                   | wb_uut/regs[1][27]_i_1_n_2                              |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[29][31]_i_1_n_2                   | wb_uut/regs_reg[3][3]_0                                 |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[5][31]_i_1_n_2                    | wb_uut/regs[1][19]_i_1_n_2                              |                3 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[5][31]_i_1_n_2                    | wb_uut/regs[1][11]_i_1_n_2                              |                1 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[5][31]_i_1_n_2                    | wb_uut/regs_reg[1][31]_0                                |                1 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[5][31]_i_1_n_2                    | wb_uut/regs[1][7]_i_1_n_2                               |                1 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[5][31]_i_1_n_2                    | wb_uut/regs[1][15]_i_1_n_2                              |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[5][31]_i_1_n_2                    | wb_uut/regs[1][23]_i_1_n_2                              |                4 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[5][31]_i_1_n_2                    | wb_uut/regs[1][27]_i_1_n_2                              |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[5][31]_i_1_n_2                    | wb_uut/regs_reg[3][3]_0                                 |                1 |              4 |
 | ~uut_clk_divider/xlnx_opt_         |                                               |                                                         |                4 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[13][31]_i_1_n_2                   | wb_uut/regs_reg[28][13]_0                               |                3 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[26][31]_i_1_n_2                   | wb_uut/regs_reg[22][31]_0                               |                1 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[13][31]_i_1_n_2                   | wb_uut/regs_reg[7][16]_0                                |                2 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[26][31]_i_1_n_2                   | wb_uut/regs_reg[7][16]_0                                |                2 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[26][31]_i_1_n_2                   | wb_uut/regs_reg[19][20]_0                               |                1 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[13][31]_i_1_n_2                   | wb_uut/regs_reg[31][24]_0                               |                1 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[26][31]_i_1_n_2                   | wb_uut/regs_reg[10][27]_0                               |                4 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[26][31]_i_1_n_2                   | wb_uut/regs_reg[16][9]_0                                |                1 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[13][31]_i_1_n_2                   | wb_uut/regs_reg[10][27]_0                               |                2 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[17][31]_i_1_n_2                   | wb_uut/regs_reg[7][16]_0                                |                4 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[31][31]_i_1_n_2                   | wb_uut/regs_reg[22][31]_0                               |                1 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[31][31]_i_1_n_2                   | wb_uut/regs_reg[28][13]_0                               |                2 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[17][31]_i_1_n_2                   | wb_uut/regs_reg[31][24]_0                               |                2 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[31][31]_i_1_n_2                   | wb_uut/regs_reg[19][20]_0                               |                1 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[31][31]_i_1_n_2                   | wb_uut/regs_reg[31][24]_0                               |                1 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[17][31]_i_1_n_2                   | wb_uut/regs_reg[10][27]_0                               |                2 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[31][31]_i_1_n_2                   | wb_uut/regs_reg[16][9]_0                                |                2 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[7][31]_i_1_n_2                    | wb_uut/regs_reg[4][5]_0                                 |                2 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[17][31]_i_1_n_2                   | wb_uut/regs_reg[16][9]_0                                |                2 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[7][31]_i_1_n_2                    | wb_uut/regs_reg[22][31]_0                               |                1 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[7][31]_i_1_n_2                    | wb_uut/regs_reg[28][13]_0                               |                3 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[7][31]_i_1_n_2                    | wb_uut/regs_reg[7][16]_0                                |                1 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[19][31]_i_1_n_2                   | wb_uut/regs_reg[7][16]_0                                |                3 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[7][31]_i_1_n_2                    | wb_uut/regs_reg[31][24]_0                               |                1 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[19][31]_i_1_n_2                   | wb_uut/regs_reg[19][20]_0                               |                1 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[19][31]_i_1_n_2                   | wb_uut/regs_reg[10][27]_0                               |                2 |              4 |
-| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[19][31]_i_1_n_2                   | wb_uut/regs_reg[16][9]_0                                |                2 |              4 |
-|  uut_clk_divider/xlnx_opt_         | wb_uut/v2_reg_a7_reg[31][0]                   | hd_uut/is_nop_reg_0                                     |                3 |              5 |
-|  uut_clk_divider/xlnx_opt_         | wb_uut/en_pc                                  | v2_reg_a7[31]_i_3_n_2                                   |                2 |              6 |
-|  uut_clk_divider/xlnx_opt_         | wb_uut/en_pc                                  | wb_uut/regs_reg[7][16]_0                                |                3 |              6 |
-|  uut_clk_divider/xlnx_opt_         | wb_uut/en_pc                                  | wb_uut/regs_reg[10][27]_0                               |                4 |              6 |
-|  uut_output/uut_seg_gen/E[0]       |                                               |                                                         |                2 |              7 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[26][31]_i_1_n_2                   | wb_uut/regs[1][19]_i_1_n_2                              |                3 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[26][31]_i_1_n_2                   | wb_uut/regs[1][11]_i_1_n_2                              |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[26][31]_i_1_n_2                   | wb_uut/regs[1][7]_i_1_n_2                               |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[26][31]_i_1_n_2                   | wb_uut/regs[1][23]_i_1_n_2                              |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[26][31]_i_1_n_2                   | wb_uut/regs[1][27]_i_1_n_2                              |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[26][31]_i_1_n_2                   | wb_uut/regs_reg[3][3]_0                                 |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[17][31]_i_1_n_2                   | wb_uut/regs[1][19]_i_1_n_2                              |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[17][31]_i_1_n_2                   | wb_uut/regs[1][11]_i_1_n_2                              |                1 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[17][31]_i_1_n_2                   | wb_uut/regs[1][7]_i_1_n_2                               |                1 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[17][31]_i_1_n_2                   | wb_uut/regs[1][15]_i_1_n_2                              |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[17][31]_i_1_n_2                   | wb_uut/regs[1][23]_i_1_n_2                              |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[17][31]_i_1_n_2                   | wb_uut/regs_reg[3][3]_0                                 |                1 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[22][31]_i_1_n_2                   | wb_uut/regs[1][11]_i_1_n_2                              |                1 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[22][31]_i_1_n_2                   | wb_uut/regs[1][7]_i_1_n_2                               |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[22][31]_i_1_n_2                   | wb_uut/regs[1][15]_i_1_n_2                              |                1 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[22][31]_i_1_n_2                   | wb_uut/regs[1][23]_i_1_n_2                              |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[22][31]_i_1_n_2                   | wb_uut/regs[1][27]_i_1_n_2                              |                1 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[22][31]_i_1_n_2                   | wb_uut/regs_reg[3][3]_0                                 |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[16][31]_i_1_n_2                   | wb_uut/regs[1][19]_i_1_n_2                              |                1 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[16][31]_i_1_n_2                   | wb_uut/regs[1][11]_i_1_n_2                              |                1 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[16][31]_i_1_n_2                   | wb_uut/regs[1][7]_i_1_n_2                               |                1 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[16][31]_i_1_n_2                   | wb_uut/regs[1][15]_i_1_n_2                              |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[16][31]_i_1_n_2                   | wb_uut/regs[1][23]_i_1_n_2                              |                1 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[16][31]_i_1_n_2                   | wb_uut/regs_reg[3][3]_0                                 |                1 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[24][31]_i_1_n_2                   | wb_uut/regs[1][11]_i_1_n_2                              |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[24][31]_i_1_n_2                   | wb_uut/regs[1][7]_i_1_n_2                               |                4 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[24][31]_i_1_n_2                   | wb_uut/regs[1][15]_i_1_n_2                              |                3 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[24][31]_i_1_n_2                   | wb_uut/regs[1][23]_i_1_n_2                              |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[24][31]_i_1_n_2                   | wb_uut/regs[1][27]_i_1_n_2                              |                1 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[24][31]_i_1_n_2                   | wb_uut/regs_reg[3][3]_0                                 |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[28][31]_i_1_n_2                   | wb_uut/regs[1][19]_i_1_n_2                              |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[28][31]_i_1_n_2                   | wb_uut/regs[1][7]_i_1_n_2                               |                3 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[28][31]_i_1_n_2                   | wb_uut/regs[1][15]_i_1_n_2                              |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[28][31]_i_1_n_2                   | wb_uut/regs[1][23]_i_1_n_2                              |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[28][31]_i_1_n_2                   | wb_uut/regs[1][27]_i_1_n_2                              |                1 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[28][31]_i_1_n_2                   | wb_uut/regs_reg[3][3]_0                                 |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[11][31]_i_1_n_2                   | wb_uut/regs[1][19]_i_1_n_2                              |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[11][31]_i_1_n_2                   | wb_uut/regs[1][11]_i_1_n_2                              |                3 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[11][31]_i_1_n_2                   | wb_uut/regs_reg[1][31]_0                                |                3 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[11][31]_i_1_n_2                   | wb_uut/regs[1][7]_i_1_n_2                               |                1 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[11][31]_i_1_n_2                   | wb_uut/regs[1][15]_i_1_n_2                              |                1 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[11][31]_i_1_n_2                   | wb_uut/regs[1][23]_i_1_n_2                              |                1 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[11][31]_i_1_n_2                   | wb_uut/regs[1][27]_i_1_n_2                              |                1 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[11][31]_i_1_n_2                   | wb_uut/regs_reg[3][3]_0                                 |                3 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[3][31]_i_1_n_2                    | wb_uut/regs[1][19]_i_1_n_2                              |                1 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[3][31]_i_1_n_2                    | wb_uut/regs[1][11]_i_1_n_2                              |                1 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[3][31]_i_1_n_2                    | wb_uut/regs_reg[1][31]_0                                |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[3][31]_i_1_n_2                    | wb_uut/regs[1][7]_i_1_n_2                               |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[3][31]_i_1_n_2                    | wb_uut/regs[1][15]_i_1_n_2                              |                4 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[3][31]_i_1_n_2                    | wb_uut/regs[1][23]_i_1_n_2                              |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[3][31]_i_1_n_2                    | wb_uut/regs[1][27]_i_1_n_2                              |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[3][31]_i_1_n_2                    | wb_uut/regs_reg[3][3]_0                                 |                1 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[7][31]_i_1_n_2                    | wb_uut/regs[1][19]_i_1_n_2                              |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[7][31]_i_1_n_2                    | wb_uut/regs[1][11]_i_1_n_2                              |                4 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[7][31]_i_1_n_2                    | wb_uut/regs_reg[1][31]_0                                |                4 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[7][31]_i_1_n_2                    | wb_uut/regs[1][7]_i_1_n_2                               |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[7][31]_i_1_n_2                    | wb_uut/regs[1][15]_i_1_n_2                              |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[7][31]_i_1_n_2                    | wb_uut/regs[1][23]_i_1_n_2                              |                1 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[7][31]_i_1_n_2                    | wb_uut/regs[1][27]_i_1_n_2                              |                1 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[7][31]_i_1_n_2                    | wb_uut/regs_reg[3][3]_0                                 |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[19][31]_i_1_n_2                   | wb_uut/regs[1][19]_i_1_n_2                              |                1 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[19][31]_i_1_n_2                   | wb_uut/regs[1][11]_i_1_n_2                              |                1 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[19][31]_i_1_n_2                   | wb_uut/regs[1][7]_i_1_n_2                               |                1 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[19][31]_i_1_n_2                   | wb_uut/regs[1][15]_i_1_n_2                              |                1 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[19][31]_i_1_n_2                   | wb_uut/regs[1][27]_i_1_n_2                              |                1 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[19][31]_i_1_n_2                   | wb_uut/regs_reg[3][3]_0                                 |                1 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[25][31]_i_1_n_2                   | wb_uut/regs[1][19]_i_1_n_2                              |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[25][31]_i_1_n_2                   | wb_uut/regs[1][11]_i_1_n_2                              |                4 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[25][31]_i_1_n_2                   | wb_uut/regs[1][7]_i_1_n_2                               |                1 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[25][31]_i_1_n_2                   | wb_uut/regs[1][23]_i_1_n_2                              |                3 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[25][31]_i_1_n_2                   | wb_uut/regs[1][27]_i_1_n_2                              |                1 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[25][31]_i_1_n_2                   | wb_uut/regs_reg[3][3]_0                                 |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[10][31]_i_1_n_2                   | wb_uut/regs[1][19]_i_1_n_2                              |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[10][31]_i_1_n_2                   | wb_uut/regs[1][11]_i_1_n_2                              |                1 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[10][31]_i_1_n_2                   | wb_uut/regs_reg[1][31]_0                                |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[10][31]_i_1_n_2                   | wb_uut/regs[1][7]_i_1_n_2                               |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[10][31]_i_1_n_2                   | wb_uut/regs[1][15]_i_1_n_2                              |                1 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[10][31]_i_1_n_2                   | wb_uut/regs[1][23]_i_1_n_2                              |                3 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[10][31]_i_1_n_2                   | wb_uut/regs[1][27]_i_1_n_2                              |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[10][31]_i_1_n_2                   | wb_uut/regs_reg[3][3]_0                                 |                3 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[18][31]_i_1_n_2                   | wb_uut/regs[1][19]_i_1_n_2                              |                1 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[18][31]_i_1_n_2                   | wb_uut/regs[1][11]_i_1_n_2                              |                1 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[18][31]_i_1_n_2                   | wb_uut/regs[1][7]_i_1_n_2                               |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[18][31]_i_1_n_2                   | wb_uut/regs[1][15]_i_1_n_2                              |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[18][31]_i_1_n_2                   | wb_uut/regs[1][23]_i_1_n_2                              |                1 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[18][31]_i_1_n_2                   | wb_uut/regs_reg[3][3]_0                                 |                1 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[13][31]_i_1_n_2                   | wb_uut/regs[1][19]_i_1_n_2                              |                3 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[13][31]_i_1_n_2                   | wb_uut/regs[1][11]_i_1_n_2                              |                3 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[13][31]_i_1_n_2                   | wb_uut/regs_reg[1][31]_0                                |                3 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[13][31]_i_1_n_2                   | wb_uut/regs[1][7]_i_1_n_2                               |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[13][31]_i_1_n_2                   | wb_uut/regs[1][15]_i_1_n_2                              |                1 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[13][31]_i_1_n_2                   | wb_uut/regs[1][23]_i_1_n_2                              |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[13][31]_i_1_n_2                   | wb_uut/regs[1][27]_i_1_n_2                              |                1 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[13][31]_i_1_n_2                   | wb_uut/regs_reg[3][3]_0                                 |                4 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[12][31]_i_1_n_2                   | wb_uut/regs[1][19]_i_1_n_2                              |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[12][31]_i_1_n_2                   | wb_uut/regs[1][11]_i_1_n_2                              |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[12][31]_i_1_n_2                   | wb_uut/regs_reg[1][31]_0                                |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[12][31]_i_1_n_2                   | wb_uut/regs[1][7]_i_1_n_2                               |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[12][31]_i_1_n_2                   | wb_uut/regs[1][15]_i_1_n_2                              |                1 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[12][31]_i_1_n_2                   | wb_uut/regs[1][23]_i_1_n_2                              |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[12][31]_i_1_n_2                   | wb_uut/regs[1][27]_i_1_n_2                              |                3 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[12][31]_i_1_n_2                   | wb_uut/regs_reg[3][3]_0                                 |                4 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[2][31]_i_1_n_2                    | wb_uut/regs[1][19]_i_1_n_2                              |                1 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[2][31]_i_1_n_2                    | wb_uut/regs[1][11]_i_1_n_2                              |                1 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[2][31]_i_1_n_2                    | wb_uut/regs_reg[1][31]_0                                |                4 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[2][31]_i_1_n_2                    | wb_uut/regs[1][15]_i_1_n_2                              |                4 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[2][31]_i_1_n_2                    | wb_uut/regs[1][23]_i_1_n_2                              |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[2][31]_i_1_n_2                    | wb_uut/regs[1][27]_i_1_n_2                              |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[4][31]_i_1_n_2                    | wb_uut/regs[1][19]_i_1_n_2                              |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[4][31]_i_1_n_2                    | wb_uut/regs[1][11]_i_1_n_2                              |                1 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[4][31]_i_1_n_2                    | wb_uut/regs_reg[1][31]_0                                |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[4][31]_i_1_n_2                    | wb_uut/regs[1][7]_i_1_n_2                               |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[4][31]_i_1_n_2                    | wb_uut/regs[1][15]_i_1_n_2                              |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[4][31]_i_1_n_2                    | wb_uut/regs[1][23]_i_1_n_2                              |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[4][31]_i_1_n_2                    | wb_uut/regs[1][27]_i_1_n_2                              |                3 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[4][31]_i_1_n_2                    | wb_uut/regs_reg[3][3]_0                                 |                1 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[31][31]_i_1_n_2                   | wb_uut/regs[1][19]_i_1_n_2                              |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[31][31]_i_1_n_2                   | wb_uut/regs[1][11]_i_1_n_2                              |                4 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[31][31]_i_1_n_2                   | wb_uut/regs[1][15]_i_1_n_2                              |                1 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[31][31]_i_1_n_2                   | wb_uut/regs[1][23]_i_1_n_2                              |                1 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[31][31]_i_1_n_2                   | wb_uut/regs[1][27]_i_1_n_2                              |                1 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[31][31]_i_1_n_2                   | wb_uut/regs_reg[3][3]_0                                 |                4 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[15][31]_i_1_n_2                   | wb_uut/regs[1][19]_i_1_n_2                              |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[15][31]_i_1_n_2                   | wb_uut/regs[1][11]_i_1_n_2                              |                1 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[15][31]_i_1_n_2                   | wb_uut/regs_reg[1][31]_0                                |                1 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[15][31]_i_1_n_2                   | wb_uut/regs[1][7]_i_1_n_2                               |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[15][31]_i_1_n_2                   | wb_uut/regs[1][15]_i_1_n_2                              |                1 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[15][31]_i_1_n_2                   | wb_uut/regs[1][23]_i_1_n_2                              |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[15][31]_i_1_n_2                   | wb_uut/regs[1][27]_i_1_n_2                              |                1 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[15][31]_i_1_n_2                   | wb_uut/regs_reg[3][3]_0                                 |                3 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[27][31]_i_1_n_2                   | wb_uut/regs[1][19]_i_1_n_2                              |                4 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[27][31]_i_1_n_2                   | wb_uut/regs[1][11]_i_1_n_2                              |                2 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[27][31]_i_1_n_2                   | wb_uut/regs[1][7]_i_1_n_2                               |                1 |              4 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[27][31]_i_1_n_2                   | wb_uut/regs[1][23]_i_1_n_2                              |                2 |              4 |
+|  uut_debounce_divider/clk_de       | debug_counter                                 | debug_counter[4]_i_1_n_2                                |                2 |              5 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[1][31]_i_1_n_2                    | wb_uut/regs[1][7]_i_1_n_2                               |                1 |              5 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[29][31]_i_1_n_2                   | wb_uut/regs[1][11]_i_1_n_2                              |                4 |              5 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[17][31]_i_1_n_2                   | wb_uut/regs[1][27]_i_1_n_2                              |                1 |              5 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[26][31]_i_1_n_2                   | wb_uut/regs[1][15]_i_1_n_2                              |                2 |              5 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[19][31]_i_1_n_2                   | wb_uut/regs[1][23]_i_1_n_2                              |                2 |              5 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[28][31]_i_1_n_2                   | wb_uut/regs[1][11]_i_1_n_2                              |                3 |              5 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[24][31]_i_1_n_2                   | wb_uut/regs[1][19]_i_1_n_2                              |                2 |              5 |
+|  uut_clk_divider/xlnx_opt_         | wb_uut/v2_inst_reg[31][0]                     | wb_uut/regs_reg[3][3]_0                                 |                2 |              5 |
+|  init_clk_IBUF_BUFG                | uut_uart/u_reg/u_uart32_8/data_send_reg[0][0] | uut_output/uut_clk_display/clk_out_reg_0                |                3 |              5 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[16][31]_i_1_n_2                   | wb_uut/regs[1][27]_i_1_n_2                              |                1 |              5 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[18][31]_i_1_n_2                   | wb_uut/regs[1][27]_i_1_n_2                              |                1 |              5 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[23][31]_i_1_n_2                   | wb_uut/regs[1][19]_i_1_n_2                              |                3 |              5 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[2][31]_i_1_n_2                    | wb_uut/regs[1][7]_i_1_n_2                               |                3 |              5 |
+|  uut_clk_divider/xlnx_opt_         | wb_uut/v1_pc_reg[31][0]                       | uut_output/uut_clk_display/clk_out_reg_0                |                3 |              5 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[20][31]_i_1_n_2                   | wb_uut/regs[1][23]_i_1_n_2                              |                2 |              5 |
+|  uut_clk_divider/xlnx_opt_         | wb_uut/en_pc2                                 | hd_uut/is_nop_reg_0                                     |                2 |              5 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[22][31]_i_1_n_2                   | wb_uut/regs[1][19]_i_1_n_2                              |                3 |              5 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[27][31]_i_1_n_2                   | wb_uut/regs[1][15]_i_1_n_2                              |                2 |              5 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[25][31]_i_1_n_2                   | wb_uut/regs[1][15]_i_1_n_2                              |                4 |              5 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[21][31]_i_1_n_2                   | wb_uut/regs[1][23]_i_1_n_2                              |                2 |              5 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[31][31]_i_1_n_2                   | wb_uut/regs[1][7]_i_1_n_2                               |                5 |              5 |
+| ~uut_clk_divider/xlnx_opt_         | wb_uut/regs[30][31]_i_1_n_2                   | wb_uut/regs[1][11]_i_1_n_2                              |                4 |              5 |
 |  uut_output/uut_seg_gen/seg2[1][0] |                                               |                                                         |                4 |              7 |
-|  uut_clk_divider/xlnx_opt_         | wb_uut/en_pc                                  | wb_uut/regs_reg[22][31]_0                               |                4 |              8 |
-|  init_clk_IBUF_BUFG                | uut_uart/u_rx/data_out[7]_i_1_n_2             |                                                         |                1 |              8 |
-|  uut_clk_divider/xlnx_opt_         | wb_uut/en_pc                                  | wb_uut/regs_reg[19][20]_0                               |                4 |              8 |
-|  uut_clk_divider/xlnx_opt_         | wb_uut/en_pc                                  | wb_uut/regs_reg[31][24]_0                               |                6 |              8 |
-|  uut_clk_divider/xlnx_opt_         | wb_uut/en_pc                                  | wb_uut/regs_reg[28][13]_0                               |                6 |              8 |
+|  uut_output/uut_seg_gen/E[0]       |                                               |                                                         |                3 |              7 |
+|  uut_clk_divider/xlnx_opt_         | wb_uut/v2_inst_reg[31][0]                     | hd_uut/is_nop_reg_0                                     |                4 |              7 |
+|  init_clk_IBUF_BUFG                | uut_uart/u_reg/u_uart32_8/tx_data[7]_i_1_n_2  | uut_uart/u_reg/u_uart32_8/FSM_sequential_state_reg[2]_0 |                3 |              8 |
 |  init_clk_IBUF_BUFG                | uut_uart/u_reg/u_uart32_8/E[0]                |                                                         |                1 |              8 |
-|  init_clk_IBUF_BUFG                | uut_uart/u_reg/u_uart32_8/tx_data[7]_i_1_n_2  | uut_uart/u_reg/u_uart32_8/FSM_sequential_state_reg[2]_0 |                2 |              8 |
-|  uut_clk_divider/xlnx_opt_         | wb_uut/en_pc                                  | wb_uut/regs_reg[16][9]_0                                |                4 |              8 |
+|  init_clk_IBUF_BUFG                | uut_uart/out_strobe11_out                     | uut_uart/last_regs[32][31]_i_2_n_2                      |                1 |              8 |
+|  init_clk_IBUF_BUFG                | uut_uart/out_strobe10_out                     | uut_uart/last_regs[32][31]_i_2_n_2                      |                1 |              8 |
+|  init_clk_IBUF_BUFG                | uut_uart/out_strobe12_out                     | uut_uart/last_regs[32][31]_i_2_n_2                      |                1 |              8 |
 |  init_clk_IBUF_BUFG                | uut_uart/u_rx/data_valid                      | hd_uut/is_nop_reg_0                                     |                2 |              8 |
-|  uut_clk_divider/xlnx_opt_         | wb_uut/en_pc                                  | wb_uut/regs_reg[4][5]_0                                 |                4 |             12 |
+|  init_clk_IBUF_BUFG                | uut_uart/out_strobe1                          | uut_uart/last_regs[32][31]_i_2_n_2                      |                1 |              8 |
+|  init_clk_IBUF_BUFG                | uut_uart/u_rx/data_out[7]_i_1_n_2             |                                                         |                1 |              8 |
+|  uut_clk_divider/xlnx_opt_         | wb_uut/v2_inst_reg[31][0]                     | v3_reg_write_i_2_n_2                                    |                5 |             10 |
 |  init_clk_IBUF_BUFG                | uut_uart/u_rx/baud_cnt[15]_i_1_n_2            | hd_uut/is_nop_reg_0                                     |                7 |             16 |
-|  uut_clk_divider/xlnx_opt_         | wb_uut/v1_inst_reg[31][0]                     | v1_inst[22]_i_2_n_2                                     |                7 |             22 |
-|  init_clk_IBUF_BUFG                |                                               | uut_uart/u_reg/u_uart32_8/tx_busy_d_reg_0               |                7 |             26 |
+|  uut_clk_divider/xlnx_opt_         | wb_uut/en_pc2                                 | wb_uut/regs_reg[1][31]_0                                |               10 |             19 |
+|  init_clk_IBUF_BUFG                | uut_uart/out_strobe10_out                     | uut_uart/last_regs[34][23]_i_1_n_2                      |                5 |             24 |
+|  init_clk_IBUF_BUFG                | uut_uart/out_strobe12_out                     | uut_uart/last_regs[34][23]_i_1_n_2                      |                4 |             24 |
+|  init_clk_IBUF_BUFG                | uut_uart/out_strobe1                          | uut_uart/last_regs[34][23]_i_1_n_2                      |                4 |             24 |
+|  init_clk_IBUF_BUFG                | uut_uart/out_strobe11_out                     | uut_uart/last_regs[34][23]_i_1_n_2                      |                4 |             24 |
 |  init_clk_IBUF_BUFG                |                                               | uut_output/uut_clk_display/clk_out_reg_0                |                8 |             26 |
-|  init_clk_IBUF_BUFG                | wb_uut/last_regs_reg[29][31][0]               | uut_uart/last_regs[28][31]_i_2_n_2                      |                6 |             32 |
-|  init_clk_IBUF_BUFG                | wb_uut/last_regs_reg[2][31][0]                | uut_uart/last_regs[1][31]_i_2_n_2                       |                6 |             32 |
-|  init_clk_IBUF_BUFG                | wb_uut/last_regs_reg[27][31][0]               | uut_uart/last_regs[24][31]_i_2_n_2                      |                7 |             32 |
-|  init_clk_IBUF_BUFG                | wb_uut/last_regs_reg[28][31][0]               | uut_uart/last_regs[28][31]_i_2_n_2                      |                4 |             32 |
-|  init_clk_IBUF_BUFG                | wb_uut/last_regs_reg[18][31][0]               | uut_uart/last_regs[16][31]_i_2_n_2                      |                6 |             32 |
-|  init_clk_IBUF_BUFG                | wb_uut/last_regs_reg[25][31][0]               | uut_uart/last_regs[24][31]_i_2_n_2                      |                6 |             32 |
-|  init_clk_IBUF_BUFG                | wb_uut/last_regs_reg[26][31][0]               | uut_uart/last_regs[24][31]_i_2_n_2                      |                4 |             32 |
-|  init_clk_IBUF_BUFG                | wb_uut/last_regs_reg[24][31][0]               | uut_uart/last_regs[24][31]_i_2_n_2                      |                7 |             32 |
-|  uut_clk_divider/xlnx_opt_         | wb_uut/v2_reg_a7_reg[31][0]                   | wb_uut/regs_reg[17][2]_0                                |                6 |             32 |
-|  init_clk_IBUF_BUFG                | wb_uut/last_regs_reg[23][31][0]               | uut_uart/last_regs[20][31]_i_2_n_2                      |                9 |             32 |
-|  init_clk_IBUF_BUFG                | wb_uut/last_regs_reg[19][31][0]               | uut_uart/last_regs[16][31]_i_2_n_2                      |                8 |             32 |
-|  init_clk_IBUF_BUFG                | wb_uut/last_regs_reg[22][31][0]               | uut_uart/last_regs[20][31]_i_2_n_2                      |                7 |             32 |
-|  init_clk_IBUF_BUFG                | wb_uut/last_regs_reg[21][31][0]               | uut_uart/last_regs[20][31]_i_2_n_2                      |                8 |             32 |
-|  init_clk_IBUF_BUFG                | wb_uut/last_regs_reg[20][31][0]               | uut_uart/last_regs[20][31]_i_2_n_2                      |                7 |             32 |
-|  init_clk_IBUF_BUFG                | wb_uut/last_regs_reg[1][31][0]                | uut_uart/last_regs[1][31]_i_2_n_2                       |                7 |             32 |
-|  uut_clk_divider/xlnx_opt_         | wb_uut/v2_reg_a7_reg[31][0]                   | wb_uut/regs_reg[1][31]_0                                |               12 |             32 |
+|  init_clk_IBUF_BUFG                |                                               | uut_uart/u_reg/u_uart32_8/tx_busy_d_reg_0               |                8 |             26 |
+|  uut_clk_divider/xlnx_opt_         | wb_uut/v1_pc_reg[31][0]                       | v1_pc[31]_i_3_n_2                                       |                6 |             27 |
+|  n_0_1857_BUFG                     |                                               |                                                         |               15 |             32 |
+|  init_clk_IBUF_BUFG                | wb_uut/last_regs_reg[16][31][0]               | uut_uart/last_regs[16][31]_i_2_n_2                      |                7 |             32 |
 |  init_clk_IBUF_BUFG                | wb_uut/last_regs_reg[15][31][0]               | uut_uart/last_regs[12][31]_i_2_n_2                      |                5 |             32 |
-|  n_0_1856_BUFG                     |                                               |                                                         |               15 |             32 |
-|  init_clk_IBUF_BUFG                | wb_uut/last_regs_reg[17][31][0]               | uut_uart/last_regs[16][31]_i_2_n_2                      |                7 |             32 |
-|  n_1_1857_BUFG                     |                                               |                                                         |               11 |             32 |
-|  init_clk_IBUF_BUFG                | wb_uut/last_regs_reg[16][31][0]               | uut_uart/last_regs[16][31]_i_2_n_2                      |                5 |             32 |
-|  init_clk_IBUF_BUFG                | wb_uut/last_regs_reg[14][31][0]               | uut_uart/last_regs[12][31]_i_2_n_2                      |                5 |             32 |
-|  init_clk_IBUF_BUFG                | wb_uut/last_regs_reg[9][31][0]                | uut_uart/last_regs[8][31]_i_2_n_2                       |                5 |             32 |
-|  init_clk_IBUF_BUFG                | wb_uut/last_regs_reg[12][31][0]               | uut_uart/last_regs[12][31]_i_2_n_2                      |                4 |             32 |
-|  init_clk_IBUF_BUFG                | wb_uut/last_regs_reg[8][31][0]                | uut_uart/last_regs[8][31]_i_2_n_2                       |                5 |             32 |
-|  init_clk_IBUF_BUFG                | wb_uut/last_regs_reg[13][31][0]               | uut_uart/last_regs[12][31]_i_2_n_2                      |                7 |             32 |
-|  init_clk_IBUF_BUFG                | wb_uut/last_regs_reg[10][31][0]               | uut_uart/last_regs[8][31]_i_2_n_2                       |                7 |             32 |
-|  init_clk_IBUF_BUFG                | wb_uut/last_regs_reg[7][31][0]                | uut_uart/last_regs[4][31]_i_2_n_2                       |                5 |             32 |
-|  init_clk_IBUF_BUFG                | wb_uut/last_regs_reg[6][31][0]                | uut_uart/last_regs[4][31]_i_2_n_2                       |                6 |             32 |
-|  init_clk_IBUF_BUFG                | wb_uut/E[0]                                   | uut_uart/u_reg/u_uart32_8/FSM_sequential_state_reg[2]_0 |                4 |             32 |
-|  init_clk_IBUF_BUFG                | wb_uut/last_regs_reg[5][31][0]                | uut_uart/last_regs[4][31]_i_2_n_2                       |                5 |             32 |
-|  init_clk_IBUF_BUFG                | wb_uut/last_regs_reg[3][31][0]                | uut_uart/last_regs[1][31]_i_2_n_2                       |                5 |             32 |
-|  init_clk_IBUF_BUFG                | wb_uut/last_regs_reg[4][31][0]                | uut_uart/last_regs[4][31]_i_2_n_2                       |                6 |             32 |
+|  init_clk_IBUF_BUFG                | wb_uut/last_regs_reg[13][31][0]               | uut_uart/last_regs[12][31]_i_2_n_2                      |                6 |             32 |
+|  init_clk_IBUF_BUFG                | wb_uut/last_regs_reg[14][31][0]               | uut_uart/last_regs[12][31]_i_2_n_2                      |                7 |             32 |
+|  init_clk_IBUF_BUFG                | wb_uut/last_regs_reg[12][31][0]               | uut_uart/last_regs[12][31]_i_2_n_2                      |                7 |             32 |
+|  init_clk_IBUF_BUFG                | wb_uut/last_regs_reg[25][31][0]               | uut_uart/last_regs[24][31]_i_2_n_2                      |                7 |             32 |
+|  init_clk_IBUF_BUFG                | wb_uut/last_regs_reg[30][31][0]               | uut_uart/last_regs[28][31]_i_2_n_2                      |                6 |             32 |
+|  init_clk_IBUF_BUFG                | wb_uut/last_regs_reg[26][31][0]               | uut_uart/last_regs[24][31]_i_2_n_2                      |                4 |             32 |
+|  init_clk_IBUF_BUFG                | wb_uut/last_regs_reg[27][31][0]               | uut_uart/last_regs[24][31]_i_2_n_2                      |                7 |             32 |
+|  init_clk_IBUF_BUFG                | wb_uut/last_regs_reg[28][31][0]               | uut_uart/last_regs[28][31]_i_2_n_2                      |                6 |             32 |
+|  init_clk_IBUF_BUFG                | wb_uut/last_regs_reg[2][31][0]                | uut_uart/last_regs[1][31]_i_2_n_2                       |                4 |             32 |
+|  init_clk_IBUF_BUFG                | wb_uut/last_regs_reg[29][31][0]               | uut_uart/last_regs[28][31]_i_2_n_2                      |                6 |             32 |
+|  init_clk_IBUF_BUFG                | wb_uut/last_regs_reg[31][31][0]               | uut_uart/last_regs[28][31]_i_2_n_2                      |                6 |             32 |
 |  init_clk_IBUF_BUFG                | wb_uut/last_regs_reg[11][31][0]               | uut_uart/last_regs[8][31]_i_2_n_2                       |                5 |             32 |
-|  init_clk_IBUF_BUFG                | wb_uut/last_regs_reg[30][31][0]               | uut_uart/last_regs[28][31]_i_2_n_2                      |                4 |             32 |
+|  init_clk_IBUF_BUFG                | wb_uut/last_regs_reg[4][31][0]                | uut_uart/last_regs[4][31]_i_2_n_2                       |                5 |             32 |
+|  init_clk_IBUF_BUFG                | wb_uut/last_regs_reg[3][31][0]                | uut_uart/last_regs[1][31]_i_2_n_2                       |                7 |             32 |
+|  init_clk_IBUF_BUFG                | wb_uut/last_regs_reg[6][31][0]                | uut_uart/last_regs[4][31]_i_2_n_2                       |                9 |             32 |
+|  init_clk_IBUF_BUFG                | wb_uut/last_regs_reg[7][31][0]                | uut_uart/last_regs[4][31]_i_2_n_2                       |                5 |             32 |
+|  init_clk_IBUF_BUFG                | wb_uut/last_regs_reg[8][31][0]                | uut_uart/last_regs[8][31]_i_2_n_2                       |                5 |             32 |
+|  init_clk_IBUF_BUFG                | wb_uut/last_regs_reg[9][31][0]                | uut_uart/last_regs[8][31]_i_2_n_2                       |                6 |             32 |
+|  n_1_1858_BUFG                     |                                               |                                                         |               12 |             32 |
+|  init_clk_IBUF_BUFG                | wb_uut/last_regs_reg[18][31][0]               | uut_uart/last_regs[16][31]_i_2_n_2                      |                7 |             32 |
+|  init_clk_IBUF_BUFG                | wb_uut/E[0]                                   | uut_uart/last_regs[4][31]_i_2_n_2                       |                7 |             32 |
+|  uut_clk_divider/xlnx_opt_         |                                               | hd_uut/is_nop                                           |               12 |             32 |
+|  init_clk_IBUF_BUFG                | wb_uut/last_regs_reg[23][31][0]               | uut_uart/last_regs[20][31]_i_2_n_2                      |                7 |             32 |
+|  init_clk_IBUF_BUFG                | wb_uut/last_regs_reg[24][31][0]               | uut_uart/last_regs[24][31]_i_2_n_2                      |                9 |             32 |
+|  init_clk_IBUF_BUFG                | wb_uut/last_regs_reg[10][31][0]               | uut_uart/last_regs[8][31]_i_2_n_2                       |                7 |             32 |
+|  init_clk_IBUF_BUFG                | uut_uart/out_strobe14_out                     | uut_uart/last_regs[32][31]_i_2_n_2                      |                5 |             32 |
+|  init_clk_IBUF_BUFG                | uut_uart/out_strobe13_out                     | uut_uart/last_regs[32][31]_i_2_n_2                      |                5 |             32 |
+|  uut_clk_divider/xlnx_opt_         | wb_uut/v1_pc_reg[31][0]                       | uut_input/done_stable_reg_0                             |                6 |             32 |
+|  init_clk_IBUF_BUFG                | wb_uut/last_regs_reg[21][31][0]               | uut_uart/last_regs[20][31]_i_2_n_2                      |                6 |             32 |
+|  init_clk_IBUF_BUFG                | wb_uut/last_regs_reg[22][31][0]               | uut_uart/last_regs[20][31]_i_2_n_2                      |                7 |             32 |
+|  init_clk_IBUF_BUFG                | wb_uut/last_regs_reg[20][31][0]               | uut_uart/last_regs[20][31]_i_2_n_2                      |                5 |             32 |
+|  init_clk_IBUF_BUFG                | wb_uut/last_regs_reg[1][31][0]                | uut_uart/last_regs[1][31]_i_2_n_2                       |                6 |             32 |
+|  init_clk_IBUF_BUFG                | wb_uut/last_regs_reg[19][31][0]               | uut_uart/last_regs[16][31]_i_2_n_2                      |                5 |             32 |
+|  init_clk_IBUF_BUFG                | wb_uut/last_regs_reg[17][31][0]               | uut_uart/last_regs[16][31]_i_2_n_2                      |                7 |             32 |
+|  init_clk_IBUF_BUFG                | uut_uart/u_reg/u_uart32_8/data_send_reg[0][0] | uut_uart/u_reg/u_uart32_8/tx_busy_d_reg_0               |               13 |             33 |
 |  uut_clk_divider/xlnx_opt_         | wb_uut/next_is_nop                            | hd_uut/is_nop_reg_0                                     |               10 |             33 |
-|  init_clk_IBUF_BUFG                | uut_uart/u_reg/u_uart32_8/send_cnt_reg[0]_rep | uut_uart/u_reg/u_uart32_8/tx_busy_d_reg_0               |               14 |             38 |
-|  uut_clk_divider/xlnx_opt_         | wb_uut/v1_inst_reg[31][0]                     | v2_reg_a7[31]_i_3_n_2                                   |                9 |             42 |
-|  uut_clk_divider/xlnx_opt_         | wb_uut/v2_reg_a7_reg[31][0]                   | v1_inst[22]_i_2_n_2                                     |               14 |             46 |
-|  uut_clk_divider/xlnx_opt_         | wb_uut/en_pc                                  | v1_inst[22]_i_2_n_2                                     |               23 |             52 |
+|  uut_clk_divider/xlnx_opt_         | wb_uut/v2_inst_reg[31][0]                     | v1_pc[31]_i_3_n_2                                       |               10 |             42 |
 |  init_clk_IBUF_BUFG                |                                               | hd_uut/is_nop_reg_0                                     |               17 |             54 |
-|  init_clk_IBUF_BUFG                | uut_uart/u_reg/data_send_buffer               | uut_uart/u_reg/u_uart32_8/tx_busy_d_reg_0               |               20 |             61 |
-|  v2_en_output_reg_n_0_BUFG         |                                               |                                                         |               27 |             64 |
-|  uut_clk_divider/xlnx_opt_         | wb_uut/en_pc                                  | wb_uut/regs_reg[1][31]_0                                |               39 |             67 |
-|  uut_clk_divider/xlnx_opt_         | wb_uut/v2_reg_a7_reg[31][0]                   | v2_reg_a7[31]_i_3_n_2                                   |               16 |             72 |
-|  init_clk_IBUF_BUFG                | uut_uart/u_reg/data_send_buffer               | uut_uart/u_reg/u_uart32_8/FSM_sequential_state_reg[2]_0 |               26 |             76 |
-|  init_clk_IBUF_BUFG                | uut_uart/u_reg/data_send_buffer               | uut_uart/u_reg/data_send_buffer[2][11]_i_1_n_2          |               25 |            120 |
-|  init_clk_IBUF_BUFG                | uut_uart/u_reg/data_send_buffer               | uut_uart/u_reg/data_send_buffer[2][9]_i_1_n_2           |               28 |            120 |
-|  init_clk_IBUF_BUFG                | uut_uart/u_reg/data_send_buffer               | uut_uart/u_reg/data_send_buffer[2][15]_i_1_n_2          |               28 |            120 |
-|  init_clk_IBUF_BUFG                | uut_uart/u_reg/data_send_buffer               | uut_uart/u_reg/data_send_buffer[2][13]_i_1_n_2          |               26 |            120 |
-|  init_clk_IBUF_BUFG                | uut_uart/u_reg/data_send_buffer               | uut_uart/u_reg/data_send_buffer[2][30]_i_1_n_2          |               33 |            125 |
-|  init_clk_IBUF_BUFG                | uut_uart/u_reg/data_send_buffer               | uut_uart/u_reg/data_send_buffer[2][28]_i_1_n_2          |               45 |            125 |
-|  init_clk_IBUF_BUFG                | uut_uart/u_reg/data_send_buffer               | uut_uart/u_reg/data_send_buffer[2][26]_i_1_n_2          |               33 |            125 |
+|  uut_clk_divider/xlnx_opt_         | wb_uut/en_pc2                                 | v4_inst[14]_i_1_n_2                                     |               26 |             55 |
+|  uut_clk_divider/xlnx_opt_         | wb_uut/en_pc2                                 | v1_pc[31]_i_3_n_2                                       |               17 |             58 |
+|  v2_en_output_reg_n_0_BUFG         |                                               |                                                         |               23 |             64 |
+|  init_clk_IBUF_BUFG                | uut_uart/u_reg/data_send_buffer               | uut_uart/u_reg/u_uart32_8/tx_busy_d_reg_0               |               21 |             67 |
+|  uut_clk_divider/xlnx_opt_         | wb_uut/v2_inst_reg[31][0]                     | v4_inst[14]_i_1_n_2                                     |               21 |             72 |
+|  uut_clk_divider/xlnx_opt_         | wb_uut/v2_inst_reg[31][0]                     | uut_input/done_stable_reg_0                             |               24 |             85 |
+|  init_clk_IBUF_BUFG                | uut_uart/u_reg/data_send_buffer               | uut_uart/u_reg/u_uart32_8/FSM_sequential_state_reg[2]_0 |               33 |            109 |
+|  uut_clk_divider/xlnx_opt_         | wb_uut/en_pc2                                 | v3_reg_write_i_2_n_2                                    |               40 |            117 |
+|  init_clk_IBUF_BUFG                | uut_uart/u_reg/data_send_buffer               | uut_uart/u_reg/data_send_buffer[2][30]_i_1_n_2          |               34 |            126 |
+|  init_clk_IBUF_BUFG                | uut_uart/u_reg/data_send_buffer               | uut_uart/u_reg/data_send_buffer[2][28]_i_1_n_2          |               35 |            126 |
+|  init_clk_IBUF_BUFG                | uut_uart/u_reg/data_send_buffer               | uut_uart/u_reg/data_send_buffer[2][27]_i_1_n_2          |               38 |            126 |
+|  init_clk_IBUF_BUFG                | uut_uart/u_reg/data_send_buffer               | uut_uart/u_reg/data_send_buffer[2][25]_i_1_n_2          |               31 |            126 |
+|  init_clk_IBUF_BUFG                | uut_uart/u_reg/data_send_buffer               | uut_uart/u_reg/data_send_buffer[2][31]_i_2_n_2          |               35 |            126 |
+|  init_clk_IBUF_BUFG                | uut_uart/u_reg/data_send_buffer               | uut_uart/u_reg/data_send_buffer[2][29]_i_1_n_2          |               33 |            126 |
+|  init_clk_IBUF_BUFG                | uut_uart/u_reg/data_send_buffer               | uut_uart/u_reg/data_send_buffer[2][26]_i_1_n_2          |               38 |            126 |
+|  init_clk_IBUF_BUFG                | uut_uart/u_reg/data_send_buffer               | uut_uart/u_reg/data_send_buffer[2][22]_i_1_n_2          |               33 |            126 |
+|  uut_clk_divider/xlnx_opt_         |                                               |                                                         |               47 |            161 |
 +------------------------------------+-----------------------------------------------+---------------------------------------------------------+------------------+----------------+
 
 
 +--------+-----------------------+
 | Fanout | Number of ControlSets |
 +--------+-----------------------+
-| 1      |                    35 |
-| 2      |                    18 |
-| 3      |                   115 |
-| 4      |                   159 |
-| 5      |                     1 |
-| 6      |                     3 |
-| 7      |                     2 |
-| 8      |                     9 |
-| 12     |                     1 |
-| 16+    |                    57 |
+| 1      |                    14 |
+| 2      |                     2 |
+| 3      |                    19 |
+| 4      |                   219 |
+| 5      |                    23 |
+| 7      |                     3 |
+| 8      |                     8 |
+| 10     |                     1 |
+| 16+    |                    67 |
 +--------+-----------------------+
 
 

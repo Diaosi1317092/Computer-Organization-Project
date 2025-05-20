@@ -1,4 +1,4 @@
-set_property SRC_FILE_INFO {cfile:D:/Clone/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/constrs_1/new/pipelineCPU.xdc rfile:../../../pipelineCPU.srcs/constrs_1/new/pipelineCPU.xdc id:1} [current_design]
+set_property SRC_FILE_INFO {cfile:C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/constrs_1/new/pipelineCPU.xdc rfile:../../../pipelineCPU.srcs/constrs_1/new/pipelineCPU.xdc id:1} [current_design]
 set_property src_info {type:XDC file:1 line:9 export:INPUT save:INPUT read:READ} [current_design]
 set_property PACKAGE_PIN P5 [get_ports {sw_input[7]}]
 set_property src_info {type:XDC file:1 line:10 export:INPUT save:INPUT read:READ} [current_design]
@@ -91,3 +91,7 @@ set_property src_info {type:XDC file:1 line:93 export:INPUT save:INPUT read:READ
 set_property PACKAGE_PIN N5 [get_ports rx]
 set_property src_info {type:XDC file:1 line:96 export:INPUT save:INPUT read:READ} [current_design]
 set_property PACKAGE_PIN T4 [get_ports tx]
+set_property src_info {type:XDC file:1 line:100 export:INPUT save:INPUT read:READ} [current_design]
+set_property PACKAGE_PIN R17 [get_ports debug]
+set_property src_info {type:XDC file:1 line:101 export:INPUT save:INPUT read:READ} [current_design]
+set_property PACKAGE_PIN T5 [get_ports debug_on]
