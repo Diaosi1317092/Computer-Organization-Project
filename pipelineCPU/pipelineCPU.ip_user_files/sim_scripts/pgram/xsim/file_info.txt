@@ -1,0 +1,2 @@
+pgram.v,verilog,xil_defaultlib,../../../../pipelineCPU.srcs/sources_1/ip/pgram/sim/pgram.v,
+glbl.v,Verilog,xil_defaultlib,glbl.v
