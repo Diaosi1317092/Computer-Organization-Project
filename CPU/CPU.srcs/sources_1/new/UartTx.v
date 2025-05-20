@@ -15,7 +15,7 @@ module UartTx (
     reg [3:0] bit_cnt = 0;
     reg [9:0] tx_data;
 
-    always @(posedge clk or posedge rst) begin
+    always @(posedge clk or negedge rst) begin
         if (~rst) begin
             baud_cnt <= 0;
             baud_tick <= 0;
@@ -33,7 +33,7 @@ module UartTx (
         end
     end
 
-    always @(posedge clk or posedge rst) begin
+    always @(posedge clk or negedge rst) begin
         if (~rst) begin
             tx <= 1;
             busy <= 0;

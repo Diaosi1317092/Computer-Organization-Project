@@ -7,6 +7,8 @@ module OutputModule(
     output [7:0] seg1,
     output [7:0] seg2,
     output [7:0] led,
+    output [31:0] uart_reg_a7,
+    output [31:0] uart_output_data,
     output wire [7:0] an   //control the 8-segment
 );
     parameter PERIOD_SEG = 1<<16;
@@ -17,6 +19,9 @@ module OutputModule(
     
     assign val = (en_output ? output_data: val);
     assign tmp_reg_a7 = (en_output ? reg_a7: tmp_reg_a7);
+    
+    assign uart_output_data = (en_output ? output_data: uart_output_data);
+    assign uart_reg_a7 = (en_output ? reg_a7: uart_reg_a7);
     
     SegGenerator uut_seg_gen (
         .rst(rst),

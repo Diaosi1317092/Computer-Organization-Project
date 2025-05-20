@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 2025/05/14 17:50:54
+// Create Date: 2025/05/20 20:04:20
 // Design Name: 
-// Module Name: ID
+// Module Name: uart32_8
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module ID(
+module uart32_8(
 
     );
 endmodule

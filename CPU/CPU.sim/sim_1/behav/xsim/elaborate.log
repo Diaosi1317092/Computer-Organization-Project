@@ -1,14 +1,13 @@
 Vivado Simulator 2017.4
 Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
-Running: D:/Xilinx/Vivado/2017.4/bin/unwrapped/win64.o/xelab.exe -wto 1c99ea6a430e47fbaf72bbfceaf43014 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot tb_UartTop_behav xil_defaultlib.tb_UartTop xil_defaultlib.glbl -log elaborate.log 
+Running: D:/Xilinx/Vivado/2017.4/bin/unwrapped/win64.o/xelab.exe -wto 1c99ea6a430e47fbaf72bbfceaf43014 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot tb_SegDisplay_behav xil_defaultlib.tb_SegDisplay xil_defaultlib.glbl -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
 Completed static elaboration
 Starting simulation data flow analysis
-WARNING: [XSIM 43-4099] "D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/UartTop.v" Line 1. Module UartTop doesn't have a timescale but at least one module in design has a timescale.
 Completed simulation data flow analysis
 Time Resolution for simulation is 1ps
-Compiling module xil_defaultlib.UartTop
-Compiling module xil_defaultlib.tb_UartTop
+Compiling module xil_defaultlib.SegDisplay
+Compiling module xil_defaultlib.tb_SegDisplay
 Compiling module xil_defaultlib.glbl
-Built simulation snapshot tb_UartTop_behav
+Built simulation snapshot tb_SegDisplay_behav

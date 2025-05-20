@@ -12,8 +12,9 @@ module top_module(
     input init_clk,
     input rst,
     input done,
+    input cp_done,
     input [7:0] sw_input,
-    input wire rx,
+    input  wire rx,
     output wire tx,
     output [7:0] seg1,
     output [7:0] seg2,
@@ -31,7 +32,7 @@ module top_module(
     wire is_ecall;
     wire [31:0] reg_a7;
     wire [7:0] cp_input;
-    wire cp_done;
+    wire [31:0] regs [0:31];
     
     //divided clock
     wire clk_de;
@@ -41,7 +42,9 @@ module top_module(
     wire [31:0] imm32;
     wire        branch;
     wire        zero;
-    wire [31:0] pc; 
+    wire [31:0] pc;
+    wire [31:0] uart_reg_a7;
+    wire [31:0] uart_output_data;
 
     // ALU control and output
     wire        alu_src;
@@ -69,8 +72,6 @@ module top_module(
     wire [2:0] funct3 = inst[14:12];
     wire [6:0] funct7 = inst[31:25];
     
-    
-
     // =========================
     // Module Instantiations
     // =========================
@@ -84,7 +85,7 @@ module top_module(
     ClockDivider uut_clk_divider(
         .clk(init_clk),
         .rst(rst),
-        .period(10000),
+        .period(6),
         .clk_out(clk)
     );
     
@@ -117,7 +118,8 @@ module top_module(
         .en_output(en_output),
         .output_data(output_data),
         .reg_a7(reg_a7),
-        .en_pc(en_pc)
+        .en_pc(en_pc),
+        .regs(regs)
     );
 
     // ALU unit
@@ -204,20 +206,23 @@ module top_module(
         .en_output(en_output),
         .reg_a7(reg_a7),
         .output_data(output_data),
+        .uart_reg_a7(uart_reg_a7),
+        .uart_output_data(uart_output_data),
         .seg1(seg1),
         .seg2(seg2),
         .led(led),
         .an(an)
     );
 
-    UartTop uut_uart_top(
+    UartTop uut_uart(
         .clk(init_clk),
-        .clk_de(clk),
         .rst(rst),
         .rx(rx),
         .tx(tx),
-        .now_input(cp_input),
-        .cp_done(cp_done)
+        .uart_reg_a7(uart_reg_a7),
+        .uart_output_data(uart_output_data),
+        .cp_input(cp_input),
+        .regs(regs)
     );
     
 endmodule
