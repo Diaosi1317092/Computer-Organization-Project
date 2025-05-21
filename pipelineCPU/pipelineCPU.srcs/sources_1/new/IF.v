@@ -27,7 +27,7 @@ module IF(
     output [31:0] output_inst
     );
     parameter base_address = 32'h0000_3000;
-    parameter nop_inst = 32'b0;
+    parameter nop_inst = 32'h00000013;
     wire [13:0] addr;        // address for instruction memory
     wire [31:0] tmp_inst;
     assign output_inst = is_nop ? nop_inst : tmp_inst;

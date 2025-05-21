@@ -13,7 +13,7 @@ module top_module(
     output [7:0] led,
     output wire [7:0] an   //control the 8-segment
 );
-    parameter nop_inst = 32'b0;
+    parameter nop_inst = 32'h00000013, base_address = 32'h00003000;
     wire[31:0] regs [0:31];
     wire [31:0] output_regs [0:37];
     reg [31:0] output_inst [0:5];
@@ -27,10 +27,8 @@ module top_module(
     wire [31:0] uart_reg_a7;
     wire [31:0] uart_output_data;
 
-    reg debug_stable, debug_run, debug_stop;
-    reg next_debug_stop, next_debug_run;
     wire en_pc2;
-    assign en_pc2 = debug_on ? debug_run : en_pc;
+    assign en_pc2 = debug_on ? done_input : en_pc;
 
     // ecall's stalling
     wire is_ecall;
@@ -205,7 +203,7 @@ module top_module(
         if(~rst)begin
             ecall_cnt <= 0;
             v1_inst <= nop_inst;
-            v1_pc <= 0;
+            v1_pc <= base_address;
             v2_imm32 <= 0;
             v2_rs1_data <= 0;
             v2_rs2_data <= 0;
@@ -223,7 +221,7 @@ module top_module(
             v2_rd <= 0;
             v2_funct3 <= 3'b0;
             v2_funct7 <= 7'b0;
-            v2_pc <= 0;
+            v2_pc <= base_address;
             v2_reg_a7 <= 0;
             v2_output_data <= 0;
             // v2_en_input <= 0;
@@ -243,7 +241,7 @@ module top_module(
             v3_mem_to_reg <= 0;
             v3_reg_write <= 0;
             v3_funct3 <= 3'b0;
-            v3_pc <= 0;
+            v3_pc <= base_address;
             v3_rd <= 0;
             v3_branch <= 0;
             v3_imm32 <= 32'b0;
@@ -258,7 +256,7 @@ module top_module(
             v4_reg_write <= 0;
             v4_alu_result <= 32'b0;
             v4_funct3 <= 3'b0;
-            v4_pc <= 32'b0;
+            v4_pc <= base_address;
             v4_rd <= 0;
             // v4_en_input <= 0;
             // v4_input_data <= 0;
@@ -276,7 +274,7 @@ module top_module(
                             v1_pc <= u1_pc;
                         end else begin
                             v1_inst <= nop_inst;
-                            v1_pc <= 0;
+                            v1_pc <= base_address;
                         end
                         v2_imm32 <= u2_imm32;
                         v2_rs1_data <= u2_rs1_data;
@@ -330,7 +328,7 @@ module top_module(
                         v2_alu_op <= 0;
                         v2_funct3 <= 0;
                         v2_funct7 <= 0;
-                        v2_pc <= 0;
+                        v2_pc <= base_address;
                         v2_rd <= 0;
                         v2_reg_a7 <= 0;
                         v2_output_data <= 0;
@@ -360,6 +358,7 @@ module top_module(
                     v3_reg_write_data <= u3_reg_write_data;
                     v3_have_reg_write_data <= u3_have_reg_write_data;
                     v3_inst <= u3_inst;
+                    
                 end else begin
                     ecall_cnt <= ecall_cnt;
 
@@ -400,7 +399,7 @@ module top_module(
                     v3_mem_read <= 0;
                     v3_mem_write <= 0;
                     v3_rs2_data <= 0;
-                    v3_pc <= 0;
+                    v3_pc <= base_address;
                     v3_mem_to_reg <= 0;
                     v3_reg_write <= 0;
                     v3_funct3 <= 0;
@@ -485,63 +484,15 @@ module top_module(
     end
     
     //transmitting output to uart as array
-    always @(posedge clk) begin
-        output_inst[0] <= v1_pc;
-        output_inst[5] <= u1_inst;
-        output_inst[4] <= u2_inst;
-        output_inst[3] <= u3_inst;
-        output_inst[2] <= u4_inst;
-        output_inst[1] <= v4_inst;
-    end
-    //debug button
-    reg [4:0] debug_counter;
-    parameter DEBOUNCE_THRESHOLD = 4'b0001;  
-    always @(posedge clk_de, negedge rst) begin
-        if(~rst) begin
-            debug_stable <= 0;
-        end else begin
-            if (debug) begin
-                if (debug_counter < DEBOUNCE_THRESHOLD) begin
-                    debug_counter <= debug_counter + 1;
-                end else begin
-                    debug_stable <= 1;
-                end
-            end else begin
-                debug_counter <= 0;
-                debug_stable <= 0;
-            end
-        end
-    end
-    
-    always @(negedge clk, negedge rst) begin
-        if(~rst) begin
-            debug_run <= 0;
-            debug_stop <= 0;
-        end else begin
-            debug_run <= next_debug_run;
-            debug_stop <= next_debug_stop;
-        end
-    end
-            
     always @(*) begin
-        if (debug_stable) begin
-            if(debug_run) begin
-                next_debug_stop = 1;
-                next_debug_run = 0;
-            end else begin
-                next_debug_stop = debug_stop;
-                if(~debug_stop) begin
-                    next_debug_run =1;
-                end else begin
-                    next_debug_run = 0;
-                end
-            end
-        end else begin
-            next_debug_stop = 0;
-            next_debug_run = 0;
-        end
+        output_inst[0] = pc;
+        output_inst[5] = pc;// IF
+        output_inst[4] = v1_inst;// ID
+        output_inst[3] = v2_inst;// EXE
+        output_inst[2] = v3_inst;// MEM
+        output_inst[1] = v4_inst;// WB
     end
-    
+      
     ClockDivider uut_clk_divider(
             .clk(init_clk),
             .rst(rst),
