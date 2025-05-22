@@ -1,13 +1,83 @@
 Vivado Simulator 2017.4
 Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
-Running: D:/Xilinx/Vivado/2017.4/bin/unwrapped/win64.o/xelab.exe -wto 1c99ea6a430e47fbaf72bbfceaf43014 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot tb_SegDisplay_behav xil_defaultlib.tb_SegDisplay xil_defaultlib.glbl -log elaborate.log 
+Running: D:/Xilinx/Vivado/2017.4/bin/unwrapped/win64.o/xelab.exe -wto 1c99ea6a430e47fbaf72bbfceaf43014 --incr --debug typical --relax --mt 2 -L blk_mem_gen_v8_4_1 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot tb_cpu_behav xil_defaultlib.tb_cpu xil_defaultlib.glbl -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
+WARNING: [VRFC 10-278] actual bit length 15 differs from formal bit length 14 for port upg_adr_i [D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/top_module.v:155]
+WARNING: [VRFC 10-278] actual bit length 15 differs from formal bit length 14 for port upg_adr_i [D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/top_module.v:229]
+WARNING: [VRFC 10-278] actual bit length 1 differs from formal bit length 4 for port wea [D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/DMem.v:59]
+WARNING: [VRFC 10-1783] select index 62 into current_contents is out of bounds [/wrk/2017.4/nightly/2017_12_15_2086221/packages/customer/vivado/data/ip/xilinx/blk_mem_gen_v8_4/simulation/blk_mem_gen_v8_4.v:2420]
 Completed static elaboration
 Starting simulation data flow analysis
+WARNING: [XSIM 43-4100] "D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/top_module.v" Line 11. Module top_module has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/ClockDivider.v" Line 1. Module ClockDivider has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.v" Line 69. Module clk_wiz_0 has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_clk_wiz.v" Line 69. Module clk_wiz_0_clk_wiz has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "/wrk/2017.4/nightly/2017_12_15_2086221/data/verilog/src/unisims/IBUF.v" Line 29. Module IBUF has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "/wrk/2017.4/nightly/2017_12_15_2086221/data/verilog/src/unisims/MMCME2_ADV.v" Line 123. Module MMCME2_ADV(CLKFBOUT_MULT_F=46.0,CLKIN1_PERIOD=10.0,CLKOUT0_DIVIDE_F=40.0,CLKOUT1_DIVIDE=92,DIVCLK_DIVIDE=5) has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "/wrk/2017.4/nightly/2017_12_15_2086221/data/verilog/src/unisims/BUFG.v" Line 27. Module BUFG has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "/wrk/2017.4/nightly/2017_12_15_2086221/data/verilog/src/unisims/BUFG.v" Line 27. Module BUFG has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "/wrk/2017.4/nightly/2017_12_15_2086221/data/verilog/src/unisims/BUFG.v" Line 27. Module BUFG has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "/wrk/2017.4/nightly/2017_12_15_2086221/data/verilog/src/retarget/IBUFG.v" Line 29. Module IBUFG has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "/wrk/2017.4/nightly/2017_12_15_2086221/data/verilog/src/unisims/IBUF.v" Line 29. Module IBUF has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/uart_bmpg_0/sim/uart_bmpg_0.v" Line 55. Module uart_bmpg_0 has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/uart_bmpg_0/upg.v" Line 23. Module upg has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/uart_bmpg_0/uart_bmpg.v" Line 23. Module uart_bmpg has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/ClockDivider.v" Line 1. Module ClockDivider has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/IFetch.v" Line 1. Module IFetch has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgrom/sim/prgrom.v" Line 55. Module prgrom has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "/wrk/2017.4/nightly/2017_12_15_2086221/packages/customer/vivado/data/ip/xilinx/blk_mem_gen_v8_4/simulation/blk_mem_gen_v8_4.v" Line 3412. Module blk_mem_gen_v8_4_1(C_FAMILY="artix7",C_XDEVICEFAMILY="artix7",C_ELABORATION_DIR="./",C_AXI_TYPE=1,C_MEM_TYPE=0,C_PRIM_TYPE=1,C_INIT_FILE_NAME="no_coe_file_loaded",C_INIT_FILE="prgrom.mem",C_HAS_ENA=0,C_WRITE_DEPTH_A=16384,C_READ_DEPTH_A=16384,C_ADDRA_WIDTH=14,C_INITB_VAL="0",C_HAS_ENB=0,C_WRITE_DEPTH_B=16384,C_READ_DEPTH_B=16384,C_ADDRB_WIDTH=14,C_SIM_COLLISION_CHECK="ALL",C_COMMON_CLK=0,C_COUNT_36K_BRAM="14",C_COUNT_18K_BRAM="1",C_EST_POWER_SUMMARY="Estimated_Power_for_IP_____:_____13.776802_mW") has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "/wrk/2017.4/nightly/2017_12_15_2086221/packages/customer/vivado/data/ip/xilinx/blk_mem_gen_v8_4/simulation/blk_mem_gen_v8_4.v" Line 1951. Module blk_mem_gen_v8_4_1_mem_module(C_FAMILY="artix7",C_XDEVICEFAMILY="artix7",C_MEM_TYPE=0,C_PRIM_TYPE=1,C_INIT_FILE_NAME="no_coe_file_loaded",C_INIT_FILE="prgrom.mem",C_HAS_ENA=0,C_WRITE_DEPTH_A=16384,C_READ_DEPTH_A=16384,C_ADDRA_WIDTH=14,C_INITB_VAL="0",C_HAS_ENB=0,C_WRITE_DEPTH_B=16384,C_READ_DEPTH_B=16384,C_ADDRB_WIDTH=14,C_SIM_COLLISION_CHECK="ALL",C_COMMON_CLK=0) has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "/wrk/2017.4/nightly/2017_12_15_2086221/packages/customer/vivado/data/ip/xilinx/blk_mem_gen_v8_4/simulation/blk_mem_gen_v8_4.v" Line 1563. Module blk_mem_gen_v8_4_1_output_stage(C_FAMILY="artix7",C_XDEVICEFAMILY="artix7",C_ADDRB_WIDTH=14,NUM_STAGES=0) has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "/wrk/2017.4/nightly/2017_12_15_2086221/packages/customer/vivado/data/ip/xilinx/blk_mem_gen_v8_4/simulation/blk_mem_gen_v8_4.v" Line 1563. Module blk_mem_gen_v8_4_1_output_stage(C_FAMILY="artix7",C_XDEVICEFAMILY="artix7",C_ADDRB_WIDTH=14,NUM_STAGES=0) has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "/wrk/2017.4/nightly/2017_12_15_2086221/packages/customer/vivado/data/ip/xilinx/blk_mem_gen_v8_4/simulation/blk_mem_gen_v8_4.v" Line 1859. Module blk_mem_gen_v8_4_1_softecc_output_reg_stage(C_ADDRB_WIDTH=14) has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/ALU.v" Line 1. Module ALU has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/Controller.v" Line 1. Module Controller has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/DMem.v" Line 1. Module DMem has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgram/sim/prgram.v" Line 55. Module prgram has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "/wrk/2017.4/nightly/2017_12_15_2086221/packages/customer/vivado/data/ip/xilinx/blk_mem_gen_v8_4/simulation/blk_mem_gen_v8_4.v" Line 3412. Module blk_mem_gen_v8_4_1(C_FAMILY="artix7",C_XDEVICEFAMILY="artix7",C_ELABORATION_DIR="./",C_AXI_TYPE=1,C_MEM_TYPE=0,C_BYTE_SIZE=8,C_PRIM_TYPE=1,C_INIT_FILE_NAME="no_coe_file_loaded",C_INIT_FILE="prgram.mem",C_HAS_ENA=0,C_USE_BYTE_WEA=1,C_WEA_WIDTH=4,C_WRITE_DEPTH_A=16384,C_READ_DEPTH_A=16384,C_ADDRA_WIDTH=14,C_INITB_VAL="0",C_HAS_ENB=0,C_USE_BYTE_WEB=1,C_WEB_WIDTH=4,C_WRITE_DEPTH_B=16384,C_READ_DEPTH_B=16384,C_ADDRB_WIDTH=14,C_SIM_COLLISION_CHECK="ALL",C_COMMON_CLK=0,C_COUNT_36K_BRAM="16",C_COUNT_18K_BRAM="0",C_EST_POWER_SUMMARY="Estimated_Power_for_IP_____:_____10.194_mW") has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "/wrk/2017.4/nightly/2017_12_15_2086221/packages/customer/vivado/data/ip/xilinx/blk_mem_gen_v8_4/simulation/blk_mem_gen_v8_4.v" Line 1951. Module blk_mem_gen_v8_4_1_mem_module(C_FAMILY="artix7",C_XDEVICEFAMILY="artix7",C_MEM_TYPE=0,C_BYTE_SIZE=8,C_PRIM_TYPE=1,C_INIT_FILE_NAME="no_coe_file_loaded",C_INIT_FILE="prgram.mem",C_HAS_ENA=0,C_USE_BYTE_WEA=1,C_WEA_WIDTH=4,C_WRITE_DEPTH_A=16384,C_READ_DEPTH_A=16384,C_ADDRA_WIDTH=14,C_INITB_VAL="0",C_HAS_ENB=0,C_USE_BYTE_WEB=1,C_WEB_WIDTH=4,C_WRITE_DEPTH_B=16384,C_READ_DEPTH_B=16384,C_ADDRB_WIDTH=14,C_SIM_COLLISION_CHECK="ALL",C_COMMON_CLK=0) has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "/wrk/2017.4/nightly/2017_12_15_2086221/packages/customer/vivado/data/ip/xilinx/blk_mem_gen_v8_4/simulation/blk_mem_gen_v8_4.v" Line 1563. Module blk_mem_gen_v8_4_1_output_stage(C_FAMILY="artix7",C_XDEVICEFAMILY="artix7",C_ADDRB_WIDTH=14,NUM_STAGES=0) has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "/wrk/2017.4/nightly/2017_12_15_2086221/packages/customer/vivado/data/ip/xilinx/blk_mem_gen_v8_4/simulation/blk_mem_gen_v8_4.v" Line 1563. Module blk_mem_gen_v8_4_1_output_stage(C_FAMILY="artix7",C_XDEVICEFAMILY="artix7",C_ADDRB_WIDTH=14,NUM_STAGES=0) has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "/wrk/2017.4/nightly/2017_12_15_2086221/packages/customer/vivado/data/ip/xilinx/blk_mem_gen_v8_4/simulation/blk_mem_gen_v8_4.v" Line 1859. Module blk_mem_gen_v8_4_1_softecc_output_reg_stage(C_ADDRB_WIDTH=14) has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/WriteBackMUX.v" Line 23. Module WriteBackMUX has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/InputModule.v" Line 1. Module InputModule has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/OutputModule.v" Line 1. Module OutputModule has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/SegGenerator.v" Line 1. Module SegGenerator has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/ClockDivider.v" Line 1. Module ClockDivider has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/SegDisplay.v" Line 1. Module SegDisplay has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "D:/Clone/Computer-Organization-Project/CPU/CPU.sim/sim_1/behav/xsim/glbl.v" Line 6. Module glbl has a timescale but at least one module in design doesn't have timescale.
 Completed simulation data flow analysis
 Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.ClockDivider
+Compiling module unisims_ver.IBUF
+Compiling module unisims_ver.MMCME2_ADV(CLKFBOUT_MULT_F=46.0,...
+Compiling module unisims_ver.BUFG
+Compiling module xil_defaultlib.clk_wiz_0_clk_wiz
+Compiling module xil_defaultlib.clk_wiz_0
+Compiling module unisims_ver.IBUFG
+Compiling module xil_defaultlib.uart_bmpg
+Compiling module xil_defaultlib.upg
+Compiling module xil_defaultlib.uart_bmpg_0
+Compiling module blk_mem_gen_v8_4_1.blk_mem_gen_v8_4_1_output_stage(...
+Compiling module blk_mem_gen_v8_4_1.blk_mem_gen_v8_4_1_softecc_outpu...
+Compiling module blk_mem_gen_v8_4_1.blk_mem_gen_v8_4_1_mem_module(C_...
+Compiling module blk_mem_gen_v8_4_1.blk_mem_gen_v8_4_1(C_FAMILY="art...
+Compiling module xil_defaultlib.prgrom
+Compiling module xil_defaultlib.IFetch
+Compiling module xil_defaultlib.Decoder
+Compiling module xil_defaultlib.ALU
+Compiling module xil_defaultlib.Controller
+Compiling module blk_mem_gen_v8_4_1.blk_mem_gen_v8_4_1_mem_module(C_...
+Compiling module blk_mem_gen_v8_4_1.blk_mem_gen_v8_4_1(C_FAMILY="art...
+Compiling module xil_defaultlib.prgram
+Compiling module xil_defaultlib.DMem
+Compiling module xil_defaultlib.WriteBackMUX
+Compiling module xil_defaultlib.InputModule
+Compiling module xil_defaultlib.SegGenerator
 Compiling module xil_defaultlib.SegDisplay
-Compiling module xil_defaultlib.tb_SegDisplay
+Compiling module xil_defaultlib.OutputModule
+Compiling module xil_defaultlib.top_module
+Compiling module xil_defaultlib.tb_cpu
 Compiling module xil_defaultlib.glbl
-Built simulation snapshot tb_SegDisplay_behav
+Built simulation snapshot tb_cpu_behav

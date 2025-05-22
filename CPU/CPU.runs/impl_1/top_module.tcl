@@ -71,12 +71,15 @@ set rc [catch {
   set_param project.singleFileAddWarning.threshold 0
   set_property webtalk.parent_dir D:/Clone/Computer-Organization-Project/CPU/CPU.cache/wt [current_project]
   set_property parent.project_path D:/Clone/Computer-Organization-Project/CPU/CPU.xpr [current_project]
+  set_property ip_repo_paths D:/Clone/Computer-Organization-Project/SEU_CSE_507_user_uart_bmpg_1.3 [current_project]
   set_property ip_output_repo D:/Clone/Computer-Organization-Project/CPU/CPU.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
-  set_property XPM_LIBRARIES XPM_MEMORY [current_project]
+  set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
   add_files -quiet D:/Clone/Computer-Organization-Project/CPU/CPU.runs/synth_1/top_module.dcp
   read_ip -quiet D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgram/prgram.xci
   read_ip -quiet D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgrom/prgrom.xci
+  read_ip -quiet d:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/uart_bmpg_0/uart_bmpg_0.xci
+  read_ip -quiet d:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci
   read_xdc D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/constrs_1/new/constrains.xdc
   link_design -top top_module -part xc7a35tcsg324-1
   close_msg_db -file init_design.pb
@@ -154,7 +157,7 @@ start_step write_bitstream
 set ACTIVE_STEP write_bitstream
 set rc [catch {
   create_msg_db write_bitstream.pb
-  set_property XPM_LIBRARIES XPM_MEMORY [current_project]
+  set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
   catch { write_mem_info -force top_module.mmi }
   write_bitstream -force top_module.bit 
   catch {write_debug_probes -quiet -force top_module}

@@ -6,7 +6,14 @@ module DMem(
     input [31:0] din,
     input [2:0] funct3,
     output[31:0] dout,
-    input en_pc
+    input en_pc,
+    
+    input upg_rst_i,
+    input upg_clk_i,
+    input upg_wen_i,
+    input [13:0] upg_adr_i,
+    input [31:0] upg_dat_i,
+    input upg_done_i
 );
     parameter SB=3'b000,SH=3'b001,SW=3'b010;
     reg [3:0] write_byte;
@@ -42,5 +49,16 @@ module DMem(
         write_byte = 4'b0000;
      end
     end
-    prgram udram(.clka(~clk), .wea(en_pc ? write_byte : 0), .addra(addr[15:2]), .dina(tmp_write_data), .douta(dout));
+    
+    wire wen = en_pc ? write_byte : 0;
+    
+    wire kickOff = upg_rst_i | (~upg_rst_i & upg_done_i);
+    
+    prgram udram(
+        .clka(kickOff ? ~clk : upg_clk_i),
+        .wea(kickOff ? wen : upg_wen_i),
+        .addra(kickOff ? addr[15:2] : upg_adr_i),
+        .dina(kickOff ? tmp_write_data : upg_dat_i),
+        .douta(dout)
+    );
 endmodule

@@ -1,19 +1,28 @@
 # compile verilog/system verilog design source files
-verilog xil_defaultlib  \
+verilog xil_defaultlib  --include "../../../../CPU.srcs/sources_1/ip/clk_wiz_0" --include "D:/Xilinx/Vivado/2017.4/data/xilinx_vip/include" \
 "../../../../CPU.srcs/sources_1/ip/prgram/sim/prgram.v" \
 "../../../../CPU.srcs/sources_1/ip/prgrom/sim/prgrom.v" \
+"../../../../CPU.srcs/sources_1/ip/uart_bmpg_0/uart_bmpg.v" \
+"../../../../CPU.srcs/sources_1/ip/uart_bmpg_0/upg.v" \
+"../../../../CPU.srcs/sources_1/ip/uart_bmpg_0/sim/uart_bmpg_0.v" \
+"../../../../CPU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_clk_wiz.v" \
+"../../../../CPU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.v" \
 "../../../../CPU.srcs/sources_1/new/ALU.v" \
 "../../../../CPU.srcs/sources_1/new/ClockDivider.v" \
 "../../../../CPU.srcs/sources_1/new/Controller.v" \
 "../../../../CPU.srcs/sources_1/new/DMem.v" \
-"../../../../CPU.srcs/sources_1/new/Decoder.v" \
 "../../../../CPU.srcs/sources_1/new/IFetch.v" \
 "../../../../CPU.srcs/sources_1/new/InputModule.v" \
 "../../../../CPU.srcs/sources_1/new/OutputModule.v" \
 "../../../../CPU.srcs/sources_1/new/SegDisplay.v" \
 "../../../../CPU.srcs/sources_1/new/SegGenerator.v" \
 "../../../../CPU.srcs/sources_1/new/WriteBackMUX.v" \
+
+sv xil_defaultlib  --include "../../../../CPU.srcs/sources_1/ip/clk_wiz_0" --include "D:/Xilinx/Vivado/2017.4/data/xilinx_vip/include" \
+"../../../../CPU.srcs/sources_1/new/Decoder.v" \
 "../../../../CPU.srcs/sources_1/new/top_module.v" \
+
+verilog xil_defaultlib  --include "../../../../CPU.srcs/sources_1/ip/clk_wiz_0" --include "D:/Xilinx/Vivado/2017.4/data/xilinx_vip/include" \
 "../../../../CPU.srcs/sim_1/new/tb_cpu.v" \
 
 # compile glbl module

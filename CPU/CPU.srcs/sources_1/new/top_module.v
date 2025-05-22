@@ -10,7 +10,8 @@
 
 module top_module(
     input init_clk,
-    input rst,
+    input fpga_rst,
+    input start_pg,
     input done,
     input cp_done,
     input [7:0] sw_input,
@@ -34,6 +35,9 @@ module top_module(
     wire [7:0] cp_input;
     wire [31:0] regs [0:31];
     
+    wire clk1;
+    wire clk2;
+    wire clk_in1;
     //divided clock
     wire clk_de;
     
@@ -72,18 +76,61 @@ module top_module(
     wire [2:0] funct3 = inst[14:12];
     wire [6:0] funct7 = inst[31:25];
     
+    // UART Programmer Pinouts
+    wire upg_clk, upg_clk_o;
+    wire upg_wen_o;      
+    //Uart write out enable
+    wire upg_done_o;     //Uart rx data have done
+    //data to which  memory unit of program_rom/dmemory32 
+    wire [14:0] upg_adr_o;     
+    //data to program_rom or dmemory32 
+    wire [31:0] upg_dat_o;
+    
+    wire spg_bufg;
+//    BUFG U1(.I(start_pg), .O(spg_bufg));     // de-twitter
+    // Generate UART Programmer reset signal
+    reg upg_rst;
+    always @ (posedge clk_in1) begin
+        if (fpga_rst)upg_rst <= 1;
+        if (start_pg)upg_rst <= 0;
+    end
+    wire rst;
+    assign rst = fpga_rst | !upg_rst;
+    
     // =========================
     // Module Instantiations
     // =========================
     ClockDivider uut_debounce_divider(
-        .clk(init_clk),
+        .clk(clk_in1),//init_clk
         .rst(rst),
         .period(1000000),
         .clk_out(clk_de)
     );
     
+    clk_wiz_0 uut_clk_wiz(
+        .clk_in1(clk_in1),
+        .clk_out1(clk1),
+        .clk_out2(upg_clk)
+    );
+    IBUFG clk_buf (
+       .I(init_clk),  
+       .O(clk_in1)   
+    );
+    
+    uart_bmpg_0 uut_bmpg(
+        .upg_clk_i(upg_clk),
+        .upg_rst_i(upg_rst),
+        .upg_rx_i(rx),
+        .upg_clk_o(upg_clk_o),
+        .upg_wen_o(upg_wen_o),
+        .upg_done_o(upg_done_o),
+        .upg_adr_o(upg_adr_o),
+        .upg_dat_o(upg_dat_o),
+        .upg_tx_o(tx)
+    );
+    
     ClockDivider uut_clk_divider(
-        .clk(init_clk),
+        .clk(clk_in1),
         .rst(rst),
         .period(6),
         .clk_out(clk)
@@ -101,7 +148,13 @@ module top_module(
         .is_jal(is_jal),
         .is_jalr(is_jalr),
         .new_pc(alu_result),
-        .en_pc(en_pc)
+        .en_pc(en_pc),
+        .upg_rst_i(upg_rst),
+        .upg_clk_i(upg_clk),
+        .upg_wen_i(upg_wen_o),
+        .upg_adr_i(upg_adr_o),
+        .upg_dat_i(upg_dat_o),
+        .upg_done_i(upg_done_o)
     );
 
     // Decoder unit
@@ -169,7 +222,13 @@ module top_module(
         .din(rs2_data), 
         .dout(mem_read_data),
         .funct3(funct3),
-        .en_pc(en_pc)
+        .en_pc(en_pc),
+        .upg_rst_i(upg_rst),
+        .upg_clk_i(upg_clk_o),
+        .upg_wen_i(upg_wen_o),
+        .upg_adr_i(upg_adr_o),
+        .upg_dat_i(upg_dat_o),
+        .upg_done_i(upg_done_o)
     );
     
     // MemOrIO unit
@@ -201,7 +260,7 @@ module top_module(
     );
     
     OutputModule uut_output(
-        .clk(init_clk),
+        .clk(clk_in1),
         .rst(rst),
         .en_output(en_output),
         .reg_a7(reg_a7),
@@ -214,15 +273,15 @@ module top_module(
         .an(an)
     );
 
-    UartTop uut_uart(
-        .clk(init_clk),
-        .rst(rst),
-        .rx(rx),
-        .tx(tx),
-        .uart_reg_a7(uart_reg_a7),
-        .uart_output_data(uart_output_data),
-        .cp_input(cp_input),
-        .regs(regs)
-    );
+//    UartTop uut_uart(
+//        .clk(init_clk),
+//        .rst(rst),
+//        .rx(rx),
+//        .tx(tx),
+//        .uart_reg_a7(uart_reg_a7),
+//        .uart_output_data(uart_output_data),
+//        .cp_input(cp_input),
+//        .regs(regs)
+//    );
     
 endmodule

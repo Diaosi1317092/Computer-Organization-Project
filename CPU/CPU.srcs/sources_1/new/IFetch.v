@@ -9,16 +9,27 @@ module IFetch(
     output reg [31:0] out_pc,
     input         is_jalr,
     input [31:0]  new_pc,
-    input         en_pc
+    input         en_pc,
+    
+    input upg_rst_i,
+    input upg_clk_i,
+    input upg_wen_i,
+    input [13:0] upg_adr_i,
+    input [31:0] upg_dat_i,
+    input upg_done_i
 );
 
     reg [31:0] pc;           // program counter
     wire [13:0] addr;        // address for instruction memory
+    
+    wire kickOff = upg_rst_i | (~upg_rst_i & upg_done_i);
 
     // Instantiate the instruction ROM
     prgrom urom(
-        .clka(clk),
-        .addra(addr),
+        .clka(kickOff ? clk : upg_clk_i),
+        .wea(kickOff ? 1'b0 : upg_wen_i),
+        .addra(kickOff ? addr : upg_adr_i),
+        .dina(kickOff ? 32'h00000000 : upg_dat_i),
         .douta(inst)
     );
     

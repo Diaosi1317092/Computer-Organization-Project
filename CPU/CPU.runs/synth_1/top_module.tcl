@@ -25,9 +25,10 @@ set_param synth.vivado.isSynthRun true
 set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
 set_property webtalk.parent_dir D:/Clone/Computer-Organization-Project/CPU/CPU.cache/wt [current_project]
 set_property parent.project_path D:/Clone/Computer-Organization-Project/CPU/CPU.xpr [current_project]
-set_property XPM_LIBRARIES XPM_MEMORY [current_project]
+set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
+set_property ip_repo_paths d:/Clone/Computer-Organization-Project/SEU_CSE_507_user_uart_bmpg_1.3 [current_project]
 set_property ip_output_repo d:/Clone/Computer-Organization-Project/CPU/CPU.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 add_files D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgrom/prgrom32.coe
@@ -47,14 +48,11 @@ add_files D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgro
 add_files D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgrom/BaseTest1ROM.coe
 add_files D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgrom/InputTest.coe
 add_files D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgrom/InputTest16.coe
-add_files d:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgrom/BaseTest2_1_fixed.coe
-add_files d:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgrom/BaseTest2_2_fixed.coe
+add_files D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgrom/BaseTest2_1_fixed.coe
+add_files D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgrom/BaseTest2_2_fixed.coe
+add_files d:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgrom/prgmip32.coe
 read_verilog -library xil_defaultlib -sv {
   D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/Decoder.v
-  D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/UartReg.v
-  D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/UartRx.v
-  D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/UartTop.v
-  D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/UartTx.v
   D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/new/top_module.v
 }
 read_verilog -library xil_defaultlib {
@@ -74,6 +72,13 @@ set_property used_in_implementation false [get_files -all d:/Clone/Computer-Orga
 
 read_ip -quiet D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgrom/prgrom.xci
 set_property used_in_implementation false [get_files -all d:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgrom/prgrom_ooc.xdc]
+
+read_ip -quiet d:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/uart_bmpg_0/uart_bmpg_0.xci
+
+read_ip -quiet d:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci
+set_property used_in_implementation false [get_files -all d:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_board.xdc]
+set_property used_in_implementation false [get_files -all d:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc]
+set_property used_in_implementation false [get_files -all d:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_ooc.xdc]
 
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the

@@ -1,10 +1,10 @@
 // Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
-// Date        : Thu May 15 21:12:46 2025
+// Date        : Fri May 23 01:35:14 2025
 // Host        : Dupreeh running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode synth_stub -rename_top prgram -prefix
-//               prgram_ prgram_stub.v
+// Command     : write_verilog -force -mode synth_stub
+//               D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgram/prgram_stub.v
 // Design      : prgram
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7a35tcsg324-1

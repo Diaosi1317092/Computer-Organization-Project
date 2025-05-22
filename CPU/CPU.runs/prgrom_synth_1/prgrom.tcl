@@ -27,9 +27,10 @@ set_param synth.vivado.isSynthRun true
 set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
 set_property webtalk.parent_dir D:/Clone/Computer-Organization-Project/CPU/CPU.cache/wt [current_project]
 set_property parent.project_path D:/Clone/Computer-Organization-Project/CPU/CPU.xpr [current_project]
-set_property XPM_LIBRARIES XPM_MEMORY [current_project]
+set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
+set_property ip_repo_paths d:/Clone/Computer-Organization-Project/SEU_CSE_507_user_uart_bmpg_1.3 [current_project]
 set_property ip_output_repo d:/Clone/Computer-Organization-Project/CPU/CPU.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 read_ip -quiet D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgrom/prgrom.xci
