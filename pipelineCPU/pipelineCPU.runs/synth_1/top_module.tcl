@@ -59,11 +59,11 @@ read_verilog -library xil_defaultlib {
   D:/Clone/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/SegDisplay.v
   D:/Clone/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/SegGenerator.v
 }
-read_ip -quiet D:/Clone/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/ip/pgram/pgram.xci
-set_property used_in_implementation false [get_files -all d:/Clone/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/ip/pgram/pgram_ooc.xdc]
-
 read_ip -quiet D:/Clone/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/ip/pgrom/pgrom.xci
 set_property used_in_implementation false [get_files -all d:/Clone/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/ip/pgrom/pgrom_ooc.xdc]
+
+read_ip -quiet D:/Clone/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/ip/pgram/pgram.xci
+set_property used_in_implementation false [get_files -all d:/Clone/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/ip/pgram/pgram_ooc.xdc]
 
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
@@ -76,6 +76,8 @@ foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
 read_xdc D:/Clone/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/constrs_1/new/pipelineCPU.xdc
 set_property used_in_implementation false [get_files D:/Clone/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/constrs_1/new/pipelineCPU.xdc]
 
+read_xdc dont_touch.xdc
+set_property used_in_implementation false [get_files dont_touch.xdc]
 
 synth_design -top top_module -part xc7a35tcsg324-1
 

@@ -8,8 +8,13 @@ module SegDisplay(
 );
 
     reg [7:0] seg_map [0:15];
+    reg [7:0] dash;
+    wire [31:0] neg_val;
+    
+    assign neg_val = ~(val - 1);
     
     initial begin
+        dash = 8'b00000010;
         seg_map[0] = 8'b11111100;
         seg_map[1] = 8'b01100000;
         seg_map[2] = 8'b11011010;
@@ -32,15 +37,31 @@ module SegDisplay(
         case (reg_a7)
             32'd1: begin
                 led = 8'b00000000;
-                case (select)
-                    4'd0: seg1 = seg_map[(val % 100000000) / 10000000];
-                    4'd1: seg1 = seg_map[(val % 10000000) / 1000000];
-                    4'd2: seg1 = seg_map[(val % 1000000) / 100000];
-                    4'd3: seg1 = seg_map[(val % 100000) / 10000];
-                    4'd4: seg2 = seg_map[(val % 10000) / 1000];
-                    4'd5: seg2 = seg_map[(val % 1000) / 100];
-                    4'd6: seg2 = seg_map[(val % 100) / 10];
-                    4'd7: seg2 = seg_map[val % 10];
+                case (val[31])
+                    1'b0:
+                        case (select)
+                            4'd0: seg1 = seg_map[(val % 100000000) / 10000000];
+                            4'd1: seg1 = seg_map[(val % 10000000) / 1000000];
+                            4'd2: seg1 = seg_map[(val % 1000000) / 100000];
+                            4'd3: seg1 = seg_map[(val % 100000) / 10000];
+                            4'd4: seg2 = seg_map[(val % 10000) / 1000];
+                            4'd5: seg2 = seg_map[(val % 1000) / 100];
+                            4'd6: seg2 = seg_map[(val % 100) / 10];
+                            4'd7: seg2 = seg_map[val % 10];
+                            default: begin seg1 = 8'b00000000; seg2 = 8'b00000000; led = 8'b00000000; end
+                        endcase
+                    1'b1:
+                        case (select)
+                            4'd0: seg1 = dash;
+                            4'd1: seg1 = seg_map[(neg_val % 10000000) / 1000000];
+                            4'd2: seg1 = seg_map[(neg_val % 1000000) / 100000];
+                            4'd3: seg1 = seg_map[(neg_val % 100000) / 10000];
+                            4'd4: seg2 = seg_map[(neg_val % 10000) / 1000];
+                            4'd5: seg2 = seg_map[(neg_val % 1000) / 100];
+                            4'd6: seg2 = seg_map[(neg_val % 100) / 10];
+                            4'd7: seg2 = seg_map[neg_val % 10];
+                            default: begin seg1 = 8'b00000000; seg2 = 8'b00000000; led = 8'b00000000; end
+                        endcase
                     default: begin seg1 = 8'b00000000; seg2 = 8'b00000000; led = 8'b00000000; end
                 endcase
             end

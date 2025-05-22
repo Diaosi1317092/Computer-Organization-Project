@@ -6,8 +6,9 @@ module tb_pipeline();
     wire [7:0] input_data = 8'b00110011;
     
     reg done;
+    wire debug_on = 1;
     
-    top_module uut_tm(.init_clk(clk),.rst(rst),.sw_input(input_data),.done(done));
+    top_module uut_tm(.init_clk(clk),.rst(rst),.sw_input(input_data),.done(done),.debug_on(debug_on));
     
     initial begin
         clk =1'b0;

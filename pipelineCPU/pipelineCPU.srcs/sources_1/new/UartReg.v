@@ -2,7 +2,7 @@ module UartReg (
     input  wire        clk             ,
     input  wire        rst_n           ,
     input  wire [31:0] uart_output_data,
-    input  wire [31:0] regs [0:31]     ,
+    input  wire [31:0] regs [0:37]     ,
     input              busy_in         , //busy signal from uart_tx
     input              data_valid_in   , //pulse for input
     output             send_en         , //pulse for output
@@ -17,7 +17,7 @@ module UartReg (
     reg data_flag;
 
 
-    reg     [31:0] data_send_buffer[0:32]    ;
+    reg     [31:0] data_send_buffer[0:38]    ;
     integer        i                      = 0;
 
 
@@ -37,7 +37,7 @@ module UartReg (
             data_flag <= 0;
             data_send <= 0;
 
-            for (i = 0; i < 33; i=i+1) begin
+            for (i = 0; i < 39; i=i+1) begin
                 data_send_buffer[i] <= 0;
             end
 
@@ -60,7 +60,7 @@ module UartReg (
                 LOAD_DATA : begin
                     if(data_valid_in)begin
                         data_send_buffer[0] <= uart_output_data;
-                        for (i = 1; i < 33; i=i+1) begin
+                        for (i = 1; i < 39; i=i+1) begin
                             data_send_buffer[i] <= regs[i-1];
                         end
                         state <= SEND_DATA_INIT;
@@ -77,7 +77,7 @@ module UartReg (
                 SEND_DATA : begin
                     if(signel_done)begin
                         data_flag <= 1;
-                        if(send_cnt == 32)begin
+                        if(send_cnt == 38)begin
                             send_cnt <= 0;
                             state    <= SEND_DONE;
                         end

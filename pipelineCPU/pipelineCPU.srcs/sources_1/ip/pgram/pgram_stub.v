@@ -1,10 +1,10 @@
 // Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
-// Date        : Sun May 18 01:32:17 2025
-// Host        : ASCHENPUTTEL running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode synth_stub -rename_top pgram -prefix
-//               pgram_ pgram_stub.v
+// Date        : Wed May 21 15:08:06 2025
+// Host        : Dupreeh running 64-bit major release  (build 9200)
+// Command     : write_verilog -force -mode synth_stub
+//               D:/Clone/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/ip/pgram/pgram_stub.v
 // Design      : pgram
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7a35tcsg324-1

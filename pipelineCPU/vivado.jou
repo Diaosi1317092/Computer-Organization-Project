@@ -2,14 +2,47 @@
 # Vivado v2017.4 (64-bit)
 # SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
 # IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
-# Start of session at: Sat May 17 00:42:29 2025
-# Process ID: 14312
-# Current directory: D:/GitHub/Computer-Organization-Project/pipelineCPU
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent13164 D:\GitHub\Computer-Organization-Project\pipelineCPU\pipelineCPU.xpr
-# Log file: D:/GitHub/Computer-Organization-Project/pipelineCPU/vivado.log
-# Journal file: D:/GitHub/Computer-Organization-Project/pipelineCPU\vivado.jou
+# Start of session at: Wed May 21 15:05:29 2025
+# Process ID: 37044
+# Current directory: D:/Clone/Computer-Organization-Project/pipelineCPU
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent31708 D:\Clone\Computer-Organization-Project\pipelineCPU\pipelineCPU.xpr
+# Log file: D:/Clone/Computer-Organization-Project/pipelineCPU/vivado.log
+# Journal file: D:/Clone/Computer-Organization-Project/pipelineCPU\vivado.jou
 #-----------------------------------------------------------
 start_gui
-open_project D:/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.xpr
+open_project D:/Clone/Computer-Organization-Project/pipelineCPU/pipelineCPU.xpr
 update_compile_order -fileset sources_1
-close_project
+open_hw
+reset_run synth_1
+reset_run pgram_synth_1
+reset_run pgrom_synth_1
+set_property -dict [list CONFIG.Coe_File {d:/Clone/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/ip/pgrom/BaseTest1ROM.coe}] [get_ips pgrom]
+generate_target all [get_files  D:/Clone/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/ip/pgrom/pgrom.xci]
+catch { config_ip_cache -export [get_ips -all pgrom] }
+catch { [ delete_ip_run [get_ips -all pgrom] ] }
+export_ip_user_files -of_objects [get_files D:/Clone/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/ip/pgrom/pgrom.xci] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] D:/Clone/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/ip/pgrom/pgrom.xci]
+export_simulation -of_objects [get_files D:/Clone/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/ip/pgrom/pgrom.xci] -directory D:/Clone/Computer-Organization-Project/pipelineCPU/pipelineCPU.ip_user_files/sim_scripts -ip_user_files_dir D:/Clone/Computer-Organization-Project/pipelineCPU/pipelineCPU.ip_user_files -ipstatic_source_dir D:/Clone/Computer-Organization-Project/pipelineCPU/pipelineCPU.ip_user_files/ipstatic -lib_map_path [list {modelsim=D:/Clone/Computer-Organization-Project/pipelineCPU/pipelineCPU.cache/compile_simlib/modelsim} {questa=D:/Clone/Computer-Organization-Project/pipelineCPU/pipelineCPU.cache/compile_simlib/questa} {riviera=D:/Clone/Computer-Organization-Project/pipelineCPU/pipelineCPU.cache/compile_simlib/riviera} {activehdl=D:/Clone/Computer-Organization-Project/pipelineCPU/pipelineCPU.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+update_compile_order -fileset sources_1
+launch_runs impl_1 -to_step write_bitstream -jobs 20
+wait_on_run impl_1
+connect_hw_server
+open_hw_target
+set_property PROGRAM.FILE {D:/Clone/Computer-Organization-Project/pipelineCPU/pipelineCPU.runs/impl_1/top_module.bit} [get_hw_devices xc7a35t_0]
+current_hw_device [get_hw_devices xc7a35t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {D:/Clone/Computer-Organization-Project/pipelineCPU/pipelineCPU.runs/impl_1/top_module.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {D:/Clone/Computer-Organization-Project/pipelineCPU/pipelineCPU.runs/impl_1/top_module.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {D:/Clone/Computer-Organization-Project/pipelineCPU/pipelineCPU.runs/impl_1/top_module.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]

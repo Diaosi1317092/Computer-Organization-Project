@@ -3,7 +3,7 @@
 module UartTop (
     input  wire        clk,             // UART domain clock
     input  wire        rst,             // active-high reset
-    input wire [31:0] regs [0:31],      // registers to send to PC
+    input wire [31:0] regs [0:37],      // registers to send to PC
     // incoming UART RX
     input  wire        rx,
     output wire        tx,
@@ -41,21 +41,21 @@ module UartTop (
     //  and generate one-cycle strobe
     // ------------------------------  
     reg [31:0] last_out;
-    reg [31:0] last_regs [0:31];
+    reg [31:0] last_regs [0:37];
     reg        out_strobe;
     integer    i;
     always @(posedge clk or negedge rst) begin
         if (~rst) begin
             last_out    <= 32'd0;
             out_strobe <= 1'b0;
-            for (i=0; i<32; i=i+1) last_regs[i] <= 32'd0;
+            for (i=0; i<38; i=i+1) last_regs[i] <= 32'd0;
         end else begin
             out_strobe <= 1'b0;
             if (uart_output_data != last_out) begin
                 last_out    <= uart_output_data;
                 out_strobe <= 1'b1;
             end
-            for (i=0; i<32; i=i+1) begin
+            for (i=0; i<38; i=i+1) begin
                 if (regs[i] != last_regs[i]) begin
                     last_regs[i] <= regs[i];
                     out_strobe  <= 1'b1;

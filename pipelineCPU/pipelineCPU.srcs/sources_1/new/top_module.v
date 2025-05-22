@@ -4,6 +4,8 @@ module top_module(
     input done,
     input cp_done,
     input [7:0] sw_input,
+    input debug,
+    input debug_on,
     input  wire rx,
     output wire tx,
     output [7:0] seg1,
@@ -11,8 +13,12 @@ module top_module(
     output [7:0] led,
     output wire [7:0] an   //control the 8-segment
 );
-    parameter nop_inst = 32'b0;
+    parameter nop_inst = 32'h00000013, base_address = 32'h00003000;
     wire[31:0] regs [0:31];
+    wire [31:0] output_regs [0:37];
+    reg [31:0] output_inst [0:5];
+    assign output_regs = {regs, output_inst};
+    
     wire [31:0] input_data;
     wire en_pc, done_input;
     wire clk, clk_de;
@@ -20,6 +26,11 @@ module top_module(
     wire [7:0] cp_input;
     wire [31:0] uart_reg_a7;
     wire [31:0] uart_output_data;
+
+    reg debug_stable, debug_run, debug_stop;
+    reg next_debug_stop, next_debug_run;
+    wire en_pc2;
+    assign en_pc2 = debug_on ? (debug_run|done_input) : en_pc;
 
     // ecall's stalling
     wire is_ecall;
@@ -39,6 +50,10 @@ module top_module(
     assign u1_pc = pc;
     
     //ID-EXE u2-v2
+    wire [31:0] u2_inst;
+    reg [31:0] v2_inst;
+    assign u2_inst = v1_inst;
+    
     wire [31:0] u2_rs1_data, u2_rs2_data, u2_imm32,u2_output_data,u2_reg_a7;
     reg [31:0] v2_rs1_data, v2_rs2_data, v2_imm32,v2_output_data,v2_reg_a7;
 
@@ -62,8 +77,6 @@ module top_module(
     reg [2:0] v2_funct3;
     reg [6:0] v2_funct7;
     
-    
-    
     wire [4:0] u2_rs1, u2_rs2;
     reg [4:0] v2_rs1, v2_rs2;
     wire [4:0] u2_rd;
@@ -81,6 +94,10 @@ module top_module(
     wire [31:0] exe_operand1_data, exe_operand2_data;
 
     //EXE-MEM u3-v3
+    wire [31:0] u3_inst;
+    reg [31:0] v3_inst;
+    assign u3_inst = v2_inst;
+    
     wire u3_branch;
     reg v3_branch;
     assign u3_branch = v2_branch;
@@ -140,6 +157,10 @@ module top_module(
     assign u3_is_jalr = v2_is_jalr;
 
     //MEM-WB u4-v4
+    wire [31:0] u4_inst;
+    reg [31:0] v4_inst;
+    assign u4_inst = v3_inst;
+        
     wire [31:0] u4_mem_read_data;
     reg [31:0] v4_mem_read_data;
 
@@ -183,8 +204,8 @@ module top_module(
     always @(posedge clk, negedge rst) begin
         if(~rst)begin
             ecall_cnt <= 0;
-            v1_inst <= nop_inst;
-            v1_pc <= 0;
+            v1_inst <= 0;
+            v1_pc <= base_address;
             v2_imm32 <= 0;
             v2_rs1_data <= 0;
             v2_rs2_data <= 0;
@@ -202,7 +223,7 @@ module top_module(
             v2_rd <= 0;
             v2_funct3 <= 3'b0;
             v2_funct7 <= 7'b0;
-            v2_pc <= 0;
+            v2_pc <= base_address;
             v2_reg_a7 <= 0;
             v2_output_data <= 0;
             // v2_en_input <= 0;
@@ -211,6 +232,7 @@ module top_module(
             v2_have_reg_write_data <= 0;
             v2_rs1 <= 0;
             v2_rs2 <= 0;
+            v2_inst <= 0;
             
 
             v3_alu_result <= 0;
@@ -221,7 +243,7 @@ module top_module(
             v3_mem_to_reg <= 0;
             v3_reg_write <= 0;
             v3_funct3 <= 3'b0;
-            v3_pc <= 0;
+            v3_pc <= base_address;
             v3_rd <= 0;
             v3_branch <= 0;
             v3_imm32 <= 32'b0;
@@ -229,21 +251,23 @@ module top_module(
             // v3_input_data <= 0;
             v3_reg_write_data <= 0;
             v3_have_reg_write_data <= 0;
+            v3_inst <= 0;
 
             v4_mem_read_data <= 32'b0;
             v4_mem_to_reg <= 0;
             v4_reg_write <= 0;
             v4_alu_result <= 32'b0;
             v4_funct3 <= 3'b0;
-            v4_pc <= 32'b0;
+            v4_pc <= base_address;
             v4_rd <= 0;
             // v4_en_input <= 0;
             // v4_input_data <= 0;
             v4_reg_write_data <= 0;
             v4_have_reg_write_data <= 0;
+            v4_inst <= 0;
 
         end else begin
-            if (en_pc) begin 
+            if (en_pc2) begin 
                 if (!is_stalling) begin
                     if (!is_ecall) begin 
                         ecall_cnt <= 0;
@@ -252,7 +276,7 @@ module top_module(
                             v1_pc <= u1_pc;
                         end else begin
                             v1_inst <= nop_inst;
-                            v1_pc <= 0;
+                            v1_pc <= base_address;
                         end
                         v2_imm32 <= u2_imm32;
                         v2_rs1_data <= u2_rs1_data;
@@ -281,6 +305,8 @@ module top_module(
                         v2_have_reg_write_data <= u2_have_reg_write_data;
                         v2_rs1 <= u2_rs1;
                         v2_rs2 <= u2_rs2;
+                        v2_inst <= u2_inst;
+                        
         
                     end else begin
                         ecall_cnt <= ecall_cnt + 1;
@@ -304,7 +330,7 @@ module top_module(
                         v2_alu_op <= 0;
                         v2_funct3 <= 0;
                         v2_funct7 <= 0;
-                        v2_pc <= 0;
+                        v2_pc <= base_address;
                         v2_rd <= 0;
                         v2_reg_a7 <= 0;
                         v2_output_data <= 0;
@@ -315,6 +341,7 @@ module top_module(
                         v2_have_reg_write_data <= 0;
                         v2_rs1 <= 0;
                         v2_rs2 <= 0;
+                        v2_inst <= nop_inst;
                     end
                     v3_alu_result <= u3_alu_result;
                     v3_zero <= u3_zero;
@@ -332,6 +359,7 @@ module top_module(
                     // v3_input_data <= u3_input_data;
                     v3_reg_write_data <= u3_reg_write_data;
                     v3_have_reg_write_data <= u3_have_reg_write_data;
+                    v3_inst <= u3_inst;
                 end else begin
                     ecall_cnt <= ecall_cnt;
 
@@ -365,13 +393,14 @@ module top_module(
                     v2_have_reg_write_data <= v2_have_reg_write_data;
                     v2_rs1 <= v2_rs1;
                     v2_rs2 <= v2_rs2;
+                    v2_inst <= v2_inst;
     
                     v3_alu_result <= 0;
                     v3_zero <= 0;
                     v3_mem_read <= 0;
                     v3_mem_write <= 0;
                     v3_rs2_data <= 0;
-                    v3_pc <= 0;
+                    v3_pc <= base_address;
                     v3_mem_to_reg <= 0;
                     v3_reg_write <= 0;
                     v3_funct3 <= 0;
@@ -382,6 +411,7 @@ module top_module(
                     // v3_input_data <= v3_input_data;
                     v3_reg_write_data <= 0;
                     v3_have_reg_write_data <= 1;
+                    v3_inst <= nop_inst;
                 end
                 v4_mem_read_data <= u4_mem_read_data;
                 v4_mem_to_reg <= u4_mem_to_reg;
@@ -394,6 +424,7 @@ module top_module(
                 // v4_input_data <= u4_input_data;
                 v4_reg_write_data <= u4_reg_write_data;
                 v4_have_reg_write_data <= u4_have_reg_write_data;
+                v4_inst <= u4_inst;
             end else begin
                 ecall_cnt <= ecall_cnt ;
 
@@ -425,6 +456,7 @@ module top_module(
                 // v2_input_data <= v2_input_data;
                 v2_reg_write_data <= v2_reg_write_data;
                 v2_have_reg_write_data <= v2_have_reg_write_data;
+                v2_inst <= v2_inst;
 
                 v3_alu_result <= v3_alu_result;
                 v3_zero <= v3_zero;
@@ -442,14 +474,75 @@ module top_module(
                 // v3_input_data <= v3_input_data;
                 v3_reg_write_data <= v3_reg_write_data;
                 v3_have_reg_write_data <= v3_have_reg_write_data;
-
+                v3_inst <= v3_inst;
 
                 v4_reg_write <= v4_reg_write;
                 v4_rd <= v4_rd;
                 v4_reg_write_data <= v4_reg_write_data;
+                v4_inst <= v4_inst;
             end
         end
     end
+    
+    //transmitting output to uart as array
+    always @(posedge clk) begin
+        output_inst[0] <= pc;
+        output_inst[5] <= u1_inst;
+        output_inst[4] <= u2_inst;
+        output_inst[3] <= u3_inst;
+        output_inst[2] <= u4_inst;
+        output_inst[1] <= v4_inst;
+    end
+    
+    //debug button
+    reg [4:0] debug_counter;
+    parameter DEBOUNCE_THRESHOLD = 4'b0001;  
+    always @(posedge clk_de, negedge rst) begin
+        if(~rst) begin
+            debug_stable <= 0;
+        end else begin
+            if (debug) begin
+                if (debug_counter < DEBOUNCE_THRESHOLD) begin
+                    debug_counter <= debug_counter + 1;
+                end else begin
+                    debug_stable <= 1;
+                end
+            end else begin
+                debug_counter <= 0;
+                debug_stable <= 0;
+            end
+        end
+    end
+    
+    always @(negedge clk, negedge rst) begin
+        if(~rst) begin
+            debug_run <= 0;
+            debug_stop <= 0;
+        end else begin
+            debug_run <= next_debug_run;
+            debug_stop <= next_debug_stop;
+        end
+    end
+            
+    always @(*) begin
+        if (debug_stable) begin
+            if(debug_run) begin
+                next_debug_stop = 1;
+                next_debug_run = 0;
+            end else begin
+                next_debug_stop = debug_stop;
+                if(~debug_stop) begin
+                    next_debug_run =1;
+                end else begin
+                    next_debug_run = 0;
+                end
+            end
+        end else begin
+            next_debug_stop = 0;
+            next_debug_run = 0;
+        end
+    end
+    
     ClockDivider uut_clk_divider(
             .clk(init_clk),
             .rst(rst),
@@ -466,7 +559,7 @@ module top_module(
     HarzardDetection hd_uut(
         .clk(clk),
         .rst(rst),
-        .en_pc(en_pc),
+        .en_pc(en_pc2),
         .clr_if(clr_if),
         .imm32(u3_imm32),
         .new_pc(u3_alu_result),
@@ -626,7 +719,7 @@ module top_module(
         .uart_reg_a7(uart_reg_a7),
         .uart_output_data(uart_output_data),
         .cp_input(cp_input),
-        .regs(regs)
+        .regs(output_regs)
     );
     
 endmodule
