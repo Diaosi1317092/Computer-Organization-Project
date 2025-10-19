@@ -147,7 +147,7 @@ if fields['opcode'] == B_TYPE:
 
 本项目使用了 EGO1 开发板
 
-![演示图](./Final Report/演示图.jpg)
+![演示图](./演示图.jpg)
 
 - **复位设置：**通过板载 `RESET` 按钮实现复位，控制各模块的初始化。
 - **板上输入设备：**通过 `P5,P4,P3,P2,R2,M4,N4,R1` 八个拨码开关实现一个 8-bit 二进制数的输入。
@@ -349,7 +349,7 @@ end
 
 这部分使用了课件上提供的方案，即使用现成的 IP 核和串口调试助手（UartAssist）。
 
-![3](./Final Report/3.png)
+![3](./3.png)
 
 ### 实现对复杂外设接口的支持
 
@@ -464,7 +464,7 @@ always @(posedge clk, negedge rst) begin
 
 综合以上思路，可以得到以下结构示意图：
 
-![1](./Final Report/1.jpg)
+![1](./1.jpg)
 
 #### Data Hazard处理 - Forwarding
 
@@ -652,7 +652,7 @@ for col, lbl in enumerate(self.dbg_labels[name]):
 
 综上所述，我们的 Python 前端在串口线程里按照特定偏移和格式解包数据，先逐一输出寄存器值再读取程序计数器，最后将流水线各阶段的机器码送入 `decode_instruction` 得到可读汇编，再配合 GUI 标签批量更新以实现实时的寄存器与指令反编译显示。以下是实际 GUI 效果：
 
-![2](./Final Report/\2.png)
+![2](./2.png)
 
 #### Pipeline开发过程测试说明
 
