@@ -2,17 +2,25 @@ import serial, struct, threading, time
 import tkinter as tk
 from tkinter import ttk
 
-PORT = "COM6"
-BAUD = 115200
-
 def is_valid_bin(s: str) -> bool:
     return len(s) == 8 and all(c in "01" for c in s)
 
+def byte_swap_32(x: int) -> int:
+    return (
+        ((x & 0xFF000000) >> 24) |
+        ((x & 0x00FF0000) >> 8)  |
+        ((x & 0x0000FF00) << 8)  |
+        ((x & 0x000000FF) << 24)
+    )
+
+def to_signed32(x):
+    return x if x < 0x80000000 else x - 0x100000000
+
 class UARTGui(tk.Tk):
-    def __init__(self):
+    def __init__(self, PORT: str, BAUD: int = 115200):
         super().__init__()
         self.title("UART Control Panel")
-        self.geometry("620x800")
+        self.geometry("490x250")
         self.resizable(False, False)
 
         # ------- Style -------
@@ -46,22 +54,6 @@ class UARTGui(tk.Tk):
             lbl.grid(row=i, column=0, sticky='w', pady=2)
             setattr(self, f"{label.lower()[:3]}_label", lbl)
 
-        # ------- Registers Frame -------
-        regs_frame = ttk.Labelframe(self, text=" Registers [0..31] ", relief='groove', padding=10)
-        regs_frame.grid(row=3, column=0, padx=10, pady=10, sticky='nsew')
-        regs_frame.columnconfigure(0, weight=1)
-        regs_frame.columnconfigure(1, weight=1)
-
-        self.reg_labels = []
-        for col in range(2):
-            for row in range(16):
-                idx = col*16 + row
-                bg = '#f0f0ff' if row%2==0 else '#ffffff'
-                lbl = tk.Label(regs_frame, text=f"regs{idx:02d}: 0x00000000",
-                               font=('Consolas',11), bg=bg, anchor='w')
-                lbl.grid(row=row, column=col, sticky='ew', padx=5, pady=1)
-                self.reg_labels.append(lbl)
-
         # ------- Start serial thread -------
         self.ser = serial.Serial(PORT, BAUD, timeout=0.1)
         self.running = True
@@ -85,37 +77,20 @@ class UARTGui(tk.Tk):
         while self.running:
             if self.ser.in_waiting:
                 buf.extend(self.ser.read(self.ser.in_waiting))
-                while len(buf) >= 132:
-                    block = buf[:132]
-                    del buf[:132]
+                while len(buf) >= 4:
+                    block = buf[:4]
+                    del buf[:4]
 
-                    # word0 at offset 44
-                    w0, = struct.unpack_from('<I', block, 44)
-                    # your byte-swap logic
-                    ww0 = (w0 & 0xFF000000)>>24
-                    ww1 = (w0 & 0x00FF0000)>>8
-                    ww2 = (w0 & 0x0000FF00)<<8
-                    ww3 = (w0 & 0x000000FF)<<24
-                    w0 = ww0|ww1|ww2|ww3
+                    w0, = struct.unpack_from('<I', block, 0)
+                    print(f"{w0:08X}")
+                    w0 = byte_swap_32(w0)
 
                     # update BIN/DEC/HEX
                     self.bin_label.config(text=f"BIN: {w0&0xFF:08b}")
-                    self.dec_label.config(text=f"DEC: {str(w0).zfill(8)[-8:]}")
+                    self.dec_label.config(text=f"DEC: {to_signed32(w0)}")
                     self.hex_label.config(text=f"HEX: {w0:08X}")
 
-                    # update regs
-                    for i in range(32):
-                        val, = struct.unpack_from('<I', block, 4+4*i)
-                        v0 = (val & 0xFF000000)>>24
-                        v1 = (val & 0x00FF0000)>>8
-                        v2 = (val & 0x0000FF00)<<8
-                        v3 = (val & 0x000000FF)<<24
-                        val = v0|v1|v2|v3
-                        lbl = self.reg_labels[i]
-                        # alternate highlight for changed value
-                        lbl.config(text=f"regs{i:02d}: 0x{val:08X}",
-                                   fg='blue' if val != int(lbl.cget('text')[-8:],16) else 'black')
-            time.sleep(0.005)
+            # time.sleep(0.005)
 
     def close(self):
         self.running = False
@@ -124,5 +99,11 @@ class UARTGui(tk.Tk):
         self.destroy()
 
 if __name__ == '__main__':
-    app = UARTGui()
+    raw = input("Enter COM port number [6]: ").strip()
+    num = raw or "6"
+    if num.lower().startswith("com"):
+        num = num[3:]
+    PORT = f"COM{num}"
+    print(f"Opening serial port {PORT}")
+    app = UARTGui(PORT)
     app.mainloop()

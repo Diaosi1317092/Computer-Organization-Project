@@ -17,8 +17,6 @@ set_property PACKAGE_PIN R1 [get_ports {sw_input[0]}]
 set_property IOSTANDARD LVCMOS33 [get_ports done]
 set_property IOSTANDARD LVCMOS33 [get_ports init_clk]
 set_property PACKAGE_PIN P17 [get_ports init_clk]
-set_property IOSTANDARD LVCMOS33 [get_ports rst]
-set_property PACKAGE_PIN P15 [get_ports rst]
 set_property PACKAGE_PIN R15 [get_ports done]
 
 set_property IOSTANDARD LVCMOS33 [get_ports {an[7]}]
@@ -99,7 +97,15 @@ set_property PACKAGE_PIN R11 [get_ports cp_done]
 
 set_property PACKAGE_PIN P15 [get_ports fpga_rst]
 set_property IOSTANDARD LVCMOS33 [get_ports fpga_rst]
-set_property PACKAGE_PIN T3 [get_ports start_pg]
+set_property PACKAGE_PIN V1 [get_ports start_pg]
 set_property IOSTANDARD LVCMOS33 [get_ports start_pg]
 
+
+
+
+set_property IOSTANDARD LVCMOS33 [get_ports swt_tx]
+set_property PACKAGE_PIN R3 [get_ports swt_tx]
+
+set_property IOSTANDARD LVCMOS33 [get_ports is_output_count]
+set_property PACKAGE_PIN U3 [get_ports is_output_count]
 

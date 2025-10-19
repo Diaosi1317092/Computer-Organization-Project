@@ -2,8 +2,11 @@
 2017.4
 Dec 15 2017
 21:07:18
-C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.sim/sim_1/behav/xsim/glbl.v,1747751643,verilog,,,,glbl,,xil_defaultlib,,,,,,
+C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.sim/sim_1/behav/xsim/glbl.v,1747751643,verilog,,,,glbl,,,,,,,,
+C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sim_1/new/clk_tb.v,1747914739,verilog,,,,clk_tb,,,../../../../pipelineCPU.srcs/sources_1/ip/cpuclk,,,,,
 C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sim_1/new/tb_pipeline.v,1747806673,verilog,,,,tb_pipeline,,xil_defaultlib,C:/Xilinx/Vivado/2017.4/data/xilinx_vip/include,,,,,
+C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/ip/cpuclk/cpuclk.v,1747920457,verilog,,C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sim_1/new/clk_tb.v,,cpuclk,,,../../../../pipelineCPU.srcs/sources_1/ip/cpuclk,,,,,
+C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/ip/cpuclk/cpuclk_clk_wiz.v,1747926060,verilog,,C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/ip/cpuclk/cpuclk.v,,cpuclk_clk_wiz,,,../../../../pipelineCPU.srcs/sources_1/ip/cpuclk,,,,,
 C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/ip/pgram/sim/pgram.v,1747806881,verilog,,C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/ip/pgrom/sim/pgrom.v,,pgram,,xil_defaultlib,C:/Xilinx/Vivado/2017.4/data/xilinx_vip/include,,,,,
 C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/ip/pgrom/sim/pgrom.v,1747502918,verilog,,C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/ClockDivider.v,,pgrom,,xil_defaultlib,C:/Xilinx/Vivado/2017.4/data/xilinx_vip/include,,,,,
 C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/ClockDivider.v,1747489107,verilog,,C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/EXE.v,,ClockDivider,,xil_defaultlib,C:/Xilinx/Vivado/2017.4/data/xilinx_vip/include,,,,,
@@ -17,9 +20,5 @@ C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipeli
 C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/OutputModule.v,1747489107,verilog,,C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/SegDisplay.v,,OutputModule,,xil_defaultlib,C:/Xilinx/Vivado/2017.4/data/xilinx_vip/include,,,,,
 C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/SegDisplay.v,1747489107,verilog,,C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/SegGenerator.v,,SegDisplay,,xil_defaultlib,C:/Xilinx/Vivado/2017.4/data/xilinx_vip/include,,,,,
 C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/SegGenerator.v,1747489107,verilog,,,,SegGenerator,,xil_defaultlib,C:/Xilinx/Vivado/2017.4/data/xilinx_vip/include,,,,,
-,,,,C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/UartRx.v,,UartReg;uart32_8,,,,,,,,
-,,,,C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/UartTop.v,,UartRx,,,,,,,,
-,,,,C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/UartTx.v,,UartTop,,,,,,,,
-,,,,C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/WB.v,,UartTx,,,,,,,,
 C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/WB.v,1747489736,systemVerilog,,C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/top_module.v,,WB,,xil_defaultlib,C:/Xilinx/Vivado/2017.4/data/xilinx_vip/include,,,,,
 C:/Users/48946/Documents/GitHub/Computer-Organization-Project/pipelineCPU/pipelineCPU.srcs/sources_1/new/top_module.v,1747503406,systemVerilog,,,,top_module,,xil_defaultlib,C:/Xilinx/Vivado/2017.4/data/xilinx_vip/include,,,,,

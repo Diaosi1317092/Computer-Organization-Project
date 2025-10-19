@@ -24,17 +24,25 @@ module IF(
     input clk,rst, 
     input[31:0] pc,
     input is_nop,
-    output [31:0] output_inst
+    output [31:0] output_inst,
+    output [31:0] predicted_pc
     );
     parameter base_address = 32'h0000_3000;
     parameter nop_inst = 32'h00000013;
     wire [13:0] addr;        // address for instruction memory
-    wire [31:0] tmp_inst;
+    wire [31:0] tmp_inst,tmp_predicted_pc;
     assign output_inst = is_nop ? nop_inst : tmp_inst;
+    assign predicted_pc = is_nop ? pc + 4 : tmp_predicted_pc;
     assign addr = (pc[13:0]-base_address) >> 2;
     pgrom urom( // Instantiate the instruction ROM
         .clka(~clk),
         .addra(addr),
         .douta(tmp_inst)
+    );
+    
+    predict_rom urom2(
+        .clka(~clk),
+        .addra(addr),
+        .douta(tmp_predicted_pc)
     );
 endmodule

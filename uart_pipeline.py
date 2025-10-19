@@ -1,9 +1,7 @@
 import serial, struct, threading, time
 import tkinter as tk
 from tkinter import ttk
-
-PORT = "COM6"
-BAUD = 115200
+from collections import deque
 
 R_TYPE   = 0b0110011
 I_TYPE1  = 0b0010011  # addi
@@ -137,6 +135,8 @@ def decode_fields(inst: int) -> dict:
 
 def decode_instruction(word: int) -> str:
     inst = word
+    if inst == 0x13 :
+        return "nop"
     fields = decode_fields(inst)
     opc = fields['opcode']
     func3 = fields['func3']
@@ -150,7 +150,7 @@ def decode_instruction(word: int) -> str:
         if key in R_TYPE_MAP:
             mnem = R_TYPE_MAP[key]
             return f"{mnem} x{rd}, x{rs1}, x{rs2}"
-        return f"unknown_R (f3=0x{func3:X},f7=0x{func7:X})"
+        return f"U_R (f3=0x{func3:X},f7=0x{func7:X})"
     if opc == I_TYPE1:
         if func3 == 0x1 and func7 == 0x00:
             shamt = imm & 0x1F
@@ -164,22 +164,22 @@ def decode_instruction(word: int) -> str:
         if func3 in I_TYPE1_MAP:
             mnem = I_TYPE1_MAP[func3]
             return f"{mnem} x{rd}, x{rs1}, {imm}"
-        return f"unknown_I1 (f3=0x{func3:X})"
+        return f"U_I1 (f3=0x{func3:X})"
     if opc == I_TYPE2:
         if func3 in I_TYPE2_MAP:
             mnem, _signed = I_TYPE2_MAP[func3]
             return f"{mnem} x{rd}, {imm}(x{rs1})"
-        return f"unknown_load (f3=0x{func3:X})"
+        return f"U_load (f3=0x{func3:X})"
     if opc == S_TYPE:
         if func3 in S_TYPE_MAP:
             mnem = S_TYPE_MAP[func3]
             return f"{mnem} x{rs2}, {imm}(x{rs1})"
-        return f"unknown_store (f3=0x{func3:X})"
+        return f"U_store (f3=0x{func3:X})"
     if opc == B_TYPE:
         if func3 in B_TYPE_MAP:
             mnem = B_TYPE_MAP[func3]
             return f"{mnem} x{rs1}, x{rs2}, {imm}"
-        return f"unknown_branch (f3=0x{func3:X})"
+        return f"U_branch (f3=0x{func3:X})"
     if opc == J_TYPE:
         return f"jal x{rd}, {imm}"
     if opc == U_TYPE1:
@@ -190,13 +190,13 @@ def decode_instruction(word: int) -> str:
         return f"jalr x{rd}, {imm}(x{rs1})"
     if opc == I_TYPE4:
         return "ecall"
-    return f"unknown 0x{inst:08X}"
+    return f"U 0x{inst:08X}"
 
 class UARTGui(tk.Tk):
-    def __init__(self):
+    def __init__(self, PORT: str, BAUD: int = 115200):
         super().__init__()
         self.title("UART Control Panel")
-        self.geometry("1000x720")
+        self.geometry("1500x720")
         self.resizable(False, False)
 
         # ------- Style -------
@@ -246,43 +246,45 @@ class UARTGui(tk.Tk):
                 lbl.grid(row=row, column=col, sticky='ew', padx=5, pady=1)
                 self.reg_labels.append(lbl)
 
-        # ------- PC Frame -------
-        pc_frame = ttk.Labelframe(self, text=" PC ", relief='groove', padding=10)
-        pc_frame.grid(row=2, column=1, padx=(5,10), pady=(10,5), sticky='nsew')
-        pc_frame.columnconfigure(0, weight=1)
-
-        # create a single label for PC
-        self.pc_label = tk.Label(
-            pc_frame,
-            text="PC : 0x00000000",
-            font=('Consolas',11),
-            bg='#f0f0ff',
-            anchor='w'
-        )
-        self.pc_label.grid(row=0, column=0, sticky='ew', padx=5, pady=1)
-
         # ------- Debug Frame -------
-        debug_frame = ttk.Labelframe(self, text=" Debug ", relief='groove', padding=10)
+        debug_frame = ttk.Labelframe(self, text=" Debug History ", relief='groove', padding=10)
         debug_frame.grid(row=3, column=1, padx=(5,10), pady=(5,10), sticky='nsew')
-        debug_frame.columnconfigure(0, weight=1)
 
-        # only pipeline stages, omit PC here
-        dbg_signals = ["WB ", "MEM", "EXE", "ID ", "IF "]
-        self.dbg_labels = {}
-        self.dbg_last_val = {}
+        dbg_signals = ["IF ", "ID ", "EXE", "MEM", "WB "]
+        self.dbg_history = {}
+        self.dbg_labels  = {}
 
-        for row, name in enumerate(dbg_signals):
-            bg = '#f0f0ff' if row%2==0 else '#ffffff'
-            label = tk.Label(
+        for c in range(len(dbg_signals)):
+            debug_frame.columnconfigure(c, weight=1)
+
+        for c, name in enumerate(dbg_signals):
+            hdr = tk.Label(
                 debug_frame,
-                text=f"{name}: unknown 0x00000000",
-                font=('Consolas',11),
-                bg=bg,
-                anchor='w'
+                text=f"{name}:",
+                font=('Consolas',11,'bold'),
+                bg='#d0d0d0',
+                anchor='center',
+                padx=4
             )
-            label.grid(row=row, column=0, sticky='ew', padx=5, pady=1)
-            self.dbg_labels[name] = label
-            self.dbg_last_val[name] = None
+            hdr.grid(row=0, column=c, sticky='ew', padx=2, pady=(0,4))
+
+        for c, name in enumerate(dbg_signals):
+            self.dbg_history[name] = deque(["U 0x00000000"]*5, maxlen=5)
+            lbls = []
+            for r in range(1, 6):
+                bg = '#f0f0ff' if (r+c)%2==0 else '#ffffff'
+                lbl = tk.Label(
+                    debug_frame,
+                    text=f"{self.dbg_history[name][r-1]}",
+                    font=('Consolas',11),
+                    width=22,
+                    bg=bg,
+                    anchor='w',
+                    padx=4
+                )
+                lbl.grid(row=r, column=c, sticky='ew', padx=2, pady=1)
+                lbls.append(lbl)
+            self.dbg_labels[name] = lbls
 
         # ------- Start serial thread -------
         self.ser = serial.Serial(PORT, BAUD, timeout=0.1)
@@ -331,26 +333,18 @@ class UARTGui(tk.Tk):
                         lbl.config(text=f"regs{i:02d}: 0x{val:08X}",
                                    fg='blue' if val != int(lbl.cget('text')[-8:],16) else 'black')
                                         # update regs
-                    
-                    # update PC
-                    val, = struct.unpack_from('<I', block, 4+4*32)
-                    val = byte_swap_32(val)
-                    old_pc = int(self.pc_label.cget('text')[-10:], 16)
-                    self.pc_label.config(
-                        text=f"PC : 0x{val:08X}",
-                        fg='blue' if val != old_pc else 'black'
-                    )
 
                     # update pipeline (indices 33..37 → dbg_signals[0..4])
                     for i, name in enumerate(dbg_signals, start=33):
                         raw, = struct.unpack_from('<I', block, 4+4*i)
                         val = byte_swap_32(raw)
-                        asm = decode_instruction(val)
-                        prev = self.dbg_last_val[name]
-                        color = 'blue' if (prev is not None and val != prev) else 'black'
-                        lbl = self.dbg_labels[name]
-                        lbl.config(text=f"{name}: {asm}", fg=color)
-                        self.dbg_last_val[name] = val
+                        asm = decode_instruction(val) if i < 37 else f"0x{val:08X}"
+
+                        hist = self.dbg_history[name]
+                        hist.append(asm)
+
+                        for row_offset, lbl in enumerate(self.dbg_labels[name]):
+                            lbl.config(text=f"{hist[row_offset]}")
 
             time.sleep(0.005)
 
@@ -361,5 +355,11 @@ class UARTGui(tk.Tk):
         self.destroy()
 
 if __name__ == '__main__':
-    app = UARTGui()
+    raw = input("Enter COM port number [6]: ").strip()
+    num = raw or "6"
+    if num.lower().startswith("com"):
+        num = num[3:]
+    PORT = f"COM{num}"
+    print(f"Opening serial port {PORT}")
+    app = UARTGui(PORT)
     app.mainloop()

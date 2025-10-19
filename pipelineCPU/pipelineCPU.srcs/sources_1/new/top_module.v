@@ -1,4 +1,6 @@
 module top_module(
+//    input is_frontend,
+    input is_output_count,
     input init_clk,
     input rst,
     input done,
@@ -13,24 +15,23 @@ module top_module(
     output [7:0] led,
     output wire [7:0] an   //control the 8-segment
 );
+    reg [31:0] count;
     parameter nop_inst = 32'h00000013, base_address = 32'h00003000;
     wire[31:0] regs [0:31];
     wire [31:0] output_regs [0:37];
-    reg [31:0] output_inst [0:5];
+    wire [31:0] output_inst [0:5];
     assign output_regs = {regs, output_inst};
     
     wire [31:0] input_data;
     wire en_pc, done_input;
-    wire clk, clk_de;
+    wire clk, clk_de, clk_in1;
     
     wire [7:0] cp_input;
     wire [31:0] uart_reg_a7;
     wire [31:0] uart_output_data;
 
-    reg debug_stable, debug_run, debug_stop;
-    reg next_debug_stop, next_debug_run;
     wire en_pc2;
-    assign en_pc2 = debug_on ? (debug_run|done_input) : en_pc;
+    assign en_pc2 = debug_on ? done_input : en_pc;
 
     // ecall's stalling
     wire is_ecall;
@@ -49,6 +50,9 @@ module top_module(
     reg [31:0] v1_pc;
     assign u1_pc = pc;
     
+    wire [31:0] u1_predicted_pc;
+    reg [31:0] v1_predicted_pc;
+
     //ID-EXE u2-v2
     wire [31:0] u2_inst;
     reg [31:0] v2_inst;
@@ -57,10 +61,9 @@ module top_module(
     wire [31:0] u2_rs1_data, u2_rs2_data, u2_imm32,u2_output_data,u2_reg_a7;
     reg [31:0] v2_rs1_data, v2_rs2_data, v2_imm32,v2_output_data,v2_reg_a7;
 
-    // wire [31:0] u2_input_data;
-    // reg [31:0] v2_input_data;
-    // wire u2_en_input;
-    // reg v2_en_input;
+    wire [31:0] u2_predicted_pc;
+    reg [31:0] v2_predicted_pc;
+    assign u2_predicted_pc = v1_predicted_pc;
 
     wire [31:0] u2_pc;
     reg [31:0] v2_pc;
@@ -201,11 +204,66 @@ module top_module(
     // control hazard
     wire clr_if = u2_is_jal | u2_is_jalr | u2_branch;
     wire is_stalling;
+
+    wire check_predicted;
+    wire [31:0] true_pc;
+    wire [31:0] hd_input_pc = check_predicted ? u1_predicted_pc : true_pc;//TODO
+    
+    always @(posedge clk,negedge rst) begin
+        if (~rst) begin
+            count <= 0;
+        end else begin 
+            if (en_pc2) begin 
+                count <= count+1;
+            end else begin 
+                count <= count;
+            end
+        end
+    end
     always @(posedge clk, negedge rst) begin
         if(~rst)begin
             ecall_cnt <= 0;
-            v1_inst <= 0;
+            v1_inst <= nop_inst;
             v1_pc <= base_address;
+            v1_predicted_pc <= base_address;
+        end else begin
+            if (en_pc2) begin 
+                if (!is_stalling) begin
+                    if (!is_ecall) begin 
+                        if (check_predicted) begin
+                            ecall_cnt <= 0;
+                            v1_inst <= u1_inst;
+                            v1_pc <= u1_pc;
+                            v1_predicted_pc <= u1_predicted_pc;
+                        end else begin
+                            ecall_cnt <= 0;
+                            v1_inst <= nop_inst;
+                            v1_pc <= base_address;
+                            v1_predicted_pc <= base_address;
+                        end
+                    end else begin
+                        ecall_cnt <= ecall_cnt + 1;
+                        v1_inst <= v1_inst;
+                        v1_pc <= v1_pc;
+                        v1_predicted_pc <= v1_predicted_pc;
+                    end
+                end else begin
+                    ecall_cnt <= ecall_cnt;
+                    v1_inst <= v1_inst;
+                    v1_pc <= v1_pc;
+                    v1_predicted_pc <= v1_predicted_pc;
+                end
+            end else begin
+                ecall_cnt <= ecall_cnt ;
+                v1_inst <= v1_inst;
+                v1_pc <= v1_pc;
+                v1_predicted_pc <= v1_predicted_pc;
+            end
+        end
+    end
+    // TODO please connect wire.
+    always @(posedge clk, negedge rst) begin
+        if(~rst)begin
             v2_imm32 <= 0;
             v2_rs1_data <= 0;
             v2_rs2_data <= 0;
@@ -232,52 +290,12 @@ module top_module(
             v2_have_reg_write_data <= 0;
             v2_rs1 <= 0;
             v2_rs2 <= 0;
-            v2_inst <= 0;
-            
-
-            v3_alu_result <= 0;
-            v3_zero <= 0;
-            v3_mem_read <= 0;
-            v3_mem_write <= 0;
-            v3_rs2_data <= 32'b0;
-            v3_mem_to_reg <= 0;
-            v3_reg_write <= 0;
-            v3_funct3 <= 3'b0;
-            v3_pc <= base_address;
-            v3_rd <= 0;
-            v3_branch <= 0;
-            v3_imm32 <= 32'b0;
-            // v3_en_input <= 0;
-            // v3_input_data <= 0;
-            v3_reg_write_data <= 0;
-            v3_have_reg_write_data <= 0;
-            v3_inst <= 0;
-
-            v4_mem_read_data <= 32'b0;
-            v4_mem_to_reg <= 0;
-            v4_reg_write <= 0;
-            v4_alu_result <= 32'b0;
-            v4_funct3 <= 3'b0;
-            v4_pc <= base_address;
-            v4_rd <= 0;
-            // v4_en_input <= 0;
-            // v4_input_data <= 0;
-            v4_reg_write_data <= 0;
-            v4_have_reg_write_data <= 0;
-            v4_inst <= 0;
-
+            v2_inst <= nop_inst;
+            v2_predicted_pc <= base_address;
         end else begin
             if (en_pc2) begin 
                 if (!is_stalling) begin
-                    if (!is_ecall) begin 
-                        ecall_cnt <= 0;
-                        if (!clr_if) begin
-                            v1_inst <= u1_inst;
-                            v1_pc <= u1_pc;
-                        end else begin
-                            v1_inst <= nop_inst;
-                            v1_pc <= base_address;
-                        end
+                    if (!is_ecall && check_predicted) begin 
                         v2_imm32 <= u2_imm32;
                         v2_rs1_data <= u2_rs1_data;
                         v2_rs2_data <= u2_rs2_data;
@@ -306,14 +324,10 @@ module top_module(
                         v2_rs1 <= u2_rs1;
                         v2_rs2 <= u2_rs2;
                         v2_inst <= u2_inst;
+                        v2_predicted_pc <= u2_predicted_pc;
                         
         
                     end else begin
-                        ecall_cnt <= ecall_cnt + 1;
-
-                        v1_inst <= v1_inst;
-                        v1_pc <= v1_pc;
-
                         v2_imm32 <= 0;
                         v2_rs1_data <= 0;
                         v2_rs2_data <= 0;
@@ -342,30 +356,10 @@ module top_module(
                         v2_rs1 <= 0;
                         v2_rs2 <= 0;
                         v2_inst <= nop_inst;
+                        v2_predicted_pc <= base_address;
                     end
-                    v3_alu_result <= u3_alu_result;
-                    v3_zero <= u3_zero;
-                    v3_mem_read <= u3_mem_read;
-                    v3_mem_write <= u3_mem_write;
-                    v3_rs2_data <= u3_rs2_data;
-                    v3_pc <= u3_pc;
-                    v3_mem_to_reg <= u3_mem_to_reg;
-                    v3_reg_write <= u3_reg_write;
-                    v3_funct3 <= u3_funct3;
-                    v3_rd <= u3_rd;
-                    v3_branch <= u3_branch;
-                    v3_imm32 <= u3_imm32;
-                    // v3_en_input <= u3_en_input;
-                    // v3_input_data <= u3_input_data;
-                    v3_reg_write_data <= u3_reg_write_data;
-                    v3_have_reg_write_data <= u3_have_reg_write_data;
-                    v3_inst <= u3_inst;
+                    
                 end else begin
-                    ecall_cnt <= ecall_cnt;
-
-                    v1_inst <= v1_inst;
-                    v1_pc <= v1_pc;
-
                     v2_imm32 <= v2_imm32;
                     v2_rs1_data <= exe_operand1_data;
                     v2_rs2_data <= exe_operand2_data;
@@ -394,43 +388,9 @@ module top_module(
                     v2_rs1 <= v2_rs1;
                     v2_rs2 <= v2_rs2;
                     v2_inst <= v2_inst;
-    
-                    v3_alu_result <= 0;
-                    v3_zero <= 0;
-                    v3_mem_read <= 0;
-                    v3_mem_write <= 0;
-                    v3_rs2_data <= 0;
-                    v3_pc <= base_address;
-                    v3_mem_to_reg <= 0;
-                    v3_reg_write <= 0;
-                    v3_funct3 <= 0;
-                    v3_rd <= 0;
-                    v3_branch <= 0;
-                    v3_imm32 <= 0;
-                    // v3_en_input <= v3_en_input;
-                    // v3_input_data <= v3_input_data;
-                    v3_reg_write_data <= 0;
-                    v3_have_reg_write_data <= 1;
-                    v3_inst <= nop_inst;
+                    v2_predicted_pc <= v2_predicted_pc;
                 end
-                v4_mem_read_data <= u4_mem_read_data;
-                v4_mem_to_reg <= u4_mem_to_reg;
-                v4_reg_write <= u4_reg_write;
-                v4_alu_result <= u4_alu_result;
-                v4_funct3 <= u4_funct3;
-                v4_pc <= u4_pc;
-                v4_rd <= u4_rd;
-                // v4_en_input <= u4_en_input;
-                // v4_input_data <= u4_input_data;
-                v4_reg_write_data <= u4_reg_write_data;
-                v4_have_reg_write_data <= u4_have_reg_write_data;
-                v4_inst <= u4_inst;
             end else begin
-                ecall_cnt <= ecall_cnt ;
-
-                v1_inst <= v1_inst;
-                v1_pc <= v1_pc;
-
                 v2_imm32 <= v2_imm32;
                 v2_rs1_data <= v2_rs1_data;
                 v2_rs2_data <= v2_rs2_data;
@@ -457,7 +417,71 @@ module top_module(
                 v2_reg_write_data <= v2_reg_write_data;
                 v2_have_reg_write_data <= v2_have_reg_write_data;
                 v2_inst <= v2_inst;
+                v2_predicted_pc <= v2_predicted_pc;
+            end
+        end
+    end
+        always @(posedge clk, negedge rst) begin
+        if(~rst)begin
+            v3_alu_result <= 0;
+            v3_zero <= 0;
+            v3_mem_read <= 0;
+            v3_mem_write <= 0;
+            v3_rs2_data <= 32'b0;
+            v3_mem_to_reg <= 0;
+            v3_reg_write <= 0;
+            v3_funct3 <= 3'b0;
+            v3_pc <= base_address;
+            v3_rd <= 0;
+            v3_branch <= 0;
+            v3_imm32 <= 32'b0;
+            // v3_en_input <= 0;
+            // v3_input_data <= 0;
+            v3_reg_write_data <= 0;
+            v3_have_reg_write_data <= 0;
+            v3_inst <= nop_inst;
 
+        end else begin
+            if (en_pc2) begin 
+                if (!is_stalling) begin
+                    v3_alu_result <= u3_alu_result;
+                    v3_zero <= u3_zero;
+                    v3_mem_read <= u3_mem_read;
+                    v3_mem_write <= u3_mem_write;
+                    v3_rs2_data <= u3_rs2_data;
+                    v3_pc <= u3_pc;
+                    v3_mem_to_reg <= u3_mem_to_reg;
+                    v3_reg_write <= u3_reg_write;
+                    v3_funct3 <= u3_funct3;
+                    v3_rd <= u3_rd;
+                    v3_branch <= u3_branch;
+                    v3_imm32 <= u3_imm32;
+                    // v3_en_input <= u3_en_input;
+                    // v3_input_data <= u3_input_data;
+                    v3_reg_write_data <= u3_reg_write_data;
+                    v3_have_reg_write_data <= u3_have_reg_write_data;
+                    v3_inst <= u3_inst;
+                    
+                end else begin
+                    v3_alu_result <= 0;
+                    v3_zero <= 0;
+                    v3_mem_read <= 0;
+                    v3_mem_write <= 0;
+                    v3_rs2_data <= 0;
+                    v3_pc <= base_address;
+                    v3_mem_to_reg <= 0;
+                    v3_reg_write <= 0;
+                    v3_funct3 <= 0;
+                    v3_rd <= 0;
+                    v3_branch <= 0;
+                    v3_imm32 <= 0;
+                    // v3_en_input <= v3_en_input;
+                    // v3_input_data <= v3_input_data;
+                    v3_reg_write_data <= 0;
+                    v3_have_reg_write_data <= 1;
+                    v3_inst <= nop_inst;
+                end
+            end else begin
                 v3_alu_result <= v3_alu_result;
                 v3_zero <= v3_zero;
                 v3_mem_read <= v3_mem_read;
@@ -475,7 +499,38 @@ module top_module(
                 v3_reg_write_data <= v3_reg_write_data;
                 v3_have_reg_write_data <= v3_have_reg_write_data;
                 v3_inst <= v3_inst;
-
+            end
+        end
+    end
+    always @(posedge clk, negedge rst) begin
+        if(~rst)begin
+            v4_mem_read_data <= 32'b0;
+            v4_mem_to_reg <= 0;
+            v4_reg_write <= 0;
+            v4_alu_result <= 32'b0;
+            v4_funct3 <= 3'b0;
+            v4_pc <= base_address;
+            v4_rd <= 0;
+            // v4_en_input <= 0;
+            // v4_input_data <= 0;
+            v4_reg_write_data <= 0;
+            v4_have_reg_write_data <= 0;
+            v4_inst <= nop_inst;
+        end else begin
+            if (en_pc2) begin 
+                v4_mem_read_data <= u4_mem_read_data;
+                v4_mem_to_reg <= u4_mem_to_reg;
+                v4_reg_write <= u4_reg_write;
+                v4_alu_result <= u4_alu_result;
+                v4_funct3 <= u4_funct3;
+                v4_pc <= u4_pc;
+                v4_rd <= u4_rd;
+                // v4_en_input <= u4_en_input;
+                // v4_input_data <= u4_input_data;
+                v4_reg_write_data <= u4_reg_write_data;
+                v4_have_reg_write_data <= u4_have_reg_write_data;
+                v4_inst <= u4_inst;
+            end else begin
                 v4_reg_write <= v4_reg_write;
                 v4_rd <= v4_rd;
                 v4_reg_write_data <= v4_reg_write_data;
@@ -483,78 +538,24 @@ module top_module(
             end
         end
     end
-    
-    //transmitting output to uart as array
-    always @(posedge clk) begin
-        output_inst[0] <= pc;
-        output_inst[5] <= u1_inst;
-        output_inst[4] <= u2_inst;
-        output_inst[3] <= u3_inst;
-        output_inst[2] <= u4_inst;
-        output_inst[1] <= v4_inst;
-    end
-    
-    //debug button
-    reg [4:0] debug_counter;
-    parameter DEBOUNCE_THRESHOLD = 4'b0001;  
-    always @(posedge clk_de, negedge rst) begin
-        if(~rst) begin
-            debug_stable <= 0;
-        end else begin
-            if (debug) begin
-                if (debug_counter < DEBOUNCE_THRESHOLD) begin
-                    debug_counter <= debug_counter + 1;
-                end else begin
-                    debug_stable <= 1;
-                end
-            end else begin
-                debug_counter <= 0;
-                debug_stable <= 0;
-            end
-        end
-    end
-    
-    always @(negedge clk, negedge rst) begin
-        if(~rst) begin
-            debug_run <= 0;
-            debug_stop <= 0;
-        end else begin
-            debug_run <= next_debug_run;
-            debug_stop <= next_debug_stop;
-        end
-    end
-            
-    always @(*) begin
-        if (debug_stable) begin
-            if(debug_run) begin
-                next_debug_stop = 1;
-                next_debug_run = 0;
-            end else begin
-                next_debug_stop = debug_stop;
-                if(~debug_stop) begin
-                    next_debug_run =1;
-                end else begin
-                    next_debug_run = 0;
-                end
-            end
-        end else begin
-            next_debug_stop = 0;
-            next_debug_run = 0;
-        end
-    end
-    
-    ClockDivider uut_clk_divider(
-            .clk(init_clk),
-            .rst(rst),
-            .period(10000),// in order to do simulation, still needed to change for pipeline
-            .clk_out(clk)
-        );
+    assign output_inst = {pc, v4_inst, v3_inst, v2_inst, v1_inst, pc};
+      
+        
+    cpuclk uut_clk(
+        .clk_in1(clk_in1),
+        .clk_out1(clk)
+    );
+    IBUFG clk_buf (
+       .I(init_clk),  // FPGA
+       .O(clk_in1)   // 
+    );
+        
     ClockDivider uut_debounce_divider(
-            .clk(init_clk),
-            .rst(rst),
-            .period(1000000),
-            .clk_out(clk_de)
-        );
+        .clk(clk_in1),
+        .rst(rst),
+        .period(1000000),
+        .clk_out(clk_de)
+    );
         
     HarzardDetection hd_uut(
         .clk(clk),
@@ -570,7 +571,8 @@ module top_module(
         .is_nop(is_nop),
         .pc(pc),
         .is_ecall(is_ecall),
-        .is_stalling(is_stalling)
+        .is_stalling(is_stalling),
+        .hd_input_pc(hd_input_pc)
     );
 
     IF if_uut(
@@ -578,7 +580,8 @@ module top_module(
         .rst(rst),
         .pc(pc),
         .is_nop(is_nop),
-        .output_inst(u1_inst)
+        .output_inst(u1_inst),
+        .predicted_pc(u1_predicted_pc)
     );
 
     ID id_uut(
@@ -643,7 +646,13 @@ module top_module(
         .is_lui(v2_is_lui),
         .is_auipc(v2_is_auipc),
         .alu_result(u3_alu_result),
-        .zero(u3_zero)
+        .zero(u3_zero),
+        .is_jal(u3_is_jal),
+        .is_jalr(u3_is_jalr),
+        .branch(u3_branch),
+        .true_pc(true_pc),
+        .predicted_pc(v2_predicted_pc),
+        .check_predicted(check_predicted)
     );
     
     FW fw_uut(
@@ -678,11 +687,11 @@ module top_module(
     );
 
     WB wb_uut(
-        .reg_write_data(v4_reg_write_data),
+        .reg_write_data(u4_reg_write_data),
         .clk(clk),
         .rst(rst),
-        .reg_write(v4_reg_write),
-        .rd(v4_rd),
+        .reg_write(u4_reg_write),
+        .rd(u4_rd),
         // .done_input(done_input),
         .regs(regs)
     );
@@ -700,11 +709,11 @@ module top_module(
     );
     
     OutputModule uut_output(
-        .clk(init_clk),
+        .clk(clk_in1),
         .rst(rst),
         .en_output(v2_en_output),
         .reg_a7(v2_reg_a7),
-        .output_data(v2_output_data),
+        .output_data(is_output_count ? count : v2_output_data),
         .seg1(seg1),
         .seg2(seg2),
         .led(led),
@@ -712,7 +721,7 @@ module top_module(
     );
     
     UartTop uut_uart(
-        .clk(init_clk),
+        .clk(clk_in1),
         .rst(rst),
         .rx(rx),
         .tx(tx),

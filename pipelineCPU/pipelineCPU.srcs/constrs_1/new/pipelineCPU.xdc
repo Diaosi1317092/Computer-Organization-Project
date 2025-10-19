@@ -20,7 +20,7 @@ set_property PACKAGE_PIN P17 [get_ports init_clk]
 set_property IOSTANDARD LVCMOS33 [get_ports rst]
 set_property PACKAGE_PIN P15 [get_ports rst]
 set_property PACKAGE_PIN R15 [get_ports done]
-
+create_clock -period 10.000 -name init_clk [get_ports init_clk]
 set_property IOSTANDARD LVCMOS33 [get_ports {an[7]}]
 set_property IOSTANDARD LVCMOS33 [get_ports {an[6]}]
 set_property IOSTANDARD LVCMOS33 [get_ports {an[5]}]
@@ -99,3 +99,13 @@ set_property IOSTANDARD LVCMOS33 [get_ports debug]
 set_property IOSTANDARD LVCMOS33 [get_ports debug_on]
 set_property PACKAGE_PIN R17 [get_ports debug]
 set_property PACKAGE_PIN T5 [get_ports debug_on]
+
+
+#set_false_path -from [get_clocks -of_objects [get_pins uut_clk/inst/mmcm_adv_inst/CLKOUT0]] -to [get_clocks init_clk]
+#set_false_path -from [get_pins {v3_inst_reg[25]/C}] -to [get_pins {uut_uart/last_regs_reg[34][25]/D}]
+
+
+#set_false_path -from [get_clocks init_clk] -to [get_clocks -of_objects [get_pins uut_clk/inst/mmcm_adv_inst/CLKOUT0]]
+
+set_property IOSTANDARD LVCMOS33 [get_ports is_output_count]
+set_property PACKAGE_PIN U3 [get_ports is_output_count]

@@ -1,0 +1,319 @@
+#-----------------------------------------------------------
+# Vivado v2017.4 (64-bit)
+# SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
+# IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+# Start of session at: Fri May 23 15:28:43 2025
+# Process ID: 24520
+# Current directory: D:/Clone/Computer-Organization-Project/CPU
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent21844 D:\Clone\Computer-Organization-Project\CPU\CPU.xpr
+# Log file: D:/Clone/Computer-Organization-Project/CPU/vivado.log
+# Journal file: D:/Clone/Computer-Organization-Project/CPU\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/Clone/Computer-Organization-Project/CPU/CPU.xpr
+CRITICAL WARNING: [Project 1-19] Could not find the file 'D:/Clone/Computer-Organization-Project/CPU/tb_cpu_behav.wcfg'.
+Scanning sources...
+Finished scanning sources
+WARNING: [Project 1-509] GeneratedRun file for 'synth_1' not found
+WARNING: [Project 1-509] GeneratedRun file for 'prgram_synth_1' not found
+WARNING: [Project 1-509] GeneratedRun file for 'prgrom_synth_1' not found
+WARNING: [Project 1-509] GeneratedRun file for 'uart_bmpg_0_synth_1' not found
+WARNING: [Project 1-509] GeneratedRun file for 'clk_wiz_0_synth_1' not found
+WARNING: [Project 1-509] GeneratedRun file for 'impl_1' not found
+WARNING: [filemgmt 56-3] IPUserFilesDir: Could not find the directory 'D:/Clone/Computer-Organization-Project/CPU/CPU.ip_user_files'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/Clone/Computer-Organization-Project/SEU_CSE_507_user_uart_bmpg_1.3'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Xilinx/Vivado/2017.4/data/ip'.
+update_compile_order -fileset sources_1
+INFO: [Device 21-403] Loading part xc7a35tcsg324-1
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+launch_runs impl_1 -to_step write_bitstream -jobs 20
+[Fri May 23 15:37:31 2025] Launched prgram_synth_1, prgrom_synth_1, uart_bmpg_0_synth_1, clk_wiz_0_synth_1, synth_1...
+Run output will be captured here:
+prgram_synth_1: D:/Clone/Computer-Organization-Project/CPU/CPU.runs/prgram_synth_1/runme.log
+prgrom_synth_1: D:/Clone/Computer-Organization-Project/CPU/CPU.runs/prgrom_synth_1/runme.log
+uart_bmpg_0_synth_1: D:/Clone/Computer-Organization-Project/CPU/CPU.runs/uart_bmpg_0_synth_1/runme.log
+clk_wiz_0_synth_1: D:/Clone/Computer-Organization-Project/CPU/CPU.runs/clk_wiz_0_synth_1/runme.log
+synth_1: D:/Clone/Computer-Organization-Project/CPU/CPU.runs/synth_1/runme.log
+[Fri May 23 15:37:31 2025] Launched impl_1...
+Run output will be captured here: D:/Clone/Computer-Organization-Project/CPU/CPU.runs/impl_1/runme.log
+open_run synth_1 -name synth_1
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xc7a35tcsg324-1
+INFO: [Project 1-454] Reading design checkpoint 'd:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/uart_bmpg_0/uart_bmpg_0.dcp' for cell 'uut_bmpg'
+INFO: [Project 1-454] Reading design checkpoint 'd:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.dcp' for cell 'uut_clk_wiz'
+INFO: [Project 1-454] Reading design checkpoint 'd:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgram/prgram.dcp' for cell 'uut_dmem/udram'
+INFO: [Project 1-454] Reading design checkpoint 'd:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgrom/prgrom.dcp' for cell 'uut_if/urom'
+INFO: [Netlist 29-17] Analyzing 1174 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2017.4
+INFO: [Project 1-570] Preparing netlist for logic optimization
+WARNING: [Opt 31-32] Removing redundant IBUF since it is not being driven by a top-level port. uut_bmpg/inst/upg_inst/upg_clk_i_IBUF_inst 
+Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
+WARNING: [Opt 31-32] Removing redundant IBUF since it is not being driven by a top-level port. uut_bmpg/inst/upg_inst/upg_rst_i_IBUF_inst 
+Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
+WARNING: [Opt 31-35] Removing redundant IBUF, uut_bmpg/inst/upg_inst/upg_rx_i_IBUF_inst, from the path connected to top-level port: rx 
+Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
+WARNING: [Opt 31-35] Removing redundant IBUF, uut_clk_wiz/inst/clkin1_ibufg, from the path connected to top-level port: init_clk 
+Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
+WARNING: [Opt 31-33] Removing redundant OBUF since it is not driving a top-level port. uut_bmpg/inst/upg_inst/upg_adr_o_OBUF[0]_inst 
+Resolution: The tool has removed redundant OBUF. To resolve this warning, check for redundant OBUF in the input design.
+WARNING: [Opt 31-33] Removing redundant OBUF since it is not driving a top-level port. uut_bmpg/inst/upg_inst/upg_adr_o_OBUF[10]_inst 
+Resolution: The tool has removed redundant OBUF. To resolve this warning, check for redundant OBUF in the input design.
+WARNING: [Opt 31-33] Removing redundant OBUF since it is not driving a top-level port. uut_bmpg/inst/upg_inst/upg_adr_o_OBUF[11]_inst 
+Resolution: The tool has removed redundant OBUF. To resolve this warning, check for redundant OBUF in the input design.
+WARNING: [Opt 31-33] Removing redundant OBUF since it is not driving a top-level port. uut_bmpg/inst/upg_inst/upg_adr_o_OBUF[12]_inst 
+Resolution: The tool has removed redundant OBUF. To resolve this warning, check for redundant OBUF in the input design.
+WARNING: [Opt 31-33] Removing redundant OBUF since it is not driving a top-level port. uut_bmpg/inst/upg_inst/upg_adr_o_OBUF[13]_inst 
+Resolution: The tool has removed redundant OBUF. To resolve this warning, check for redundant OBUF in the input design.
+WARNING: [Opt 31-33] Removing redundant OBUF since it is not driving a top-level port. uut_bmpg/inst/upg_inst/upg_adr_o_OBUF[14]_inst 
+Resolution: The tool has removed redundant OBUF. To resolve this warning, check for redundant OBUF in the input design.
+WARNING: [Opt 31-33] Removing redundant OBUF since it is not driving a top-level port. uut_bmpg/inst/upg_inst/upg_adr_o_OBUF[1]_inst 
+Resolution: The tool has removed redundant OBUF. To resolve this warning, check for redundant OBUF in the input design.
+WARNING: [Opt 31-33] Removing redundant OBUF since it is not driving a top-level port. uut_bmpg/inst/upg_inst/upg_adr_o_OBUF[2]_inst 
+Resolution: The tool has removed redundant OBUF. To resolve this warning, check for redundant OBUF in the input design.
+WARNING: [Opt 31-33] Removing redundant OBUF since it is not driving a top-level port. uut_bmpg/inst/upg_inst/upg_adr_o_OBUF[3]_inst 
+Resolution: The tool has removed redundant OBUF. To resolve this warning, check for redundant OBUF in the input design.
+WARNING: [Opt 31-33] Removing redundant OBUF since it is not driving a top-level port. uut_bmpg/inst/upg_inst/upg_adr_o_OBUF[4]_inst 
+Resolution: The tool has removed redundant OBUF. To resolve this warning, check for redundant OBUF in the input design.
+WARNING: [Opt 31-33] Removing redundant OBUF since it is not driving a top-level port. uut_bmpg/inst/upg_inst/upg_adr_o_OBUF[5]_inst 
+Resolution: The tool has removed redundant OBUF. To resolve this warning, check for redundant OBUF in the input design.
+WARNING: [Opt 31-33] Removing redundant OBUF since it is not driving a top-level port. uut_bmpg/inst/upg_inst/upg_adr_o_OBUF[6]_inst 
+Resolution: The tool has removed redundant OBUF. To resolve this warning, check for redundant OBUF in the input design.
+WARNING: [Opt 31-33] Removing redundant OBUF since it is not driving a top-level port. uut_bmpg/inst/upg_inst/upg_adr_o_OBUF[7]_inst 
+Resolution: The tool has removed redundant OBUF. To resolve this warning, check for redundant OBUF in the input design.
+WARNING: [Opt 31-33] Removing redundant OBUF since it is not driving a top-level port. uut_bmpg/inst/upg_inst/upg_adr_o_OBUF[8]_inst 
+Resolution: The tool has removed redundant OBUF. To resolve this warning, check for redundant OBUF in the input design.
+WARNING: [Opt 31-33] Removing redundant OBUF since it is not driving a top-level port. uut_bmpg/inst/upg_inst/upg_adr_o_OBUF[9]_inst 
+Resolution: The tool has removed redundant OBUF. To resolve this warning, check for redundant OBUF in the input design.
+WARNING: [Opt 31-33] Removing redundant OBUF since it is not driving a top-level port. uut_bmpg/inst/upg_inst/upg_clk_o_OBUF_inst 
+Resolution: The tool has removed redundant OBUF. To resolve this warning, check for redundant OBUF in the input design.
+WARNING: [Opt 31-33] Removing redundant OBUF since it is not driving a top-level port. uut_bmpg/inst/upg_inst/upg_dat_o_OBUF[0]_inst 
+Resolution: The tool has removed redundant OBUF. To resolve this warning, check for redundant OBUF in the input design.
+WARNING: [Opt 31-33] Removing redundant OBUF since it is not driving a top-level port. uut_bmpg/inst/upg_inst/upg_dat_o_OBUF[10]_inst 
+Resolution: The tool has removed redundant OBUF. To resolve this warning, check for redundant OBUF in the input design.
+WARNING: [Opt 31-33] Removing redundant OBUF since it is not driving a top-level port. uut_bmpg/inst/upg_inst/upg_dat_o_OBUF[11]_inst 
+Resolution: The tool has removed redundant OBUF. To resolve this warning, check for redundant OBUF in the input design.
+WARNING: [Opt 31-33] Removing redundant OBUF since it is not driving a top-level port. uut_bmpg/inst/upg_inst/upg_dat_o_OBUF[12]_inst 
+Resolution: The tool has removed redundant OBUF. To resolve this warning, check for redundant OBUF in the input design.
+WARNING: [Opt 31-33] Removing redundant OBUF since it is not driving a top-level port. uut_bmpg/inst/upg_inst/upg_dat_o_OBUF[13]_inst 
+Resolution: The tool has removed redundant OBUF. To resolve this warning, check for redundant OBUF in the input design.
+WARNING: [Opt 31-33] Removing redundant OBUF since it is not driving a top-level port. uut_bmpg/inst/upg_inst/upg_dat_o_OBUF[14]_inst 
+Resolution: The tool has removed redundant OBUF. To resolve this warning, check for redundant OBUF in the input design.
+WARNING: [Opt 31-33] Removing redundant OBUF since it is not driving a top-level port. uut_bmpg/inst/upg_inst/upg_dat_o_OBUF[15]_inst 
+Resolution: The tool has removed redundant OBUF. To resolve this warning, check for redundant OBUF in the input design.
+WARNING: [Opt 31-33] Removing redundant OBUF since it is not driving a top-level port. uut_bmpg/inst/upg_inst/upg_dat_o_OBUF[16]_inst 
+Resolution: The tool has removed redundant OBUF. To resolve this warning, check for redundant OBUF in the input design.
+WARNING: [Opt 31-33] Removing redundant OBUF since it is not driving a top-level port. uut_bmpg/inst/upg_inst/upg_dat_o_OBUF[17]_inst 
+Resolution: The tool has removed redundant OBUF. To resolve this warning, check for redundant OBUF in the input design.
+WARNING: [Opt 31-33] Removing redundant OBUF since it is not driving a top-level port. uut_bmpg/inst/upg_inst/upg_dat_o_OBUF[18]_inst 
+Resolution: The tool has removed redundant OBUF. To resolve this warning, check for redundant OBUF in the input design.
+WARNING: [Opt 31-33] Removing redundant OBUF since it is not driving a top-level port. uut_bmpg/inst/upg_inst/upg_dat_o_OBUF[19]_inst 
+Resolution: The tool has removed redundant OBUF. To resolve this warning, check for redundant OBUF in the input design.
+WARNING: [Opt 31-33] Removing redundant OBUF since it is not driving a top-level port. uut_bmpg/inst/upg_inst/upg_dat_o_OBUF[1]_inst 
+Resolution: The tool has removed redundant OBUF. To resolve this warning, check for redundant OBUF in the input design.
+WARNING: [Opt 31-33] Removing redundant OBUF since it is not driving a top-level port. uut_bmpg/inst/upg_inst/upg_dat_o_OBUF[20]_inst 
+Resolution: The tool has removed redundant OBUF. To resolve this warning, check for redundant OBUF in the input design.
+WARNING: [Opt 31-33] Removing redundant OBUF since it is not driving a top-level port. uut_bmpg/inst/upg_inst/upg_dat_o_OBUF[21]_inst 
+Resolution: The tool has removed redundant OBUF. To resolve this warning, check for redundant OBUF in the input design.
+WARNING: [Opt 31-33] Removing redundant OBUF since it is not driving a top-level port. uut_bmpg/inst/upg_inst/upg_dat_o_OBUF[22]_inst 
+Resolution: The tool has removed redundant OBUF. To resolve this warning, check for redundant OBUF in the input design.
+WARNING: [Opt 31-33] Removing redundant OBUF since it is not driving a top-level port. uut_bmpg/inst/upg_inst/upg_dat_o_OBUF[23]_inst 
+Resolution: The tool has removed redundant OBUF. To resolve this warning, check for redundant OBUF in the input design.
+WARNING: [Opt 31-33] Removing redundant OBUF since it is not driving a top-level port. uut_bmpg/inst/upg_inst/upg_dat_o_OBUF[24]_inst 
+Resolution: The tool has removed redundant OBUF. To resolve this warning, check for redundant OBUF in the input design.
+WARNING: [Opt 31-33] Removing redundant OBUF since it is not driving a top-level port. uut_bmpg/inst/upg_inst/upg_dat_o_OBUF[25]_inst 
+Resolution: The tool has removed redundant OBUF. To resolve this warning, check for redundant OBUF in the input design.
+WARNING: [Opt 31-33] Removing redundant OBUF since it is not driving a top-level port. uut_bmpg/inst/upg_inst/upg_dat_o_OBUF[26]_inst 
+Resolution: The tool has removed redundant OBUF. To resolve this warning, check for redundant OBUF in the input design.
+WARNING: [Opt 31-33] Removing redundant OBUF since it is not driving a top-level port. uut_bmpg/inst/upg_inst/upg_dat_o_OBUF[27]_inst 
+Resolution: The tool has removed redundant OBUF. To resolve this warning, check for redundant OBUF in the input design.
+WARNING: [Opt 31-33] Removing redundant OBUF since it is not driving a top-level port. uut_bmpg/inst/upg_inst/upg_dat_o_OBUF[28]_inst 
+Resolution: The tool has removed redundant OBUF. To resolve this warning, check for redundant OBUF in the input design.
+WARNING: [Opt 31-33] Removing redundant OBUF since it is not driving a top-level port. uut_bmpg/inst/upg_inst/upg_dat_o_OBUF[29]_inst 
+Resolution: The tool has removed redundant OBUF. To resolve this warning, check for redundant OBUF in the input design.
+WARNING: [Opt 31-33] Removing redundant OBUF since it is not driving a top-level port. uut_bmpg/inst/upg_inst/upg_dat_o_OBUF[2]_inst 
+Resolution: The tool has removed redundant OBUF. To resolve this warning, check for redundant OBUF in the input design.
+WARNING: [Opt 31-33] Removing redundant OBUF since it is not driving a top-level port. uut_bmpg/inst/upg_inst/upg_dat_o_OBUF[30]_inst 
+Resolution: The tool has removed redundant OBUF. To resolve this warning, check for redundant OBUF in the input design.
+WARNING: [Opt 31-33] Removing redundant OBUF since it is not driving a top-level port. uut_bmpg/inst/upg_inst/upg_dat_o_OBUF[31]_inst 
+Resolution: The tool has removed redundant OBUF. To resolve this warning, check for redundant OBUF in the input design.
+WARNING: [Opt 31-33] Removing redundant OBUF since it is not driving a top-level port. uut_bmpg/inst/upg_inst/upg_dat_o_OBUF[3]_inst 
+Resolution: The tool has removed redundant OBUF. To resolve this warning, check for redundant OBUF in the input design.
+WARNING: [Opt 31-33] Removing redundant OBUF since it is not driving a top-level port. uut_bmpg/inst/upg_inst/upg_dat_o_OBUF[4]_inst 
+Resolution: The tool has removed redundant OBUF. To resolve this warning, check for redundant OBUF in the input design.
+WARNING: [Opt 31-33] Removing redundant OBUF since it is not driving a top-level port. uut_bmpg/inst/upg_inst/upg_dat_o_OBUF[5]_inst 
+Resolution: The tool has removed redundant OBUF. To resolve this warning, check for redundant OBUF in the input design.
+WARNING: [Opt 31-33] Removing redundant OBUF since it is not driving a top-level port. uut_bmpg/inst/upg_inst/upg_dat_o_OBUF[6]_inst 
+Resolution: The tool has removed redundant OBUF. To resolve this warning, check for redundant OBUF in the input design.
+WARNING: [Opt 31-33] Removing redundant OBUF since it is not driving a top-level port. uut_bmpg/inst/upg_inst/upg_dat_o_OBUF[7]_inst 
+Resolution: The tool has removed redundant OBUF. To resolve this warning, check for redundant OBUF in the input design.
+WARNING: [Opt 31-33] Removing redundant OBUF since it is not driving a top-level port. uut_bmpg/inst/upg_inst/upg_dat_o_OBUF[8]_inst 
+Resolution: The tool has removed redundant OBUF. To resolve this warning, check for redundant OBUF in the input design.
+WARNING: [Opt 31-33] Removing redundant OBUF since it is not driving a top-level port. uut_bmpg/inst/upg_inst/upg_dat_o_OBUF[9]_inst 
+Resolution: The tool has removed redundant OBUF. To resolve this warning, check for redundant OBUF in the input design.
+WARNING: [Opt 31-33] Removing redundant OBUF since it is not driving a top-level port. uut_bmpg/inst/upg_inst/upg_done_o_OBUF_inst 
+Resolution: The tool has removed redundant OBUF. To resolve this warning, check for redundant OBUF in the input design.
+WARNING: [Opt 31-36] Removing redundant OBUF, tx_OBUF_inst, from the path connected to top-level port: tx 
+Resolution: The tool has removed redundant OBUF. To resolve this warning, check for redundant OBUF in the input design.
+WARNING: [Opt 31-33] Removing redundant OBUF since it is not driving a top-level port. uut_bmpg/inst/upg_inst/upg_wen_o_OBUF_inst 
+Resolution: The tool has removed redundant OBUF. To resolve this warning, check for redundant OBUF in the input design.
+WARNING: [Constraints 18-550] Could not create 'IBUF_LOW_PWR' constraint because net 'uut_clk_wiz/clk_in1' is not directly connected to top level port. 'IBUF_LOW_PWR' is ignored by Vivado but preserved for implementation tool. [D:/Clone/Computer-Organization-Project/CPU/.Xil/Vivado-24520-Dupreeh/dcp4/clk_wiz_0.edf:296]
+Parsing XDC File [d:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_board.xdc] for cell 'uut_clk_wiz/inst'
+Finished Parsing XDC File [d:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_board.xdc] for cell 'uut_clk_wiz/inst'
+Parsing XDC File [d:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc] for cell 'uut_clk_wiz/inst'
+INFO: [Timing 38-35] Done setting XDC timing constraints. [d:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc:57]
+INFO: [Timing 38-2] Deriving generated clocks [d:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc:57]
+get_clocks: Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1951.051 ; gain = 566.199
+Finished Parsing XDC File [d:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc] for cell 'uut_clk_wiz/inst'
+Parsing XDC File [D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/constrs_1/new/constrains.xdc]
+WARNING: [Vivado 12-584] No ports matched 'rst'. [D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/constrs_1/new/constrains.xdc:20]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/constrs_1/new/constrains.xdc:20]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'rst'. [D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/constrs_1/new/constrains.xdc:21]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/constrs_1/new/constrains.xdc:21]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+Finished Parsing XDC File [D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/constrs_1/new/constrains.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+open_run: Time (s): cpu = 00:00:16 ; elapsed = 00:00:12 . Memory (MB): peak = 1983.199 ; gain = 768.332
+place_ports start_pg V1
+save_constraints
+reset_run impl_1
+launch_runs impl_1 -to_step write_bitstream -jobs 20
+Writing placer database...
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Write XDEF Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.026 . Memory (MB): peak = 2002.957 ; gain = 0.000
+[Fri May 23 15:41:44 2025] Launched impl_1...
+Run output will be captured here: D:/Clone/Computer-Organization-Project/CPU/CPU.runs/impl_1/runme.log
+open_hw
+connect_hw_server
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-2222] Launching hw_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+****** Xilinx hw_server v2017.4
+  **** Build date : Dec 15 2017-21:08:27
+    ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+
+
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Xilinx/1234-tulA
+set_property PROGRAM.FILE {D:/Clone/Computer-Organization-Project/CPU/CPU.runs/impl_1/top_module.bit} [get_hw_devices xc7a35t_0]
+current_hw_device [get_hw_devices xc7a35t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {D:/Clone/Computer-Organization-Project/CPU/CPU.runs/impl_1/top_module.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 20
+WARNING: [Project 1-478] Design 'synth_1' is stale and will not be used when launching 'impl_1'
+[Fri May 23 15:45:34 2025] Launched synth_1...
+Run output will be captured here: D:/Clone/Computer-Organization-Project/CPU/CPU.runs/synth_1/runme.log
+[Fri May 23 15:45:34 2025] Launched impl_1...
+Run output will be captured here: D:/Clone/Computer-Organization-Project/CPU/CPU.runs/impl_1/runme.log
+reset_run impl_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 20
+WARNING: [Project 1-478] Design 'synth_1' is stale and will not be used when launching 'impl_1'
+[Fri May 23 15:46:51 2025] Launched synth_1...
+Run output will be captured here: D:/Clone/Computer-Organization-Project/CPU/CPU.runs/synth_1/runme.log
+[Fri May 23 15:46:51 2025] Launched impl_1...
+Run output will be captured here: D:/Clone/Computer-Organization-Project/CPU/CPU.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {D:/Clone/Computer-Organization-Project/CPU/CPU.runs/impl_1/top_module.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+set_property -dict [list CONFIG.Use_Byte_Write_Enable {true} CONFIG.Byte_Size {8} CONFIG.Write_Width_A {32} CONFIG.Read_Width_A {32} CONFIG.Write_Width_B {32} CONFIG.Read_Width_B {32} CONFIG.Coe_File {d:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgrom/prgmip32.coe}] [get_ips prgrom]
+INFO: [IP_Flow 19-3484] Absolute path of file 'd:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgrom/prgmip32.coe' provided. It will be converted relative to IP Instance files 'prgmip32.coe'
+generate_target all [get_files  D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgrom/prgrom.xci]
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'prgrom'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'prgrom'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'prgrom'...
+INFO: [IP_Flow 19-1686] Generating 'Miscellaneous' target for IP 'prgrom'...
+INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'prgrom'...
+catch { config_ip_cache -export [get_ips -all prgrom] }
+export_ip_user_files -of_objects [get_files D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgrom/prgrom.xci] -no_script -sync -force -quiet
+reset_run prgrom_synth_1
+launch_runs -jobs 20 prgrom_synth_1
+[Fri May 23 15:55:20 2025] Launched prgrom_synth_1...
+Run output will be captured here: D:/Clone/Computer-Organization-Project/CPU/CPU.runs/prgrom_synth_1/runme.log
+export_simulation -of_objects [get_files D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/prgrom/prgrom.xci] -directory D:/Clone/Computer-Organization-Project/CPU/CPU.ip_user_files/sim_scripts -ip_user_files_dir D:/Clone/Computer-Organization-Project/CPU/CPU.ip_user_files -ipstatic_source_dir D:/Clone/Computer-Organization-Project/CPU/CPU.ip_user_files/ipstatic -lib_map_path [list {modelsim=D:/Clone/Computer-Organization-Project/CPU/CPU.cache/compile_simlib/modelsim} {questa=D:/Clone/Computer-Organization-Project/CPU/CPU.cache/compile_simlib/questa} {riviera=D:/Clone/Computer-Organization-Project/CPU/CPU.cache/compile_simlib/riviera} {activehdl=D:/Clone/Computer-Organization-Project/CPU/CPU.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory D:/Clone/Computer-Organization-Project/CPU/CPU.runs/synth_1
+
+launch_runs impl_1 -to_step write_bitstream -jobs 20
+WARNING: [Project 1-478] Design 'synth_1' is stale and will not be used when launching 'impl_1'
+[Fri May 23 15:55:29 2025] Launched prgrom_synth_1, synth_1...
+Run output will be captured here:
+prgrom_synth_1: D:/Clone/Computer-Organization-Project/CPU/CPU.runs/prgrom_synth_1/runme.log
+synth_1: D:/Clone/Computer-Organization-Project/CPU/CPU.runs/synth_1/runme.log
+[Fri May 23 15:55:29 2025] Launched impl_1...
+Run output will be captured here: D:/Clone/Computer-Organization-Project/CPU/CPU.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {D:/Clone/Computer-Organization-Project/CPU/CPU.runs/impl_1/top_module.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {D:/Clone/Computer-Organization-Project/CPU/CPU.runs/impl_1/top_module.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+exit
+INFO: [Common 17-206] Exiting Vivado at Fri May 23 16:01:19 2025...

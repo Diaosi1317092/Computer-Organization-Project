@@ -27,7 +27,7 @@ module IFetch(
     // Instantiate the instruction ROM
     prgrom urom(
         .clka(kickOff ? clk : upg_clk_i),
-        .wea(kickOff ? 1'b0 : upg_wen_i),
+        .wea(kickOff ? 4'b0000 : (upg_wen_i ? 4'b1111 : 4'b0000)),
         .addra(kickOff ? addr : upg_adr_i),
         .dina(kickOff ? 32'h00000000 : upg_dat_i),
         .douta(inst)

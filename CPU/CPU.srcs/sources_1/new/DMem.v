@@ -50,13 +50,13 @@ module DMem(
      end
     end
     
-    wire wen = en_pc ? write_byte : 0;
+    wire [3:0] wen = en_pc ? write_byte : 0;
     
     wire kickOff = upg_rst_i | (~upg_rst_i & upg_done_i);
     
     prgram udram(
         .clka(kickOff ? ~clk : upg_clk_i),
-        .wea(kickOff ? wen : upg_wen_i),
+        .wea(kickOff ? wen : (upg_wen_i ? 4'b1111 : 4'b0000)),
         .addra(kickOff ? addr[15:2] : upg_adr_i),
         .dina(kickOff ? tmp_write_data : upg_dat_i),
         .douta(dout)

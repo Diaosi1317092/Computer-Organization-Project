@@ -21,6 +21,7 @@
 
 
 module ID(
+//    input is_frontend,
     input  [31:0]      inst,
     input  [31:0] regs [0:31],
     input         done_input,
@@ -182,6 +183,10 @@ module ID(
                     case (regs[17])
                         1, 34, 35: begin
                             en_output=1;
+//                            if (is_frontend) begin
+//                                if (done_input) en_pc=1;
+//                                else en_pc=0;
+//                            end
                             rd = 0;
                         end
                         5: begin 

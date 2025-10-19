@@ -1,10 +1,10 @@
 // Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
-// Date        : Thu May 22 22:54:30 2025
+// Date        : Fri May 23 19:36:26 2025
 // Host        : Dupreeh running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
-//               d:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_sim_netlist.v
+//               D:/Clone/Computer-Organization-Project/CPU/CPU.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_sim_netlist.v
 // Design      : clk_wiz_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.

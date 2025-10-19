@@ -14,7 +14,8 @@ module HarzardDetection(
     input [31:0] new_pc,
     output reg[31:0] pc,
     output reg is_nop,
-    input is_ecall
+    input is_ecall,
+    input [31:0] hd_input_pc
     );
     parameter base_address = 32'h0000_3000;
     reg[31:0] count,next_count;
@@ -31,40 +32,46 @@ module HarzardDetection(
             is_nop <= next_is_nop;
         end
     end
-
     always @(*) begin
         if (!en_pc) begin
             next_pc = pc;
             next_count = count;
             next_is_nop = is_nop;
         end else begin 
-            // if (count==5) next_count=3;
-            // else next_count=count+1;
-            // if (count==3) begin
             if (is_stalling || is_ecall) begin
                 next_pc = pc;
                 next_is_nop = is_nop;
-            end else if (clr_if) begin
-                next_pc = pc - 4;   // normal sequential execution
-                next_is_nop = 1;
-            end else if (is_jalr) begin
-                next_pc = new_pc;
-                next_is_nop=0;
-            end else if (branch && zero || is_jal) begin
-                next_pc = pc + imm32;   // branch taken
-                next_is_nop=0;
             end else begin
-                next_pc = pc + 32'd4;   // normal sequential execution
-                next_is_nop=0;
+                next_pc = hd_input_pc;
+                next_is_nop = 0;
             end
-            // end
-            // else begin
-            //     if (count ==0) next_is_nop =0;
-            //     else next_is_nop = 1;
-            //     next_pc = pc;
-            // end
         end
     end
+    
+    // always @(*) begin
+    //     if (!en_pc) begin
+    //         next_pc = pc;
+    //         next_count = count;
+    //         next_is_nop = is_nop;
+    //     end else begin 
+    //         if (is_stalling || is_ecall) begin
+    //             next_pc = pc;
+    //             next_is_nop = is_nop;
+    //         end else if (clr_if) begin
+    //             next_pc = pc - 4;   // normal sequential execution
+    //             next_is_nop = 1;
+    //         end else if (is_jalr) begin
+    //             next_pc = new_pc;
+    //             next_is_nop=0;
+    //         end else if (branch && zero || is_jal) begin
+    //             next_pc = pc + imm32;   // branch taken
+    //             next_is_nop=0;
+    //         end else begin
+    //             next_pc = pc + 32'd4;   // normal sequential execution
+    //             next_is_nop=0;
+    //         end
+    //     end
+    // end
     
 endmodule
 //`timescale 1ns / 1ps

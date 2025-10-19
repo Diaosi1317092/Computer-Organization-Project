@@ -12,10 +12,12 @@ module top_module(
     input init_clk,
     input fpga_rst,
     input start_pg,
+    input swt_tx,
     input done,
     input cp_done,
     input [7:0] sw_input,
     input  wire rx,
+    input is_output_count,
     output wire tx,
     output [7:0] seg1,
     output [7:0] seg2,
@@ -34,6 +36,8 @@ module top_module(
     wire [31:0] reg_a7;
     wire [7:0] cp_input;
     wire [31:0] regs [0:31];
+    
+    reg [31:0] count;
     
     wire clk1;
     wire clk2;
@@ -85,17 +89,53 @@ module top_module(
     wire [14:0] upg_adr_o;     
     //data to program_rom or dmemory32 
     wire [31:0] upg_dat_o;
+    wire upg_tx, top_tx;
     
     wire spg_bufg;
-//    BUFG U1(.I(start_pg), .O(spg_bufg));     // de-twitter
+    
+    reg start_de;
+    reg [31:0] start_cnt;
+
+    parameter DEBOUNCE_THRESHOLD = 4'b0001;
+    
+    wire rst;
+    always @(posedge clk, negedge rst) begin
+        if (~rst) begin 
+            count <= 0;
+        end else begin 
+            if (en_pc) count<=count+1;
+            else count<=count;
+        end
+    end
+    always @(posedge clk_de, negedge rst) begin
+        if(~rst) begin
+            start_de <= 0;
+        end else begin
+            if (start_pg) begin
+                if (start_cnt < DEBOUNCE_THRESHOLD) begin
+                    start_cnt <= start_cnt + 1;
+                end else begin
+                    start_de <= 1;
+                end
+            end else begin
+                start_cnt <= 0;
+                start_de <= 0;
+            end
+        end
+    end
+    
+    
+    BUFG U1(.I(start_de), .O(spg_bufg));     // de-twitter
     // Generate UART Programmer reset signal
     reg upg_rst;
     always @ (posedge clk_in1) begin
-        if (fpga_rst)upg_rst <= 1;
-        if (start_pg)upg_rst <= 0;
+        if (~fpga_rst)upg_rst <= 1;
+        if (spg_bufg)upg_rst <= 0;
     end
-    wire rst;
+    
     assign rst = fpga_rst | !upg_rst;
+    
+    assign tx = (swt_tx ? upg_tx : top_tx);
     
     // =========================
     // Module Instantiations
@@ -126,13 +166,13 @@ module top_module(
         .upg_done_o(upg_done_o),
         .upg_adr_o(upg_adr_o),
         .upg_dat_o(upg_dat_o),
-        .upg_tx_o(tx)
+        .upg_tx_o(upg_tx)
     );
     
     ClockDivider uut_clk_divider(
         .clk(clk_in1),
         .rst(rst),
-        .period(6),
+        .period(4),
         .clk_out(clk)
     );
     
@@ -151,7 +191,7 @@ module top_module(
         .en_pc(en_pc),
         .upg_rst_i(upg_rst),
         .upg_clk_i(upg_clk),
-        .upg_wen_i(upg_wen_o),
+        .upg_wen_i(upg_wen_o & !upg_adr_o[14]),
         .upg_adr_i(upg_adr_o),
         .upg_dat_i(upg_dat_o),
         .upg_done_i(upg_done_o)
@@ -171,8 +211,7 @@ module top_module(
         .en_output(en_output),
         .output_data(output_data),
         .reg_a7(reg_a7),
-        .en_pc(en_pc),
-        .regs(regs)
+        .en_pc(en_pc)
     );
 
     // ALU unit
@@ -225,7 +264,7 @@ module top_module(
         .en_pc(en_pc),
         .upg_rst_i(upg_rst),
         .upg_clk_i(upg_clk_o),
-        .upg_wen_i(upg_wen_o),
+        .upg_wen_i(upg_wen_o & upg_adr_o[14]),
         .upg_adr_i(upg_adr_o),
         .upg_dat_i(upg_dat_o),
         .upg_done_i(upg_done_o)
@@ -264,7 +303,7 @@ module top_module(
         .rst(rst),
         .en_output(en_output),
         .reg_a7(reg_a7),
-        .output_data(output_data),
+        .output_data(is_output_count?count:output_data),
         .uart_reg_a7(uart_reg_a7),
         .uart_output_data(uart_output_data),
         .seg1(seg1),
@@ -273,15 +312,14 @@ module top_module(
         .an(an)
     );
 
-//    UartTop uut_uart(
-//        .clk(init_clk),
-//        .rst(rst),
-//        .rx(rx),
-//        .tx(tx),
-//        .uart_reg_a7(uart_reg_a7),
-//        .uart_output_data(uart_output_data),
-//        .cp_input(cp_input),
-//        .regs(regs)
-//    );
+    UartTop uut_uart(
+        .clk(clk_in1),
+        .rst(rst),
+        .rx(rx),
+        .tx(top_tx),
+        .uart_reg_a7(uart_reg_a7),
+        .uart_output_data(uart_output_data),
+        .cp_input(cp_input)
+    );
     
 endmodule

@@ -38,7 +38,13 @@ module EXE(
     output reg    zero,
     input         is_lui,
     input         is_auipc,
-    input [31:0]  pc
+    input         branch,
+    input         is_jal,
+    input         is_jalr,
+    input [31:0]  pc,
+    output reg [31:0] true_pc,
+    input [31:0] predicted_pc,
+    output reg check_predicted
 );
     wire [31:0] operand2;
     wire [4:0] shamt;  // shift amount (only low 5 bits valid for 32-bit)
@@ -50,7 +56,21 @@ module EXE(
         (mem_to_reg ? 0 : alu_result);
     
     assign have_reg_write_data_out = have_reg_write_data_in | !mem_to_reg;
-
+    always @(*) begin
+        if (branch) begin
+            true_pc = zero ? pc + imm32 : pc + 4;
+            check_predicted = (true_pc == predicted_pc);
+        end else if (is_jal) begin
+            true_pc = pc + imm32;
+            check_predicted = (true_pc == predicted_pc);
+        end else if (is_jalr) begin
+            true_pc = alu_result;
+            check_predicted = (true_pc == predicted_pc);
+        end else begin
+            check_predicted = 1;
+            true_pc = predicted_pc;
+        end
+    end
     always @(*) begin
         case (alu_op)
             2'b00: begin // Load/Store: ADD
@@ -157,7 +177,9 @@ module EXE(
                 end
             end
             
-            default: alu_result = 32'h00000000;
+            default: begin 
+                alu_result = 32'h00000000;
+            end
         endcase
     end
 

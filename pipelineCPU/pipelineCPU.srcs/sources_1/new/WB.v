@@ -17,7 +17,7 @@ module WB(
 );  
     integer i;
     parameter sp_base = 32'h00002ffc, gb_base = 32'h00001800;
-    always @(negedge clk, negedge rst) begin
+    always @(posedge clk, negedge rst) begin
         if (!rst) begin
             for (i = 0; i < 32; i = i + 1)
                 regs[i] <= 32'h00000000;
